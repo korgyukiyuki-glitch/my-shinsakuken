@@ -74,6 +74,14 @@ export default function SettingsScreen() {
           ))}
         </View>
 
+        <TouchableOpacity
+          style={styles.privacyLink}
+          onPress={() => router.push('/privacy-policy')}
+        >
+          <Ionicons name="document-text-outline" size={16} color={Colors.textTertiary} />
+          <Text style={styles.privacyText}>プライバシーポリシー</Text>
+        </TouchableOpacity>
+
         <View style={styles.footer}>
           <Ionicons name="medical" size={20} color={Colors.textTertiary} />
           <Text style={styles.footerAppName}>マイ診察券</Text>
@@ -157,6 +165,17 @@ const styles = StyleSheet.create({
   },
   footerVersion: {
     fontSize: 12,
+    color: Colors.textTertiary,
+  },
+  privacyLink: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 6,
+    padding: 8,
+  },
+  privacyText: {
+    fontSize: 13,
     color: Colors.textTertiary,
   },
 });

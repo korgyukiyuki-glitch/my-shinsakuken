@@ -4,6 +4,7 @@ import { StatusBar } from 'expo-status-bar';
 import * as SystemUI from 'expo-system-ui';
 import { Colors } from '../src/constants/colors';
 import { useSettingsStore } from '../src/stores/useSettingsStore';
+import { ErrorBoundary } from '../src/components/ErrorBoundary';
 
 SystemUI.setBackgroundColorAsync(Colors.background);
 
@@ -23,7 +24,7 @@ export default function RootLayout() {
   }, [isOnboarded, segments]);
 
   return (
-    <>
+    <ErrorBoundary>
       <StatusBar style="dark" />
       <Stack
         screenOptions={{
@@ -85,7 +86,11 @@ export default function RootLayout() {
           name="settings-screens/security"
           options={{ presentation: 'card', animation: 'slide_from_right' }}
         />
+        <Stack.Screen
+          name="privacy-policy"
+          options={{ presentation: 'card', animation: 'slide_from_right' }}
+        />
       </Stack>
-    </>
+    </ErrorBoundary>
   );
 }
