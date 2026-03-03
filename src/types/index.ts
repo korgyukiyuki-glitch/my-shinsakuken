@@ -9,18 +9,26 @@ export type Department =
   | 'ent'          // 耳鼻咽喉科
   | 'pediatrics'   // 小児科
   | 'obgyn'        // 産婦人科
+  | 'psychiatry'   // 心療内科・精神科
+  | 'urology'      // 泌尿器科
+  | 'bonesetter'   // 接骨院・整骨院
+  | 'acupuncture'  // 鍼灸院
   | 'other';       // その他
 
 export const DEPARTMENT_CONFIG: Record<Department, { label: string; icon: string }> = {
-  dental:        { label: '歯科',       icon: 'medical' },
-  internal:      { label: '内科',       icon: 'fitness' },
-  ophthalmology: { label: '眼科',       icon: 'eye' },
-  dermatology:   { label: '皮膚科',     icon: 'hand-left' },
-  orthopedics:   { label: '整形外科',   icon: 'body' },
-  ent:           { label: '耳鼻咽喉科', icon: 'ear' },
-  pediatrics:    { label: '小児科',     icon: 'happy' },
-  obgyn:         { label: '産婦人科',   icon: 'heart' },
-  other:         { label: 'その他',     icon: 'medkit' },
+  dental:        { label: '歯科',           icon: 'medical' },
+  internal:      { label: '内科',           icon: 'fitness' },
+  ophthalmology: { label: '眼科',           icon: 'eye' },
+  dermatology:   { label: '皮膚科',         icon: 'hand-left' },
+  orthopedics:   { label: '整形外科',       icon: 'body' },
+  ent:           { label: '耳鼻咽喉科',     icon: 'ear' },
+  pediatrics:    { label: '小児科',         icon: 'happy' },
+  obgyn:         { label: '産婦人科',       icon: 'heart' },
+  psychiatry:    { label: '心療内科・精神科', icon: 'brain' },
+  urology:       { label: '泌尿器科',       icon: 'water' },
+  bonesetter:    { label: '接骨院・整骨院',  icon: 'hand-right' },
+  acupuncture:   { label: '鍼灸院',         icon: 'leaf' },
+  other:         { label: 'その他',         icon: 'medkit' },
 };
 
 // ========== Clinic & Card ==========
