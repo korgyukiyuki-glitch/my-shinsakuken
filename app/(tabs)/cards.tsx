@@ -1,12 +1,35 @@
+import { useMemo } from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { Colors } from '../../src/constants/colors';
 import { useClinicStore } from '../../src/stores/useClinicStore';
 import { CardVisual } from '../../src/components/CardVisual';
+import { Department, DEPARTMENT_CONFIG } from '../../src/types';
 
 export default function CardsScreen() {
   const clinics = useClinicStore((s) => s.clinics);
+
+  const grouped = useMemo(() => {
+    const groups: Partial<Record<Department, typeof clinics>> = {};
+    const sorted = [...clinics].sort((a, b) => a.order - b.order);
+
+    for (const clinic of sorted) {
+      const dept = clinic.department ?? 'other';
+      if (!groups[dept]) groups[dept] = [];
+      groups[dept]!.push(clinic);
+    }
+
+    // Sort groups by DEPARTMENT_CONFIG order
+    const deptOrder = Object.keys(DEPARTMENT_CONFIG) as Department[];
+    return deptOrder
+      .filter((dept) => groups[dept] && groups[dept]!.length > 0)
+      .map((dept) => ({
+        department: dept,
+        config: DEPARTMENT_CONFIG[dept],
+        clinics: groups[dept]!,
+      }));
+  }, [clinics]);
 
   return (
     <View style={styles.container}>
@@ -20,17 +43,24 @@ export default function CardsScreen() {
         contentContainerStyle={styles.listContent}
         showsVerticalScrollIndicator={false}
       >
-        {clinics
-          .sort((a, b) => a.order - b.order)
-          .map((clinic) => (
-            <TouchableOpacity
-              key={clinic.id}
-              onPress={() => router.push(`/card/${clinic.id}`)}
-              activeOpacity={0.9}
-            >
-              <CardVisual clinic={clinic} compact />
-            </TouchableOpacity>
-          ))}
+        {grouped.map(({ department, config, clinics: deptClinics }) => (
+          <View key={department} style={styles.group}>
+            <View style={styles.groupHeader}>
+              <Ionicons name={config.icon as any} size={18} color={Colors.accent} />
+              <Text style={styles.groupTitle}>{config.label}</Text>
+              <Text style={styles.groupCount}>{deptClinics.length}</Text>
+            </View>
+            {deptClinics.map((clinic) => (
+              <TouchableOpacity
+                key={clinic.id}
+                onPress={() => router.push(`/card/${clinic.id}`)}
+                activeOpacity={0.9}
+              >
+                <CardVisual clinic={clinic} compact />
+              </TouchableOpacity>
+            ))}
+          </View>
+        ))}
 
         <TouchableOpacity
           style={styles.addButton}
@@ -69,8 +99,31 @@ const styles = StyleSheet.create({
   },
   listContent: {
     paddingHorizontal: 20,
-    gap: 12,
+    gap: 20,
     paddingBottom: 20,
+  },
+  group: {
+    gap: 10,
+  },
+  groupHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+  },
+  groupTitle: {
+    fontSize: 15,
+    fontWeight: '700',
+    color: Colors.textPrimary,
+  },
+  groupCount: {
+    fontSize: 12,
+    fontWeight: '600',
+    color: Colors.textTertiary,
+    backgroundColor: Colors.surface,
+    paddingHorizontal: 8,
+    paddingVertical: 2,
+    borderRadius: 10,
+    overflow: 'hidden',
   },
   addButton: {
     borderWidth: 2,

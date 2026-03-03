@@ -15,10 +15,14 @@ import { Ionicons } from '@expo/vector-icons';
 import { Colors } from '../../src/constants/colors';
 import { useClinicStore } from '../../src/stores/useClinicStore';
 import { ColorPicker } from '../../src/components/ColorPicker';
+import { Department, DEPARTMENT_CONFIG } from '../../src/types';
+
+const DEPARTMENTS = Object.entries(DEPARTMENT_CONFIG) as [Department, { label: string; icon: string }][];
 
 export default function ClinicAddScreen() {
   const [name, setName] = useState('');
   const [patientId, setPatientId] = useState('');
+  const [department, setDepartment] = useState<Department>('internal');
   const [color, setColor] = useState<string>(Colors.cardColors[0]);
   const [address, setAddress] = useState('');
   const [phone, setPhone] = useState('');
@@ -38,6 +42,7 @@ export default function ClinicAddScreen() {
     addClinic({
       name: name.trim(),
       patientId: patientId.trim(),
+      department,
       color,
       address: address.trim() || undefined,
       phone: phone.trim() || undefined,
@@ -67,12 +72,40 @@ export default function ClinicAddScreen() {
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>必須情報</Text>
 
+          <Text style={styles.label}>診療科目</Text>
+          <View style={styles.departmentGrid}>
+            {DEPARTMENTS.map(([key, { label, icon }]) => (
+              <TouchableOpacity
+                key={key}
+                style={[
+                  styles.departmentChip,
+                  department === key && styles.departmentChipActive,
+                ]}
+                onPress={() => setDepartment(key)}
+              >
+                <Ionicons
+                  name={icon as any}
+                  size={16}
+                  color={department === key ? '#fff' : Colors.textSecondary}
+                />
+                <Text
+                  style={[
+                    styles.departmentLabel,
+                    department === key && styles.departmentLabelActive,
+                  ]}
+                >
+                  {label}
+                </Text>
+              </TouchableOpacity>
+            ))}
+          </View>
+
           <Text style={styles.label}>医院名</Text>
           <TextInput
             style={styles.input}
             value={name}
             onChangeText={setName}
-            placeholder="例：さくら歯科クリニック"
+            placeholder="例：さくらクリニック"
             placeholderTextColor={Colors.textTertiary}
           />
 
@@ -172,5 +205,33 @@ const styles = StyleSheet.create({
     color: Colors.textPrimary,
     borderWidth: 1,
     borderColor: Colors.border,
+  },
+  departmentGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 8,
+  },
+  departmentChip: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: 20,
+    backgroundColor: Colors.surface,
+    borderWidth: 1,
+    borderColor: Colors.border,
+  },
+  departmentChipActive: {
+    backgroundColor: Colors.accent,
+    borderColor: Colors.accent,
+  },
+  departmentLabel: {
+    fontSize: 13,
+    fontWeight: '600',
+    color: Colors.textSecondary,
+  },
+  departmentLabelActive: {
+    color: '#fff',
   },
 });

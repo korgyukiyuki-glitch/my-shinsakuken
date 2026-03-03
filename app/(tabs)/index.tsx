@@ -4,6 +4,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { Colors } from '../../src/constants/colors';
 import { useClinicStore } from '../../src/stores/useClinicStore';
 import { useAppointmentStore } from '../../src/stores/useAppointmentStore';
+import { DEPARTMENT_CONFIG } from '../../src/types';
 
 export default function HomeScreen() {
   const clinics = useClinicStore((s) => s.clinics);
@@ -26,7 +27,7 @@ export default function HomeScreen() {
           <Text style={styles.appName}>マイ診察券</Text>
         </View>
       </View>
-      <Text style={styles.tagline}>あなたの歯科情報をひとつに</Text>
+      <Text style={styles.tagline}>あなたの診察券をひとつに</Text>
 
       {/* Next appointment card */}
       {nextAppt && nextClinic ? (
@@ -93,9 +94,10 @@ export default function HomeScreen() {
               <View style={[styles.clinicDot, { backgroundColor: clinic.color }]} />
               <View style={styles.clinicInfo}>
                 <Text style={styles.clinicName}>{clinic.name}</Text>
-                {clinic.address && (
-                  <Text style={styles.clinicAddress}>{clinic.address}</Text>
-                )}
+                <Text style={styles.clinicDept}>
+                  {DEPARTMENT_CONFIG[clinic.department ?? 'other']?.label ?? 'その他'}
+                  {clinic.address ? ` · ${clinic.address}` : ''}
+                </Text>
               </View>
               <Ionicons name="chevron-forward" size={18} color={Colors.textTertiary} />
             </TouchableOpacity>
@@ -112,7 +114,7 @@ export default function HomeScreen() {
           <Ionicons name="add-circle-outline" size={48} color={Colors.accent} />
           <Text style={styles.emptyTitle}>医院を登録しましょう</Text>
           <Text style={styles.emptyDesc}>
-            通っている歯科医院の診察券を追加して、アプリで管理しましょう
+            通っている医院の診察券を追加して、アプリで管理しましょう
           </Text>
         </TouchableOpacity>
       )}
@@ -267,7 +269,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: Colors.textPrimary,
   },
-  clinicAddress: {
+  clinicDept: {
     fontSize: 11,
     color: Colors.textTertiary,
     marginTop: 2,

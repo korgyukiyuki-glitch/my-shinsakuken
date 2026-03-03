@@ -40,7 +40,7 @@ export default function QRDisplayScreen() {
   }
 
   const qrData = JSON.stringify({
-    type: 'dental_card',
+    type: 'medical_card',
     clinicName: clinic.name,
     patientId: clinic.patientId,
   });
