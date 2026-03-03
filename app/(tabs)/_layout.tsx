@@ -49,11 +49,11 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="history"
+        name="medications"
         options={{
-          title: '履歴',
+          title: 'お薬手帳',
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="document-text" size={size} color={color} />
+            <Ionicons name="medical" size={size} color={color} />
           ),
         }}
       />

@@ -92,6 +92,21 @@ export interface HistoryRecord {
   createdAt: string;
 }
 
+// ========== Medication ==========
+
+export interface Medication {
+  id: string;
+  clinicId: string;
+  date: string; // YYYY-MM-DD 処方日
+  medicineName: string;
+  dosage?: string; // e.g. "1錠"
+  frequency?: string; // e.g. "1日3回 毎食後"
+  duration?: string; // e.g. "14日分"
+  prescribedBy?: string;
+  notes?: string;
+  createdAt: string;
+}
+
 // ========== Profile ==========
 
 export interface Profile {

@@ -11,11 +11,14 @@
   "dependencies": {
     "@expo/vector-icons": "^15.0.2",
     "@react-native-async-storage/async-storage": "2.2.0",
+    "@react-native-community/datetimepicker": "^8.6.0",
     "expo": "~55.0.4",
     "expo-brightness": "~55.0.8",
+    "expo-build-properties": "~55.0.9",
     "expo-constants": "~55.0.7",
     "expo-font": "~55.0.4",
     "expo-haptics": "~55.0.8",
+    "expo-image-picker": "~55.0.10",
     "expo-linking": "~55.0.7",
     "expo-local-authentication": "~55.0.8",
     "expo-notifications": "~55.0.10",
@@ -32,6 +35,7 @@
     "react-native-screens": "~4.23.0",
     "react-native-svg": "15.15.3",
     "react-native-worklets": "0.7.2",
+    "rn-mlkit-ocr": "^0.3.1",
     "zustand": "^5.0.11"
   },
   "devDependencies": {

@@ -17,6 +17,7 @@
       "bundleIdentifier": "com.mydental.card",
       "infoPlist": {
         "NSFaceIDUsageDescription": "診察券データを保護するために生体認証を使用します",
+        "NSCameraUsageDescription": "お薬手帳のシールを撮影するためにカメラを使用します",
         "CFBundleDisplayName": "マイ診察券"
       }
     },
@@ -49,6 +50,27 @@
         "expo-local-authentication",
         {
           "faceIDPermission": "診察券データを保護するために生体認証を使用します"
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "cameraPermission": "お薬手帳のシールを撮影するためにカメラを使用します"
+        }
+      ],
+      [
+        "rn-mlkit-ocr",
+        {
+          "ocrModels": ["japanese", "latin"],
+          "ocrUseBundled": true
+        }
+      ],
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "deploymentTarget": "15.5"
+          }
         }
       ]
     ]

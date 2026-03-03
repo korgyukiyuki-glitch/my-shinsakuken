@@ -87,6 +87,14 @@ export default function RootLayout() {
           options={{ presentation: 'card', animation: 'slide_from_right' }}
         />
         <Stack.Screen
+          name="medication/add"
+          options={{ presentation: 'modal' }}
+        />
+        <Stack.Screen
+          name="medication/[id]"
+          options={{ presentation: 'card', animation: 'slide_from_right' }}
+        />
+        <Stack.Screen
           name="appointment/[id]"
           options={{ presentation: 'card', animation: 'slide_from_right' }}
         />
