@@ -36,17 +36,20 @@ export default function SecuritySettingsScreen() {
 
   const handleToggleBiometric = async (value: boolean) => {
     if (value) {
-      // Verify biometric before enabling
-      const result = await LocalAuthentication.authenticateAsync({
-        promptMessage: '生体認証を有効にしますか？',
-        cancelLabel: 'キャンセル',
-        disableDeviceFallback: false,
-      });
+      try {
+        const result = await LocalAuthentication.authenticateAsync({
+          promptMessage: '生体認証を有効にしますか？',
+          cancelLabel: 'キャンセル',
+          disableDeviceFallback: false,
+        });
 
-      if (result.success) {
-        setBiometric(true);
-      } else {
-        Alert.alert('認証失敗', '生体認証を有効にするには認証が必要です');
+        if (result.success) {
+          setBiometric(true);
+        } else {
+          Alert.alert('認証失敗', '生体認証を有効にするには認証が必要です');
+        }
+      } catch {
+        Alert.alert('エラー', '生体認証の確認中にエラーが発生しました');
       }
     } else {
       setBiometric(false);

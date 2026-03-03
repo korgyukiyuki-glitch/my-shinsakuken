@@ -1,5 +1,6 @@
 import { View, Text, StyleSheet } from 'react-native';
 import type { Clinic } from '../types';
+import { DEPARTMENT_CONFIG } from '../types';
 
 interface CardVisualProps {
   clinic: Clinic;
@@ -12,7 +13,7 @@ export function CardVisual({ clinic, compact = false }: CardVisualProps) {
       <View style={[styles.compactCard, { backgroundColor: clinic.color }]}>
         <View style={styles.compactHeader}>
           <View>
-            <Text style={styles.compactLabel}>DENTAL CARD</Text>
+            <Text style={styles.compactLabel}>{DEPARTMENT_CONFIG[clinic.department ?? 'other'].label}</Text>
             <Text style={styles.compactName}>{clinic.name}</Text>
           </View>
         </View>
@@ -28,7 +29,7 @@ export function CardVisual({ clinic, compact = false }: CardVisualProps) {
 
   return (
     <View style={[styles.card, { backgroundColor: clinic.color }]}>
-      <Text style={styles.label}>DENTAL CARD</Text>
+      <Text style={styles.label}>{DEPARTMENT_CONFIG[clinic.department ?? 'other'].label}</Text>
       <Text style={styles.clinicName}>{clinic.name}</Text>
 
       <View style={styles.patientIdSection}>

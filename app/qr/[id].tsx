@@ -48,7 +48,7 @@ export default function QRDisplayScreen() {
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.closeButton} onPress={() => router.back()}>
-        <Ionicons name="close-circle" size={36} color={Colors.textTertiary} />
+        <Ionicons name="close-circle" size={40} color={Colors.navy} />
       </TouchableOpacity>
 
       <View style={styles.content}>
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
   closeButton: {
     position: 'absolute',
     top: 60,
-    right: 20,
+    left: 20,
     zIndex: 1,
   },
   content: {

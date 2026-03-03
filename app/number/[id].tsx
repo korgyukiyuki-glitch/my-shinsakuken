@@ -41,7 +41,7 @@ export default function NumberDisplayScreen() {
   return (
     <View style={[styles.container, { backgroundColor: clinic.color }]}>
       <TouchableOpacity style={styles.closeButton} onPress={() => router.back()}>
-        <Ionicons name="close-circle" size={36} color="rgba(255,255,255,0.7)" />
+        <Ionicons name="close-circle" size={40} color="rgba(255,255,255,0.9)" />
       </TouchableOpacity>
 
       <View style={styles.content}>
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
   closeButton: {
     position: 'absolute',
     top: 60,
-    right: 20,
+    left: 20,
     zIndex: 1,
   },
   content: {

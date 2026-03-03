@@ -1,4 +1,5 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { View, ActivityIndicator } from 'react-native';
 import { Stack, useRouter, useSegments } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import * as SystemUI from 'expo-system-ui';
@@ -12,8 +13,22 @@ export default function RootLayout() {
   const router = useRouter();
   const segments = useSegments();
   const isOnboarded = useSettingsStore((s) => s.isOnboarded);
+  const [isHydrated, setIsHydrated] = useState(false);
 
   useEffect(() => {
+    const unsub = useSettingsStore.persist.onFinishHydration(() => {
+      setIsHydrated(true);
+    });
+    // Already hydrated (e.g. sync storage)
+    if (useSettingsStore.persist.hasHydrated()) {
+      setIsHydrated(true);
+    }
+    return unsub;
+  }, []);
+
+  useEffect(() => {
+    if (!isHydrated) return;
+
     const inOnboarding = segments[0] === '(onboarding)';
 
     if (!isOnboarded && !inOnboarding) {
@@ -21,7 +36,16 @@ export default function RootLayout() {
     } else if (isOnboarded && inOnboarding) {
       router.replace('/(tabs)');
     }
-  }, [isOnboarded, segments]);
+  }, [isOnboarded, segments, isHydrated]);
+
+  if (!isHydrated) {
+    return (
+      <View style={{ flex: 1, backgroundColor: Colors.background, justifyContent: 'center', alignItems: 'center' }}>
+        <StatusBar style="dark" />
+        <ActivityIndicator size="large" color={Colors.accent} />
+      </View>
+    );
+  }
 
   return (
     <ErrorBoundary>
