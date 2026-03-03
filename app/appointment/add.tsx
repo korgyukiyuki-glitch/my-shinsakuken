@@ -14,6 +14,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { Colors } from '../../src/constants/colors';
 import { useAppointmentStore } from '../../src/stores/useAppointmentStore';
 import { useClinicStore } from '../../src/stores/useClinicStore';
+import { DateInput } from '../../src/components/DateInput';
 import type { ReminderType } from '../../src/types';
 
 const reminderOptions: { value: ReminderType; label: string }[] = [
@@ -109,13 +110,7 @@ export default function AppointmentAddScreen() {
 
         {/* Date & time */}
         <Text style={styles.label}>日付</Text>
-        <TextInput
-          style={styles.input}
-          value={date}
-          onChangeText={setDate}
-          placeholder="2026-04-15"
-          placeholderTextColor={Colors.textTertiary}
-        />
+        <DateInput value={date} onChange={setDate} />
 
         <Text style={styles.label}>時間</Text>
         <TextInput

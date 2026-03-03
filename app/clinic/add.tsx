@@ -9,13 +9,17 @@ import {
   KeyboardAvoidingView,
   Platform,
   Alert,
+  ActivityIndicator,
 } from 'react-native';
 import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
+import * as ImagePicker from 'expo-image-picker';
+import MlkitOcr from 'rn-mlkit-ocr';
 import { Colors } from '../../src/constants/colors';
 import { useClinicStore } from '../../src/stores/useClinicStore';
 import { ColorPicker } from '../../src/components/ColorPicker';
 import { Department, DEPARTMENT_CONFIG } from '../../src/types';
+import { parseClinicCardFromOcr } from '../../src/utils/parseClinicCardOcr';
 
 const DEPARTMENTS = Object.entries(DEPARTMENT_CONFIG) as [Department, { label: string; icon: string }][];
 
@@ -26,8 +30,69 @@ export default function ClinicAddScreen() {
   const [color, setColor] = useState<string>(Colors.cardColors[0]);
   const [address, setAddress] = useState('');
   const [phone, setPhone] = useState('');
+  const [businessHours, setBusinessHours] = useState('');
+  const [closedDays, setClosedDays] = useState('');
+  const [isScanning, setIsScanning] = useState(false);
 
   const addClinic = useClinicStore((s) => s.addClinic);
+
+  const handleScan = async () => {
+    try {
+      const { status } = await ImagePicker.requestCameraPermissionsAsync();
+      if (status !== 'granted') {
+        Alert.alert(
+          'カメラの許可が必要です',
+          '診察券を撮影するにはカメラへのアクセスを許可してください'
+        );
+        return;
+      }
+
+      const result = await ImagePicker.launchCameraAsync({
+        mediaTypes: ['images'],
+        quality: 1,
+        allowsEditing: false,
+      });
+
+      if (result.canceled || !result.assets?.[0]?.uri) return;
+
+      setIsScanning(true);
+
+      const ocrResult = await MlkitOcr.recognizeText(result.assets[0].uri, 'japanese');
+      const rawText = ocrResult.text;
+
+      if (!rawText.trim()) {
+        Alert.alert(
+          'テキストが検出されませんでした',
+          '診察券がはっきり写るように、もう一度撮影してみてください'
+        );
+        setIsScanning(false);
+        return;
+      }
+
+      const parsed = parseClinicCardFromOcr(rawText);
+
+      if (parsed.clinicName) setName(parsed.clinicName);
+      if (parsed.patientId) setPatientId(parsed.patientId);
+      if (parsed.phone) setPhone(parsed.phone);
+      if (parsed.address) setAddress(parsed.address);
+      if (parsed.department) setDepartment(parsed.department);
+      if (parsed.businessHours) setBusinessHours(parsed.businessHours);
+      if (parsed.closedDays) setClosedDays(parsed.closedDays);
+
+      Alert.alert(
+        'スキャン完了',
+        '読み取り結果をフォームに反映しました。内容を確認・修正してください。'
+      );
+    } catch (error) {
+      console.error('OCR scan error:', error);
+      Alert.alert(
+        'スキャンエラー',
+        'テキストの読み取りに失敗しました。手入力で登録してください。'
+      );
+    } finally {
+      setIsScanning(false);
+    }
+  };
 
   const handleSave = () => {
     if (!name.trim()) {
@@ -46,6 +111,17 @@ export default function ClinicAddScreen() {
       color,
       address: address.trim() || undefined,
       phone: phone.trim() || undefined,
+      closedDays: closedDays.trim() || undefined,
+      businessHours: businessHours.trim()
+        ? {
+            mon: { morning: businessHours.trim() },
+            tue: { morning: businessHours.trim() },
+            wed: { morning: businessHours.trim() },
+            thu: { morning: businessHours.trim() },
+            fri: { morning: businessHours.trim() },
+            sat: { morning: businessHours.trim() },
+          }
+        : undefined,
     });
 
     router.back();
@@ -68,6 +144,23 @@ export default function ClinicAddScreen() {
       </View>
 
       <ScrollView style={styles.form} contentContainerStyle={styles.formContent}>
+        {/* Scan button */}
+        <TouchableOpacity
+          style={styles.scanButton}
+          onPress={handleScan}
+          disabled={isScanning}
+          activeOpacity={0.7}
+        >
+          {isScanning ? (
+            <ActivityIndicator size="small" color={Colors.accent} />
+          ) : (
+            <Ionicons name="camera-outline" size={20} color={Colors.accent} />
+          )}
+          <Text style={styles.scanButtonText}>
+            {isScanning ? '読み取り中...' : '診察券をスキャン'}
+          </Text>
+        </TouchableOpacity>
+
         {/* Required fields */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>必須情報</Text>
@@ -144,6 +237,24 @@ export default function ClinicAddScreen() {
             placeholderTextColor={Colors.textTertiary}
             keyboardType="phone-pad"
           />
+
+          <Text style={styles.label}>診療時間</Text>
+          <TextInput
+            style={styles.input}
+            value={businessHours}
+            onChangeText={setBusinessHours}
+            placeholder="例：9:00〜12:00 / 14:00〜18:00"
+            placeholderTextColor={Colors.textTertiary}
+          />
+
+          <Text style={styles.label}>休診日</Text>
+          <TextInput
+            style={styles.input}
+            value={closedDays}
+            onChangeText={setClosedDays}
+            placeholder="例：木曜・日曜・祝日"
+            placeholderTextColor={Colors.textTertiary}
+          />
         </View>
       </ScrollView>
     </KeyboardAvoidingView>
@@ -182,6 +293,23 @@ const styles = StyleSheet.create({
   formContent: {
     padding: 20,
     gap: 24,
+  },
+  scanButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 8,
+    backgroundColor: Colors.accentLight,
+    borderRadius: 12,
+    padding: 14,
+    borderWidth: 1,
+    borderColor: Colors.accent,
+    borderStyle: 'dashed',
+  },
+  scanButtonText: {
+    fontSize: 15,
+    fontWeight: '600',
+    color: Colors.accent,
   },
   section: {
     gap: 12,

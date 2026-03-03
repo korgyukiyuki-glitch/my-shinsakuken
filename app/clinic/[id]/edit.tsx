@@ -31,6 +31,8 @@ export default function ClinicEditScreen() {
   const [color, setColor] = useState<string>(Colors.cardColors[0]);
   const [address, setAddress] = useState('');
   const [phone, setPhone] = useState('');
+  const [businessHours, setBusinessHours] = useState('');
+  const [closedDays, setClosedDays] = useState('');
 
   useEffect(() => {
     if (clinic) {
@@ -40,6 +42,8 @@ export default function ClinicEditScreen() {
       setColor(clinic.color);
       setAddress(clinic.address ?? '');
       setPhone(clinic.phone ?? '');
+      setBusinessHours(clinic.businessHours?.mon?.morning ?? '');
+      setClosedDays(clinic.closedDays ?? '');
     }
   }, [clinic]);
 
@@ -76,6 +80,17 @@ export default function ClinicEditScreen() {
       color,
       address: address.trim() || undefined,
       phone: phone.trim() || undefined,
+      closedDays: closedDays.trim() || undefined,
+      businessHours: businessHours.trim()
+        ? {
+            mon: { morning: businessHours.trim() },
+            tue: { morning: businessHours.trim() },
+            wed: { morning: businessHours.trim() },
+            thu: { morning: businessHours.trim() },
+            fri: { morning: businessHours.trim() },
+            sat: { morning: businessHours.trim() },
+          }
+        : undefined,
     });
 
     router.back();
@@ -192,6 +207,24 @@ export default function ClinicEditScreen() {
             placeholder="例：03-1234-5678"
             placeholderTextColor={Colors.textTertiary}
             keyboardType="phone-pad"
+          />
+
+          <Text style={styles.label}>診療時間</Text>
+          <TextInput
+            style={styles.input}
+            value={businessHours}
+            onChangeText={setBusinessHours}
+            placeholder="例：9:00〜12:00 / 14:00〜18:00"
+            placeholderTextColor={Colors.textTertiary}
+          />
+
+          <Text style={styles.label}>休診日</Text>
+          <TextInput
+            style={styles.input}
+            value={closedDays}
+            onChangeText={setClosedDays}
+            placeholder="例：木曜・日曜・祝日"
+            placeholderTextColor={Colors.textTertiary}
           />
         </View>
 

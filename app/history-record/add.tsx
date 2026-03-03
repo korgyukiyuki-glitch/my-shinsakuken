@@ -15,6 +15,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { Colors } from '../../src/constants/colors';
 import { useHistoryStore } from '../../src/stores/useHistoryStore';
 import { useClinicStore } from '../../src/stores/useClinicStore';
+import { DateInput } from '../../src/components/DateInput';
 
 export default function HistoryRecordAddScreen() {
   const clinics = useClinicStore((s) => s.clinics);
@@ -103,13 +104,7 @@ export default function HistoryRecordAddScreen() {
 
         {/* Date */}
         <Text style={styles.label}>診療日</Text>
-        <TextInput
-          style={styles.input}
-          value={date}
-          onChangeText={setDate}
-          placeholder="2026-03-01"
-          placeholderTextColor={Colors.textTertiary}
-        />
+        <DateInput value={date} onChange={setDate} />
 
         {/* Treatment */}
         <Text style={styles.label}>治療内容</Text>
