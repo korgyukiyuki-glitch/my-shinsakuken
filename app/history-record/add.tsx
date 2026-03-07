@@ -28,12 +28,20 @@ export default function HistoryRecordAddScreen() {
   const [notes, setNotes] = useState('');
 
   const handleSave = () => {
+    if (clinics.length === 0) {
+      Alert.alert('エラー', '先に医院を登録してください');
+      return;
+    }
     if (!selectedClinicId) {
       Alert.alert('エラー', '医院を選択してください');
       return;
     }
     if (!date) {
-      Alert.alert('エラー', '日付を入力してください（例：2026-03-01）');
+      Alert.alert('エラー', '日付を入力してください');
+      return;
+    }
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) {
+      Alert.alert('エラー', '日付の形式が正しくありません（例：2026-03-01）');
       return;
     }
     if (!treatment.trim()) {

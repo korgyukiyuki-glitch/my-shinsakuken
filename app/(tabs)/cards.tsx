@@ -46,7 +46,7 @@ export default function CardsScreen() {
         {grouped.map(({ department, config, clinics: deptClinics }) => (
           <View key={department} style={styles.group}>
             <View style={styles.groupHeader}>
-              <Ionicons name={config.icon as any} size={18} color={Colors.accent} />
+              <Ionicons name={config.icon as keyof typeof Ionicons.glyphMap} size={18} color={Colors.accent} />
               <Text style={styles.groupTitle}>{config.label}</Text>
               <Text style={styles.groupCount}>{deptClinics.length}</Text>
             </View>

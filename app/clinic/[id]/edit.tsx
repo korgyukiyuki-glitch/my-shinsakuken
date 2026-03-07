@@ -9,11 +9,17 @@ import {
   Alert,
   KeyboardAvoidingView,
   Platform,
+  Image,
 } from 'react-native';
 import { useLocalSearchParams, router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
+import * as FileSystem from 'expo-file-system/legacy';
+import DocumentScanner from 'react-native-document-scanner-plugin';
 import { Colors } from '../../../src/constants/colors';
 import { useClinicStore } from '../../../src/stores/useClinicStore';
+import { useAppointmentStore } from '../../../src/stores/useAppointmentStore';
+import { useHistoryStore } from '../../../src/stores/useHistoryStore';
+import { useMedicationStore } from '../../../src/stores/useMedicationStore';
 import { ColorPicker } from '../../../src/components/ColorPicker';
 import { Department, DEPARTMENT_CONFIG } from '../../../src/types';
 
@@ -21,9 +27,12 @@ const DEPARTMENTS = Object.entries(DEPARTMENT_CONFIG) as [Department, { label: s
 
 export default function ClinicEditScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
-  const clinic = useClinicStore((s) => s.getClinic(id));
+  const clinic = useClinicStore((s) => s.getClinic(id!));
   const updateClinic = useClinicStore((s) => s.updateClinic);
   const deleteClinic = useClinicStore((s) => s.deleteClinic);
+  const deleteAppointmentsByClinic = useAppointmentStore((s) => s.deleteByClinic);
+  const deleteHistoryByClinic = useHistoryStore((s) => s.deleteByClinic);
+  const deleteMedicationsByClinic = useMedicationStore((s) => s.deleteByClinic);
 
   const [name, setName] = useState('');
   const [patientId, setPatientId] = useState('');
@@ -33,6 +42,7 @@ export default function ClinicEditScreen() {
   const [phone, setPhone] = useState('');
   const [businessHours, setBusinessHours] = useState('');
   const [closedDays, setClosedDays] = useState('');
+  const [cardImageUri, setCardImageUri] = useState<string | null>(null);
 
   useEffect(() => {
     if (clinic) {
@@ -42,8 +52,9 @@ export default function ClinicEditScreen() {
       setColor(clinic.color);
       setAddress(clinic.address ?? '');
       setPhone(clinic.phone ?? '');
-      setBusinessHours(clinic.businessHours?.mon?.morning ?? '');
+      setBusinessHours(clinic.businessHours ?? '');
       setClosedDays(clinic.closedDays ?? '');
+      setCardImageUri(clinic.cardImageUri ?? null);
     }
   }, [clinic]);
 
@@ -63,6 +74,40 @@ export default function ClinicEditScreen() {
     );
   }
 
+  const handleTakePhoto = async () => {
+    try {
+      const result = await DocumentScanner.scanDocument({
+        maxNumDocuments: 1,
+      });
+
+      if (!result.scannedImages || result.scannedImages.length === 0) return;
+
+      const scannedUri = result.scannedImages[0];
+
+      // 新しい写真をドキュメントディレクトリに保存
+      const filename = `clinic_card_${Date.now()}.jpg`;
+      const destUri = `${FileSystem.documentDirectory}${filename}`;
+      await FileSystem.copyAsync({ from: scannedUri, to: destUri });
+
+      // 古い写真を削除
+      if (cardImageUri) {
+        try {
+          await FileSystem.deleteAsync(cardImageUri, { idempotent: true });
+        } catch {
+          // 古いファイル削除に失敗しても続行
+        }
+      }
+
+      setCardImageUri(destUri);
+    } catch (error) {
+      console.error('Document scan error:', error);
+      Alert.alert(
+        '撮影エラー',
+        '写真の撮影に失敗しました。もう一度お試しください。'
+      );
+    }
+  };
+
   const handleSave = () => {
     if (!name.trim()) {
       Alert.alert('入力エラー', '医院名を入力してください');
@@ -80,17 +125,9 @@ export default function ClinicEditScreen() {
       color,
       address: address.trim() || undefined,
       phone: phone.trim() || undefined,
+      cardImageUri: cardImageUri || undefined,
       closedDays: closedDays.trim() || undefined,
-      businessHours: businessHours.trim()
-        ? {
-            mon: { morning: businessHours.trim() },
-            tue: { morning: businessHours.trim() },
-            wed: { morning: businessHours.trim() },
-            thu: { morning: businessHours.trim() },
-            fri: { morning: businessHours.trim() },
-            sat: { morning: businessHours.trim() },
-          }
-        : undefined,
+      businessHours: businessHours.trim() || undefined,
     });
 
     router.back();
@@ -99,14 +136,17 @@ export default function ClinicEditScreen() {
   const handleDelete = () => {
     Alert.alert(
       '医院を削除',
-      `「${clinic.name}」を削除しますか？関連する予約メモや診療記録は残ります。`,
+      `「${clinic.name}」を削除しますか？関連する予約メモ・診療記録・お薬記録もすべて削除されます。`,
       [
         { text: 'キャンセル', style: 'cancel' },
         {
           text: '削除',
           style: 'destructive',
-          onPress: () => {
-            deleteClinic(id);
+          onPress: async () => {
+            await deleteAppointmentsByClinic(id!);
+            deleteHistoryByClinic(id!);
+            deleteMedicationsByClinic(id!);
+            deleteClinic(id!);
             router.dismissAll();
           },
         },
@@ -132,6 +172,33 @@ export default function ClinicEditScreen() {
       </View>
 
       <ScrollView style={styles.form} contentContainerStyle={styles.formContent}>
+        {/* Photo capture */}
+        <TouchableOpacity
+          style={styles.photoButton}
+          onPress={handleTakePhoto}
+          activeOpacity={0.7}
+        >
+          {cardImageUri ? (
+            <View style={styles.photoPreviewContainer}>
+              <Image
+                source={{ uri: cardImageUri }}
+                style={styles.photoPreview}
+                resizeMode="cover"
+              />
+              <View style={styles.photoOverlay}>
+                <Ionicons name="camera" size={20} color="#fff" />
+                <Text style={styles.photoOverlayText}>再撮影</Text>
+              </View>
+            </View>
+          ) : (
+            <View style={styles.photoPlaceholder}>
+              <Ionicons name="camera-outline" size={32} color={Colors.accent} />
+              <Text style={styles.photoButtonText}>診察券を撮影</Text>
+              <Text style={styles.photoHint}>影の補正・台形補正を自動で行います</Text>
+            </View>
+          )}
+        </TouchableOpacity>
+
         {/* Required fields */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>必須情報</Text>
@@ -148,7 +215,7 @@ export default function ClinicEditScreen() {
                 onPress={() => setDepartment(key)}
               >
                 <Ionicons
-                  name={icon as any}
+                  name={icon as keyof typeof Ionicons.glyphMap}
                   size={16}
                   color={department === key ? '#fff' : Colors.textSecondary}
                 />
@@ -354,6 +421,53 @@ const styles = StyleSheet.create({
     color: Colors.textSecondary,
   },
   departmentLabelActive: {
+    color: '#fff',
+  },
+  photoButton: {
+    borderRadius: 12,
+    overflow: 'hidden',
+    borderWidth: 1,
+    borderColor: Colors.accent,
+    borderStyle: 'dashed',
+  },
+  photoPlaceholder: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 28,
+    gap: 8,
+    backgroundColor: Colors.accentLight,
+  },
+  photoButtonText: {
+    fontSize: 15,
+    fontWeight: '600',
+    color: Colors.accent,
+  },
+  photoHint: {
+    fontSize: 12,
+    color: Colors.textTertiary,
+  },
+  photoPreviewContainer: {
+    position: 'relative',
+  },
+  photoPreview: {
+    width: '100%',
+    height: 180,
+  },
+  photoOverlay: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 6,
+    backgroundColor: 'rgba(0,0,0,0.5)',
+    paddingVertical: 8,
+  },
+  photoOverlayText: {
+    fontSize: 13,
+    fontWeight: '600',
     color: '#fff',
   },
 });

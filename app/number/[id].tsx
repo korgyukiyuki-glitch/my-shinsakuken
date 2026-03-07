@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Platform } from 'react-native';
 import { useLocalSearchParams, router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
@@ -8,15 +8,14 @@ import { useClinicStore } from '../../src/stores/useClinicStore';
 
 export default function NumberDisplayScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
-  const clinic = useClinicStore((s) => s.getClinic(id));
+  const clinic = useClinicStore((s) => s.getClinic(id!));
+  const originalBrightnessRef = useRef<number | null>(null);
 
   useEffect(() => {
-    let originalBrightness: number | null = null;
-
     const setBrightness = async () => {
       try {
         if (Platform.OS !== 'web') {
-          originalBrightness = await Brightness.getBrightnessAsync();
+          originalBrightnessRef.current = await Brightness.getBrightnessAsync();
           await Brightness.setBrightnessAsync(1);
         }
       } catch {}
@@ -24,8 +23,8 @@ export default function NumberDisplayScreen() {
     setBrightness();
 
     return () => {
-      if (originalBrightness !== null) {
-        Brightness.setBrightnessAsync(originalBrightness).catch(() => {});
+      if (originalBrightnessRef.current !== null) {
+        Brightness.setBrightnessAsync(originalBrightnessRef.current).catch(() => {});
       }
     };
   }, []);
@@ -40,7 +39,17 @@ export default function NumberDisplayScreen() {
 
   return (
     <View style={[styles.container, { backgroundColor: clinic.color }]}>
-      <TouchableOpacity style={styles.closeButton} onPress={() => router.back()}>
+      <TouchableOpacity
+        style={styles.closeButton}
+        onPress={() => {
+          if (router.canGoBack()) {
+            router.back();
+          } else {
+            router.replace('/(tabs)');
+          }
+        }}
+        hitSlop={{ top: 20, bottom: 20, left: 20, right: 20 }}
+      >
         <Ionicons name="close-circle" size={40} color="rgba(255,255,255,0.9)" />
       </TouchableOpacity>
 

@@ -14,7 +14,7 @@ const reminderLabels: Record<string, string> = {
 
 export default function AppointmentDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
-  const appointment = useAppointmentStore((s) => s.getAppointment(id));
+  const appointment = useAppointmentStore((s) => s.getAppointment(id!));
   const deleteAppointment = useAppointmentStore((s) => s.deleteAppointment);
   const getClinic = useClinicStore((s) => s.getClinic);
 
@@ -46,8 +46,8 @@ export default function AppointmentDetailScreen() {
         {
           text: '削除',
           style: 'destructive',
-          onPress: () => {
-            deleteAppointment(appointment.id);
+          onPress: async () => {
+            await deleteAppointment(appointment.id);
             router.back();
           },
         },

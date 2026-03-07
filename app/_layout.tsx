@@ -3,11 +3,15 @@ import { View, ActivityIndicator } from 'react-native';
 import { Stack, useRouter, useSegments } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import * as SystemUI from 'expo-system-ui';
+import * as Notifications from 'expo-notifications';
 import { Colors } from '../src/constants/colors';
 import { useSettingsStore } from '../src/stores/useSettingsStore';
 import { ErrorBoundary } from '../src/components/ErrorBoundary';
+import { AuthGuard } from '../src/components/AuthGuard';
+import { configureNotifications } from '../src/utils/notifications';
 
 SystemUI.setBackgroundColorAsync(Colors.background);
+configureNotifications();
 
 export default function RootLayout() {
   const router = useRouter();
@@ -38,6 +42,36 @@ export default function RootLayout() {
     }
   }, [isOnboarded, segments, isHydrated]);
 
+  // 通知タップ時のナビゲーション
+  useEffect(() => {
+    const subscription = Notifications.addNotificationResponseReceivedListener(
+      (response) => {
+        const appointmentId =
+          response.notification.request.content.data?.appointmentId;
+        if (appointmentId && typeof appointmentId === 'string') {
+          router.push(`/appointment/${appointmentId}` as never);
+        }
+      },
+    );
+    return () => subscription.remove();
+  }, [router]);
+
+  // コールドスタート時の通知タップ処理
+  useEffect(() => {
+    Notifications.getLastNotificationResponseAsync().then((response) => {
+      if (response) {
+        const appointmentId =
+          response.notification.request.content.data?.appointmentId;
+        if (appointmentId && typeof appointmentId === 'string') {
+          setTimeout(
+            () => router.push(`/appointment/${appointmentId}` as never),
+            500,
+          );
+        }
+      }
+    });
+  }, []);
+
   if (!isHydrated) {
     return (
       <View style={{ flex: 1, backgroundColor: Colors.background, justifyContent: 'center', alignItems: 'center' }}>
@@ -49,8 +83,9 @@ export default function RootLayout() {
 
   return (
     <ErrorBoundary>
-      <StatusBar style="dark" />
-      <Stack
+      <AuthGuard>
+        <StatusBar style="dark" />
+        <Stack
         screenOptions={{
           headerShown: false,
           contentStyle: { backgroundColor: Colors.background },
@@ -68,11 +103,11 @@ export default function RootLayout() {
         />
         <Stack.Screen
           name="qr/[id]"
-          options={{ presentation: 'fullScreenModal' }}
+          options={{ presentation: 'modal' }}
         />
         <Stack.Screen
           name="number/[id]"
-          options={{ presentation: 'fullScreenModal' }}
+          options={{ presentation: 'modal' }}
         />
         <Stack.Screen
           name="appointment/add"
@@ -123,6 +158,7 @@ export default function RootLayout() {
           options={{ presentation: 'card', animation: 'slide_from_right' }}
         />
       </Stack>
+      </AuthGuard>
     </ErrorBoundary>
   );
 }

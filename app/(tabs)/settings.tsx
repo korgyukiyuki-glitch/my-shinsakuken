@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
-import { router } from 'expo-router';
+import { router, type Href } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { Colors } from '../../src/constants/colors';
 import Constants from 'expo-constants';
@@ -60,7 +60,7 @@ export default function SettingsScreen() {
                 styles.menuItem,
                 index < menuItems.length - 1 && styles.menuItemBorder,
               ]}
-              onPress={() => router.push(item.route as any)}
+              onPress={() => router.push(item.route as Href)}
             >
               <View style={styles.menuIcon}>
                 <Ionicons name={item.icon} size={22} color={Colors.accent} />

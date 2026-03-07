@@ -8,12 +8,13 @@ interface HistoryState {
   addRecord: (data: Omit<HistoryRecord, 'id' | 'createdAt'>) => string;
   updateRecord: (id: string, updates: Partial<HistoryRecord>) => void;
   deleteRecord: (id: string) => void;
+  deleteByClinic: (clinicId: string) => void;
   getRecord: (id: string) => HistoryRecord | undefined;
   getByClinic: (clinicId: string) => HistoryRecord[];
 }
 
 const generateId = () =>
-  Date.now().toString(36) + Math.random().toString(36).substr(2, 9);
+  Date.now().toString(36) + Math.random().toString(36).substring(2, 11);
 
 export const useHistoryStore = create<HistoryState>()(
   persist(
@@ -42,6 +43,12 @@ export const useHistoryStore = create<HistoryState>()(
       deleteRecord: (id) => {
         set((state) => ({
           records: state.records.filter((r) => r.id !== id),
+        }));
+      },
+
+      deleteByClinic: (clinicId) => {
+        set((state) => ({
+          records: state.records.filter((r) => r.clinicId !== clinicId),
         }));
       },
 

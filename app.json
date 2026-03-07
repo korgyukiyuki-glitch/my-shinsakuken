@@ -15,11 +15,14 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.mydental.card",
+      "buildNumber": "1",
       "infoPlist": {
         "NSFaceIDUsageDescription": "診察券データを保護するために生体認証を使用します",
         "NSCameraUsageDescription": "お薬手帳のシールや診察券を撮影するためにカメラを使用します",
         "CFBundleDisplayName": "マイ診察券",
-        "ITSAppUsesNonExemptEncryption": false
+        "ITSAppUsesNonExemptEncryption": false,
+        "CFBundleLocalizations": ["ja", "en"],
+        "CFBundleDevelopmentRegion": "ja"
       }
     },
     "android": {
@@ -31,10 +34,10 @@
       },
       "package": "com.mydental.card",
       "predictiveBackGestureEnabled": false,
+      "versionCode": 1,
       "permissions": [
         "android.permission.USE_BIOMETRIC",
-        "android.permission.USE_FINGERPRINT",
-        "android.permission.RECORD_AUDIO"
+        "android.permission.USE_FINGERPRINT"
       ]
     },
     "web": {
@@ -62,16 +65,6 @@
         "expo-image-picker",
         {
           "cameraPermission": "お薬手帳のシールを撮影するためにカメラを使用します"
-        }
-      ],
-      [
-        "rn-mlkit-ocr",
-        {
-          "ocrModels": [
-            "japanese",
-            "latin"
-          ],
-          "ocrUseBundled": true
         }
       ],
       [

@@ -7,7 +7,7 @@ import { useClinicStore } from '../../src/stores/useClinicStore';
 
 export default function MedicationDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
-  const medication = useMedicationStore((s) => s.getMedication(id));
+  const medication = useMedicationStore((s) => s.getMedication(id!));
   const deleteMedication = useMedicationStore((s) => s.deleteMedication);
   const getClinic = useClinicStore((s) => s.getClinic);
 

@@ -33,12 +33,6 @@ export const DEPARTMENT_CONFIG: Record<Department, { label: string; icon: string
 
 // ========== Clinic & Card ==========
 
-export interface BusinessHours {
-  morning?: string;  // e.g. "9:00〜12:00"
-  afternoon?: string; // e.g. "14:00〜18:00"
-  closed?: boolean;   // true = 休診
-}
-
 export interface Clinic {
   id: string;
   name: string;
@@ -48,16 +42,9 @@ export interface Clinic {
   address?: string;
   phone?: string;
   memo?: string;
-  businessHours?: {
-    mon?: BusinessHours;
-    tue?: BusinessHours;
-    wed?: BusinessHours;
-    thu?: BusinessHours;
-    fri?: BusinessHours;
-    sat?: BusinessHours;
-    sun?: BusinessHours;
-  };
+  businessHours?: string; // e.g. "9:00〜12:00 / 14:00〜18:00"
   closedDays?: string; // e.g. "木曜・日曜・祝日"
+  cardImageUri?: string; // 診察券写真のローカルパス
   order: number;
   createdAt: string;
 }

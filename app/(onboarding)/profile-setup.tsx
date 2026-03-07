@@ -62,6 +62,7 @@ export default function ProfileSetupScreen() {
         <TouchableOpacity
           style={[styles.button, !name.trim() && styles.buttonDisabled]}
           onPress={handleRegister}
+          disabled={!name.trim()}
         >
           <Text style={styles.buttonText}>登録する</Text>
         </TouchableOpacity>

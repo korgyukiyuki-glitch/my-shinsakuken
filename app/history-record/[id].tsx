@@ -7,7 +7,7 @@ import { useClinicStore } from '../../src/stores/useClinicStore';
 
 export default function HistoryRecordDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
-  const record = useHistoryStore((s) => s.getRecord(id));
+  const record = useHistoryStore((s) => s.getRecord(id!));
   const deleteRecord = useHistoryStore((s) => s.deleteRecord);
   const getClinic = useClinicStore((s) => s.getClinic);
 

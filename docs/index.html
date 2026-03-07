@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>マイ診察券 | Medical Craft Laboratory</title>
+  <meta name="description" content="複数の医院の診察券を1つのアプリで管理。患者さんのための無料デジタル診察券アプリ。">
+  <link rel="canonical" href="https://medicalcraft-lab.com">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+      color: #1a1a2e;
+      background: #f8f9fa;
+      line-height: 1.7;
+    }
+    .header {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      color: white;
+      text-align: center;
+      padding: 80px 20px 60px;
+    }
+    .header h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .header .brand {
+      font-size: 0.9rem;
+      opacity: 0.7;
+      margin-bottom: 24px;
+    }
+    .header .tagline {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      max-width: 500px;
+      margin: 0 auto 32px;
+    }
+    .badge-container {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .badge-container a img {
+      height: 50px;
+    }
+    .badge-placeholder {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.6);
+      padding: 12px 24px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+    }
+    .features {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+    .features h2 {
+      text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 40px;
+      color: #1a1a2e;
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+    }
+    .feature-card {
+      background: white;
+      border-radius: 16px;
+      padding: 28px 24px;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+    .feature-card .icon {
+      font-size: 2.5rem;
+      margin-bottom: 12px;
+    }
+    .feature-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: #1a1a2e;
+    }
+    .feature-card p {
+      font-size: 0.9rem;
+      color: #666;
+    }
+    .section {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    .section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+      color: #1a1a2e;
+    }
+    .section p, .section li {
+      color: #444;
+      font-size: 0.95rem;
+    }
+    .footer {
+      background: #1a1a2e;
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.85rem;
+    }
+    .footer a {
+      color: rgba(255,255,255,0.9);
+      text-decoration: none;
+      margin: 0 12px;
+    }
+    .footer a:hover { text-decoration: underline; }
+    .footer .links { margin-bottom: 16px; }
+    @media (max-width: 600px) {
+      .header h1 { font-size: 1.8rem; }
+      .header .tagline { font-size: 1rem; }
+      .features h2 { font-size: 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>マイ診察券</h1>
+    <div class="brand">Medical Craft Laboratory</div>
+    <p class="tagline">複数の医院の診察券を、1つのアプリで。<br>患者さんのための無料デジタル診察券アプリ。</p>
+    <div class="badge-container">
+      <span class="badge-placeholder">App Store - 近日公開</span>
+    </div>
+  </div>
+
+  <div class="features">
+    <h2>主な機能</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="icon">💳</div>
+        <h3>診察券管理</h3>
+        <p>歯科・内科・眼科など、すべての医院の診察券をまとめて管理</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">📱</div>
+        <h3>QRコード表示</h3>
+        <p>受付でスマホを見せるだけ。患者番号の大画面表示にも対応</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">📅</div>
+        <h3>予約メモ</h3>
+        <p>次の予約を記録してプッシュ通知でリマインダー</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">🔒</div>
+        <h3>安全設計</h3>
+        <p>データはすべて端末内に保存。生体認証ロックで安心</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">📋</div>
+        <h3>診療履歴</h3>
+        <p>いつ・どこで・何の治療を受けたか記録</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">💊</div>
+        <h3>お薬管理</h3>
+        <p>処方されたお薬の情報を記録・管理</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="links">
+      <a href="/privacy">プライバシーポリシー</a>
+      <a href="/support">サポート</a>
+    </div>
+    <p>&copy; 2026 Medical Craft Laboratory. All rights reserved.</p>
+  </div>
+</body>
+</html>

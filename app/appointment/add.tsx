@@ -7,7 +7,6 @@ import {
   StyleSheet,
   ScrollView,
   Alert,
-  Platform,
 } from 'react-native';
 import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
@@ -15,6 +14,7 @@ import { Colors } from '../../src/constants/colors';
 import { useAppointmentStore } from '../../src/stores/useAppointmentStore';
 import { useClinicStore } from '../../src/stores/useClinicStore';
 import { DateInput } from '../../src/components/DateInput';
+import { TimeInput } from '../../src/components/TimeInput';
 import type { ReminderType } from '../../src/types';
 
 const reminderOptions: { value: ReminderType; label: string }[] = [
@@ -35,21 +35,29 @@ export default function AppointmentAddScreen() {
   const [memo, setMemo] = useState('');
   const [reminder, setReminder] = useState<ReminderType>('morning');
 
-  const handleSave = () => {
+  const handleSave = async () => {
+    if (clinics.length === 0) {
+      Alert.alert('エラー', '先に医院を登録してください');
+      return;
+    }
     if (!selectedClinicId) {
       Alert.alert('エラー', '医院を選択してください');
       return;
     }
     if (!date) {
-      Alert.alert('エラー', '日付を入力してください（例：2026-04-15）');
+      Alert.alert('エラー', '日付を入力してください');
+      return;
+    }
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) {
+      Alert.alert('エラー', '日付の形式が正しくありません（例：2026-04-15）');
       return;
     }
     if (!time) {
-      Alert.alert('エラー', '時間を入力してください（例：10:30）');
+      Alert.alert('エラー', '時間を選択してください');
       return;
     }
 
-    addAppointment({
+    await addAppointment({
       clinicId: selectedClinicId,
       date,
       time,
@@ -113,13 +121,7 @@ export default function AppointmentAddScreen() {
         <DateInput value={date} onChange={setDate} />
 
         <Text style={styles.label}>時間</Text>
-        <TextInput
-          style={styles.input}
-          value={time}
-          onChangeText={setTime}
-          placeholder="10:30"
-          placeholderTextColor={Colors.textTertiary}
-        />
+        <TimeInput value={time} onChange={setTime} />
 
         {/* Type */}
         <Text style={styles.label}>内容</Text>

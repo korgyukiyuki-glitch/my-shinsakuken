@@ -1,13 +1,28 @@
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Linking } from 'react-native';
+import { useState } from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  TouchableOpacity,
+  Linking,
+  Image,
+  Modal,
+  Dimensions,
+} from 'react-native';
 import { useLocalSearchParams, router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { Colors } from '../../src/constants/colors';
 import { useClinicStore } from '../../src/stores/useClinicStore';
 import { CardVisual } from '../../src/components/CardVisual';
 
+const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window');
+
 export default function CardDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
-  const clinic = useClinicStore((s) => s.getClinic(id));
+  const clinic = useClinicStore((s) => s.getClinic(id!));
+  const [imageModalVisible, setImageModalVisible] = useState(false);
+  const [imageError, setImageError] = useState(false);
 
   if (!clinic) {
     return (
@@ -40,13 +55,33 @@ export default function CardDetailScreen() {
         {/* Card visual */}
         <CardVisual clinic={clinic} />
 
+        {/* Card photo */}
+        {clinic.cardImageUri && !imageError && (
+          <TouchableOpacity
+            style={styles.cardPhotoContainer}
+            onPress={() => setImageModalVisible(true)}
+            activeOpacity={0.8}
+          >
+            <Image
+              source={{ uri: clinic.cardImageUri }}
+              style={styles.cardPhoto}
+              resizeMode="cover"
+              onError={() => setImageError(true)}
+            />
+            <View style={styles.cardPhotoOverlay}>
+              <Ionicons name="expand-outline" size={16} color="#fff" />
+              <Text style={styles.cardPhotoHint}>タップで拡大</Text>
+            </View>
+          </TouchableOpacity>
+        )}
+
         {/* QR Code button */}
         <TouchableOpacity
           style={styles.qrButton}
           onPress={() => router.push(`/qr/${id}`)}
         >
           <Ionicons name="qr-code" size={22} color={Colors.accent} />
-          <Text style={styles.qrButtonText}>受付用QRコードを表示</Text>
+          <Text style={styles.qrButtonText}>受付用コードを表示</Text>
         </TouchableOpacity>
 
         {/* Number display button */}
@@ -88,6 +123,34 @@ export default function CardDetailScreen() {
           )}
         </View>
       </ScrollView>
+
+      {/* Fullscreen image modal */}
+      {clinic.cardImageUri && (
+        <Modal
+          visible={imageModalVisible}
+          transparent
+          animationType="fade"
+          onRequestClose={() => setImageModalVisible(false)}
+        >
+          <TouchableOpacity
+            style={styles.modalBackdrop}
+            activeOpacity={1}
+            onPress={() => setImageModalVisible(false)}
+          >
+            <TouchableOpacity
+              style={styles.modalCloseButton}
+              onPress={() => setImageModalVisible(false)}
+            >
+              <Ionicons name="close-circle" size={36} color="#fff" />
+            </TouchableOpacity>
+            <Image
+              source={{ uri: clinic.cardImageUri }}
+              style={styles.modalImage}
+              resizeMode="contain"
+            />
+          </TouchableOpacity>
+        </Modal>
+      )}
     </View>
   );
 }
@@ -182,5 +245,49 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: Colors.textPrimary,
     marginTop: 2,
+  },
+  cardPhotoContainer: {
+    borderRadius: 12,
+    overflow: 'hidden',
+    backgroundColor: Colors.surface,
+    borderWidth: 1,
+    borderColor: Colors.border,
+  },
+  cardPhoto: {
+    width: '100%',
+    height: 200,
+  },
+  cardPhotoOverlay: {
+    position: 'absolute',
+    bottom: 0,
+    right: 0,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+    backgroundColor: 'rgba(0,0,0,0.5)',
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+    borderTopLeftRadius: 8,
+  },
+  cardPhotoHint: {
+    fontSize: 12,
+    color: '#fff',
+    fontWeight: '600',
+  },
+  modalBackdrop: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.9)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  modalCloseButton: {
+    position: 'absolute',
+    top: 60,
+    right: 20,
+    zIndex: 10,
+  },
+  modalImage: {
+    width: SCREEN_WIDTH - 20,
+    height: SCREEN_HEIGHT * 0.7,
   },
 });

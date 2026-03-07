@@ -9,88 +9,54 @@ import {
   KeyboardAvoidingView,
   Platform,
   Alert,
-  ActivityIndicator,
+  Image,
 } from 'react-native';
 import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
-import * as ImagePicker from 'expo-image-picker';
-import MlkitOcr from 'rn-mlkit-ocr';
+import * as FileSystem from 'expo-file-system/legacy';
+import DocumentScanner from 'react-native-document-scanner-plugin';
 import { Colors } from '../../src/constants/colors';
 import { useClinicStore } from '../../src/stores/useClinicStore';
 import { ColorPicker } from '../../src/components/ColorPicker';
 import { Department, DEPARTMENT_CONFIG } from '../../src/types';
-import { parseClinicCardFromOcr } from '../../src/utils/parseClinicCardOcr';
 
 const DEPARTMENTS = Object.entries(DEPARTMENT_CONFIG) as [Department, { label: string; icon: string }][];
 
 export default function ClinicAddScreen() {
   const [name, setName] = useState('');
   const [patientId, setPatientId] = useState('');
-  const [department, setDepartment] = useState<Department>('internal');
+  const [department, setDepartment] = useState<Department>('other');
   const [color, setColor] = useState<string>(Colors.cardColors[0]);
   const [address, setAddress] = useState('');
   const [phone, setPhone] = useState('');
   const [businessHours, setBusinessHours] = useState('');
   const [closedDays, setClosedDays] = useState('');
-  const [isScanning, setIsScanning] = useState(false);
+  const [cardImageUri, setCardImageUri] = useState<string | null>(null);
 
   const addClinic = useClinicStore((s) => s.addClinic);
 
-  const handleScan = async () => {
+  const handleTakePhoto = async () => {
     try {
-      const { status } = await ImagePicker.requestCameraPermissionsAsync();
-      if (status !== 'granted') {
-        Alert.alert(
-          'カメラの許可が必要です',
-          '診察券を撮影するにはカメラへのアクセスを許可してください'
-        );
-        return;
-      }
-
-      const result = await ImagePicker.launchCameraAsync({
-        mediaTypes: ['images'],
-        quality: 1,
-        allowsEditing: false,
+      const result = await DocumentScanner.scanDocument({
+        maxNumDocuments: 1,
       });
 
-      if (result.canceled || !result.assets?.[0]?.uri) return;
+      if (!result.scannedImages || result.scannedImages.length === 0) return;
 
-      setIsScanning(true);
+      const scannedUri = result.scannedImages[0];
 
-      const ocrResult = await MlkitOcr.recognizeText(result.assets[0].uri, 'japanese');
-      const rawText = ocrResult.text;
+      // ドキュメントディレクトリに保存
+      const filename = `clinic_card_${Date.now()}.jpg`;
+      const destUri = `${FileSystem.documentDirectory}${filename}`;
+      await FileSystem.copyAsync({ from: scannedUri, to: destUri });
 
-      if (!rawText.trim()) {
-        Alert.alert(
-          'テキストが検出されませんでした',
-          '診察券がはっきり写るように、もう一度撮影してみてください'
-        );
-        setIsScanning(false);
-        return;
-      }
-
-      const parsed = parseClinicCardFromOcr(rawText);
-
-      if (parsed.clinicName) setName(parsed.clinicName);
-      if (parsed.patientId) setPatientId(parsed.patientId);
-      if (parsed.phone) setPhone(parsed.phone);
-      if (parsed.address) setAddress(parsed.address);
-      if (parsed.department) setDepartment(parsed.department);
-      if (parsed.businessHours) setBusinessHours(parsed.businessHours);
-      if (parsed.closedDays) setClosedDays(parsed.closedDays);
-
-      Alert.alert(
-        'スキャン完了',
-        '読み取り結果をフォームに反映しました。内容を確認・修正してください。'
-      );
+      setCardImageUri(destUri);
     } catch (error) {
-      console.error('OCR scan error:', error);
+      console.error('Document scan error:', error);
       Alert.alert(
-        'スキャンエラー',
-        'テキストの読み取りに失敗しました。手入力で登録してください。'
+        '撮影エラー',
+        '写真の撮影に失敗しました。もう一度お試しください。'
       );
-    } finally {
-      setIsScanning(false);
     }
   };
 
@@ -111,17 +77,9 @@ export default function ClinicAddScreen() {
       color,
       address: address.trim() || undefined,
       phone: phone.trim() || undefined,
+      cardImageUri: cardImageUri || undefined,
       closedDays: closedDays.trim() || undefined,
-      businessHours: businessHours.trim()
-        ? {
-            mon: { morning: businessHours.trim() },
-            tue: { morning: businessHours.trim() },
-            wed: { morning: businessHours.trim() },
-            thu: { morning: businessHours.trim() },
-            fri: { morning: businessHours.trim() },
-            sat: { morning: businessHours.trim() },
-          }
-        : undefined,
+      businessHours: businessHours.trim() || undefined,
     });
 
     router.back();
@@ -144,21 +102,31 @@ export default function ClinicAddScreen() {
       </View>
 
       <ScrollView style={styles.form} contentContainerStyle={styles.formContent}>
-        {/* Scan button */}
+        {/* Photo capture */}
         <TouchableOpacity
-          style={styles.scanButton}
-          onPress={handleScan}
-          disabled={isScanning}
+          style={styles.photoButton}
+          onPress={handleTakePhoto}
           activeOpacity={0.7}
         >
-          {isScanning ? (
-            <ActivityIndicator size="small" color={Colors.accent} />
+          {cardImageUri ? (
+            <View style={styles.photoPreviewContainer}>
+              <Image
+                source={{ uri: cardImageUri }}
+                style={styles.photoPreview}
+                resizeMode="cover"
+              />
+              <View style={styles.photoOverlay}>
+                <Ionicons name="camera" size={20} color="#fff" />
+                <Text style={styles.photoOverlayText}>再撮影</Text>
+              </View>
+            </View>
           ) : (
-            <Ionicons name="camera-outline" size={20} color={Colors.accent} />
+            <View style={styles.photoPlaceholder}>
+              <Ionicons name="camera-outline" size={32} color={Colors.accent} />
+              <Text style={styles.photoButtonText}>診察券を撮影</Text>
+              <Text style={styles.photoHint}>影の補正・台形補正を自動で行います</Text>
+            </View>
           )}
-          <Text style={styles.scanButtonText}>
-            {isScanning ? '読み取り中...' : '診察券をスキャン'}
-          </Text>
         </TouchableOpacity>
 
         {/* Required fields */}
@@ -177,7 +145,7 @@ export default function ClinicAddScreen() {
                 onPress={() => setDepartment(key)}
               >
                 <Ionicons
-                  name={icon as any}
+                  name={icon as keyof typeof Ionicons.glyphMap}
                   size={16}
                   color={department === key ? '#fff' : Colors.textSecondary}
                 />
@@ -294,22 +262,52 @@ const styles = StyleSheet.create({
     padding: 20,
     gap: 24,
   },
-  scanButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 8,
-    backgroundColor: Colors.accentLight,
+  photoButton: {
     borderRadius: 12,
-    padding: 14,
+    overflow: 'hidden',
     borderWidth: 1,
     borderColor: Colors.accent,
     borderStyle: 'dashed',
   },
-  scanButtonText: {
+  photoPlaceholder: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 28,
+    gap: 8,
+    backgroundColor: Colors.accentLight,
+  },
+  photoButtonText: {
     fontSize: 15,
     fontWeight: '600',
     color: Colors.accent,
+  },
+  photoHint: {
+    fontSize: 12,
+    color: Colors.textTertiary,
+  },
+  photoPreviewContainer: {
+    position: 'relative',
+  },
+  photoPreview: {
+    width: '100%',
+    height: 180,
+  },
+  photoOverlay: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 6,
+    backgroundColor: 'rgba(0,0,0,0.5)',
+    paddingVertical: 8,
+  },
+  photoOverlayText: {
+    fontSize: 13,
+    fontWeight: '600',
+    color: '#fff',
   },
   section: {
     gap: 12,

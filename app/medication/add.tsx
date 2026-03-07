@@ -9,16 +9,12 @@ import {
   Alert,
   KeyboardAvoidingView,
   Platform,
-  ActivityIndicator,
 } from 'react-native';
 import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
-import * as ImagePicker from 'expo-image-picker';
-import MlkitOcr from 'rn-mlkit-ocr';
 import { Colors } from '../../src/constants/colors';
 import { useMedicationStore } from '../../src/stores/useMedicationStore';
 import { useClinicStore } from '../../src/stores/useClinicStore';
-import { parseMedicationFromOcr } from '../../src/utils/parseMedicationOcr';
 import { DateInput } from '../../src/components/DateInput';
 
 export default function MedicationAddScreen() {
@@ -33,79 +29,29 @@ export default function MedicationAddScreen() {
   const [duration, setDuration] = useState('');
   const [prescribedBy, setPrescribedBy] = useState('');
   const [notes, setNotes] = useState('');
-  const [isScanning, setIsScanning] = useState(false);
 
-  const handleScan = async () => {
-    try {
-      const { status } = await ImagePicker.requestCameraPermissionsAsync();
-      if (status !== 'granted') {
-        Alert.alert(
-          'カメラの許可が必要です',
-          'お薬シールを撮影するにはカメラへのアクセスを許可してください'
-        );
-        return;
-      }
-
-      const result = await ImagePicker.launchCameraAsync({
-        mediaTypes: ['images'],
-        quality: 1,
-        allowsEditing: false,
-      });
-
-      if (result.canceled || !result.assets?.[0]?.uri) return;
-
-      setIsScanning(true);
-
-      const ocrResult = await MlkitOcr.recognizeText(result.assets[0].uri, 'japanese');
-      const rawText = ocrResult.text;
-
-      if (!rawText.trim()) {
-        Alert.alert(
-          'テキストが検出されませんでした',
-          'シールがはっきり写るように、もう一度撮影してみてください'
-        );
-        setIsScanning(false);
-        return;
-      }
-
-      const parsed = parseMedicationFromOcr(rawText);
-
-      if (parsed.date) setDate(parsed.date);
-      if (parsed.medicineName) setMedicineName(parsed.medicineName);
-      if (parsed.dosage) setDosage(parsed.dosage);
-      if (parsed.frequency) setFrequency(parsed.frequency);
-      if (parsed.duration) setDuration(parsed.duration);
-      if (parsed.prescribedBy) setPrescribedBy(parsed.prescribedBy);
-
-      if (parsed.clinicName) {
-        const matched = clinics.find(
-          (c) => c.name.includes(parsed.clinicName!) || parsed.clinicName!.includes(c.name)
-        );
-        if (matched) setSelectedClinicId(matched.id);
-      }
-
-      Alert.alert(
-        'スキャン完了',
-        '読み取り結果をフォームに反映しました。内容を確認・修正してください。'
-      );
-    } catch (error) {
-      console.error('OCR scan error:', error);
-      Alert.alert(
-        'スキャンエラー',
-        'テキストの読み取りに失敗しました。手入力で記録してください。'
-      );
-    } finally {
-      setIsScanning(false);
-    }
+  const handleScan = () => {
+    Alert.alert(
+      '準備中',
+      'お薬スキャン機能は現在開発中です。手入力で記録してください。'
+    );
   };
 
   const handleSave = () => {
+    if (clinics.length === 0) {
+      Alert.alert('エラー', '先に医院を登録してください');
+      return;
+    }
     if (!selectedClinicId) {
       Alert.alert('エラー', '医院を選択してください');
       return;
     }
     if (!date) {
-      Alert.alert('エラー', '処方日を入力してください（例：2026-03-01）');
+      Alert.alert('エラー', '処方日を入力してください');
+      return;
+    }
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) {
+      Alert.alert('エラー', '日付の形式が正しくありません（例：2026-03-01）');
       return;
     }
     if (!medicineName.trim()) {
@@ -148,16 +94,11 @@ export default function MedicationAddScreen() {
         <TouchableOpacity
           style={styles.scanButton}
           onPress={handleScan}
-          disabled={isScanning}
           activeOpacity={0.7}
         >
-          {isScanning ? (
-            <ActivityIndicator size="small" color={Colors.accent} />
-          ) : (
-            <Ionicons name="camera-outline" size={20} color={Colors.accent} />
-          )}
+          <Ionicons name="camera-outline" size={20} color={Colors.accent} />
           <Text style={styles.scanButtonText}>
-            {isScanning ? '読み取り中...' : 'お薬シールをスキャン'}
+            お薬シールをスキャン
           </Text>
         </TouchableOpacity>
 

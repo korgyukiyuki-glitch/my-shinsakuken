@@ -8,6 +8,7 @@ interface MedicationState {
   addMedication: (data: Omit<Medication, 'id' | 'createdAt'>) => string;
   updateMedication: (id: string, updates: Partial<Medication>) => void;
   deleteMedication: (id: string) => void;
+  deleteByClinic: (clinicId: string) => void;
   getMedication: (id: string) => Medication | undefined;
   getByClinic: (clinicId: string) => Medication[];
 }
@@ -42,6 +43,12 @@ export const useMedicationStore = create<MedicationState>()(
       deleteMedication: (id) => {
         set((state) => ({
           medications: state.medications.filter((m) => m.id !== id),
+        }));
+      },
+
+      deleteByClinic: (clinicId) => {
+        set((state) => ({
+          medications: state.medications.filter((m) => m.clinicId !== clinicId),
         }));
       },
 
