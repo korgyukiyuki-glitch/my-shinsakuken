@@ -7,49 +7,152 @@
   <meta name="description" content="マイ診察券アプリのプライバシーポリシー">
   <link rel="canonical" href="https://medicalcraft-lab.com/privacy">
   <style>
+    :root {
+      --color-text-primary: #1d1d1f;
+      --color-text-secondary: #424245;
+      --color-text-tertiary: #6e6e73;
+      --color-text-caption: #86868b;
+      --color-bg-primary: #ffffff;
+      --color-bg-secondary: #f5f5f7;
+      --color-accent: #0071e3;
+    }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
-      color: #333;
-      background: #f8f9fa;
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text',
+                   'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+      color: var(--color-text-primary);
+      background: var(--color-bg-primary);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 20px;
+    }
+    .nav-inner {
+      max-width: 980px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      text-decoration: none;
+    }
+    .nav-back {
+      font-size: 13px;
+      color: var(--color-accent);
+      text-decoration: none;
+    }
+    .nav-back:hover { text-decoration: underline; }
+
+    .page-header {
+      padding: 120px 20px 48px;
+      text-align: center;
+    }
+    .page-header h1 {
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--color-text-primary);
+      line-height: 1.15;
+    }
+
+    .content {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 20px 100px;
+    }
+    .content > p {
+      font-size: 17px;
+      color: var(--color-text-secondary);
+      margin-bottom: 16px;
       line-height: 1.8;
     }
-    .header {
-      background: #1a1a2e;
-      color: white;
-      padding: 40px 20px;
+    .content h2 {
+      font-size: 21px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      margin: 48px 0 12px;
+      letter-spacing: 0.02em;
+    }
+    .content ul {
+      padding-left: 20px;
+      margin-bottom: 16px;
+    }
+    .content li {
+      font-size: 16px;
+      color: var(--color-text-secondary);
+      margin-bottom: 8px;
+      line-height: 1.7;
+    }
+    .content li strong {
+      color: var(--color-text-primary);
+    }
+    .updated {
       text-align: center;
+      color: var(--color-text-caption);
+      font-size: 14px;
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
     }
-    .header h1 { font-size: 1.6rem; font-weight: 700; }
-    .header a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9rem; }
-    .content {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 40px 20px 80px;
-    }
-    h2 {
-      font-size: 1.2rem;
-      color: #1a1a2e;
-      margin: 32px 0 12px;
-      padding-bottom: 8px;
-      border-bottom: 2px solid #e8e8e8;
-    }
-    p, li { font-size: 0.95rem; color: #444; margin-bottom: 12px; }
-    ul { padding-left: 20px; }
-    .updated { text-align: center; color: #999; font-size: 0.85rem; margin-top: 40px; }
+
     .footer {
-      background: #1a1a2e;
-      color: rgba(255,255,255,0.7);
-      text-align: center;
-      padding: 30px 20px;
-      font-size: 0.85rem;
+      background: var(--color-bg-secondary);
+      padding: 24px 20px;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
     }
-    .footer a { color: rgba(255,255,255,0.9); text-decoration: none; }
+    .footer-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-copy {
+      font-size: 13px;
+      color: var(--color-text-caption);
+    }
+    .footer-links a {
+      font-size: 13px;
+      color: var(--color-text-tertiary);
+      text-decoration: none;
+      margin-left: 24px;
+    }
+    .footer-links a:hover { text-decoration: underline; }
+
+    @media (max-width: 768px) {
+      .page-header { padding: 100px 20px 32px; }
+      .page-header h1 { font-size: 28px; }
+      .content h2 { font-size: 19px; margin-top: 36px; }
+      .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
+      .footer-links a { margin: 0 12px; }
+    }
   </style>
 </head>
 <body>
-  <div class="header">
-    <a href="/">&larr; トップに戻る</a>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">マイ診察券</a>
+      <a href="/" class="nav-back">&larr; トップに戻る</a>
+    </div>
+  </nav>
+
+  <div class="page-header">
     <h1>プライバシーポリシー</h1>
   </div>
 
@@ -99,8 +202,14 @@
     <p class="updated">最終更新日: 2026年3月7日</p>
   </div>
 
-  <div class="footer">
-    <p>&copy; 2026 Medical Craft Laboratory. All rights reserved.</p>
-  </div>
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-copy">&copy; 2026 Medical Craft Laboratory</span>
+      <div class="footer-links">
+        <a href="/privacy">プライバシーポリシー</a>
+        <a href="/support">サポート</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

@@ -7,133 +7,258 @@
   <meta name="description" content="マイ診察券アプリのサポートページ">
   <link rel="canonical" href="https://medicalcraft-lab.com/support">
   <style>
+    :root {
+      --color-text-primary: #1d1d1f;
+      --color-text-secondary: #424245;
+      --color-text-tertiary: #6e6e73;
+      --color-text-caption: #86868b;
+      --color-bg-primary: #ffffff;
+      --color-bg-secondary: #f5f5f7;
+      --color-accent: #0071e3;
+    }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
-      color: #333;
-      background: #f8f9fa;
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text',
+                   'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+      color: var(--color-text-primary);
+      background: var(--color-bg-primary);
       line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
     }
-    .header {
-      background: #1a1a2e;
-      color: white;
-      padding: 40px 20px;
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 20px;
+    }
+    .nav-inner {
+      max-width: 980px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      text-decoration: none;
+    }
+    .nav-back {
+      font-size: 13px;
+      color: var(--color-accent);
+      text-decoration: none;
+    }
+    .nav-back:hover { text-decoration: underline; }
+
+    .page-header {
+      padding: 120px 20px 48px;
       text-align: center;
     }
-    .header h1 { font-size: 1.6rem; font-weight: 700; }
-    .header a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9rem; }
+    .page-header h1 {
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--color-text-primary);
+      line-height: 1.15;
+    }
+    .page-header p {
+      font-size: 19px;
+      color: var(--color-text-tertiary);
+      margin-top: 12px;
+    }
+
     .content {
-      max-width: 720px;
+      max-width: 680px;
       margin: 0 auto;
-      padding: 40px 20px 80px;
+      padding: 0 20px 100px;
     }
-    h2 {
-      font-size: 1.2rem;
-      color: #1a1a2e;
-      margin: 32px 0 12px;
-      padding-bottom: 8px;
-      border-bottom: 2px solid #e8e8e8;
-    }
-    p, li { font-size: 0.95rem; color: #444; margin-bottom: 12px; }
+
     .faq-item {
-      background: white;
-      border-radius: 12px;
-      padding: 20px 24px;
+      background: var(--color-bg-secondary);
+      border-radius: 18px;
+      padding: 28px 32px;
       margin-bottom: 16px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
     }
     .faq-item h3 {
-      font-size: 1rem;
-      color: #1a1a2e;
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--color-text-primary);
       margin-bottom: 8px;
+      letter-spacing: 0.02em;
     }
     .faq-item h3::before {
       content: "Q. ";
-      color: #0096c7;
-      font-weight: 800;
+      color: var(--color-accent);
+      font-weight: 700;
     }
-    .faq-item p { margin-bottom: 0; }
+    .faq-item p {
+      font-size: 15px;
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+      margin: 0;
+    }
+
     .contact-box {
-      background: white;
-      border-radius: 12px;
-      padding: 28px;
+      background: var(--color-bg-secondary);
+      border-radius: 18px;
+      padding: 40px 32px;
       text-align: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-      margin-top: 32px;
+      margin-top: 48px;
     }
     .contact-box h3 {
-      font-size: 1.1rem;
-      color: #1a1a2e;
-      margin-bottom: 12px;
+      font-size: 21px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      margin-bottom: 8px;
+    }
+    .contact-box p {
+      font-size: 15px;
+      color: var(--color-text-tertiary);
+      margin-bottom: 0;
     }
     .contact-box a {
-      color: #0096c7;
+      color: var(--color-accent);
       font-weight: 600;
       text-decoration: none;
     }
-    .footer {
-      background: #1a1a2e;
-      color: rgba(255,255,255,0.7);
-      text-align: center;
-      padding: 30px 20px;
-      font-size: 0.85rem;
+    .contact-box a:hover { text-decoration: underline; }
+    .contact-email {
+      margin-top: 16px;
     }
-    .footer a { color: rgba(255,255,255,0.9); text-decoration: none; }
+
+    .footer {
+      background: var(--color-bg-secondary);
+      padding: 24px 20px;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+    }
+    .footer-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-copy {
+      font-size: 13px;
+      color: var(--color-text-caption);
+    }
+    .footer-links a {
+      font-size: 13px;
+      color: var(--color-text-tertiary);
+      text-decoration: none;
+      margin-left: 24px;
+    }
+    .footer-links a:hover { text-decoration: underline; }
+
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-in-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      .page-header { padding: 100px 20px 32px; }
+      .page-header h1 { font-size: 28px; }
+      .page-header p { font-size: 16px; }
+      .faq-item { padding: 24px; }
+      .contact-box { padding: 32px 24px; }
+      .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
+      .footer-links a { margin: 0 12px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .fade-in-up { opacity: 1; transform: none; transition: none; }
+    }
   </style>
 </head>
 <body>
-  <div class="header">
-    <a href="/">&larr; トップに戻る</a>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">マイ診察券</a>
+      <a href="/" class="nav-back">&larr; トップに戻る</a>
+    </div>
+  </nav>
+
+  <div class="page-header">
     <h1>サポート</h1>
+    <p>よくある質問と、お問い合わせ先をご案内します。</p>
   </div>
 
   <div class="content">
-    <h2>よくある質問（FAQ）</h2>
-
-    <div class="faq-item">
+    <div class="faq-item fade-in-up">
       <h3>データはどこに保存されますか？</h3>
       <p>すべてのデータはお使いのスマートフォン端末内にのみ保存されます。サーバーへの送信やクラウド保存は行っていないため、プライバシーが守られます。</p>
     </div>
 
-    <div class="faq-item">
+    <div class="faq-item fade-in-up">
       <h3>複数の医院の診察券を登録できますか？</h3>
       <p>はい、歯科・内科・眼科・皮膚科など、診療科を問わず何枚でも無料で登録できます。</p>
     </div>
 
-    <div class="faq-item">
+    <div class="faq-item fade-in-up">
       <h3>医院にこのアプリの導入が必要ですか？</h3>
       <p>いいえ、医院側には一切のシステム導入は必要ありません。患者さんが自分で医院名と患者番号を登録して使えます。受付では患者番号の大画面表示やQRコードを見せるだけです。</p>
     </div>
 
-    <div class="faq-item">
+    <div class="faq-item fade-in-up">
       <h3>予約メモは医院の予約システムと連動しますか？</h3>
       <p>現在は患者さん個人のメモ機能としてお使いいただけます。医院の予約台帳とは連動しません。予約の確認・変更は直接医院にお問い合わせください。</p>
     </div>
 
-    <div class="faq-item">
+    <div class="faq-item fade-in-up">
       <h3>機種変更したらデータは引き継げますか？</h3>
       <p>現在のバージョンではデータはスマートフォン端末内に保存されるため、機種変更時にデータの自動引き継ぎはできません。今後のアップデートで対応予定です。</p>
     </div>
 
-    <div class="faq-item">
+    <div class="faq-item fade-in-up">
       <h3>料金はかかりますか？</h3>
       <p>完全無料です。すべての機能を無料でご利用いただけます。広告も表示されません。</p>
     </div>
 
-    <div class="faq-item">
+    <div class="faq-item fade-in-up">
       <h3>生体認証ロックとは何ですか？</h3>
       <p>Face IDやTouch IDを使って、アプリを開く際にロックをかけることができます。設定画面から有効にできます。診察券や診療情報を第三者から保護します。</p>
     </div>
 
-    <div class="contact-box">
+    <div class="contact-box fade-in-up">
       <h3>上記で解決しない場合</h3>
       <p>お気軽にメールでお問い合わせください。</p>
-      <p style="margin-top: 12px;"><a href="mailto:support@medicalcraft-lab.com">support@medicalcraft-lab.com</a></p>
+      <p class="contact-email"><a href="mailto:support@medicalcraft-lab.com">support@medicalcraft-lab.com</a></p>
     </div>
   </div>
 
-  <div class="footer">
-    <p>&copy; 2026 Medical Craft Laboratory. All rights reserved.</p>
-  </div>
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-copy">&copy; 2026 Medical Craft Laboratory</span>
+      <div class="footer-links">
+        <a href="/privacy">プライバシーポリシー</a>
+        <a href="/support">サポート</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
