@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-nati
 import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { Colors } from '../../src/constants/colors';
+import { Radius } from '../../src/constants/design';
 import { useClinicStore } from '../../src/stores/useClinicStore';
 import { CardVisual } from '../../src/components/CardVisual';
 import { Department, DEPARTMENT_CONFIG } from '../../src/types';
@@ -34,7 +35,7 @@ export default function CardsScreen() {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>マイ診察券</Text>
+        <Text style={styles.title}>おまとめ診察券</Text>
         <Text style={styles.subtitle}>タップして詳細・QRコードを表示</Text>
       </View>
 
@@ -122,14 +123,14 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.surface,
     paddingHorizontal: 8,
     paddingVertical: 2,
-    borderRadius: 10,
+    borderRadius: Radius.pill,
     overflow: 'hidden',
   },
   addButton: {
     borderWidth: 2,
     borderStyle: 'dashed',
     borderColor: Colors.border,
-    borderRadius: 14,
+    borderRadius: Radius.md,
     padding: 24,
     alignItems: 'center',
     gap: 8,

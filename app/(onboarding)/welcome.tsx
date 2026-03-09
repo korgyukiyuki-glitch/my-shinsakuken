@@ -11,6 +11,7 @@ import {
 import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { Colors } from '../../src/constants/colors';
+import { Radius } from '../../src/constants/design';
 
 const { width } = Dimensions.get('window');
 
@@ -192,7 +193,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     marginBottom: 40,
     paddingVertical: 16,
-    borderRadius: 14,
+    borderRadius: Radius.pill,
   },
   nextText: {
     fontSize: 16,

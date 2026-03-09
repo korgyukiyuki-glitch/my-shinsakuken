@@ -11,6 +11,8 @@ import {
 import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { Colors } from '../../src/constants/colors';
+import { Radius } from '../../src/constants/design';
+import { InfoNote } from '../../src/components/ui/InfoNote';
 import { useAppointmentStore } from '../../src/stores/useAppointmentStore';
 import { useClinicStore } from '../../src/stores/useClinicStore';
 import { DateInput } from '../../src/components/DateInput';
@@ -169,12 +171,7 @@ export default function AppointmentAddScreen() {
           ))}
         </View>
 
-        <View style={styles.note}>
-          <Ionicons name="information-circle-outline" size={16} color={Colors.textTertiary} />
-          <Text style={styles.noteText}>
-            この予約メモはあなたの個人的な記録です。医院の予約台帳とは連動しません。
-          </Text>
-        </View>
+        <InfoNote>この予約メモはあなたの個人的な記録です。医院の予約台帳とは連動しません。</InfoNote>
       </ScrollView>
     </View>
   );
@@ -240,7 +237,7 @@ const styles = StyleSheet.create({
   clinicChip: {
     paddingHorizontal: 14,
     paddingVertical: 8,
-    borderRadius: 20,
+    borderRadius: Radius.pill,
     borderWidth: 1,
     borderColor: Colors.border,
     backgroundColor: Colors.surface,
@@ -261,7 +258,7 @@ const styles = StyleSheet.create({
   reminderChip: {
     paddingHorizontal: 14,
     paddingVertical: 8,
-    borderRadius: 20,
+    borderRadius: Radius.pill,
     borderWidth: 1,
     borderColor: Colors.border,
     backgroundColor: Colors.surface,
@@ -277,20 +274,5 @@ const styles = StyleSheet.create({
   },
   reminderTextActive: {
     color: 'white',
-  },
-  note: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    gap: 8,
-    backgroundColor: Colors.borderLight,
-    borderRadius: 10,
-    padding: 12,
-    marginTop: 8,
-  },
-  noteText: {
-    fontSize: 12,
-    color: Colors.textTertiary,
-    flex: 1,
-    lineHeight: 18,
   },
 });

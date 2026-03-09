@@ -13,6 +13,7 @@ import {
 import { useLocalSearchParams, router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { Colors } from '../../src/constants/colors';
+import { Radius, Shadows } from '../../src/constants/design';
 import { useClinicStore } from '../../src/stores/useClinicStore';
 import { CardVisual } from '../../src/components/CardVisual';
 
@@ -189,9 +190,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     gap: 8,
     backgroundColor: Colors.surface,
-    borderWidth: 2,
+    borderWidth: 1.5,
     borderColor: Colors.accent,
-    borderRadius: 14,
+    borderRadius: Radius.pill,
     paddingVertical: 14,
   },
   qrButtonText: {
@@ -204,8 +205,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     gap: 8,
-    backgroundColor: Colors.navy,
-    borderRadius: 14,
+    backgroundColor: Colors.accent,
+    borderRadius: Radius.pill,
     paddingVertical: 14,
   },
   numberButtonText: {
@@ -215,10 +216,9 @@ const styles = StyleSheet.create({
   },
   infoSection: {
     backgroundColor: Colors.surface,
-    borderRadius: 12,
+    borderRadius: Radius.md,
     padding: 16,
-    borderWidth: 1,
-    borderColor: Colors.border,
+    ...Shadows.md,
   },
   sectionTitle: {
     fontSize: 14,

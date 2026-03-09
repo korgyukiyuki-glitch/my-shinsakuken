@@ -4,6 +4,8 @@ import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import * as LocalAuthentication from 'expo-local-authentication';
 import { Colors } from '../../src/constants/colors';
+import { Radius, Shadows } from '../../src/constants/design';
+import { InfoNote } from '../../src/components/ui/InfoNote';
 import { useSettingsStore } from '../../src/stores/useSettingsStore';
 
 export default function SecuritySettingsScreen() {
@@ -103,12 +105,9 @@ export default function SecuritySettingsScreen() {
         </View>
 
         {!isAvailable && (
-          <View style={styles.warning}>
-            <Ionicons name="warning-outline" size={16} color={Colors.warning} />
-            <Text style={styles.warningText}>
-              この端末では生体認証が利用できません。端末の設定で生体認証を設定してからお試しください。
-            </Text>
-          </View>
+          <InfoNote variant="warning" icon="warning-outline">
+            この端末では生体認証が利用できません。端末の設定で生体認証を設定してからお試しください。
+          </InfoNote>
         )}
 
         <View style={styles.statusCard}>
@@ -122,12 +121,9 @@ export default function SecuritySettingsScreen() {
           </View>
         </View>
 
-        <View style={styles.note}>
-          <Ionicons name="shield-checkmark-outline" size={16} color={Colors.textTertiary} />
-          <Text style={styles.noteText}>
-            生体認証を有効にすると、アプリ起動時に認証が必要になります。診察券や予約情報のセキュリティが向上します。
-          </Text>
-        </View>
+        <InfoNote icon="shield-checkmark-outline">
+          生体認証を有効にすると、アプリ起動時に認証が必要になります。診察券や予約情報のセキュリティが向上します。
+        </InfoNote>
       </ScrollView>
     </View>
   );
@@ -177,10 +173,9 @@ const styles = StyleSheet.create({
   },
   optionsList: {
     backgroundColor: Colors.surface,
-    borderRadius: 14,
-    borderWidth: 1,
-    borderColor: Colors.border,
+    borderRadius: Radius.md,
     overflow: 'hidden',
+    ...Shadows.md,
   },
   optionRow: {
     flexDirection: 'row',
@@ -209,26 +204,11 @@ const styles = StyleSheet.create({
     color: Colors.textTertiary,
     marginTop: 2,
   },
-  warning: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    gap: 8,
-    backgroundColor: '#fef3c7',
-    borderRadius: 10,
-    padding: 12,
-  },
-  warningText: {
-    fontSize: 12,
-    color: '#92400e',
-    flex: 1,
-    lineHeight: 18,
-  },
   statusCard: {
     backgroundColor: Colors.surface,
-    borderRadius: 12,
+    borderRadius: Radius.md,
     padding: 16,
-    borderWidth: 1,
-    borderColor: Colors.border,
+    ...Shadows.md,
   },
   statusRow: {
     flexDirection: 'row',
@@ -260,19 +240,5 @@ const styles = StyleSheet.create({
   },
   statusInactiveText: {
     color: Colors.textTertiary,
-  },
-  note: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    gap: 8,
-    backgroundColor: Colors.borderLight,
-    borderRadius: 10,
-    padding: 12,
-  },
-  noteText: {
-    fontSize: 12,
-    color: Colors.textTertiary,
-    flex: 1,
-    lineHeight: 18,
   },
 });

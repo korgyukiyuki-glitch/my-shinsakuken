@@ -2,6 +2,8 @@ import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Switch } from 're
 import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { Colors } from '../../src/constants/colors';
+import { Radius, Shadows } from '../../src/constants/design';
+import { InfoNote } from '../../src/components/ui/InfoNote';
 import { useSettingsStore } from '../../src/stores/useSettingsStore';
 import type { ReminderType } from '../../src/types';
 
@@ -105,12 +107,9 @@ export default function NotificationSettingsScreen() {
           </Text>
         </View>
 
-        <View style={styles.note}>
-          <Ionicons name="information-circle-outline" size={16} color={Colors.textTertiary} />
-          <Text style={styles.noteText}>
-            リマインダーはプッシュ通知で送信されます。端末の設定でアプリの通知が有効になっていることをご確認ください。
-          </Text>
-        </View>
+        <InfoNote>
+          リマインダーはプッシュ通知で送信されます。端末の設定でアプリの通知が有効になっていることをご確認ください。
+        </InfoNote>
       </ScrollView>
     </View>
   );
@@ -166,10 +165,9 @@ const styles = StyleSheet.create({
   },
   optionsList: {
     backgroundColor: Colors.surface,
-    borderRadius: 14,
-    borderWidth: 1,
-    borderColor: Colors.border,
+    borderRadius: Radius.md,
     overflow: 'hidden',
+    ...Shadows.md,
   },
   optionRow: {
     flexDirection: 'row',
@@ -182,9 +180,9 @@ const styles = StyleSheet.create({
     borderBottomColor: Colors.borderLight,
   },
   optionIcon: {
-    width: 36,
-    height: 36,
-    borderRadius: 10,
+    width: 40,
+    height: 40,
+    borderRadius: 12,
     backgroundColor: Colors.accentLight,
     justifyContent: 'center',
     alignItems: 'center',
@@ -211,19 +209,5 @@ const styles = StyleSheet.create({
     fontSize: 13,
     color: Colors.textSecondary,
     fontWeight: '500',
-  },
-  note: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    gap: 8,
-    backgroundColor: Colors.borderLight,
-    borderRadius: 10,
-    padding: 12,
-  },
-  noteText: {
-    fontSize: 12,
-    color: Colors.textTertiary,
-    flex: 1,
-    lineHeight: 18,
   },
 });
