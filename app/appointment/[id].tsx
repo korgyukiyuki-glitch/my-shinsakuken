@@ -2,8 +2,6 @@ import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Alert } from 'rea
 import { useLocalSearchParams, router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { Colors } from '../../src/constants/colors';
-import { Radius, Shadows } from '../../src/constants/design';
-import { InfoNote } from '../../src/components/ui/InfoNote';
 import { useAppointmentStore } from '../../src/stores/useAppointmentStore';
 import { useClinicStore } from '../../src/stores/useClinicStore';
 
@@ -149,9 +147,12 @@ export default function AppointmentDetailScreen() {
 
         {/* Note about manual entries */}
         {appointment.source === 'manual' && (
-          <InfoNote>
-            この予約メモはあなたの個人的な記録です。医院の予約台帳とは連動しません。
-          </InfoNote>
+          <View style={styles.note}>
+            <Ionicons name="information-circle-outline" size={16} color={Colors.textTertiary} />
+            <Text style={styles.noteText}>
+              この予約メモはあなたの個人的な記録です。医院の予約台帳とは連動しません。
+            </Text>
+          </View>
         )}
 
         {/* Metadata */}
@@ -257,9 +258,10 @@ const styles = StyleSheet.create({
   },
   infoSection: {
     backgroundColor: Colors.surface,
-    borderRadius: Radius.md,
+    borderRadius: 12,
     padding: 16,
-    ...Shadows.md,
+    borderWidth: 1,
+    borderColor: Colors.border,
   },
   infoRow: {
     flexDirection: 'row',
@@ -291,6 +293,20 @@ const styles = StyleSheet.create({
     width: 10,
     height: 10,
     borderRadius: 5,
+  },
+  note: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: 8,
+    backgroundColor: Colors.borderLight,
+    borderRadius: 10,
+    padding: 12,
+  },
+  noteText: {
+    fontSize: 12,
+    color: Colors.textTertiary,
+    flex: 1,
+    lineHeight: 18,
   },
   meta: {
     fontSize: 11,

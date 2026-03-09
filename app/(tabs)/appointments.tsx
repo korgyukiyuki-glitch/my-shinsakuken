@@ -3,8 +3,6 @@ import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-nati
 import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { Colors } from '../../src/constants/colors';
-import { Shadows, Radius } from '../../src/constants/design';
-import { EmptyState } from '../../src/components/ui/EmptyState';
 import { useAppointmentStore } from '../../src/stores/useAppointmentStore';
 import { useClinicStore } from '../../src/stores/useClinicStore';
 
@@ -54,26 +52,30 @@ export default function AppointmentsScreen() {
         showsVerticalScrollIndicator={false}
       >
         {appointments.length === 0 ? (
-          tab === 'upcoming' ? (
-            <EmptyState
-              icon="calendar-outline"
-              title="予約メモがありません"
-              actionLabel="予約を追加"
-              onAction={() => router.push('/appointment/add')}
-            />
-          ) : (
-            <EmptyState
-              icon="time-outline"
-              title="過去の予約はありません"
-            />
-          )
+          <View style={styles.empty}>
+            <Ionicons name="calendar-outline" size={48} color={Colors.textTertiary} />
+            <Text style={styles.emptyText}>
+              {tab === 'upcoming' ? '今後の予約はありません' : '過去の予約はありません'}
+            </Text>
+            {tab === 'upcoming' && (
+              <TouchableOpacity
+                style={styles.emptyButton}
+                onPress={() => router.push('/appointment/add')}
+              >
+                <Text style={styles.emptyButtonText}>予約メモを追加</Text>
+              </TouchableOpacity>
+            )}
+          </View>
         ) : (
           appointments.map((appt) => {
             const clinic = getClinic(appt.clinicId);
             return (
               <TouchableOpacity
                 key={appt.id}
-                style={styles.apptCard}
+                style={[
+                  styles.apptCard,
+                  { borderLeftColor: clinic?.color ?? Colors.border },
+                ]}
                 onPress={() => router.push(`/appointment/${appt.id}`)}
               >
                 <View style={styles.apptHeader}>
@@ -164,11 +166,34 @@ const styles = StyleSheet.create({
     padding: 20,
     gap: 10,
   },
+  empty: {
+    alignItems: 'center',
+    paddingVertical: 60,
+    gap: 12,
+  },
+  emptyText: {
+    fontSize: 14,
+    color: Colors.textTertiary,
+  },
+  emptyButton: {
+    backgroundColor: Colors.accent,
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    borderRadius: 10,
+    marginTop: 8,
+  },
+  emptyButtonText: {
+    color: 'white',
+    fontWeight: '600',
+    fontSize: 14,
+  },
   apptCard: {
     backgroundColor: Colors.surface,
-    borderRadius: Radius.md,
+    borderRadius: 12,
     padding: 14,
-    ...Shadows.sm,
+    borderWidth: 1,
+    borderColor: Colors.border,
+    borderLeftWidth: 4,
   },
   apptHeader: {
     flexDirection: 'row',

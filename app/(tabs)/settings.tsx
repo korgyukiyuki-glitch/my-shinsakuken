@@ -2,7 +2,6 @@ import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-nati
 import { router, type Href } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { Colors } from '../../src/constants/colors';
-import { Shadows, Radius } from '../../src/constants/design';
 import Constants from 'expo-constants';
 
 interface MenuItem {
@@ -85,9 +84,8 @@ export default function SettingsScreen() {
 
         <View style={styles.footer}>
           <Ionicons name="medical" size={20} color={Colors.textTertiary} />
-          <Text style={styles.footerAppName}>おまとめ診察券</Text>
+          <Text style={styles.footerAppName}>マイ診察券</Text>
           <Text style={styles.footerVersion}>バージョン {appVersion}</Text>
-          <Text style={styles.footerCopyright}>© 2026 Medical Craft Laboratory</Text>
         </View>
       </ScrollView>
     </View>
@@ -118,9 +116,10 @@ const styles = StyleSheet.create({
   },
   menuSection: {
     backgroundColor: Colors.surface,
-    borderRadius: Radius.md,
+    borderRadius: 14,
+    borderWidth: 1,
+    borderColor: Colors.border,
     overflow: 'hidden',
-    ...Shadows.md,
   },
   menuItem: {
     flexDirection: 'row',
@@ -133,9 +132,9 @@ const styles = StyleSheet.create({
     borderBottomColor: Colors.borderLight,
   },
   menuIcon: {
-    width: 40,
-    height: 40,
-    borderRadius: 12,
+    width: 36,
+    height: 36,
+    borderRadius: 10,
     backgroundColor: Colors.accentLight,
     justifyContent: 'center',
     alignItems: 'center',
@@ -167,12 +166,6 @@ const styles = StyleSheet.create({
   footerVersion: {
     fontSize: 12,
     color: Colors.textTertiary,
-  },
-  footerCopyright: {
-    fontSize: 11,
-    color: Colors.textTertiary,
-    marginTop: 8,
-    letterSpacing: 0.3,
   },
   privacyLink: {
     flexDirection: 'row',

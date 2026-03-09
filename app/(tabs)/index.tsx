@@ -2,8 +2,6 @@ import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-nati
 import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { Colors } from '../../src/constants/colors';
-import { Shadows, Radius } from '../../src/constants/design';
-import { EmptyState } from '../../src/components/ui/EmptyState';
 import { useClinicStore } from '../../src/stores/useClinicStore';
 import { useAppointmentStore } from '../../src/stores/useAppointmentStore';
 import { DEPARTMENT_CONFIG } from '../../src/types';
@@ -26,7 +24,7 @@ export default function HomeScreen() {
       <View style={styles.header}>
         <View style={styles.headerLeft}>
           <Ionicons name="medical" size={28} color={Colors.accent} />
-          <Text style={styles.appName}>おまとめ診察券</Text>
+          <Text style={styles.appName}>マイ診察券</Text>
         </View>
       </View>
       <Text style={styles.tagline}>あなたの診察券をひとつに</Text>
@@ -109,13 +107,16 @@ export default function HomeScreen() {
 
       {/* Empty state */}
       {clinics.length === 0 && (
-        <EmptyState
-          icon="business-outline"
-          title="医院が登録されていません"
-          description="診察券を追加して始めましょう"
-          actionLabel="医院を追加"
-          onAction={() => router.push('/clinic/add')}
-        />
+        <TouchableOpacity
+          style={styles.emptyState}
+          onPress={() => router.push('/clinic/add')}
+        >
+          <Ionicons name="add-circle-outline" size={48} color={Colors.accent} />
+          <Text style={styles.emptyTitle}>医院を登録しましょう</Text>
+          <Text style={styles.emptyDesc}>
+            通っている医院の診察券を追加して、アプリで管理しましょう
+          </Text>
+        </TouchableOpacity>
       )}
     </ScrollView>
   );
@@ -129,7 +130,7 @@ const styles = StyleSheet.create({
   content: {
     padding: 20,
     paddingTop: 60,
-    gap: 20,
+    gap: 16,
   },
   header: {
     flexDirection: 'row',
@@ -201,11 +202,12 @@ const styles = StyleSheet.create({
   },
   emptyApptCard: {
     backgroundColor: Colors.surface,
-    borderRadius: Radius.md,
+    borderRadius: 16,
     padding: 24,
     alignItems: 'center',
     gap: 8,
-    ...Shadows.md,
+    borderWidth: 1,
+    borderColor: Colors.border,
   },
   emptyText: {
     fontSize: 13,
@@ -222,11 +224,12 @@ const styles = StyleSheet.create({
     flex: 1,
     minWidth: '45%',
     backgroundColor: Colors.surface,
-    borderRadius: Radius.md,
+    borderRadius: 12,
     padding: 16,
     alignItems: 'center',
     gap: 6,
-    ...Shadows.sm,
+    borderWidth: 1,
+    borderColor: Colors.border,
   },
   actionLabel: {
     fontSize: 12,
@@ -248,9 +251,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 12,
     backgroundColor: Colors.surface,
-    borderRadius: Radius.md,
+    borderRadius: 10,
     padding: 14,
-    ...Shadows.sm,
+    borderWidth: 1,
+    borderColor: Colors.border,
   },
   clinicDot: {
     width: 12,
@@ -271,4 +275,21 @@ const styles = StyleSheet.create({
     marginTop: 2,
   },
 
+  // Empty state
+  emptyState: {
+    alignItems: 'center',
+    padding: 32,
+    gap: 12,
+  },
+  emptyTitle: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: Colors.navy,
+  },
+  emptyDesc: {
+    fontSize: 13,
+    color: Colors.textTertiary,
+    textAlign: 'center',
+    lineHeight: 20,
+  },
 });

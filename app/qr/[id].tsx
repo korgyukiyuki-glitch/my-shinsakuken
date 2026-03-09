@@ -6,7 +6,6 @@ import * as Brightness from 'expo-brightness';
 import QRCode from 'react-native-qrcode-svg';
 import Barcode from '@kichiyaki/react-native-barcode-generator';
 import { Colors } from '../../src/constants/colors';
-import { Radius, Shadows } from '../../src/constants/design';
 import { useClinicStore } from '../../src/stores/useClinicStore';
 
 type CodeMode = 'qr' | 'barcode';
@@ -182,8 +181,12 @@ const styles = StyleSheet.create({
   codeContainer: {
     padding: 20,
     backgroundColor: 'white',
-    borderRadius: Radius.md,
-    ...Shadows.md,
+    borderRadius: 16,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    elevation: 4,
     minWidth: 280,
     alignItems: 'center',
   },

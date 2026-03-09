@@ -16,7 +16,6 @@ import { Ionicons } from '@expo/vector-icons';
 import * as FileSystem from 'expo-file-system/legacy';
 import DocumentScanner from 'react-native-document-scanner-plugin';
 import { Colors } from '../../../src/constants/colors';
-import { Radius } from '../../../src/constants/design';
 import { useClinicStore } from '../../../src/stores/useClinicStore';
 import { useAppointmentStore } from '../../../src/stores/useAppointmentStore';
 import { useHistoryStore } from '../../../src/stores/useHistoryStore';
@@ -386,7 +385,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     gap: 8,
     paddingVertical: 14,
-    borderRadius: Radius.pill,
+    borderRadius: 12,
     borderWidth: 1,
     borderColor: Colors.error,
     marginTop: 8,
@@ -407,7 +406,7 @@ const styles = StyleSheet.create({
     gap: 4,
     paddingHorizontal: 12,
     paddingVertical: 8,
-    borderRadius: Radius.pill,
+    borderRadius: 20,
     backgroundColor: Colors.surface,
     borderWidth: 1,
     borderColor: Colors.border,

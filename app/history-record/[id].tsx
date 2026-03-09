@@ -2,7 +2,6 @@ import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Alert } from 'rea
 import { useLocalSearchParams, router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { Colors } from '../../src/constants/colors';
-import { Radius, Shadows } from '../../src/constants/design';
 import { useHistoryStore } from '../../src/stores/useHistoryStore';
 import { useClinicStore } from '../../src/stores/useClinicStore';
 
@@ -192,9 +191,10 @@ const styles = StyleSheet.create({
   },
   infoSection: {
     backgroundColor: Colors.surface,
-    borderRadius: Radius.md,
+    borderRadius: 12,
     padding: 16,
-    ...Shadows.md,
+    borderWidth: 1,
+    borderColor: Colors.border,
   },
   infoRow: {
     flexDirection: 'row',

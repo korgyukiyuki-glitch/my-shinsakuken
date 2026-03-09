@@ -13,8 +13,6 @@ import {
 import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { Colors } from '../../src/constants/colors';
-import { Radius } from '../../src/constants/design';
-import { InfoNote } from '../../src/components/ui/InfoNote';
 import { useHistoryStore } from '../../src/stores/useHistoryStore';
 import { useClinicStore } from '../../src/stores/useClinicStore';
 import { DateInput } from '../../src/components/DateInput';
@@ -148,7 +146,12 @@ export default function HistoryRecordAddScreen() {
           numberOfLines={3}
         />
 
-        <InfoNote>この記録はあなたの個人的な診療メモです。正確な診療内容は医院にお問い合わせください。</InfoNote>
+        <View style={styles.note}>
+          <Ionicons name="information-circle-outline" size={16} color={Colors.textTertiary} />
+          <Text style={styles.noteText}>
+            この記録はあなたの個人的な診療メモです。正確な診療内容は医院にお問い合わせください。
+          </Text>
+        </View>
       </ScrollView>
     </KeyboardAvoidingView>
   );
@@ -214,7 +217,7 @@ const styles = StyleSheet.create({
   clinicChip: {
     paddingHorizontal: 14,
     paddingVertical: 8,
-    borderRadius: Radius.pill,
+    borderRadius: 20,
     borderWidth: 1,
     borderColor: Colors.border,
     backgroundColor: Colors.surface,
@@ -227,5 +230,20 @@ const styles = StyleSheet.create({
   noClinic: {
     fontSize: 13,
     color: Colors.error,
+  },
+  note: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: 8,
+    backgroundColor: Colors.borderLight,
+    borderRadius: 10,
+    padding: 12,
+    marginTop: 8,
+  },
+  noteText: {
+    fontSize: 12,
+    color: Colors.textTertiary,
+    flex: 1,
+    lineHeight: 18,
   },
 });
