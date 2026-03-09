@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "マイ診察券",
+    "name": "おまとめ診察券",
     "slug": "my-dental-card",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -10,7 +10,7 @@
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#1a1a2e"
+      "backgroundColor": "#F0832A"
     },
     "ios": {
       "supportsTablet": true,
@@ -19,7 +19,7 @@
       "infoPlist": {
         "NSFaceIDUsageDescription": "診察券データを保護するために生体認証を使用します",
         "NSCameraUsageDescription": "お薬手帳のシールや診察券を撮影するためにカメラを使用します",
-        "CFBundleDisplayName": "マイ診察券",
+        "CFBundleDisplayName": "おまとめ診察券",
         "ITSAppUsesNonExemptEncryption": false,
         "CFBundleLocalizations": ["ja", "en"],
         "CFBundleDevelopmentRegion": "ja"
@@ -27,7 +27,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#1a1a2e",
+        "backgroundColor": "#F0832A",
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
@@ -52,7 +52,7 @@
         "expo-notifications",
         {
           "icon": "./assets/icon.png",
-          "color": "#1a1a2e"
+          "color": "#F0832A"
         }
       ],
       [

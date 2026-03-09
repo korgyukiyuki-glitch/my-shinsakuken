@@ -13,6 +13,8 @@ import {
 import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { Colors } from '../../src/constants/colors';
+import { Radius, Shadows } from '../../src/constants/design';
+import { InfoNote } from '../../src/components/ui/InfoNote';
 import { useProfileStore } from '../../src/stores/useProfileStore';
 
 export default function ProfileEditScreen() {
@@ -104,12 +106,9 @@ export default function ProfileEditScreen() {
           />
         </View>
 
-        <View style={styles.note}>
-          <Ionicons name="lock-closed-outline" size={16} color={Colors.textTertiary} />
-          <Text style={styles.noteText}>
-            プロフィール情報はお使いの端末内にのみ保存されます。外部に送信されることはありません。
-          </Text>
-        </View>
+        <InfoNote icon="lock-closed-outline">
+          プロフィール情報はお使いの端末内にのみ保存されます。外部に送信されることはありません。
+        </InfoNote>
       </ScrollView>
     </KeyboardAvoidingView>
   );
@@ -184,25 +183,10 @@ const styles = StyleSheet.create({
   },
   input: {
     backgroundColor: Colors.surface,
-    borderRadius: 12,
+    borderRadius: Radius.sm,
     padding: 14,
     fontSize: 15,
     color: Colors.textPrimary,
-    borderWidth: 1,
-    borderColor: Colors.border,
-  },
-  note: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    gap: 8,
-    backgroundColor: Colors.borderLight,
-    borderRadius: 10,
-    padding: 12,
-  },
-  noteText: {
-    fontSize: 12,
-    color: Colors.textTertiary,
-    flex: 1,
-    lineHeight: 18,
+    ...Shadows.sm,
   },
 });

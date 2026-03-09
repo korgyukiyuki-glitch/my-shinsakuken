@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { View, ActivityIndicator } from 'react-native';
+import { View, ActivityIndicator, Text, Image, StyleSheet } from 'react-native';
 import { Stack, useRouter, useSegments } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import * as SystemUI from 'expo-system-ui';
@@ -74,15 +74,23 @@ export default function RootLayout() {
 
   if (!isHydrated) {
     return (
-      <View style={{ flex: 1, backgroundColor: Colors.background, justifyContent: 'center', alignItems: 'center' }}>
-        <StatusBar style="dark" />
-        <ActivityIndicator size="large" color={Colors.accent} />
+      <View style={splashStyles.container}>
+        <StatusBar style="light" />
+        <Image
+          source={require('../assets/splash-icon.png')}
+          style={splashStyles.icon}
+          resizeMode="contain"
+        />
+        <Text style={splashStyles.appName}>おまとめ診察券</Text>
+        <ActivityIndicator size="small" color="rgba(255,255,255,0.6)" style={splashStyles.spinner} />
+        <Text style={splashStyles.brand}>Medical Craft Laboratory</Text>
       </View>
     );
   }
 
   return (
     <ErrorBoundary>
+
       <AuthGuard>
         <StatusBar style="dark" />
         <Stack
@@ -162,3 +170,34 @@ export default function RootLayout() {
     </ErrorBoundary>
   );
 }
+
+const splashStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#1a1a2e',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  icon: {
+    width: 80,
+    height: 80,
+    marginBottom: 16,
+  },
+  appName: {
+    fontSize: 22,
+    fontWeight: '700',
+    color: '#ffffff',
+    letterSpacing: 0.5,
+  },
+  spinner: {
+    marginTop: 32,
+  },
+  brand: {
+    position: 'absolute',
+    bottom: 60,
+    fontSize: 12,
+    fontWeight: '500',
+    color: 'rgba(255,255,255,0.4)',
+    letterSpacing: 0.8,
+  },
+});

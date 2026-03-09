@@ -16,6 +16,7 @@ import { Ionicons } from '@expo/vector-icons';
 import * as FileSystem from 'expo-file-system/legacy';
 import DocumentScanner from 'react-native-document-scanner-plugin';
 import { Colors } from '../../src/constants/colors';
+import { Radius } from '../../src/constants/design';
 import { useClinicStore } from '../../src/stores/useClinicStore';
 import { ColorPicker } from '../../src/components/ColorPicker';
 import { Department, DEPARTMENT_CONFIG } from '../../src/types';
@@ -343,7 +344,7 @@ const styles = StyleSheet.create({
     gap: 4,
     paddingHorizontal: 12,
     paddingVertical: 8,
-    borderRadius: 20,
+    borderRadius: Radius.pill,
     backgroundColor: Colors.surface,
     borderWidth: 1,
     borderColor: Colors.border,

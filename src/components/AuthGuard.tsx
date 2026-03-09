@@ -93,7 +93,7 @@ export function AuthGuard({ children }: AuthGuardProps) {
             <View style={styles.iconContainer}>
               <Ionicons name="shield-checkmark" size={56} color={Colors.accent} />
             </View>
-            <Text style={styles.appName}>マイ診察券</Text>
+            <Text style={styles.appName}>おまとめ診察券</Text>
             <Text style={styles.subtitle}>ロックされています</Text>
 
             <TouchableOpacity

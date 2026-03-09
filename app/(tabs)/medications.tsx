@@ -2,6 +2,8 @@ import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-nati
 import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { Colors } from '../../src/constants/colors';
+import { Shadows, Radius } from '../../src/constants/design';
+import { EmptyState } from '../../src/components/ui/EmptyState';
 import { useMedicationStore } from '../../src/stores/useMedicationStore';
 import { useClinicStore } from '../../src/stores/useClinicStore';
 
@@ -29,26 +31,19 @@ export default function MedicationsScreen() {
         showsVerticalScrollIndicator={false}
       >
         {sortedMedications.length === 0 ? (
-          <View style={styles.empty}>
-            <Ionicons name="medical-outline" size={48} color={Colors.textTertiary} />
-            <Text style={styles.emptyText}>お薬の記録はまだありません</Text>
-            <TouchableOpacity
-              style={styles.emptyButton}
-              onPress={() => router.push('/medication/add')}
-            >
-              <Text style={styles.emptyButtonText}>お薬を追加</Text>
-            </TouchableOpacity>
-          </View>
+          <EmptyState
+            icon="medkit-outline"
+            title="お薬の記録がありません"
+            actionLabel="お薬を追加"
+            onAction={() => router.push('/medication/add')}
+          />
         ) : (
           sortedMedications.map((med) => {
             const clinic = getClinic(med.clinicId);
             return (
               <TouchableOpacity
                 key={med.id}
-                style={[
-                  styles.recordCard,
-                  { borderLeftColor: clinic?.color ?? Colors.border },
-                ]}
+                style={styles.recordCard}
                 onPress={() => router.push(`/medication/${med.id}`)}
               >
                 <View style={styles.recordHeader}>
@@ -124,34 +119,11 @@ const styles = StyleSheet.create({
     gap: 10,
     paddingBottom: 100,
   },
-  empty: {
-    alignItems: 'center',
-    paddingVertical: 60,
-    gap: 12,
-  },
-  emptyText: {
-    fontSize: 14,
-    color: Colors.textTertiary,
-  },
-  emptyButton: {
-    backgroundColor: Colors.accent,
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    borderRadius: 10,
-    marginTop: 8,
-  },
-  emptyButtonText: {
-    color: 'white',
-    fontWeight: '600',
-    fontSize: 14,
-  },
   recordCard: {
     backgroundColor: Colors.surface,
-    borderRadius: 12,
+    borderRadius: Radius.md,
     padding: 14,
-    borderWidth: 1,
-    borderColor: Colors.border,
-    borderLeftWidth: 4,
+    ...Shadows.sm,
   },
   recordHeader: {
     flexDirection: 'row',
@@ -202,10 +174,6 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.accent,
     justifyContent: 'center',
     alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.2,
-    shadowRadius: 8,
-    elevation: 6,
+    ...Shadows.lg,
   },
 });

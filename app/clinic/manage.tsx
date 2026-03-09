@@ -2,6 +2,7 @@ import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-nati
 import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { Colors } from '../../src/constants/colors';
+import { Radius, Shadows } from '../../src/constants/design';
 import { useClinicStore } from '../../src/stores/useClinicStore';
 
 export default function ClinicManageScreen() {
@@ -191,10 +192,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: Colors.surface,
-    borderRadius: 12,
+    borderRadius: Radius.md,
     padding: 12,
-    borderWidth: 1,
-    borderColor: Colors.border,
+    ...Shadows.sm,
     gap: 10,
   },
   reorderButtons: {
@@ -233,7 +233,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderStyle: 'dashed',
     borderColor: Colors.border,
-    borderRadius: 12,
+    borderRadius: Radius.md,
     marginTop: 4,
   },
   addRowText: {
