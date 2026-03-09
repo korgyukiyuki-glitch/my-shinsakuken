@@ -85,7 +85,7 @@ export default function SettingsScreen() {
 
         <View style={styles.footer}>
           <Ionicons name="medical" size={20} color={Colors.textTertiary} />
-          <Text style={styles.footerAppName}>おまとめ診察券</Text>
+          <Text style={styles.footerAppName}>マイ診察券</Text>
           <Text style={styles.footerVersion}>バージョン {appVersion}</Text>
           <Text style={styles.footerCopyright}>© 2026 Medical Craft Laboratory</Text>
         </View>

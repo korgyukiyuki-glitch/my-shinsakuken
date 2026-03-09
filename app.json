@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "おまとめ診察券",
+    "name": "マイ診察券",
     "slug": "my-dental-card",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -19,7 +19,7 @@
       "infoPlist": {
         "NSFaceIDUsageDescription": "診察券データを保護するために生体認証を使用します",
         "NSCameraUsageDescription": "お薬手帳のシールや診察券を撮影するためにカメラを使用します",
-        "CFBundleDisplayName": "おまとめ診察券",
+        "CFBundleDisplayName": "マイ診察券",
         "ITSAppUsesNonExemptEncryption": false,
         "CFBundleLocalizations": ["ja", "en"],
         "CFBundleDevelopmentRegion": "ja"

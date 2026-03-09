@@ -35,7 +35,7 @@ export default function CardsScreen() {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>おまとめ診察券</Text>
+        <Text style={styles.title}>マイ診察券</Text>
         <Text style={styles.subtitle}>タップして詳細・QRコードを表示</Text>
       </View>
 

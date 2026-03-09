@@ -1,5 +1,5 @@
 /**
- * Apple Design Tokens — おまとめ診察券
+ * Apple Design Tokens — マイ診察券
  * 影・角丸・アイコンサイズの統一定義
  */
 

@@ -26,7 +26,7 @@ export default function HomeScreen() {
       <View style={styles.header}>
         <View style={styles.headerLeft}>
           <Ionicons name="medical" size={28} color={Colors.accent} />
-          <Text style={styles.appName}>おまとめ診察券</Text>
+          <Text style={styles.appName}>マイ診察券</Text>
         </View>
       </View>
       <Text style={styles.tagline}>あなたの診察券をひとつに</Text>

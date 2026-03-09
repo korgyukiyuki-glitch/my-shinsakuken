@@ -81,7 +81,7 @@ export default function RootLayout() {
           style={splashStyles.icon}
           resizeMode="contain"
         />
-        <Text style={splashStyles.appName}>おまとめ診察券</Text>
+        <Text style={splashStyles.appName}>マイ診察券</Text>
         <ActivityIndicator size="small" color="rgba(255,255,255,0.6)" style={splashStyles.spinner} />
         <Text style={splashStyles.brand}>Medical Craft Laboratory</Text>
       </View>
