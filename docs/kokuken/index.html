@@ -290,6 +290,111 @@
       line-height: 1.6;
     }
 
+    /* Pricing */
+    .pricing {
+      text-align: center;
+    }
+    .pricing-cards {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+    .pricing-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 40px 32px;
+      width: 280px;
+      border: 2px solid rgba(0, 0, 0, 0.06);
+      position: relative;
+    }
+    .pricing-card.recommended {
+      border-color: var(--color-accent);
+      box-shadow: 0 8px 40px rgba(0, 113, 227, 0.12);
+    }
+    .pricing-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #f97316;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 5px 16px;
+      border-radius: 20px;
+      letter-spacing: 0.04em;
+    }
+    .pricing-card .plan-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--color-text-tertiary);
+      margin-bottom: 8px;
+    }
+    .pricing-card .plan-price {
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--color-text-primary);
+      line-height: 1.1;
+    }
+    .pricing-card .plan-price span {
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--color-text-tertiary);
+    }
+    .pricing-card .plan-detail {
+      font-size: 14px;
+      color: var(--color-accent);
+      font-weight: 600;
+      margin-top: 6px;
+    }
+    .pricing-card .plan-features {
+      list-style: none;
+      margin-top: 24px;
+      text-align: left;
+    }
+    .pricing-card .plan-features li {
+      font-size: 14px;
+      color: var(--color-text-secondary);
+      padding: 6px 0;
+      padding-left: 24px;
+      position: relative;
+      line-height: 1.5;
+    }
+    .pricing-card .plan-features li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #16a34a;
+      font-weight: 700;
+    }
+    .pricing-highlight {
+      margin-top: 40px;
+      background: #eff6ff;
+      border-radius: 16px;
+      padding: 24px 32px;
+      display: inline-block;
+    }
+    .pricing-highlight p {
+      font-size: 17px;
+      color: var(--color-text-primary);
+      font-weight: 600;
+      margin: 0;
+    }
+    .pricing-highlight p span {
+      color: var(--color-accent);
+    }
+    .pricing-trial {
+      margin-top: 16px;
+      font-size: 15px;
+      color: var(--color-text-tertiary);
+    }
+    @media (max-width: 768px) {
+      .pricing-cards { flex-direction: column; align-items: center; }
+      .pricing-card { width: 100%; max-width: 320px; }
+    }
+
     /* CTA */
     .cta-section {
       background: var(--color-bg-secondary);
@@ -494,6 +599,43 @@
           <p>AES-256-GCMで暗号化してクラウドに安全にバックアップ。</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="section pricing" id="pricing">
+    <div class="section-inner">
+      <div class="section-header fade-in-up">
+        <h2>シンプルな料金プラン</h2>
+        <p>すべての機能が使える、わかりやすい定額制。</p>
+      </div>
+      <div class="pricing-cards fade-in-up">
+        <div class="pricing-card recommended">
+          <div class="pricing-badge">おすすめ</div>
+          <div class="plan-name">年額プラン</div>
+          <div class="plan-price">&yen;9,800<span>/年</span></div>
+          <div class="plan-detail">月あたり約&yen;817 &mdash; 18%OFF</div>
+          <ul class="plan-features">
+            <li>すべての検査・評価機能</li>
+            <li>管理計画書の自動作成・PDF出力</li>
+            <li>暗号化バックアップ・同期</li>
+            <li>医院のiPadは何台でもOK</li>
+          </ul>
+        </div>
+        <div class="pricing-card">
+          <div class="plan-name">月額プラン</div>
+          <div class="plan-price">&yen;1,000<span>/月</span></div>
+          <ul class="plan-features">
+            <li>すべての検査・評価機能</li>
+            <li>管理計画書の自動作成・PDF出力</li>
+            <li>暗号化バックアップ・同期</li>
+            <li>医院のiPadは何台でもOK</li>
+          </ul>
+        </div>
+      </div>
+      <div class="pricing-highlight fade-in-up">
+        <p>1つのアカウントで、医院の<span>iPadは何台でもOK</span></p>
+      </div>
+      <p class="pricing-trial fade-in-up">すべてのプランに2週間の無料トライアル付き</p>
     </div>
   </section>
 
