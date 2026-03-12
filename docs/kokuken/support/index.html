@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>サポート | 口腔機能管理くん</title>
+  <meta name="description" content="口腔機能管理くんアプリのサポートページ">
+  <link rel="canonical" href="https://medicalcraft-lab.com/kokuken/support">
+  <style>
+    :root {
+      --color-text-primary: #1d1d1f;
+      --color-text-secondary: #424245;
+      --color-text-tertiary: #6e6e73;
+      --color-text-caption: #86868b;
+      --color-bg-primary: #ffffff;
+      --color-bg-secondary: #f5f5f7;
+      --color-accent: #0071e3;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text',
+                   'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+      color: var(--color-text-primary);
+      background: var(--color-bg-primary);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 20px;
+    }
+    .nav-inner {
+      max-width: 980px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      text-decoration: none;
+    }
+    .nav-back {
+      font-size: 13px;
+      color: var(--color-accent);
+      text-decoration: none;
+    }
+    .nav-back:hover { text-decoration: underline; }
+
+    .page-header {
+      padding: 120px 20px 48px;
+      text-align: center;
+    }
+    .page-header h1 {
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--color-text-primary);
+      line-height: 1.15;
+    }
+    .page-header p {
+      font-size: 19px;
+      color: var(--color-text-tertiary);
+      margin-top: 12px;
+    }
+
+    .content {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 20px 100px;
+    }
+
+    .faq-item {
+      background: var(--color-bg-secondary);
+      border-radius: 18px;
+      padding: 28px 32px;
+      margin-bottom: 16px;
+    }
+    .faq-item h3 {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      margin-bottom: 8px;
+      letter-spacing: 0.02em;
+    }
+    .faq-item h3::before {
+      content: "Q. ";
+      color: var(--color-accent);
+      font-weight: 700;
+    }
+    .faq-item p {
+      font-size: 15px;
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .contact-box {
+      background: var(--color-bg-secondary);
+      border-radius: 18px;
+      padding: 40px 32px;
+      text-align: center;
+      margin-top: 48px;
+    }
+    .contact-box h3 {
+      font-size: 21px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      margin-bottom: 8px;
+    }
+    .contact-box p {
+      font-size: 15px;
+      color: var(--color-text-tertiary);
+      margin-bottom: 0;
+    }
+    .contact-box a {
+      color: var(--color-accent);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .contact-box a:hover { text-decoration: underline; }
+    .contact-email {
+      margin-top: 16px;
+    }
+
+    .footer {
+      background: var(--color-bg-secondary);
+      padding: 24px 20px;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+    }
+    .footer-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-copy {
+      font-size: 13px;
+      color: var(--color-text-caption);
+    }
+    .footer-links a {
+      font-size: 13px;
+      color: var(--color-text-tertiary);
+      text-decoration: none;
+      margin-left: 24px;
+    }
+    .footer-links a:hover { text-decoration: underline; }
+
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-in-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      .page-header { padding: 100px 20px 32px; }
+      .page-header h1 { font-size: 28px; }
+      .page-header p { font-size: 16px; }
+      .faq-item { padding: 24px; }
+      .contact-box { padding: 32px 24px; }
+      .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
+      .footer-links a { margin: 0 12px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .fade-in-up { opacity: 1; transform: none; transition: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/kokuken/" class="nav-logo">口腔機能管理くん</a>
+      <a href="/kokuken/" class="nav-back">&larr; トップに戻る</a>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <h1>サポート</h1>
+    <p>よくある質問と、お問い合わせ先をご案内します。</p>
+  </div>
+
+  <div class="content">
+    <div class="faq-item fade-in-up">
+      <h3>PINコードを忘れてしまいました</h3>
+      <p>アプリを再インストールすると初期化されます。クラウドバックアップを設定済みの場合は、再インストール後にバックアップから復元できます。</p>
+    </div>
+
+    <div class="faq-item fade-in-up">
+      <h3>データのバックアップ方法は？</h3>
+      <p>ホーム画面の「データ管理」からバックアップできます。ローカル（JSON）とクラウド（Firestore）の2種類に対応しています。</p>
+    </div>
+
+    <div class="faq-item fade-in-up">
+      <h3>複数のデバイスでデータを共有できますか？</h3>
+      <p>クラウドバックアップを利用することで、別のデバイスにデータを移行できます。同時編集には対応していません。</p>
+    </div>
+
+    <div class="faq-item fade-in-up">
+      <h3>患者データは安全ですか？</h3>
+      <p>データはデバイス内に暗号化保存されます。クラウドバックアップ時もAES-256-GCMで暗号化されるため、第三者がデータを閲覧することはできません。</p>
+    </div>
+
+    <div class="faq-item fade-in-up">
+      <h3>口腔機能低下症と発達不全症の両方に対応していますか？</h3>
+      <p>はい。ホーム画面からモードを選択して切り替えられます。低下症はK1〜K7の7項目、発達不全症はC1〜C17の17項目チェックリストに対応しています。</p>
+    </div>
+
+    <div class="faq-item fade-in-up">
+      <h3>PDF出力した管理計画書は印刷できますか？</h3>
+      <p>はい。PDF出力後、iOSの共有機能からAirPrintで直接印刷したり、メールやクラウドストレージに送信できます。</p>
+    </div>
+
+    <div class="faq-item fade-in-up">
+      <h3>オフラインでも使えますか？</h3>
+      <p>はい。検査・評価・PDF出力などの基本機能はすべてオフラインで動作します。クラウドバックアップのみインターネット接続が必要です。</p>
+    </div>
+
+    <div class="contact-box fade-in-up">
+      <h3>上記で解決しない場合</h3>
+      <p>お気軽にメールでお問い合わせください。</p>
+      <p class="contact-email"><a href="mailto:korg.yukiyuki@gmail.com">korg.yukiyuki@gmail.com</a></p>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-copy">&copy; 2026 Medical Craft Laboratory</span>
+      <div class="footer-links">
+        <a href="/kokuken/privacy/">プライバシーポリシー</a>
+        <a href="/kokuken/support/">サポート</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

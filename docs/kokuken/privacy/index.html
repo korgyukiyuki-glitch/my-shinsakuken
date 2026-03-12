@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>プライバシーポリシー | 口腔機能管理くん</title>
+  <meta name="description" content="口腔機能管理くんアプリのプライバシーポリシー">
+  <link rel="canonical" href="https://medicalcraft-lab.com/kokuken/privacy">
+  <style>
+    :root {
+      --color-text-primary: #1d1d1f;
+      --color-text-secondary: #424245;
+      --color-text-tertiary: #6e6e73;
+      --color-text-caption: #86868b;
+      --color-bg-primary: #ffffff;
+      --color-bg-secondary: #f5f5f7;
+      --color-accent: #0071e3;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text',
+                   'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+      color: var(--color-text-primary);
+      background: var(--color-bg-primary);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 20px;
+    }
+    .nav-inner {
+      max-width: 980px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      text-decoration: none;
+    }
+    .nav-back {
+      font-size: 13px;
+      color: var(--color-accent);
+      text-decoration: none;
+    }
+    .nav-back:hover { text-decoration: underline; }
+
+    .page-header {
+      padding: 120px 20px 48px;
+      text-align: center;
+    }
+    .page-header h1 {
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--color-text-primary);
+      line-height: 1.15;
+    }
+
+    .content {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 20px 100px;
+    }
+    .content > p {
+      font-size: 17px;
+      color: var(--color-text-secondary);
+      margin-bottom: 16px;
+      line-height: 1.8;
+    }
+    .content h2 {
+      font-size: 21px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      margin: 48px 0 12px;
+      letter-spacing: 0.02em;
+    }
+    .content ul {
+      padding-left: 20px;
+      margin-bottom: 16px;
+    }
+    .content li {
+      font-size: 16px;
+      color: var(--color-text-secondary);
+      margin-bottom: 8px;
+      line-height: 1.7;
+    }
+    .content li strong {
+      color: var(--color-text-primary);
+    }
+    .updated {
+      text-align: center;
+      color: var(--color-text-caption);
+      font-size: 14px;
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .footer {
+      background: var(--color-bg-secondary);
+      padding: 24px 20px;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+    }
+    .footer-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-copy {
+      font-size: 13px;
+      color: var(--color-text-caption);
+    }
+    .footer-links a {
+      font-size: 13px;
+      color: var(--color-text-tertiary);
+      text-decoration: none;
+      margin-left: 24px;
+    }
+    .footer-links a:hover { text-decoration: underline; }
+
+    @media (max-width: 768px) {
+      .page-header { padding: 100px 20px 32px; }
+      .page-header h1 { font-size: 28px; }
+      .content h2 { font-size: 19px; margin-top: 36px; }
+      .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
+      .footer-links a { margin: 0 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/kokuken/" class="nav-logo">口腔機能管理くん</a>
+      <a href="/kokuken/" class="nav-back">&larr; トップに戻る</a>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <h1>プライバシーポリシー</h1>
+  </div>
+
+  <div class="content">
+    <p>Medical Craft Laboratory（以下「当方」）は、口腔機能管理くん（以下「本アプリ」）をご利用いただくユーザーのプライバシーを尊重し、個人情報の保護に努めます。本プライバシーポリシーは、本アプリにおける情報の取り扱いについて説明するものです。</p>
+
+    <h2>1. 収集する情報</h2>
+    <p>本アプリは、以下の情報をデバイス上に保存します。</p>
+    <ul>
+      <li>患者の基本情報（氏名、生年月日、性別、患者ID）</li>
+      <li>口腔機能検査の評価データ</li>
+      <li>管理計画書の内容</li>
+      <li>アプリの設定情報（PINコード等）</li>
+    </ul>
+    <p>これらの情報は原則としてユーザーのデバイス内にのみ保存され、当方のサーバーに自動送信されることはありません。</p>
+
+    <h2>2. クラウドバックアップ</h2>
+    <p>ユーザーが任意でクラウドバックアップ機能を利用する場合、データはAES-256-GCM方式で暗号化された上でFirebase（Google Cloud）に保存されます。暗号化キーはユーザーのデバイスにのみ保持され、当方がデータの内容を閲覧することはできません。</p>
+
+    <h2>3. 第三者への提供</h2>
+    <p>当方は、ユーザーの個人情報を第三者に提供、販売、貸与することはありません。ただし、法令に基づく開示請求があった場合はこの限りではありません。</p>
+
+    <h2>4. 分析・広告</h2>
+    <p>本アプリは、広告の表示や第三者の分析ツール（Google Analytics等）を使用しません。ユーザーの行動データを収集・追跡することはありません。</p>
+
+    <h2>5. データの管理</h2>
+    <p>ユーザーは、アプリ内の「データ管理」画面から、いつでもデータのバックアップ・エクスポート・削除を行うことができます。アプリを削除すると、デバイス内のすべてのデータが消去されます。</p>
+
+    <h2>6. セキュリティ</h2>
+    <p>本アプリは以下のセキュリティ対策を実施しています。</p>
+    <ul>
+      <li>PINコードによるアプリロック</li>
+      <li>ローカルデータの暗号化保存</li>
+      <li>クラウドバックアップ時のAES-256-GCM暗号化</li>
+    </ul>
+
+    <h2>7. お子様のプライバシー</h2>
+    <p>本アプリは医療従事者が使用することを想定しています。13歳未満のお子様が直接使用することは想定しておらず、お子様から意図的に個人情報を収集することはありません。</p>
+
+    <h2>8. ポリシーの変更</h2>
+    <p>本ポリシーは、必要に応じて改定することがあります。重要な変更がある場合は、アプリ内またはこのページにてお知らせします。</p>
+
+    <h2>9. お問い合わせ</h2>
+    <p>本ポリシーに関するお問い合わせは、以下までご連絡ください。</p>
+    <p><strong>メールアドレス</strong>: korg.yukiyuki@gmail.com</p>
+
+    <p class="updated">最終更新日: 2026年3月12日</p>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-copy">&copy; 2026 Medical Craft Laboratory</span>
+      <div class="footer-links">
+        <a href="/kokuken/privacy/">プライバシーポリシー</a>
+        <a href="/kokuken/support/">サポート</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
