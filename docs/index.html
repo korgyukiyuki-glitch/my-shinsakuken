@@ -14,7 +14,7 @@
       --color-text-caption: #86868b;
       --color-bg-primary: #ffffff;
       --color-bg-secondary: #f5f5f7;
-      --color-bg-dark: #1d1d1f;
+      --color-bg-dark: #0a0a0a;
       --color-accent: #0071e3;
       --color-accent-hover: #0077ed;
     }
@@ -29,6 +29,7 @@
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
     }
 
     /* Navigation */
@@ -38,15 +39,22 @@
       left: 0;
       right: 0;
       z-index: 100;
-      background: rgba(255, 255, 255, 0.72);
-      backdrop-filter: saturate(180%) blur(20px);
-      -webkit-backdrop-filter: saturate(180%) blur(20px);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
       height: 48px;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 0 20px;
+      transition: background 0.4s ease, border-color 0.4s ease;
+    }
+    .nav.nav-scrolled {
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    }
+    .nav.nav-dark {
+      background: transparent;
+      border-bottom: 1px solid transparent;
     }
     .nav-inner {
       max-width: 980px;
@@ -58,50 +66,141 @@
     .nav-logo {
       font-size: 15px;
       font-weight: 600;
-      color: var(--color-text-primary);
       text-decoration: none;
       letter-spacing: 0.02em;
+      transition: color 0.4s ease;
     }
+    .nav.nav-dark .nav-logo { color: rgba(255, 255, 255, 0.92); }
+    .nav.nav-scrolled .nav-logo { color: var(--color-text-primary); }
     .nav-links a {
       font-size: 13px;
       font-weight: 400;
-      color: var(--color-text-primary);
       text-decoration: none;
       padding: 0 12px;
       opacity: 0.8;
-      transition: opacity 0.3s ease;
+      transition: opacity 0.3s ease, color 0.4s ease;
     }
+    .nav.nav-dark .nav-links a { color: rgba(255, 255, 255, 0.8); }
+    .nav.nav-scrolled .nav-links a { color: var(--color-text-primary); }
     .nav-links a:hover { opacity: 1; }
 
-    /* Hero */
+    /* Hero — Dark, cinematic */
     .hero {
-      padding: 160px 20px 120px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      background: var(--color-bg-primary);
+      background: var(--color-bg-dark);
+      padding: 120px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(ellipse at 50% 50%, rgba(0, 113, 227, 0.08) 0%, transparent 60%);
+      animation: heroGlow 8s ease-in-out infinite alternate;
+    }
+    @keyframes heroGlow {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(2%, -2%) scale(1.05); }
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
     }
     .hero-brand {
       font-size: 13px;
-      font-weight: 600;
-      color: var(--color-accent);
-      letter-spacing: 0.12em;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.5);
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      margin-bottom: 20px;
+      margin-bottom: 32px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: heroFadeIn 1s ease 0.2s forwards;
     }
     .hero h1 {
-      font-size: 56px;
+      font-size: 64px;
       font-weight: 700;
       line-height: 1.1;
-      letter-spacing: -0.02em;
-      color: var(--color-text-primary);
-      margin-bottom: 24px;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      margin-bottom: 28px;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: heroFadeIn 1s ease 0.5s forwards;
     }
     .hero .subtitle {
       font-size: 21px;
       font-weight: 400;
-      line-height: 1.6;
-      color: var(--color-text-secondary);
-      max-width: 560px;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.6);
+      max-width: 480px;
       margin: 0 auto;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: heroFadeIn 1s ease 0.8s forwards;
+    }
+    .hero-scroll-hint {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      animation: heroFadeIn 1s ease 1.2s forwards;
+    }
+    .hero-scroll-hint span {
+      display: block;
+      width: 1px;
+      height: 48px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
+      margin: 0 auto;
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+    @keyframes heroFadeIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.3; transform: scaleY(1); }
+      50% { opacity: 0.8; transform: scaleY(1.2); }
+    }
+
+    /* Mission Section */
+    .mission {
+      padding: 140px 20px;
+      background: var(--color-bg-primary);
+    }
+    .mission-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .mission-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--color-accent);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .mission h2 {
+      font-size: 32px;
+      font-weight: 600;
+      line-height: 1.6;
+      color: var(--color-text-primary);
+      margin-bottom: 32px;
+    }
+    .mission p {
+      font-size: 17px;
+      color: var(--color-text-tertiary);
+      line-height: 2;
     }
 
     /* Section Common */
@@ -142,24 +241,40 @@
       background: var(--color-bg-primary);
       border-radius: 24px;
       padding: 48px 40px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease;
       text-decoration: none;
       color: inherit;
       display: block;
+      position: relative;
+      overflow: hidden;
     }
+    .product-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--color-accent), #34c759);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .product-card:hover::after { transform: scaleX(1); }
     .product-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
     }
     .product-icon {
       font-size: 48px;
       margin-bottom: 20px;
     }
     .product-label {
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 600;
       color: var(--color-accent);
-      letter-spacing: 0.04em;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
       margin-bottom: 8px;
     }
     .product-card h3 {
@@ -202,14 +317,17 @@
       font-weight: 500;
       color: var(--color-accent);
       text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: gap 0.3s ease;
     }
-    .product-link:hover { text-decoration: underline; }
+    .product-card:hover .product-link { gap: 8px; }
 
     /* Footer */
     .footer {
-      background: var(--color-bg-secondary);
-      padding: 24px 20px;
-      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      background: var(--color-bg-dark);
+      padding: 48px 20px;
     }
     .footer-inner {
       max-width: 980px;
@@ -220,54 +338,61 @@
     }
     .footer-links a {
       font-size: 13px;
-      color: var(--color-text-tertiary);
+      color: rgba(255, 255, 255, 0.5);
       text-decoration: none;
       margin-left: 24px;
+      transition: color 0.3s ease;
     }
-    .footer-links a:hover {
-      text-decoration: underline;
-      color: var(--color-text-secondary);
-    }
+    .footer-links a:hover { color: rgba(255, 255, 255, 0.8); }
     .footer-copy {
       font-size: 13px;
-      color: var(--color-text-caption);
+      color: rgba(255, 255, 255, 0.35);
     }
 
-    /* Scroll Animation */
+    /* Scroll Animations */
     .fade-in-up {
       opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
     .fade-in-up.visible {
       opacity: 1;
       transform: translateY(0);
     }
+    .stagger-1 { transition-delay: 0.1s; }
+    .stagger-2 { transition-delay: 0.25s; }
 
     /* Responsive */
     @media (max-width: 768px) {
-      .hero { padding: 120px 20px 80px; }
-      .hero h1 { font-size: 36px; }
+      .hero { min-height: 85vh; padding: 100px 20px; }
+      .hero h1 { font-size: 40px; }
       .hero .subtitle { font-size: 18px; }
+      .mission { padding: 100px 20px; }
+      .mission h2 { font-size: 24px; }
       .section { padding: 80px 20px; }
       .section-header h2 { font-size: 28px; }
       .section-header p { font-size: 16px; }
       .product-grid { grid-template-columns: 1fr; }
       .product-card { padding: 36px 28px; }
       .product-card h3 { font-size: 24px; }
-      .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
+      .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
       .footer-links a { margin: 0 12px; }
       .nav-links { display: none; }
     }
 
     @media (prefers-reduced-motion: reduce) {
       .fade-in-up { opacity: 1; transform: none; transition: none; }
+      .hero-brand, .hero h1, .hero .subtitle, .hero-scroll-hint {
+        opacity: 1; transform: none; animation: none;
+      }
+      .hero::before { animation: none; }
     }
   </style>
 </head>
 <body>
 
-  <nav class="nav">
+  <nav class="nav nav-dark" id="navbar">
     <div class="nav-inner">
       <a href="/" class="nav-logo">Medical Craft Laboratory</a>
       <div class="nav-links">
@@ -279,9 +404,20 @@
   </nav>
 
   <section class="hero">
-    <div class="hero-brand">Medical Craft Laboratory</div>
-    <h1>医療を、もっと身近に。</h1>
-    <p class="subtitle">患者と医療従事者、それぞれの課題に寄り添うアプリを開発しています。</p>
+    <div class="hero-content">
+      <div class="hero-brand">Medical Craft Laboratory</div>
+      <h1>医療を、もっと身近に。</h1>
+      <p class="subtitle">患者と医療従事者、それぞれの課題に寄り添うアプリを開発しています。</p>
+    </div>
+    <div class="hero-scroll-hint"><span></span></div>
+  </section>
+
+  <section class="mission">
+    <div class="mission-inner fade-in-up">
+      <div class="mission-label">Our Mission</div>
+      <h2>テクノロジーの力で、<br>医療の「不便」を解消する。</h2>
+      <p>紙の診察券をなくしたい患者。煩雑な書類作成に追われる医療従事者。<br>私たちは、現場の小さな不満に耳を傾け、シンプルで使いやすいプロダクトを届けます。</p>
+    </div>
   </section>
 
   <section class="section products" id="products">
@@ -292,7 +428,7 @@
       </div>
       <div class="product-grid">
 
-        <a href="/my-shinsakuken/" class="product-card fade-in-up">
+        <a href="/my-shinsakuken/" class="product-card fade-in-up stagger-1">
           <div class="product-icon">💳</div>
           <div class="product-label">患者向け・無料</div>
           <h3>マイ診察券</h3>
@@ -305,7 +441,7 @@
           <span class="product-link">詳しく見る ›</span>
         </a>
 
-        <a href="/kokuken/" class="product-card fade-in-up">
+        <a href="/kokuken/" class="product-card fade-in-up stagger-2">
           <div class="product-icon">🦷</div>
           <div class="product-label">歯科医院向け</div>
           <h3>口腔機能管理くん</h3>
@@ -333,6 +469,7 @@
   </footer>
 
   <script>
+    // Scroll animations
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -341,6 +478,20 @@
       });
     }, { threshold: 0.1 });
     document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+
+    // Navbar transition: dark on hero, light after
+    const navbar = document.getElementById('navbar');
+    const hero = document.querySelector('.hero');
+    const navObserver = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        navbar.classList.add('nav-dark');
+        navbar.classList.remove('nav-scrolled');
+      } else {
+        navbar.classList.remove('nav-dark');
+        navbar.classList.add('nav-scrolled');
+      }
+    }, { threshold: 0.1 });
+    navObserver.observe(hero);
   </script>
 </body>
 </html>
