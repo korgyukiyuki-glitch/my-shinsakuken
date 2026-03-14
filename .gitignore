@@ -7,6 +7,10 @@ node_modules/
 .expo/
 dist/
 web-build/
+
+# Build artifacts
+build/
+ExportOptions.plist
 expo-env.d.ts
 
 # Native

@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
@@ -7,6 +8,7 @@ import { EmptyState } from '../../src/components/ui/EmptyState';
 import { useClinicStore } from '../../src/stores/useClinicStore';
 import { useAppointmentStore } from '../../src/stores/useAppointmentStore';
 import { DEPARTMENT_CONFIG } from '../../src/types';
+import { maybeRequestReview } from '../../src/utils/reviewRequest';
 
 export default function HomeScreen() {
   const clinics = useClinicStore((s) => s.clinics);
@@ -15,6 +17,11 @@ export default function HomeScreen() {
   const upcoming = getUpcoming();
   const nextAppt = upcoming[0];
   const nextClinic = nextAppt ? getClinic(nextAppt.clinicId) : undefined;
+
+  // 条件を満たせばアプリ内レビューリクエストを表示
+  useEffect(() => {
+    maybeRequestReview(clinics.length);
+  }, []);
 
   return (
     <ScrollView

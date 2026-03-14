@@ -1,8 +1,8 @@
 export const Colors = {
   // Primary
   navy: '#1a1a2e',
-  accent: '#0096c7',
-  accentLight: '#e0f2fe',
+  accent: '#F0832A',
+  accentLight: '#FEF0E5',
 
   // Background
   background: '#f8fafc',
@@ -37,6 +37,6 @@ export const Colors = {
   ],
 
   // Tab bar
-  tabActive: '#0096c7',
+  tabActive: '#F0832A',
   tabInactive: '#94a3b8',
 } as const;
