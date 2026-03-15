@@ -104,7 +104,7 @@
       left: -50%;
       width: 200%;
       height: 200%;
-      background: radial-gradient(ellipse at 50% 50%, rgba(240, 131, 42, 0.1) 0%, transparent 60%);
+      background: radial-gradient(ellipse at 50% 50%, rgba(240, 131, 42, 0.15) 0%, rgba(240, 131, 42, 0.05) 30%, transparent 60%);
       animation: heroGlow 8s ease-in-out infinite alternate;
     }
     @keyframes heroGlow {
@@ -118,7 +118,7 @@
     .hero-brand {
       font-size: 13px;
       font-weight: 500;
-      color: rgba(255, 255, 255, 0.5);
+      color: var(--color-accent);
       letter-spacing: 0.2em;
       text-transform: uppercase;
       margin-bottom: 32px;
@@ -160,7 +160,7 @@
       display: block;
       width: 1px;
       height: 48px;
-      background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
+      background: linear-gradient(to bottom, var(--color-accent), transparent);
       margin: 0 auto;
       animation: scrollPulse 2s ease-in-out infinite;
     }
@@ -406,7 +406,7 @@
   <section class="hero">
     <div class="hero-content">
       <div class="hero-brand">Medical Craft Laboratory</div>
-      <h1>医療を、もっと身近に。</h1>
+      <h1>医療を、もっと<span style="color: var(--color-accent)">身近</span>に。</h1>
       <p class="subtitle">患者と医療従事者、それぞれの課題に寄り添うアプリを開発しています。</p>
     </div>
     <div class="hero-scroll-hint"><span></span></div>

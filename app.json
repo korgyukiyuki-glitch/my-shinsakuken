@@ -2,7 +2,7 @@
   "expo": {
     "name": "マイ診察券",
     "slug": "my-dental-card",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -15,7 +15,7 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.mydental.card",
-      "buildNumber": "6",
+      "buildNumber": "7",
       "infoPlist": {
         "NSFaceIDUsageDescription": "診察券データを保護するために生体認証を使用します",
         "NSCameraUsageDescription": "お薬手帳のシールや診察券を撮影するためにカメラを使用します",
