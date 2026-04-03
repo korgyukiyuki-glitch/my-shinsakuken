@@ -429,6 +429,154 @@
       .nav-links { display: none; }
     }
 
+    /* ZOOM導入アシスト */
+    .zoom-assist {
+      background: var(--color-bg-secondary);
+    }
+    .zoom-steps {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 56px;
+    }
+    .zoom-step {
+      background: var(--color-bg-primary);
+      border-radius: 20px;
+      padding: 36px 32px;
+      text-align: center;
+      flex: 1;
+      max-width: 260px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .zoom-step:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+    }
+    .zoom-step-number {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--color-accent), #F7B955);
+      color: #fff;
+      font-size: 20px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .zoom-step-label {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--color-text-primary);
+      margin-bottom: 8px;
+    }
+    .zoom-step p {
+      font-size: 14px;
+      color: var(--color-text-tertiary);
+      line-height: 1.6;
+    }
+    .zoom-step-arrow {
+      font-size: 28px;
+      color: var(--color-accent);
+      font-weight: 300;
+      flex-shrink: 0;
+    }
+    .zoom-benefits {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+    .zoom-benefit-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--color-text-secondary);
+      background: var(--color-bg-primary);
+      padding: 12px 20px;
+      border-radius: 100px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    }
+    .zoom-benefit-icon {
+      font-size: 18px;
+    }
+    .zoom-doctor-note {
+      text-align: center;
+      font-size: 16px;
+      color: var(--color-text-secondary);
+      line-height: 1.9;
+      margin-bottom: 40px;
+      padding: 24px 32px;
+      background: linear-gradient(135deg, #FFF5EB, #FFF9F3);
+      border: 1px solid #FDDCB5;
+      border-radius: 16px;
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .zoom-cta {
+      text-align: center;
+    }
+    .zoom-cta-button {
+      display: inline-block;
+      padding: 18px 48px;
+      background: linear-gradient(135deg, var(--color-accent), var(--color-accent-hover));
+      color: #fff;
+      font-size: 17px;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 100px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 20px rgba(240, 131, 42, 0.3);
+    }
+    .zoom-cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(240, 131, 42, 0.4);
+    }
+    .zoom-cta-note {
+      font-size: 13px;
+      color: var(--color-text-caption);
+      margin-top: 16px;
+    }
+
+    @media (max-width: 768px) {
+      .zoom-steps {
+        flex-direction: column;
+        gap: 16px;
+      }
+      .zoom-step {
+        max-width: 100%;
+        width: 100%;
+        padding: 28px 24px;
+      }
+      .zoom-step-arrow {
+        transform: rotate(90deg);
+        font-size: 24px;
+      }
+      .zoom-benefits {
+        gap: 12px;
+      }
+      .zoom-benefit-item {
+        font-size: 13px;
+        padding: 10px 16px;
+      }
+      .zoom-doctor-note {
+        font-size: 14px;
+        padding: 20px 24px;
+        margin-bottom: 32px;
+      }
+      .zoom-cta-button {
+        padding: 16px 36px;
+        font-size: 15px;
+      }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       .fade-in-up { opacity: 1; transform: none; transition: none; }
       .hero-brand, .hero h1, .hero .subtitle, .hero-scroll-hint {
@@ -520,6 +668,65 @@
           </div>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- ZOOM導入アシスト Section -->
+  <section class="section zoom-assist" id="zoom-assist">
+    <div class="section-inner">
+      <div class="section-header fade-in-up">
+        <h2>ZOOM導入アシスト<span style="font-size: 20px; font-weight: 500; color: var(--color-accent);">（無料）</span></h2>
+        <p>30分のZOOM通話で求人掲載まで完了。<br>登録が面倒な方もサポートします。</p>
+      </div>
+
+      <div class="zoom-steps fade-in-up">
+        <div class="zoom-step">
+          <div class="zoom-step-number">1</div>
+          <div class="zoom-step-label">ZOOM予約</div>
+          <p>メールで希望日時をお知らせください</p>
+        </div>
+        <div class="zoom-step-arrow">›</div>
+        <div class="zoom-step">
+          <div class="zoom-step-number">2</div>
+          <div class="zoom-step-label">画面共有で一緒に設定</div>
+          <p>操作はこちらでご案内します</p>
+        </div>
+        <div class="zoom-step-arrow">›</div>
+        <div class="zoom-step">
+          <div class="zoom-step-number">3</div>
+          <div class="zoom-step-label">その場で求人公開</div>
+          <p>通話中に掲載完了まで仕上げます</p>
+        </div>
+      </div>
+
+      <div class="zoom-benefits fade-in-up">
+        <div class="zoom-benefit-item">
+          <span class="zoom-benefit-icon">&#x23F1;</span>
+          <span>所要時間30分</span>
+        </div>
+        <div class="zoom-benefit-item">
+          <span class="zoom-benefit-icon">&#xA5;</span>
+          <span>完全無料</span>
+        </div>
+        <div class="zoom-benefit-item">
+          <span class="zoom-benefit-icon">&#x1F3AF;</span>
+          <span>先着20医院限定</span>
+        </div>
+        <div class="zoom-benefit-item">
+          <span class="zoom-benefit-icon">&#x1F319;</span>
+          <span>診療後21時〜対応OK</span>
+        </div>
+      </div>
+
+      <div class="zoom-doctor-note fade-in-up">
+        開発者は現役の歯科医師です。<br>
+        現場を知っているからこそ、先生のお悩みに寄り添えます。
+      </div>
+
+      <div class="zoom-cta fade-in-up">
+        <a href="mailto:contact@medicalcraft-lab.com?subject=ZOOM%E5%B0%8E%E5%85%A5%E3%82%A2%E3%82%B7%E3%82%B9%E3%83%88%E3%81%AE%E3%81%94%E4%BA%88%E7%B4%84" class="zoom-cta-button">ZOOM導入アシストを予約する</a>
+        <p class="zoom-cta-note">診療状況により開始時間が前後する場合がございます</p>
       </div>
     </div>
   </section>
