@@ -72,6 +72,28 @@
       transition: opacity 0.3s ease;
     }
     .nav-links a:hover { opacity: 1; }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-cta {
+      background: var(--color-accent);
+      color: #ffffff !important;
+      padding: 7px 18px !important;
+      border-radius: 980px;
+      font-size: 13px;
+      font-weight: 600 !important;
+      opacity: 1 !important;
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: background-color 0.3s ease;
+    }
+    .nav-cta:hover {
+      background: var(--color-accent-hover);
+      opacity: 1 !important;
+    }
 
     /* Hero */
     .hero {
@@ -110,9 +132,9 @@
     }
     .btn-primary {
       display: inline-block;
-      padding: 12px 28px;
-      font-size: 17px;
-      font-weight: 500;
+      padding: 16px 40px;
+      font-size: 19px;
+      font-weight: 600;
       line-height: 1.2;
       letter-spacing: 0.02em;
       color: #ffffff;
@@ -472,6 +494,8 @@
       .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
       .footer-links a { margin: 0 12px; }
       .nav-links { display: none; }
+      .nav-cta { padding: 6px 14px !important; font-size: 12px; }
+      .nav-logo { font-size: 13px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -484,10 +508,13 @@
   <nav class="nav">
     <div class="nav-inner">
       <a href="/" class="nav-logo">Medical Craft Laboratory</a>
-      <div class="nav-links">
-        <a href="#features">機能</a>
-        <a href="/kokuken/privacy/">プライバシー</a>
-        <a href="/kokuken/support/">サポート</a>
+      <div class="nav-right">
+        <div class="nav-links">
+          <a href="#features">機能</a>
+          <a href="/kokuken/privacy/">プライバシー</a>
+          <a href="/kokuken/support/">サポート</a>
+        </div>
+        <a href="https://apps.apple.com/app/id6760281631" class="nav-cta" target="_blank">ダウンロード</a>
       </div>
     </div>
   </nav>

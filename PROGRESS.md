@@ -17,3 +17,6 @@ docs/kokuken/privacy/index.html
 
 ## 2026-05-12 22:42
 docs/index.html
+
+## 2026-05-14 22:47
+docs/kokuken/index.html
