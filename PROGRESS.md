@@ -36,3 +36,6 @@ docs/favicon.svg
 docs/founder.jpg
 docs/index.html
 docs/ogp.png
+
+## 2026-06-12 14:09
+docs/kokuken/index.html
