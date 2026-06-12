@@ -53,3 +53,7 @@ docs/kokuken/ogp.png
 
 ## 2026-06-12 17:13
 docs/kokuken/index.html
+
+## 2026-06-12 19:56
+docs/kokuken/img/app-home.png
+docs/kokuken/index.html
