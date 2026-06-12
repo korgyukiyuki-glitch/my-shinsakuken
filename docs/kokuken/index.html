@@ -163,7 +163,7 @@
 
     /* Features */
     .feature-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
+      display: grid; grid-template-columns: repeat(2, 1fr);
       gap: 1px; background: var(--hairline);
       border: 1px solid var(--hairline); border-radius: 18px;
       overflow: hidden; margin-top: 48px;
@@ -172,10 +172,11 @@
     .section.alt .feature-card { background: #fff; }
     .feature-card .icon { color: var(--accent-deep); margin-bottom: 14px; }
     .feature-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
-    .feature-card .new {
+    .new {
+      display: inline-block;
       font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.1em;
       color: var(--accent-deep); border: 1px solid var(--accent);
-      border-radius: 999px; padding: 1px 8px;
+      border-radius: 999px; padding: 1px 8px; vertical-align: 1px;
     }
     .feature-card p { font-size: 12.5px; color: var(--ink-soft); line-height: 1.95; }
 
@@ -203,6 +204,11 @@
     .mode-card li::before {
       content: ''; position: absolute; left: 2px; top: 17px;
       width: 5px; height: 5px; background: var(--accent); border-radius: 50%;
+    }
+    .mode-note {
+      margin-top: 16px; padding-top: 14px;
+      border-top: 1px solid var(--hairline);
+      font-size: 11.5px; color: var(--ink-mute); line-height: 1.8;
     }
 
     /* Security */
@@ -345,6 +351,7 @@
         <span class="by">BY MEDICAL CRAFT LAB</span>
       </a>
       <div class="nav-links">
+        <a href="#exams">検査</a>
         <a href="#features">機能</a>
         <a href="#pricing">料金</a>
         <a href="#developer">開発者</a>
@@ -389,12 +396,65 @@
     </div>
   </section>
 
-  <section class="section alt" id="features">
+  <section class="section alt" id="exams">
     <div class="wrap">
       <div class="fade-in-up">
-        <p class="kicker">01 — FEATURES</p>
+        <p class="kicker">01 — EXAMINATIONS</p>
+        <h2>4つの検査を、この1本で。</h2>
+        <p class="sub">口腔機能の評価から歯周検査まで。診療でよく使う検査をカバーします。</p>
+      </div>
+      <div class="mode-grid fade-in-up">
+        <div class="mode-card">
+          <p class="mode-label">ADULT / SENIOR — 成人・高齢者</p>
+          <h3>口腔機能低下症</h3>
+          <p class="desc">K1〜K7の7項目検査で口腔機能低下を評価・判定します。</p>
+          <ul>
+            <li>TCI舌苔チャート（9ゾーン）</li>
+            <li>オーラルディアドコキネシス タイマー内蔵（pa/ta/ka）</li>
+            <li>EAT-10・RSST対応</li>
+          </ul>
+        </div>
+        <div class="mode-card">
+          <p class="mode-label">PEDIATRIC — 18歳未満</p>
+          <h3>口腔機能発達不全症</h3>
+          <p class="desc">C1〜C17の17項目チェックリストで評価。問題点と管理計画の整理までつながります。</p>
+          <ul>
+            <li>咀嚼・嚥下・構音の機能評価</li>
+            <li>口唇閉鎖力・舌圧スクリーニング</li>
+            <li>管理計画書の自動生成</li>
+          </ul>
+        </div>
+        <div class="mode-card">
+          <p class="mode-label">MASSETER <span class="new">NEW</span></p>
+          <h3>咬筋検査モード</h3>
+          <p class="desc">顎関節症・咀嚼筋痛障害の診療で、咬筋活動の測定値を記録できます。</p>
+          <ul>
+            <li>測定値は手入力（測定機器を選びません）</li>
+            <li>結果報告書PDFを出力</li>
+            <li>検査記録を患者ごとに保存</li>
+          </ul>
+        </div>
+        <div class="mode-card">
+          <p class="mode-label">PERIODONTAL — 歯周検査</p>
+          <h3>歯周検査</h3>
+          <p class="desc">歯周精密検査・歯周基本検査を、歯式チャートでそのまま記録できます。</p>
+          <ul>
+            <li>精密6点法・4点法・基本1点法</li>
+            <li>BOP・排膿・動揺度・PCRの記録</li>
+            <li>平均PD・BOP率・PCR率・PISAを自動集計</li>
+          </ul>
+          <p class="mode-note">※ 検査結果の記録・PDF出力用の機能です。レセコン連携には対応していません。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="features">
+    <div class="wrap">
+      <div class="fade-in-up">
+        <p class="kicker">02 — FEATURES</p>
         <h2>現場で、すぐ使える。</h2>
-        <p class="sub">検査・判定・書類作成。口腔機能管理に必要な機能を、ひとつのアプリに。</p>
+        <p class="sub">検査を入力すれば、判定も書類もアプリが引き受けます。</p>
       </div>
       <div class="feature-grid fade-in-up">
         <div class="feature-card">
@@ -416,48 +476,6 @@
           <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg></div>
           <h3>算定ガイド</h3>
           <p>診断レベルに応じた保険算定項目と点数をアプリ内で自動表示。算定漏れを防ぎます。</p>
-        </div>
-        <div class="feature-card">
-          <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v9"/><path d="M5 8c0 7 3 10 7 10s7-3 7-10"/><path d="M9 21h6"/></svg></div>
-          <h3>咬筋検査モード <span class="new">NEW</span></h3>
-          <p>咬筋活動の測定値を手入力で記録し、結果報告書PDFを出力。測定機器を選ばず使えます。</p>
-        </div>
-        <div class="feature-card">
-          <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3c-1.5 0-3 1.2-3 3.5C4 9 5 10 5.5 12c.5 2-.5 9 1.5 9s1.5-5 3-5 1 5 3 5 1-7 1.5-9c.5-2 1.5-3 1.5-5.5C16 4.2 14.5 3 13 3c-1.2 0-2 .5-3 .5S8.2 3 7 3z"/></svg></div>
-          <h3>歯周検査にも対応</h3>
-          <p>歯周精密検査（6点法・4点法）・歯周基本検査を歯式チャートで記録。BOP・PCR・PISAも自動集計。</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="modes">
-    <div class="wrap">
-      <div class="fade-in-up">
-        <p class="kicker">02 — TWO MODES</p>
-        <h2>小児から高齢者まで。</h2>
-        <p class="sub">ライフステージに応じた2つの評価モードで、口腔機能管理をカバーします。</p>
-      </div>
-      <div class="mode-grid fade-in-up">
-        <div class="mode-card">
-          <p class="mode-label">PEDIATRIC — 18歳未満</p>
-          <h3>口腔機能発達不全症</h3>
-          <p class="desc">C1〜C17の17項目チェックリストで評価。問題点と管理計画の整理までつながります。</p>
-          <ul>
-            <li>咀嚼・嚥下・構音の機能評価</li>
-            <li>口唇閉鎖力・舌圧スクリーニング</li>
-            <li>管理計画書の自動生成</li>
-          </ul>
-        </div>
-        <div class="mode-card">
-          <p class="mode-label">ADULT / SENIOR — 成人・高齢者</p>
-          <h3>口腔機能低下症</h3>
-          <p class="desc">K1〜K7の7項目検査で口腔機能低下を評価・判定します。</p>
-          <ul>
-            <li>TCI舌苔チャート（9ゾーン）</li>
-            <li>オーラルディアドコキネシス タイマー内蔵（pa/ta/ka）</li>
-            <li>EAT-10・RSST対応</li>
-          </ul>
         </div>
       </div>
     </div>
