@@ -29,3 +29,10 @@ docs/kokuken/index.html
 
 ## 2026-06-03 06:35
 docs/kokuken/index.html
+
+## 2026-06-12 10:26
+docs/apple-touch-icon.png
+docs/favicon.svg
+docs/founder.jpg
+docs/index.html
+docs/ogp.png

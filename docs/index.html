@@ -3,781 +3,897 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Medical Craft Laboratory | メディカルクラフトラボラトリー</title>
-  <meta name="description" content="医療をもっと身近に。患者と医療従事者のためのアプリを開発するメディカルクラフトラボラトリー。">
+  <title>Medical Craft Laboratory | 歯科医師がつくる、医療プロダクトスタジオ</title>
+  <meta name="description" content="現役歯科医師が率いるプロダクトスタジオ。歯科リンク（求人プラットフォーム・モニター医院募集中）・口腔機能管理くん（検査管理アプリ）・マイ診察券（患者向け無料アプリ）を開発・運営しています。">
   <link rel="canonical" href="https://medicalcraft-lab.com">
+  <meta name="theme-color" content="#FBFAF6">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Medical Craft Laboratory">
+  <meta property="og:title" content="Medical Craft Laboratory | 歯科医師がつくる、医療プロダクトスタジオ">
+  <meta property="og:description" content="現役歯科医師が率いるプロダクトスタジオ。歯科リンク・口腔機能管理くん・マイ診察券を開発・運営しています。">
+  <meta property="og:url" content="https://medicalcraft-lab.com/">
+  <meta property="og:image" content="https://medicalcraft-lab.com/ogp.png">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Shippori+Mincho:wght@600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Medical Craft Laboratory",
+    "alternateName": "MCL",
+    "url": "https://medicalcraft-lab.com/",
+    "logo": "https://medicalcraft-lab.com/apple-touch-icon.png",
+    "email": "contact@medicalcraft-lab.com",
+    "telephone": "+81-50-1784-1182",
+    "founder": {
+      "@type": "Person",
+      "name": "和泉 龍之介",
+      "jobTitle": "歯科医師 / エンジニア"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "postalCode": "306-0014",
+      "addressRegion": "茨城県",
+      "addressLocality": "古河市",
+      "streetAddress": "下山町10-1 ルミエールB102",
+      "addressCountry": "JP"
+    },
+    "sameAs": [
+      "https://note.com/medical_lab0305",
+      "https://www.instagram.com/medicalcraft.lab/"
+    ]
+  }
+  </script>
   <style>
     :root {
-      --color-text-primary: #1d1d1f;
-      --color-text-secondary: #424245;
-      --color-text-tertiary: #6e6e73;
-      --color-text-caption: #86868b;
-      --color-bg-primary: #ffffff;
-      --color-bg-secondary: #f5f5f7;
-      --color-bg-dark: #0a0a0a;
-      --color-accent: #F0832A;
-      --color-accent-hover: #E5751E;
+      --paper: #FBFAF6;
+      --paper-warm: #F4F1EA;
+      --ink: #18181b;
+      --ink-soft: #3f3f46;
+      --ink-mute: #6b6b73;
+      --ink-faint: #84848c;
+      --accent: #F0832A;
+      --accent-deep: #D96E1C;
+      --hairline: rgba(24, 24, 27, 0.12);
+      --hairline-soft: rgba(24, 24, 27, 0.07);
+      --font-display: 'Zen Kaku Gothic New', 'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic', sans-serif;
+      --font-serif: 'Shippori Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+      --font-mono: 'JetBrains Mono', 'SF Mono', monospace;
+      --font-body: 'Zen Kaku Gothic New', -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic', sans-serif;
+      --gutter: clamp(20px, 5vw, 72px);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    ::selection { background: rgba(240, 131, 42, 0.28); }
 
+    html { scroll-behavior: smooth; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text',
-                   'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
-      color: var(--color-text-primary);
-      background: var(--color-bg-primary);
-      line-height: 1.7;
+      font-family: var(--font-body);
+      font-weight: 500;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.75;
       -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
       overflow-x: hidden;
     }
 
-    /* Navigation */
-    .nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      height: 48px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0 20px;
-      transition: background 0.4s ease, border-color 0.4s ease;
-    }
-    .nav.nav-scrolled {
-      background: rgba(255, 255, 255, 0.72);
-      backdrop-filter: saturate(180%) blur(20px);
-      -webkit-backdrop-filter: saturate(180%) blur(20px);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-    }
-    .nav.nav-dark {
-      background: transparent;
-      border-bottom: 1px solid transparent;
-    }
-    .nav-inner {
-      max-width: 980px;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .nav-logo {
-      font-size: 15px;
+    .mono {
+      font-family: var(--font-mono);
+      font-size: clamp(10px, 1vw, 11.5px);
       font-weight: 600;
-      text-decoration: none;
-      letter-spacing: 0.02em;
-      transition: color 0.4s ease;
-    }
-    .nav.nav-dark .nav-logo { color: rgba(255, 255, 255, 0.92); }
-    .nav.nav-scrolled .nav-logo { color: var(--color-text-primary); }
-    .nav-links a {
-      font-size: 13px;
-      font-weight: 400;
-      text-decoration: none;
-      padding: 0 12px;
-      opacity: 0.8;
-      transition: opacity 0.3s ease, color 0.4s ease;
-    }
-    .nav.nav-dark .nav-links a { color: rgba(255, 255, 255, 0.8); }
-    .nav.nav-scrolled .nav-links a { color: var(--color-text-primary); }
-    .nav-links a:hover { opacity: 1; }
-
-    /* Hero — Dark, cinematic */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      background: var(--color-bg-dark);
-      padding: 120px 20px;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(ellipse at 50% 50%, rgba(240, 131, 42, 0.15) 0%, rgba(240, 131, 42, 0.05) 30%, transparent 60%);
-      animation: heroGlow 8s ease-in-out infinite alternate;
-    }
-    @keyframes heroGlow {
-      0% { transform: translate(0, 0) scale(1); }
-      100% { transform: translate(2%, -2%) scale(1.05); }
-    }
-    .hero-content {
-      position: relative;
-      z-index: 1;
-    }
-    .hero-brand {
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--color-accent);
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      margin-bottom: 32px;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: heroFadeIn 1s ease 0.2s forwards;
-    }
-    .hero h1 {
-      font-size: 64px;
-      font-weight: 700;
-      line-height: 1.1;
-      letter-spacing: -0.03em;
-      color: #ffffff;
-      margin-bottom: 28px;
-      opacity: 0;
-      transform: translateY(30px);
-      animation: heroFadeIn 1s ease 0.5s forwards;
-    }
-    .hero .subtitle {
-      font-size: 21px;
-      font-weight: 400;
-      line-height: 1.7;
-      color: rgba(255, 255, 255, 0.6);
-      max-width: 480px;
-      margin: 0 auto;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: heroFadeIn 1s ease 0.8s forwards;
-    }
-    .hero-scroll-hint {
-      position: absolute;
-      bottom: 40px;
-      left: 50%;
-      transform: translateX(-50%);
-      opacity: 0;
-      animation: heroFadeIn 1s ease 1.2s forwards;
-    }
-    .hero-scroll-hint span {
-      display: block;
-      width: 1px;
-      height: 48px;
-      background: linear-gradient(to bottom, var(--color-accent), transparent);
-      margin: 0 auto;
-      animation: scrollPulse 2s ease-in-out infinite;
-    }
-    @keyframes heroFadeIn {
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes scrollPulse {
-      0%, 100% { opacity: 0.3; transform: scaleY(1); }
-      50% { opacity: 0.8; transform: scaleY(1.2); }
     }
 
-    /* Mission Section */
-    .mission {
-      padding: 140px 20px;
-      background: var(--color-bg-primary);
-    }
-    .mission-inner {
-      max-width: 720px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    .mission-label {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--color-accent);
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      margin-bottom: 24px;
-    }
-    .mission h2 {
-      font-size: 32px;
-      font-weight: 600;
-      line-height: 1.6;
-      color: var(--color-text-primary);
-      margin-bottom: 32px;
-    }
-    .mission p {
-      font-size: 17px;
-      color: var(--color-text-tertiary);
-      line-height: 2;
-    }
+    .wrap { max-width: 1240px; margin: 0 auto; padding-left: var(--gutter); padding-right: var(--gutter); }
 
-    /* Section Common */
-    .section {
-      padding: 120px 20px;
-    }
-    .section-inner {
-      max-width: 980px;
-      margin: 0 auto;
-    }
-    .section-header {
-      text-align: center;
-      margin-bottom: 64px;
-    }
-    .section-header h2 {
-      font-size: 40px;
-      font-weight: 700;
-      line-height: 1.15;
-      color: var(--color-text-primary);
-      margin-bottom: 16px;
-    }
-    .section-header p {
-      font-size: 19px;
-      color: var(--color-text-tertiary);
-      max-width: 600px;
-      margin: 0 auto;
-      line-height: 1.6;
-    }
-
-    /* Product Cards */
-    .products { background: var(--color-bg-secondary); }
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
-    }
-    .product-card {
-      background: var(--color-bg-primary);
-      border-radius: 24px;
-      padding: 48px 40px;
-      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease;
-      text-decoration: none;
-      color: inherit;
-      display: block;
-      position: relative;
-      overflow: hidden;
-    }
-    .product-card::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--color-accent), #F7B955);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-    .product-card:hover::after { transform: scaleX(1); }
-    .product-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
-    }
-    .product-icon {
-      font-size: 48px;
-      margin-bottom: 20px;
-    }
-    .product-label {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--color-accent);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-    .product-card h3 {
-      font-size: 28px;
-      font-weight: 700;
-      color: var(--color-text-primary);
-      margin-bottom: 8px;
-      line-height: 1.3;
-    }
-    .product-card .product-desc {
-      font-size: 17px;
-      color: var(--color-text-secondary);
-      line-height: 1.6;
-      margin-bottom: 24px;
-    }
-    .product-features {
-      list-style: none;
-      margin-bottom: 32px;
-    }
-    .product-features li {
-      font-size: 15px;
-      color: var(--color-text-tertiary);
-      padding: 6px 0;
-      padding-left: 20px;
-      position: relative;
-      line-height: 1.5;
-    }
-    .product-features li::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 13px;
-      width: 6px;
-      height: 6px;
-      background: var(--color-accent);
-      border-radius: 50%;
-    }
-    .product-link {
-      font-size: 17px;
-      font-weight: 500;
-      color: var(--color-accent);
-      text-decoration: none;
+    /* ===== Buttons ===== */
+    .btn {
       display: inline-flex;
       align-items: center;
-      gap: 4px;
-      transition: gap 0.3s ease;
-    }
-    .product-card:hover .product-link { gap: 8px; }
-
-    /* Comparison Table */
-    .compare-section { background: var(--color-bg-primary); }
-    .compare-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 14px;
-      background: white;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-    }
-    .compare-table th, .compare-table td {
-      padding: 16px;
-      text-align: center;
-      border-bottom: 1px solid #f0f4f8;
-    }
-    .compare-table th { font-weight: 600; color: #718096; }
-    .compare-table th.highlight {
-      background: linear-gradient(180deg, #FFF5EB, #fff);
-      color: var(--color-accent);
+      gap: 9px;
+      padding: 15px 30px;
+      border-radius: 100px;
+      font-size: 14.5px;
       font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
     }
-    .compare-table td:first-child { text-align: left; font-weight: 600; color: #4A5568; }
-    .compare-table .accent { color: #1A8D6F; font-weight: 700; }
-    .compare-table .strike { text-decoration: line-through; color: #e53e3e; }
-    .compare-table .row-highlight { background: linear-gradient(90deg, #FFF5EB, #fff); }
-    .compare-note {
-      max-width: 680px;
-      margin: 24px auto 0;
-      padding: 20px;
-      background: #FFF5EB;
-      border: 1px solid #FDDCB5;
-      border-radius: 12px;
-      text-align: center;
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 5px 22px rgba(240, 131, 42, 0.32);
+    }
+    .btn-primary:hover { background: var(--accent-deep); transform: translateY(-2px); box-shadow: 0 9px 30px rgba(240, 131, 42, 0.4); }
+    .btn-text {
       font-size: 14px;
-      color: #4A5568;
+      font-weight: 700;
+      color: var(--ink-soft);
+      text-decoration: none;
+      border-bottom: 2px solid var(--hairline);
+      padding-bottom: 3px;
+      transition: border-color 0.25s ease, color 0.25s ease;
     }
-    .compare-note strong { color: var(--color-accent); }
-    @media (max-width: 768px) {
-      .compare-table { font-size: 11px; }
-      .compare-table th, .compare-table td { padding: 10px 6px; }
+    .btn-text:hover { color: var(--ink); border-color: var(--accent); }
+
+    /* ===== Navigation ===== */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(251, 250, 246, 0.85);
+      backdrop-filter: saturate(160%) blur(14px);
+      -webkit-backdrop-filter: saturate(160%) blur(14px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s ease;
+    }
+    .nav.scrolled { border-bottom-color: var(--hairline-soft); }
+    .nav-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 14px var(--gutter);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .nav-logo {
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--ink);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .nav-logo b { color: var(--accent); font-weight: 600; }
+    .nav-right { display: flex; align-items: center; gap: 4px; }
+    .nav-links { display: flex; gap: 2px; }
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ink-soft);
+      text-decoration: none;
+      padding: 6px 13px;
+      border-radius: 100px;
+      transition: background 0.25s ease, color 0.25s ease;
+      white-space: nowrap;
+    }
+    .nav-links a:hover { background: var(--paper-warm); color: var(--ink); }
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      padding: 8px 16px;
+      border-radius: 100px;
+      text-decoration: none;
+      white-space: nowrap;
+      margin-left: 8px;
+      transition: background 0.25s ease;
+    }
+    .nav-cta:hover { background: var(--accent-deep); }
+    .nav-cta::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #fff;
+      animation: blink 2s ease-in-out infinite;
     }
 
-    /* Footer */
-    .footer {
-      background: var(--color-bg-dark);
-      padding: 48px 20px;
+    /* ===== Hero ===== */
+    .hero {
+      padding: clamp(140px, 20vh, 220px) 0 clamp(56px, 8vh, 100px);
+      position: relative;
+      overflow: hidden;
     }
-    .footer-inner {
-      max-width: 980px;
-      margin: 0 auto;
+    .hero-eyebrow {
+      color: var(--accent);
+      margin-bottom: clamp(22px, 3.5vh, 40px);
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      gap: 16px;
     }
-    .footer-links a {
-      font-size: 13px;
-      color: rgba(255, 255, 255, 0.5);
+    .hero-eyebrow::after {
+      content: '';
+      height: 1px;
+      width: clamp(48px, 8vw, 120px);
+      background: var(--accent);
+      opacity: 0.6;
+    }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(30px, 7.6vw, 96px);
+      line-height: 1.22;
+      letter-spacing: -0.022em;
+      max-width: 18em;
+    }
+    .hero h1 .accent { color: var(--accent); }
+    .hero-sub {
+      margin-top: clamp(26px, 4vh, 44px);
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: clamp(24px, 4vw, 80px);
+      align-items: end;
+    }
+    .hero-sub p {
+      font-size: clamp(14.5px, 1.35vw, 16.5px);
+      color: var(--ink-soft);
+      line-height: 2.05;
+      max-width: 33em;
+    }
+    .hero-sub p strong { color: var(--ink); font-weight: 700; }
+    .hero-facts {
+      display: flex;
+      gap: 0;
+      justify-self: end;
+      border-left: 1px solid var(--hairline);
+    }
+    .hero-fact { padding: 4px clamp(16px, 2vw, 28px); border-right: 1px solid var(--hairline); }
+    .hero-fact-num {
+      font-family: var(--font-display);
+      font-size: clamp(19px, 2.1vw, 27px);
+      font-weight: 900;
+      line-height: 1.3;
+      white-space: nowrap;
+    }
+    .hero-fact-label {
+      font-size: 10.5px;
+      font-weight: 700;
+      color: var(--ink-mute);
+      margin-top: 2px;
+      white-space: nowrap;
+    }
+    .hero-cta {
+      margin-top: clamp(30px, 5vh, 52px);
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      flex-wrap: wrap;
+    }
+
+    /* ===== Marquee ===== */
+    .marquee {
+      border-top: 1px solid var(--hairline);
+      border-bottom: 1px solid var(--hairline);
+      overflow: hidden;
+      padding: 14px 0;
+      background: var(--paper);
+    }
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 36s linear infinite;
+    }
+    .marquee-item {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      white-space: nowrap;
+      padding-right: 56px;
+    }
+    .marquee-item b { color: var(--accent); font-weight: 600; }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* ===== Section heading ===== */
+    .sec-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: clamp(36px, 6vh, 64px);
+    }
+    .sec-head h2 {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(30px, 4.2vw, 52px);
+      letter-spacing: -0.015em;
+      line-height: 1.25;
+    }
+    .sec-head .mono { color: var(--ink-mute); }
+
+    /* ===== Products — index rows ===== */
+    .products { padding: clamp(76px, 12vh, 140px) 0 clamp(60px, 9vh, 110px); }
+    .product-index { border-top: 1px solid var(--hairline); }
+    .prow {
+      display: grid;
+      grid-template-columns: clamp(54px, 7vw, 110px) minmax(0, 1.15fr) minmax(0, 1.5fr) 56px;
+      gap: clamp(14px, 2.4vw, 40px);
+      align-items: center;
+      padding: clamp(30px, 4.6vh, 52px) clamp(8px, 1.2vw, 20px);
+      border-bottom: 1px solid var(--hairline);
       text-decoration: none;
-      margin-left: 24px;
+      color: inherit;
+      position: relative;
+      transition: background 0.3s ease;
+    }
+    .prow:hover { background: var(--paper-warm); }
+    .prow-featured {
+      background: linear-gradient(135deg, rgba(240, 131, 42, 0.055), rgba(240, 131, 42, 0.02));
+      border-left: 3px solid var(--accent);
+      padding-left: clamp(12px, 1.8vw, 28px);
+    }
+    .prow-featured:hover { background: linear-gradient(135deg, rgba(240, 131, 42, 0.09), rgba(240, 131, 42, 0.04)); }
+    .prow-featured .prow-no { color: var(--accent); }
+    .prow-featured .prow-name h3 { font-size: clamp(28px, 3.9vw, 48px); }
+    .prow-no {
+      font-family: var(--font-mono);
+      font-size: clamp(13px, 1.5vw, 17px);
+      font-weight: 600;
+      color: var(--ink-faint);
       transition: color 0.3s ease;
     }
-    .footer-links a:hover { color: rgba(255, 255, 255, 0.8); }
-    .footer-copy {
-      font-size: 13px;
-      color: rgba(255, 255, 255, 0.35);
+    .prow:hover .prow-no { color: var(--accent); }
+    .prow-name h3 {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(24px, 3.4vw, 42px);
+      letter-spacing: -0.01em;
+      line-height: 1.3;
     }
-
-    /* Scroll Animations */
-    .fade-in-up {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                  transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    .prow-name .prow-en {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      margin-top: 6px;
+      display: block;
     }
-    .fade-in-up.visible {
-      opacity: 1;
-      transform: translateY(0);
+    .prow-info { min-width: 0; }
+    .prow-info p {
+      font-size: clamp(13.5px, 1.25vw, 15px);
+      color: var(--ink-soft);
+      line-height: 1.95;
     }
-    .stagger-1 { transition-delay: 0.1s; }
-    .stagger-2 { transition-delay: 0.25s; }
-
-    /* Responsive */
-    .stagger-3 { transition-delay: 0.4s; }
-
-    @media (max-width: 1024px) {
-      .product-grid { grid-template-columns: repeat(2, 1fr); }
+    .prow-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+    .ptag {
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 100px;
+      border: 1px solid var(--hairline);
+      color: var(--ink-mute);
+      background: var(--paper);
     }
-    @media (max-width: 768px) {
-      .hero { min-height: 85vh; padding: 100px 20px; }
-      .hero h1 { font-size: 40px; }
-      .hero .subtitle { font-size: 18px; }
-      .mission { padding: 100px 20px; }
-      .mission h2 { font-size: 24px; }
-      .section { padding: 80px 20px; }
-      .section-header h2 { font-size: 28px; }
-      .section-header p { font-size: 16px; }
-      .product-grid { grid-template-columns: 1fr !important; }
-      .product-card { padding: 36px 28px; }
-      .product-card h3 { font-size: 24px; }
-      .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
-      .footer-links a { margin: 0 12px; }
-      .nav-links { display: none; }
-    }
-
-    /* ZOOM導入アシスト */
-    .zoom-assist {
-      background: var(--color-bg-secondary);
-    }
-    .zoom-steps {
-      display: flex;
+    .ptag-monitor {
+      border-color: rgba(240, 131, 42, 0.5);
+      background: rgba(240, 131, 42, 0.08);
+      color: var(--accent-deep);
+      display: inline-flex;
       align-items: center;
-      justify-content: center;
-      gap: 24px;
-      margin-bottom: 56px;
+      gap: 6px;
     }
-    .zoom-step {
-      background: var(--color-bg-primary);
-      border-radius: 20px;
-      padding: 36px 32px;
-      text-align: center;
-      flex: 1;
-      max-width: 260px;
-      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .zoom-step:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
-    }
-    .zoom-step-number {
-      width: 44px;
-      height: 44px;
+    .ptag-monitor::before {
+      content: '';
+      width: 6px; height: 6px;
       border-radius: 50%;
-      background: linear-gradient(135deg, var(--color-accent), #F7B955);
-      color: #fff;
-      font-size: 20px;
-      font-weight: 700;
-      display: flex;
+      background: var(--accent);
+      animation: blink 2s ease-in-out infinite;
+    }
+    @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+    .prow-links { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+    .prow-btn {
+      display: inline-flex;
       align-items: center;
-      justify-content: center;
-      margin: 0 auto 16px;
-    }
-    .zoom-step-label {
-      font-size: 17px;
-      font-weight: 700;
-      color: var(--color-text-primary);
-      margin-bottom: 8px;
-    }
-    .zoom-step p {
-      font-size: 14px;
-      color: var(--color-text-tertiary);
-      line-height: 1.6;
-    }
-    .zoom-step-arrow {
-      font-size: 28px;
-      color: var(--color-accent);
-      font-weight: 300;
-      flex-shrink: 0;
-    }
-    .zoom-benefits {
-      display: flex;
-      justify-content: center;
-      gap: 32px;
-      flex-wrap: wrap;
-      margin-bottom: 48px;
-    }
-    .zoom-benefit-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--color-text-secondary);
-      background: var(--color-bg-primary);
-      padding: 12px 20px;
-      border-radius: 100px;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-    }
-    .zoom-benefit-icon {
-      font-size: 18px;
-    }
-    .zoom-doctor-note {
-      text-align: center;
-      font-size: 16px;
-      color: var(--color-text-secondary);
-      line-height: 1.9;
-      margin-bottom: 40px;
-      padding: 24px 32px;
-      background: linear-gradient(135deg, #FFF5EB, #FFF9F3);
-      border: 1px solid #FDDCB5;
-      border-radius: 16px;
-      max-width: 540px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .zoom-cta {
-      text-align: center;
-    }
-    .zoom-cta-button {
-      display: inline-block;
-      padding: 18px 48px;
-      background: linear-gradient(135deg, var(--color-accent), var(--color-accent-hover));
-      color: #fff;
-      font-size: 17px;
-      font-weight: 700;
-      text-decoration: none;
-      border-radius: 100px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0 4px 20px rgba(240, 131, 42, 0.3);
-    }
-    .zoom-cta-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 32px rgba(240, 131, 42, 0.4);
-    }
-    .zoom-cta-note {
+      gap: 7px;
       font-size: 13px;
-      color: var(--color-text-caption);
-      margin-top: 16px;
+      font-weight: 700;
+      padding: 10px 20px;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+    }
+    .prow-btn-primary { background: var(--accent); color: #fff; }
+    .prow-btn-primary:hover { background: var(--accent-deep); transform: translateY(-1px); }
+    .prow-btn-ghost { border: 1px solid var(--hairline); color: var(--ink-soft); background: var(--paper); }
+    .prow-btn-ghost:hover { border-color: var(--ink-mute); color: var(--ink); }
+    .prow-arrow {
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--ink-faint);
+      justify-self: end;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+    .prow:hover .prow-arrow { transform: translateX(8px); color: var(--accent); }
+
+    /* ===== Recruiting band ===== */
+    .recruit {
+      border-bottom: 1px solid var(--hairline);
+      background: var(--paper-warm);
+      padding: clamp(52px, 8vh, 90px) 0;
+    }
+    .recruit-grid {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+    .recruit .mono { color: var(--accent); display: block; margin-bottom: 14px; }
+    .recruit h2 {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(26px, 3.6vw, 44px);
+      letter-spacing: -0.015em;
+      line-height: 1.4;
+    }
+    .recruit p {
+      margin-top: 10px;
+      font-size: clamp(13.5px, 1.3vw, 15px);
+      color: var(--ink-soft);
+    }
+    .recruit p b { color: var(--accent-deep); }
+
+    /* ===== Statement ===== */
+    .statement {
+      background: var(--ink);
+      color: var(--paper);
+      padding: clamp(80px, 13vh, 150px) 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .statement::after {
+      content: 'MCL';
+      position: absolute;
+      right: -0.12em;
+      bottom: -0.32em;
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(160px, 28vw, 380px);
+      line-height: 1;
+      color: rgba(240, 131, 42, 0.08);
+      pointer-events: none;
+    }
+    .statement .mono { color: var(--accent); display: block; margin-bottom: 28px; }
+    .statement h2 {
+      font-family: var(--font-serif);
+      font-weight: 600;
+      font-size: clamp(26px, 3.6vw, 44px);
+      line-height: 1.8;
+      letter-spacing: 0.01em;
+      max-width: 21em;
+    }
+    .statement p {
+      margin-top: 28px;
+      font-size: clamp(14px, 1.3vw, 15.5px);
+      color: rgba(251, 250, 246, 0.65);
+      line-height: 2.1;
+      max-width: 38em;
     }
 
-    @media (max-width: 768px) {
-      .zoom-steps {
-        flex-direction: column;
-        gap: 16px;
+    /* ===== Founder ===== */
+    .founder { padding: clamp(80px, 13vh, 150px) 0; }
+    .founder-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.7fr) minmax(0, 1fr) minmax(0, 1fr);
+      gap: clamp(28px, 4vw, 72px);
+      align-items: start;
+    }
+    .founder-photo { position: relative; }
+    .founder-photo img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 18px;
+      filter: saturate(0.92);
+    }
+    .founder-photo::after {
+      content: '';
+      position: absolute;
+      top: 14px; left: -14px;
+      width: 100%; height: 100%;
+      border: 1px solid var(--hairline);
+      border-radius: 18px;
+      z-index: -1;
+    }
+    .founder-photo-caption {
+      font-family: var(--font-mono);
+      font-size: 9.5px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      margin-top: 12px;
+      text-align: right;
+    }
+    .founder-quote {
+      font-family: var(--font-serif);
+      font-weight: 600;
+      font-size: clamp(26px, 3.4vw, 42px);
+      line-height: 1.85;
+      letter-spacing: 0.01em;
+      position: relative;
+      padding-top: 28px;
+    }
+    .founder-quote::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 2px;
+      width: 64px; height: 3px;
+      background: var(--accent);
+    }
+    .founder-quote .accent { color: var(--accent); }
+    .founder-bio { padding-top: 34px; }
+    .founder-name-row { display: flex; align-items: baseline; gap: 14px; margin-bottom: 6px; }
+    .founder-name {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 21px;
+    }
+    .founder-name-en {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+    }
+    .founder-role { font-size: 13px; color: var(--ink-mute); margin-bottom: 22px; }
+    .founder-bio p {
+      font-size: 14.5px;
+      color: var(--ink-soft);
+      line-height: 2.05;
+      margin-bottom: 16px;
+    }
+    .founder-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 22px; }
+
+    /* ===== Contact ===== */
+    .contact {
+      border-top: 1px solid var(--hairline);
+      padding: clamp(60px, 10vh, 110px) 0;
+    }
+    .contact-grid {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 36px;
+      flex-wrap: wrap;
+    }
+    .contact h2 {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(28px, 4vw, 48px);
+      letter-spacing: -0.015em;
+      line-height: 1.3;
+    }
+    .contact .mono { color: var(--ink-mute); display: block; margin-bottom: 18px; }
+    .contact-ways { text-align: right; }
+    .contact-mail {
+      font-family: var(--font-mono);
+      font-size: clamp(14px, 1.6vw, 18px);
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 4px;
+      transition: color 0.25s ease;
+      display: inline-block;
+    }
+    .contact-mail:hover { color: var(--accent-deep); }
+    .contact-tel {
+      display: block;
+      margin-top: 18px;
+      font-family: var(--font-mono);
+      font-size: clamp(13px, 1.4vw, 15px);
+      font-weight: 600;
+      color: var(--ink-soft);
+      text-decoration: none;
+    }
+    .contact-tel:hover { color: var(--ink); }
+    .contact-note { font-size: 11.5px; color: var(--ink-mute); margin-top: 6px; }
+
+    /* ===== Footer ===== */
+    .footer {
+      border-top: 1px solid var(--hairline);
+      padding: 44px 0 56px;
+    }
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .footer-info {
+      font-size: 12px;
+      color: var(--ink-mute);
+      line-height: 2;
+    }
+    .footer-info b { color: var(--ink-soft); font-weight: 700; }
+    .footer-right { text-align: right; }
+    .footer-links { margin-bottom: 10px; }
+    .footer-links a {
+      font-size: 12.5px;
+      color: var(--ink-mute);
+      text-decoration: none;
+      margin-left: 18px;
+    }
+    .footer-links a:hover { color: var(--ink); }
+    .footer-copy { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.08em; color: var(--ink-faint); }
+
+    /* ===== Reveal ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.85s cubic-bezier(0.22, 0.61, 0.36, 1), transform 0.85s cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 860px) {
+      .hero-sub { grid-template-columns: 1fr; align-items: start; }
+      .hero-facts { justify-self: start; }
+      .prow {
+        grid-template-columns: clamp(44px, 10vw, 64px) minmax(0, 1fr) 40px;
+        grid-template-areas: "no name arrow" ". info info";
+        row-gap: 10px;
       }
-      .zoom-step {
-        max-width: 100%;
-        width: 100%;
-        padding: 28px 24px;
-      }
-      .zoom-step-arrow {
-        transform: rotate(90deg);
-        font-size: 24px;
-      }
-      .zoom-benefits {
-        gap: 12px;
-      }
-      .zoom-benefit-item {
-        font-size: 13px;
-        padding: 10px 16px;
-      }
-      .zoom-doctor-note {
-        font-size: 14px;
-        padding: 20px 24px;
-        margin-bottom: 32px;
-      }
-      .zoom-cta-button {
-        padding: 16px 36px;
-        font-size: 15px;
-      }
+      .prow-no { grid-area: no; }
+      .prow-name { grid-area: name; }
+      .prow-info { grid-area: info; }
+      .prow-arrow { grid-area: arrow; }
+      .founder-grid { grid-template-columns: 1fr; gap: 36px; }
+      .founder-photo { max-width: 300px; }
+      .founder-bio { padding-top: 0; }
+      .contact-ways { text-align: left; }
+      .nav-links a { padding: 6px 9px; font-size: 12px; }
+    }
+    @media (max-width: 640px) {
+      .nav-logo .nav-logo-rest { display: none; }
+    }
+    @media (max-width: 520px) {
+      .hero-facts { flex-wrap: wrap; border-left: none; }
+      .hero-fact { border-left: 1px solid var(--hairline); margin-bottom: 10px; }
+      .nav-links a:nth-child(n+3) { display: none; }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .fade-in-up { opacity: 1; transform: none; transition: none; }
-      .hero-brand, .hero h1, .hero .subtitle, .hero-scroll-hint {
-        opacity: 1; transform: none; animation: none;
-      }
-      .hero::before { animation: none; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .marquee-track { animation: none; }
+      .ptag-monitor::before, .nav-cta::before { animation: none; }
+      html { scroll-behavior: auto; }
     }
   </style>
 </head>
 <body>
 
-  <nav class="nav nav-dark" id="navbar">
+  <nav class="nav" id="nav">
     <div class="nav-inner">
-      <a href="/" class="nav-logo">Medical Craft Laboratory</a>
-      <div class="nav-links">
-        <a href="#products">プロダクト</a>
-        <a href="/privacy">プライバシー</a>
-        <a href="/support">サポート</a>
+      <a class="nav-logo" href="/"><b>MCL</b><span class="nav-logo-rest"> — Medical Craft Laboratory</span></a>
+      <div class="nav-right">
+        <div class="nav-links">
+          <a href="#products">プロダクト</a>
+          <a href="#contact">お問い合わせ</a>
+          <a href="#founder">代表</a>
+          <a href="/privacy">プライバシー</a>
+        </div>
+        <a class="nav-cta" href="https://www.shikalink.com/for-clinic?utm_source=mcl-hp&utm_medium=referral&utm_campaign=nav-cta">モニター募集中</a>
       </div>
     </div>
   </nav>
 
-  <section class="hero">
-    <div class="hero-content">
-      <div class="hero-brand">Medical Craft Laboratory</div>
-      <h1>医療を、もっと<span style="color: var(--color-accent)">身近</span>に。</h1>
-      <p class="subtitle">患者と医療従事者、それぞれの課題に寄り添うアプリを開発しています。</p>
-    </div>
-    <div class="hero-scroll-hint"><span></span></div>
-  </section>
-
-  <section class="mission">
-    <div class="mission-inner fade-in-up">
-      <div class="mission-label">Our Mission</div>
-      <h2>テクノロジーの力で、<br>医療の「不便」を解消する。</h2>
-      <p>紙の診察券をなくしたい患者。煩雑な書類作成に追われる医療従事者。<br>高すぎる採用コストに苦しむ医院と、理想の職場に出会えない求職者。<br>私たちは、現場の小さな不満に耳を傾け、シンプルで使いやすいプロダクトを届けます。</p>
-    </div>
-  </section>
-
-  <section class="section products" id="products">
-    <div class="section-inner">
-      <div class="section-header fade-in-up">
-        <h2>プロダクト</h2>
-        <p>現場の声から生まれた、医療のためのアプリケーション。</p>
-      </div>
-      <div class="product-grid">
-
-        <a href="/my-shinsakuken/" class="product-card fade-in-up stagger-1">
-          <div class="product-icon">💳</div>
-          <div class="product-label">患者向け・無料</div>
-          <h3>マイ診察券</h3>
-          <p class="product-desc">複数の医院の診察券を1つのアプリで管理。受付でスマホを見せるだけのデジタル診察券。</p>
-          <ul class="product-features">
-            <li>全ての診療科の診察券をまとめて管理</li>
-            <li>QRコード・患者番号の大画面表示</li>
-            <li>予約メモとプッシュ通知リマインダー</li>
-          </ul>
-          <span class="product-link">詳しく見る ›</span>
-        </a>
-
-        <a href="/kokuken/" class="product-card fade-in-up stagger-2">
-          <div class="product-icon">🦷</div>
-          <div class="product-label">歯科医院向け</div>
-          <h3>口腔機能管理くん</h3>
-          <p class="product-desc">歯科医院向け 口腔機能検査・管理計画アプリ。検査から書類作成まで、これひとつで。</p>
-          <ul class="product-features">
-            <li>口腔機能低下症・発達不全症の検査評価を自動判定</li>
-            <li>管理計画書・紹介状をワンタップでPDF出力</li>
-            <li>患者データを暗号化して安全に管理・バックアップ</li>
-          </ul>
-          <span class="product-link">詳しく見る ›</span>
-        </a>
-
-        <div class="product-card fade-in-up stagger-3">
-          <div class="product-icon">🤝</div>
-          <div class="product-label">歯科医院向け・求職者向け</div>
-          <h3>歯科リンク</h3>
-          <p class="product-desc">歯科業界特化の求人マッチングプラットフォーム。無料プランから始められて、何人採用しても追加料金0円。他社では1人採用に20万〜200万かかるところ、歯科リンクなら追加費用なし。</p>
-          <ul class="product-features">
-            <li>📸 Instagramタイムライン — #歯科リンク で投稿するだけで自動掲載</li>
-            <li>🟢 スポットバイト — 1日単位のスタッフ募集・マッチング（Maxプラン）</li>
-            <li>💰 成功報酬なし — 何人採用しても月額定額</li>
-            <li>📱 iOSネイティブアプリ対応</li>
-            <li>🎉 先着100医院限定・2026年12月末まで全機能無料</li>
-          </ul>
-          <div style="display: flex; gap: 16px; flex-wrap: wrap;">
-            <a href="https://www.shikalink.com/jobs" class="product-link">求人を見る ›</a>
-            <a href="https://www.shikalink.com/for-clinic" class="product-link" style="color: var(--color-text-tertiary);">医院の方はこちら ›</a>
+  <!-- ===== HERO ===== -->
+  <header class="hero">
+    <div class="wrap">
+      <div class="hero-eyebrow mono">Dental Product Studio — by a Practicing Dentist</div>
+      <h1>診療室の「不便」を、<br><span class="accent">プロダクト</span>に変える。</h1>
+      <div class="hero-sub">
+        <p><strong>現役歯科医師</strong>が率いる、医療プロダクトスタジオ。診療の現場で感じた課題を、自分たちの手で設計し、開発し、届けています。</p>
+        <div class="hero-facts">
+          <div class="hero-fact">
+            <div class="hero-fact-num">3</div>
+            <div class="hero-fact-label">プロダクト開発・運営中</div>
+          </div>
+          <div class="hero-fact">
+            <div class="hero-fact-num">iOS+Android</div>
+            <div class="hero-fact-label">両OSストア公開</div>
+          </div>
+          <div class="hero-fact">
+            <div class="hero-fact-num">歯科医師</div>
+            <div class="hero-fact-label">現役の臨床家が開発</div>
           </div>
         </div>
+      </div>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="https://www.shikalink.com/for-clinic?utm_source=mcl-hp&utm_medium=referral&utm_campaign=hero-cta">歯科リンク モニター医院について見る →</a>
+        <a class="btn-text" href="#products">プロダクト一覧へ ↓</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== MARQUEE ===== -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track" id="marquee-track">
+      <span class="marquee-item">Dental <b>×</b> Technology</span>
+      <span class="marquee-item">歯科リンク <b>/</b> Recruitment</span>
+      <span class="marquee-item">Monitor Clinics <b>Wanted</b></span>
+      <span class="marquee-item">口腔機能管理くん <b>/</b> Clinical</span>
+      <span class="marquee-item">マイ診察券 <b>/</b> Patients</span>
+      <span class="marquee-item">Crafted by a Dentist</span>
+    </div>
+  </div>
+
+  <!-- ===== PRODUCTS ===== -->
+  <section class="products" id="products">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <h2>プロダクト</h2>
+        <span class="mono">Products — 開発・運営中</span>
+      </div>
+      <div class="product-index reveal">
+
+        <div class="prow prow-featured">
+          <div class="prow-no">01</div>
+          <div class="prow-name">
+            <h3>歯科リンク</h3>
+            <span class="prow-en">Shikalink — Recruitment Platform</span>
+          </div>
+          <div class="prow-info">
+            <p>歯科業界特化の求人プラットフォーム。成功報酬0円・何人採用しても追加料金なし。Instagram連動で、医院の「素顔」が伝わる採用を。</p>
+            <div class="prow-tags">
+              <span class="ptag ptag-monitor">モニター医院 募集中</span>
+              <span class="ptag">先着100医院・2027年3月末まで全機能無料</span>
+              <span class="ptag">クレジットカード登録不要</span>
+              <span class="ptag">厚労省 特定募集情報等提供事業 届出済</span>
+            </div>
+            <div class="prow-links">
+              <a class="prow-btn prow-btn-primary" href="https://www.shikalink.com/for-clinic?utm_source=mcl-hp&utm_medium=referral&utm_campaign=product01-clinic">医院の方はこちら →</a>
+              <a class="prow-btn prow-btn-ghost" href="https://www.shikalink.com/?utm_source=mcl-hp&utm_medium=referral&utm_campaign=product01-seeker">お仕事を探している方 →</a>
+            </div>
+          </div>
+          <div class="prow-arrow" aria-hidden="true">→</div>
+        </div>
+
+        <a class="prow" href="/kokuken/">
+          <div class="prow-no">02</div>
+          <div class="prow-name">
+            <h3>口腔機能管理くん</h3>
+            <span class="prow-en">OralCarePro — Clinical Tool</span>
+          </div>
+          <div class="prow-info">
+            <p>口腔機能検査・管理計画アプリ。検査評価の自動判定から、管理計画書・紹介状のPDF出力まで、これひとつで完結。</p>
+            <div class="prow-tags">
+              <span class="ptag">iOS / Android 公開中</span>
+              <span class="ptag">月額¥1,000・1ヶ月無料トライアル</span>
+              <span class="ptag">歯科医院向け</span>
+            </div>
+          </div>
+          <div class="prow-arrow" aria-hidden="true">→</div>
+        </a>
+
+        <a class="prow" href="/my-shinsakuken/">
+          <div class="prow-no">03</div>
+          <div class="prow-name">
+            <h3>マイ診察券</h3>
+            <span class="prow-en">My Shinsakuken — For Patients</span>
+          </div>
+          <div class="prow-info">
+            <p>複数の医院の診察券を1つのアプリで管理。受付でスマホを見せるだけの、デジタル診察券。</p>
+            <div class="prow-tags">
+              <span class="ptag">無料アプリ</span>
+              <span class="ptag">患者向け</span>
+            </div>
+          </div>
+          <div class="prow-arrow" aria-hidden="true">→</div>
+        </a>
 
       </div>
     </div>
   </section>
 
-  <!-- ZOOM導入アシスト Section -->
-  <section class="section zoom-assist" id="zoom-assist">
-    <div class="section-inner">
-      <div class="section-header fade-in-up">
-        <h2>ZOOM導入アシスト<span style="font-size: 20px; font-weight: 500; color: var(--color-accent);">（無料）</span></h2>
-        <p>30分のZOOM通話で求人掲載まで完了。<br>登録が面倒な方もサポートします。</p>
+  <!-- ===== RECRUITING BAND ===== -->
+  <section class="recruit">
+    <div class="wrap recruit-grid reveal">
+      <div>
+        <span class="mono">Recruiting Now</span>
+        <h2>モニター医院、<br>先着100医院 募集中。</h2>
+        <p><b>2027年3月末まで全機能無料</b>・クレジットカード登録不要。正式サービス開始は2027年4月です。</p>
       </div>
+      <a class="btn btn-primary" href="https://www.shikalink.com/for-clinic?utm_source=mcl-hp&utm_medium=referral&utm_campaign=recruit-band">モニター医院について見る →</a>
+    </div>
+  </section>
 
-      <div class="zoom-steps fade-in-up">
-        <div class="zoom-step">
-          <div class="zoom-step-number">1</div>
-          <div class="zoom-step-label">ZOOM予約</div>
-          <p>メールで希望日時をお知らせください</p>
-        </div>
-        <div class="zoom-step-arrow">›</div>
-        <div class="zoom-step">
-          <div class="zoom-step-number">2</div>
-          <div class="zoom-step-label">画面共有で一緒に設定</div>
-          <p>操作はこちらでご案内します</p>
-        </div>
-        <div class="zoom-step-arrow">›</div>
-        <div class="zoom-step">
-          <div class="zoom-step-number">3</div>
-          <div class="zoom-step-label">その場で求人公開</div>
-          <p>通話中に掲載完了まで仕上げます</p>
-        </div>
-      </div>
+  <!-- ===== STATEMENT ===== -->
+  <section class="statement">
+    <div class="wrap reveal">
+      <span class="mono">Our Mission</span>
+      <h2>テクノロジーの力で、<br>医療の「不便」を解消する。</h2>
+      <p>紙の診察券をなくしたい患者。煩雑な書類作成に追われる医療従事者。高すぎる採用コストに苦しむ医院と、理想の職場に出会えない求職者。私たちは、現場の小さな不満に耳を傾け、シンプルで使いやすいプロダクトを届けます。</p>
+    </div>
+  </section>
 
-      <div class="zoom-benefits fade-in-up">
-        <div class="zoom-benefit-item">
-          <span class="zoom-benefit-icon">&#x23F1;</span>
-          <span>所要時間30分</span>
+  <!-- ===== FOUNDER ===== -->
+  <section class="founder" id="founder">
+    <div class="wrap">
+      <div class="founder-grid reveal">
+        <div class="founder-photo">
+          <img src="/founder.jpg" alt="代表 和泉龍之介（歯科医師・エンジニア）" width="300" height="340" loading="lazy">
+          <div class="founder-photo-caption">Ryunosuke Izumi — Founder / DDS</div>
         </div>
-        <div class="zoom-benefit-item">
-          <span class="zoom-benefit-icon">&#xA5;</span>
-          <span>完全無料</span>
+        <h2 class="founder-quote">昼は診療室で患者と向き合い、<br>夜は<span class="accent">コード</span>を書く。</h2>
+        <div class="founder-bio">
+          <div class="founder-name-row">
+            <span class="founder-name">和泉 龍之介</span>
+            <span class="founder-name-en">Ryunosuke Izumi</span>
+          </div>
+          <div class="founder-role">代表 / 歯科医師・エンジニア — 1988年生まれ</div>
+          <p>Medical Craft Laboratoryのプロダクトは、すべて現役の歯科医師が設計・開発しています。診療の現場で「これ、不便だな」と感じたことが、そのまま開発のスタートラインです。</p>
+          <p>大きな会社ではありません。だからこそ、現場の声がそのまま機能になります。「あったらいいな」を、一緒にかたちにしていけたらうれしいです。</p>
+          <div class="founder-tags">
+            <span class="ptag">DDS — 歯科医師</span>
+            <span class="ptag">Engineer</span>
+            <span class="ptag">訪問診療の現場経験</span>
+          </div>
         </div>
-        <div class="zoom-benefit-item">
-          <span class="zoom-benefit-icon">&#x1F3AF;</span>
-          <span>先着100医院限定</span>
-        </div>
-        <div class="zoom-benefit-item">
-          <span class="zoom-benefit-icon">&#x1F319;</span>
-          <span>診療後21時〜対応OK</span>
-        </div>
-      </div>
-
-      <div class="zoom-doctor-note fade-in-up">
-        開発者は現役の歯科医師です。<br>
-        現場を知っているからこそ、先生のお悩みに寄り添えます。
-      </div>
-
-      <div class="zoom-cta fade-in-up">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLScOevBdZRB8uzVCOT9wljSnO6OSWU2J5C1ZQhqgszVvKfBNDA/viewform" class="zoom-cta-button">ZOOM導入アシストを予約する</a>
-        <p class="zoom-cta-note">診療状況により開始時間が前後する場合がございます</p>
       </div>
     </div>
   </section>
 
+  <!-- ===== CONTACT ===== -->
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="contact-grid reveal">
+        <div>
+          <span class="mono">Contact</span>
+          <h2>プロダクトのご相談、<br>お気軽にどうぞ。</h2>
+        </div>
+        <div class="contact-ways">
+          <a class="contact-mail" href="mailto:contact@medicalcraft-lab.com">contact@medicalcraft-lab.com</a>
+          <a class="contact-tel" href="tel:05017841182">TEL 050-1784-1182</a>
+          <p class="contact-note">留守番電話にお名前とご用件をお残しください。折り返しご連絡いたします。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
   <footer class="footer">
-    <div class="footer-inner" style="flex-direction: column; gap: 24px; text-align: center;">
-      <div>
-        <p style="font-size: 14px; color: rgba(255,255,255,0.7); margin-bottom: 8px; font-weight: 600;">運営者情報</p>
-        <p style="font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.8;">
-          Medical Craft Laboratory<br>
-          代表: 和泉 龍之介（Ryunosuke Izumi）<br>
-          歯科医師 / 1988年生まれ / エンジニア<br>
-          臨床経験を活かし、医療現場の課題をテクノロジーで解決するプロダクトを開発<br>
-          〒306-0014 茨城県古河市下山町10-1 ルミエールB102<br>
-          お問い合わせ: contact@medicalcraft-lab.com
-        </p>
+    <div class="wrap footer-grid">
+      <div class="footer-info">
+        <b>Medical Craft Laboratory</b><br>
+        代表: 和泉 龍之介 — 歯科医師 / エンジニア<br>
+        〒306-0014 茨城県古河市下山町10-1 ルミエールB102<br>
+        厚生労働省「特定募集情報等提供事業」届出済（受理番号 51-募-001872）
       </div>
-      <div>
-        <span class="footer-copy">&copy; 2026 Medical Craft Laboratory</span>
-        <div class="footer-links" style="margin-top: 8px;">
+      <div class="footer-right">
+        <div class="footer-links">
+          <a href="https://note.com/medical_lab0305">note</a>
+          <a href="https://www.instagram.com/medicalcraft.lab/">Instagram</a>
           <a href="/privacy">プライバシーポリシー</a>
           <a href="/support">サポート</a>
         </div>
+        <div class="footer-copy">&copy; 2026 MEDICAL CRAFT LABORATORY</div>
       </div>
     </div>
   </footer>
 
   <script>
-    // Scroll animations
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+    // marquee: duplicate track for seamless loop
+    const track = document.getElementById('marquee-track');
+    track.innerHTML += track.innerHTML;
 
-    // Navbar transition: dark on hero, light after
-    const navbar = document.getElementById('navbar');
-    const hero = document.querySelector('.hero');
-    const navObserver = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        navbar.classList.add('nav-dark');
-        navbar.classList.remove('nav-scrolled');
-      } else {
-        navbar.classList.remove('nav-dark');
-        navbar.classList.add('nav-scrolled');
-      }
-    }, { threshold: 0.1 });
-    navObserver.observe(hero);
+    // reveal on scroll
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    // nav hairline on scroll
+    const nav = document.getElementById('nav');
+    addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', scrollY > 8);
+    }, { passive: true });
   </script>
 </body>
 </html>
