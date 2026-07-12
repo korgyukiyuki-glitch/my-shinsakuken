@@ -57,3 +57,6 @@ docs/kokuken/index.html
 ## 2026-06-12 19:56
 docs/kokuken/img/app-home.png
 docs/kokuken/index.html
+
+## 2026-07-12 22:29
+docs/index.html
