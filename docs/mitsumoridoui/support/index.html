@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>サポート | 歯科見積もり同意書くん</title>
+  <meta name="description" content="歯科見積もり同意書くんのよくある質問とお問い合わせ">
+  <link rel="canonical" href="https://medicalcraft-lab.com/mitsumoridoui/support">
+  <style>
+    :root {
+      --color-text-primary: #1d1d1f;
+      --color-text-secondary: #424245;
+      --color-text-tertiary: #6e6e73;
+      --color-text-caption: #86868b;
+      --color-bg-primary: #ffffff;
+      --color-bg-secondary: #f5f5f7;
+      --color-accent: #2F5D8C;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text',
+                   'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+      color: var(--color-text-primary);
+      background: var(--color-bg-primary);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 20px;
+    }
+    .nav-inner {
+      max-width: 980px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      text-decoration: none;
+    }
+    .nav-back {
+      font-size: 13px;
+      color: var(--color-accent);
+      text-decoration: none;
+    }
+    .nav-back:hover { text-decoration: underline; }
+
+    .page-header {
+      padding: 120px 20px 48px;
+      text-align: center;
+    }
+    .page-header h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    .page-header p {
+      font-size: 18px;
+      color: var(--color-text-tertiary);
+      margin-top: 12px;
+    }
+
+    .content {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
+    }
+    .section-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-accent);
+      letter-spacing: 0.06em;
+      margin: 40px 0 16px;
+      text-transform: uppercase;
+    }
+    .faq-item {
+      background: var(--color-bg-secondary);
+      border-radius: 16px;
+      padding: 28px 32px;
+      margin-bottom: 16px;
+    }
+    .faq-item h3 {
+      font-size: 17px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: var(--color-text-primary);
+    }
+    .faq-item p {
+      font-size: 16px;
+      color: var(--color-text-secondary);
+      line-height: 1.75;
+    }
+    .faq-item p + p { margin-top: 10px; }
+    .faq-item ul { padding-left: 20px; margin-top: 10px; }
+    .faq-item li {
+      font-size: 16px;
+      color: var(--color-text-secondary);
+      margin-bottom: 6px;
+      line-height: 1.7;
+    }
+
+    .contact-box {
+      background: var(--color-bg-secondary);
+      border-radius: 20px;
+      padding: 44px 40px;
+      text-align: center;
+      margin-top: 48px;
+    }
+    .contact-box h2 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .contact-box p {
+      font-size: 16px;
+      color: var(--color-text-secondary);
+      margin-bottom: 20px;
+    }
+    .contact-mail {
+      display: inline-block;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--color-accent);
+      text-decoration: none;
+      word-break: break-all;
+    }
+    .contact-mail:hover { text-decoration: underline; }
+    .contact-note {
+      font-size: 14px;
+      color: var(--color-text-caption);
+      margin-top: 18px;
+      line-height: 1.7;
+    }
+
+    .footer {
+      background: var(--color-bg-secondary);
+      padding: 24px 20px;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      margin-top: 60px;
+    }
+    .footer-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-copy {
+      font-size: 13px;
+      color: var(--color-text-caption);
+    }
+    .footer-links a {
+      font-size: 13px;
+      color: var(--color-text-tertiary);
+      text-decoration: none;
+      margin-left: 24px;
+    }
+    .footer-links a:hover { text-decoration: underline; }
+
+    @media (max-width: 768px) {
+      .page-header { padding: 100px 20px 32px; }
+      .page-header h1 { font-size: 28px; }
+      .page-header p { font-size: 16px; }
+      .faq-item { padding: 24px; }
+      .contact-box { padding: 32px 24px; }
+      .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
+      .footer-links a { margin: 0 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/mitsumoridoui/" class="nav-logo">歯科見積もり同意書くん</a>
+      <a href="/mitsumoridoui/" class="nav-back">&larr; トップに戻る</a>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <h1>サポート</h1>
+    <p>よくある質問と、お問い合わせ先をご案内します。</p>
+  </div>
+
+  <div class="content">
+
+    <div class="section-label">使い方</div>
+
+    <div class="faq-item">
+      <h3>見積書はどうやって作りますか？</h3>
+      <p>ホーム画面の「見積書」から作成します。患者を選び、あらかじめ登録した料金マスタから治療項目を選ぶだけで明細ができます。歯式（歯の番号）を指定すれば、どの歯にどの治療を行うかを図で示した見積書になります。</p>
+      <p>1つの見積の中に複数の案（松・竹・梅など）を作成でき、患者様に選んでいただけます。</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>料金マスタはどこで登録しますか？</h3>
+      <p>「料金マスタ」画面から、医院ごとの自費診療メニューと金額を登録できます。カテゴリごとに整理でき、税込・税抜の指定も可能です。ブリッジは支台とポンティックで単価を分けて登録することもできます。</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>同意書・承諾書にはどんな種類がありますか？</h3>
+      <p>抜歯、インプラント、矯正、ホワイトニング、マイクロスコープ根管治療、ボツリヌス治療、自費診療の見積承諾書などのテンプレートを収録しています。医院名や患者名は自動で差し込まれ、特記事項を自由に追記できます。</p>
+      <p>抜歯同意書は保険診療でも使用されるため、ホーム画面から直接アクセスできます。</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>電子サインはどう使いますか？</h3>
+      <p>同意書・承諾書のプレビュー画面から署名パッドを開き、患者様ご本人（未成年の場合は保護者）に画面上でサインしていただきます。署名するとPDFに焼き込まれ、以後は内容が変更できない記録として保存されます。作成したPDFは共有・印刷できます。</p>
+      <p>紙の運用を続けたい場合は、署名欄を空欄にしたPDFを印刷してご利用いただけます。</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>提示した見積のその後を管理できますか？</h3>
+      <p>はい。各見積に「提示済み・検討中・成約・見送り」のステータスを設定できます。ホーム画面の未確定リストから、その日提示した分をまとめて入力できるため、終業前の数分で整理できます。</p>
+      <p>「実績」画面では、件数・金額・成約率を治療別／担当者別／期間別に集計して確認できます。</p>
+    </div>
+
+    <div class="section-label">アカウント・データ</div>
+
+    <div class="faq-item">
+      <h3>複数のデバイスでデータを共有できますか？</h3>
+      <p>はい。同じアカウントでサインインすれば、iPhone と iPad など複数の端末で同じデータをご利用いただけます。</p>
+      <p>なお、同じアカウントで同時に複数端末から編集した場合、後から保存した内容が反映されます。</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>PINコードを忘れてしまいました</h3>
+      <p>サインイン画面から一度サインアウトし、同じアカウントで再度サインインするとPINを再設定できます。クラウドに保存されたデータは失われません。</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>患者データの安全性について教えてください</h3>
+      <p>端末とサーバー間の通信はすべてTLSで暗号化されます。サーバー上のデータはアカウント単位のアクセス制御で保護され、他のユーザーが別のユーザーのデータを閲覧することはできません。アプリはPINコードでロックできます。</p>
+      <p>データの取り扱いの詳細は<a href="/mitsumoridoui/privacy/" style="color: var(--color-accent);">プライバシーポリシー</a>をご確認ください。</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>データを削除したい／退会したい</h3>
+      <p>アプリ内の「データ管理」からデータの個別削除、およびアカウントの削除（退会）ができます。退会するとクラウド上のデータと署名済みPDFも削除されます。</p>
+      <p>アプリを利用できない状況の場合は、下記のメールアドレスまでご連絡ください。</p>
+    </div>
+
+    <div class="section-label">料金・サブスクリプション</div>
+
+    <div class="faq-item">
+      <h3>料金を教えてください</h3>
+      <p>月額プラン 1,000円 / 年額プラン 9,800円です。いずれも初回1か月は無料でお試しいただけます。</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>無料で使える範囲はありますか？</h3>
+      <p>ご契約前でも、見積書を3件まで作成してお試しいただけます（作成済みの見積の編集は件数に含まれません）。</p>
+      <p>同意書・承諾書の作成と電子サインは、<strong>有料期間の開始後</strong>にご利用いただけます。書類として保存される性質上、<strong>1か月の無料期間中はご利用いただけません</strong>のでご了承ください。</p>
+      <p>なお、一度作成した書類の閲覧・PDFの共有・印刷・削除は、期間や契約状態にかかわらずいつでも行えます。</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>解約したい／課金が反映されない</h3>
+      <p>解約は iPhone / iPad の「設定」&rarr;（お名前）&rarr;「サブスクリプション」から行えます。</p>
+      <p>ご購入手続きが完了しているのに機能が解放されない場合は、アプリ内の「購入を復元」をお試しください。それでも解決しない場合は、お手数ですが下記までご連絡ください。</p>
+    </div>
+
+    <div class="contact-box">
+      <h2>お問い合わせ</h2>
+      <p>ご不明な点やご要望がありましたら、お気軽にご連絡ください。</p>
+      <a href="mailto:medicalcraft.lab@gmail.com" class="contact-mail">medicalcraft.lab@gmail.com</a>
+      <p class="contact-note">
+        Medical Craft Laboratory<br>
+        通常2〜3営業日以内にご返信いたします。
+      </p>
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-copy">&copy; 2026 Medical Craft Laboratory</span>
+      <div class="footer-links">
+        <a href="/mitsumoridoui/privacy/">プライバシーポリシー</a>
+        <a href="/mitsumoridoui/terms/">利用規約</a>
+        <a href="/mitsumoridoui/support/">サポート</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
