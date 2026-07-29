@@ -67,3 +67,8 @@ docs/mitsumoridoui/index.html
 docs/mitsumoridoui/privacy/index.html
 docs/mitsumoridoui/support/index.html
 docs/mitsumoridoui/terms/index.html
+
+## 2026-07-29 22:39
+docs/kokuken/index.html
+docs/kokuken/privacy/index.html
+docs/kokuken/support/index.html
