@@ -72,3 +72,6 @@ docs/mitsumoridoui/terms/index.html
 docs/kokuken/index.html
 docs/kokuken/privacy/index.html
 docs/kokuken/support/index.html
+
+## 2026-08-03 18:01
+docs/kokuken/videos/index.html

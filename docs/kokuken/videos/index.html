@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>説明動画 | 口腔機能管理くん</title>
+<meta name="description" content="歯科医院でお渡しした説明動画をご覧いただけます。">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://medicalcraft-lab.com/kokuken/videos/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="説明動画 | 口腔機能管理くん">
+<meta property="og:description" content="歯科医院でお渡しした説明動画をご覧いただけます。">
+<meta property="og:site_name" content="Medical Craft Laboratory">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FBFAF6;
+    --ink: #1D1D1B;
+    --ink-soft: #5A5953;
+    --ink-mute: #8A887F;
+    --hairline: #E5E2D9;
+    --accent: #F0832A;
+    --accent-deep: #C75B12;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Zen Kaku Gothic New', 'Hiragino Sans', sans-serif;
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 24px 20px 64px; }
+  header { text-align: center; padding: 12px 0 28px; }
+  header .brand {
+    font-size: 13px; letter-spacing: .08em; color: var(--ink-mute);
+  }
+  h1 {
+    font-size: 22px; font-weight: 700; margin-top: 6px; line-height: 1.5;
+  }
+  .player {
+    background: #000; border-radius: 14px; overflow: hidden;
+    box-shadow: 0 6px 24px rgba(29,29,27,.12);
+  }
+  video { width: 100%; display: block; background: #000; }
+  .meta { margin-top: 18px; }
+  .cat {
+    display: inline-block; font-size: 12px; font-weight: 500;
+    color: var(--accent-deep); background: #FCEEE2;
+    border-radius: 999px; padding: 3px 12px; margin-bottom: 8px;
+  }
+  .note {
+    margin-top: 22px; padding: 16px 18px; background: #fff;
+    border: 1px solid var(--hairline); border-radius: 12px;
+    font-size: 14px; color: var(--ink-soft);
+  }
+  .list { margin-top: 34px; }
+  .list h2 {
+    font-size: 15px; font-weight: 700; color: var(--ink-soft);
+    padding-bottom: 10px; border-bottom: 1px solid var(--hairline);
+  }
+  .list ul { list-style: none; margin-top: 6px; }
+  .list li { border-bottom: 1px solid var(--hairline); }
+  .list a {
+    display: block; padding: 14px 4px; color: var(--ink);
+    text-decoration: none; font-size: 15px;
+  }
+  .list a:hover, .list a:focus { color: var(--accent-deep); }
+  .state {
+    padding: 48px 8px; text-align: center; color: var(--ink-mute); font-size: 15px;
+  }
+  .state strong { display: block; color: var(--ink); font-size: 17px; margin-bottom: 8px; }
+  .retry {
+    display: inline-block; margin-top: 14px; padding: 10px 22px;
+    background: var(--accent); color: #fff; border: none; border-radius: 999px;
+    font-family: inherit; font-size: 14px; font-weight: 500; cursor: pointer;
+  }
+  footer {
+    margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--hairline);
+    text-align: center; font-size: 12px; color: var(--ink-mute);
+  }
+  footer a { color: var(--ink-mute); }
+  @media (max-width: 480px) {
+    .wrap { padding: 16px 14px 48px; }
+    h1 { font-size: 19px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand">歯科医院からの説明動画</div>
+    <h1 id="title">読み込んでいます…</h1>
+  </header>
+
+  <div id="main"></div>
+
+  <div class="list" id="listWrap" hidden>
+    <h2 id="listTitle">ほかの動画</h2>
+    <ul id="list"></ul>
+  </div>
+
+  <footer>
+    <div>Medical Craft Laboratory</div>
+    <div style="margin-top:6px"><a href="https://medicalcraft-lab.com/kokuken/">口腔機能管理くんについて</a></div>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var MANIFEST = 'https://pub-1aeeff649613420b8ba8279a80556848.r2.dev/videos.json';
+  var titleEl = document.getElementById('title');
+  var mainEl = document.getElementById('main');
+  var listWrap = document.getElementById('listWrap');
+  var listEl = document.getElementById('list');
+
+  function param(name) {
+    var m = new RegExp('[?&]' + name + '=([^&#]*)').exec(location.search);
+    return m ? decodeURIComponent(m[1].replace(/\+/g, ' ')) : '';
+  }
+
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  // R2 の公開URLだけを許可する（マニフェスト側が汚染されても任意サイトへ誘導させない）
+  function safeUrl(u) {
+    return typeof u === 'string' && /^https:\/\/pub-1aeeff649613420b8ba8279a80556848\.r2\.dev\//.test(u) ? u : '';
+  }
+
+  function showState(head, body, withRetry) {
+    titleEl.textContent = head;
+    mainEl.innerHTML =
+      '<div class="state"><strong>' + esc(head) + '</strong>' + esc(body) +
+      (withRetry ? '<div><button class="retry" id="retryBtn">再読み込み</button></div>' : '') +
+      '</div>';
+    var btn = document.getElementById('retryBtn');
+    if (btn) btn.addEventListener('click', function () { location.reload(); });
+  }
+
+  function renderVideo(video, catLabel) {
+    var url = safeUrl(video.url);
+    if (!url) { showState('動画を再生できません', 'この動画の配信元が確認できませんでした。', false); return; }
+    document.title = video.title + ' | 説明動画';
+    titleEl.textContent = video.title;
+    mainEl.innerHTML =
+      (catLabel ? '<div class="meta"><span class="cat">' + esc(catLabel) + '</span></div>' : '') +
+      '<div class="player"><video controls playsinline preload="metadata" src="' + esc(url) + '"></video></div>' +
+      '<div class="note">再生できないときは、通信環境の良い場所でページを開き直してください。' +
+      '内容について気になる点があれば、かかりつけの歯科医院にご相談ください。</div>';
+  }
+
+  function renderList(videos, currentId) {
+    var others = videos.filter(function (v) { return v.id !== currentId; });
+    if (!others.length) return;
+    listEl.innerHTML = others.map(function (v) {
+      return '<li><a href="?id=' + encodeURIComponent(v.id) + '">' + esc(v.title) + '</a></li>';
+    }).join('');
+    listWrap.hidden = false;
+  }
+
+  function renderIndex(catalog) {
+    document.title = '説明動画 | 口腔機能管理くん';
+    titleEl.textContent = '説明動画';
+    mainEl.innerHTML =
+      '<div class="note">歯科医院からお渡しした二次元コードを読み取ると、該当する動画が開きます。' +
+      '下の一覧からも選べます。</div>';
+    document.getElementById('listTitle').textContent = '動画一覧';
+    renderList(catalog.videos, '');
+  }
+
+  var id = param('id');
+
+  fetch(MANIFEST, { cache: 'no-cache' })
+    .then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    })
+    .then(function (data) {
+      var videos = Array.isArray(data && data.videos) ? data.videos : [];
+      var cats = Array.isArray(data && data.categories) ? data.categories : [];
+      if (!videos.length) { showState('動画を準備中です', 'しばらくしてからお試しください。', true); return; }
+
+      if (!id) { renderIndex({ videos: videos }); return; }
+
+      var video = null;
+      for (var i = 0; i < videos.length; i++) { if (videos[i].id === id) { video = videos[i]; break; } }
+      if (!video) {
+        showState('動画が見つかりません', '二次元コードが古い可能性があります。下の一覧からお探しください。', false);
+        document.getElementById('listTitle').textContent = '動画一覧';
+        renderList(videos, '');
+        return;
+      }
+
+      var catLabel = '';
+      var vc = Array.isArray(video.categories) ? video.categories : [];
+      for (var j = 0; j < cats.length; j++) {
+        if (vc.indexOf(cats[j].id) >= 0) { catLabel = cats[j].label; break; }
+      }
+      renderVideo(video, catLabel);
+      renderList(videos, video.id);
+    })
+    .catch(function () {
+      showState('読み込めませんでした', '通信環境をご確認のうえ、もう一度お試しください。', true);
+    });
+})();
+</script>
+</body>
+</html>
