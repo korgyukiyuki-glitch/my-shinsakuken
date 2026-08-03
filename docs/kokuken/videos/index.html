@@ -118,7 +118,42 @@
 
   function param(name) {
     var m = new RegExp('[?&]' + name + '=([^&#]*)').exec(location.search);
-    return m ? decodeURIComponent(m[1].replace(/\+/g, ' ')) : '';
+    if (!m) return '';
+    // 不正なパーセントエンコード（URL切れ・手打ちミス）で URIError になっても
+    // ページごと死なせない＝空扱いにして動画一覧へフォールバック
+    try { return decodeURIComponent(m[1].replace(/\+/g, ' ')); }
+    catch (e) { return ''; }
+  }
+
+  // fetch 非対応の古いブラウザ（高齢患者層の旧端末）でも動くよう XHR フォールバック
+  function getJson(url, onOk, onErr) {
+    if (window.fetch) {
+      fetch(url, { cache: 'no-cache' })
+        .then(function (r) {
+          if (!r.ok) throw new Error('HTTP ' + r.status);
+          return r.json();
+        })
+        .then(onOk)
+        .catch(onErr);
+      return;
+    }
+    try {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', url, true);
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState !== 4) return;
+        if (xhr.status >= 200 && xhr.status < 300) {
+          try { onOk(JSON.parse(xhr.responseText)); }
+          catch (e) { onErr(e); }
+        } else {
+          onErr(new Error('HTTP ' + xhr.status));
+        }
+      };
+      xhr.onerror = function () { onErr(new Error('network')); };
+      xhr.send();
+    } catch (e) {
+      onErr(e);
+    }
   }
 
   function esc(s) {
@@ -175,14 +210,27 @@
 
   var id = param('id');
 
-  fetch(MANIFEST, { cache: 'no-cache' })
-    .then(function (r) {
-      if (!r.ok) throw new Error('HTTP ' + r.status);
-      return r.json();
-    })
-    .then(function (data) {
-      var videos = Array.isArray(data && data.videos) ? data.videos : [];
-      var cats = Array.isArray(data && data.categories) ? data.categories : [];
+  getJson(
+    MANIFEST,
+    function (data) {
+      var rawVideos = (data && Object.prototype.toString.call(data.videos) === '[object Array]') ? data.videos : [];
+      var rawCats = (data && Object.prototype.toString.call(data.categories) === '[object Array]') ? data.categories : [];
+      // アプリ側（lib/videos.ts parseVideos）と同じく、壊れた項目は捨てる
+      //（title 欠落で "undefined" が画面に出るのを防ぐ）
+      var videos = [];
+      for (var vi = 0; vi < rawVideos.length; vi++) {
+        var rv = rawVideos[vi];
+        if (rv && typeof rv.id === 'string' && rv.id && typeof rv.title === 'string' && rv.title && typeof rv.url === 'string') {
+          videos.push(rv);
+        }
+      }
+      var cats = [];
+      for (var ci = 0; ci < rawCats.length; ci++) {
+        var rc = rawCats[ci];
+        if (rc && typeof rc.id === 'string' && rc.id && typeof rc.label === 'string' && rc.label) {
+          cats.push(rc);
+        }
+      }
       if (!videos.length) { showState('動画を準備中です', 'しばらくしてからお試しください。', true); return; }
 
       if (!id) { renderIndex({ videos: videos }); return; }
@@ -203,11 +251,17 @@
       }
       renderVideo(video, catLabel);
       renderList(videos, video.id);
-    })
-    .catch(function () {
+    },
+    function () {
       showState('読み込めませんでした', '通信環境をご確認のうえ、もう一度お試しください。', true);
-    });
+    }
+  );
 })();
 </script>
+<noscript>
+  <div style="padding:32px 16px;text-align:center;font-size:15px;color:#5A5953">
+    このページの表示には JavaScript が必要です。ブラウザの設定をご確認ください。
+  </div>
+</noscript>
 </body>
 </html>
