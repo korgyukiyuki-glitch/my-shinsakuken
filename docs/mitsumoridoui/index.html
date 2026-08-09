@@ -69,12 +69,28 @@
     }
     .nav-links a:hover { color: var(--color-accent); }
     @media (max-width: 860px) { .nav-links { display: none; } }
+    .nav-cta {
+      display: inline-block;
+      background: var(--color-accent); color: #fff;
+      text-decoration: none;
+      padding: 9px 20px; border-radius: 980px;
+      font-size: 13px; font-weight: 700; white-space: nowrap;
+      transition: opacity 0.2s ease;
+    }
+    .nav-cta:hover { opacity: 0.85; }
 
     /* ===== HERO ===== */
     .hero {
       padding: 132px 20px 80px;
-      text-align: center;
       background: linear-gradient(180deg, #ffffff 0%, var(--color-bg-secondary) 100%);
+    }
+    .hero-grid {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 52px;
+      align-items: center;
     }
     .eyebrow {
       font-size: 11px;
@@ -84,20 +100,60 @@
       margin-bottom: 20px;
     }
     .hero h1 {
-      font-size: 52px;
+      font-size: clamp(32px, 3.2vw, 44px);
       font-weight: 700;
-      line-height: 1.14;
+      line-height: 1.22;
       letter-spacing: -0.02em;
       margin-bottom: 22px;
     }
     .hero-lead {
-      max-width: 620px;
-      margin: 0 auto 32px;
-      font-size: 18px;
+      max-width: 560px;
+      margin: 0 0 32px;
+      font-size: 17px;
       color: var(--color-text-secondary);
-      line-height: 1.85;
+      line-height: 1.9;
     }
-    .btn-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    /* App Store ボタン */
+    .btn-store {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--color-text-primary, #1d1d1f); color: #fff;
+      text-decoration: none;
+      padding: 14px 28px; border-radius: 980px;
+      font-size: 15px; font-weight: 700; white-space: nowrap;
+      transition: opacity 0.2s ease;
+    }
+    .btn-store:hover { opacity: 0.85; }
+    .btn-store svg { flex-shrink: 0; }
+    /* 実機スクリーンショット */
+    .hero-shots { display: flex; gap: 12px; align-items: flex-start; }
+    .hero-shots .shot {
+      border: 1px solid var(--color-border, #e5e5e7);
+      border-radius: 20px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+    .hero-shots .shot img {
+      display: block; width: 100%; height: auto;
+      aspect-ratio: 560 / 1142;
+      object-fit: cover; object-position: top;
+    }
+    .hero-shots .shot.side { width: 30%; margin-top: 34px; }
+    .hero-shots .shot.main { width: 40%; }
+    .hero-caption {
+      font-size: 10px; letter-spacing: 0.14em;
+      color: var(--color-text-caption);
+      text-align: right; margin-top: 12px;
+    }
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 44px; text-align: center; }
+      .hero-lead { margin-left: auto; margin-right: auto; }
+      .hero h1 { font-size: 38px; }
+      .hero-shots { max-width: 460px; margin: 0 auto; }
+      .hero-caption { text-align: center; }
+    }
+    .btn-row { display: flex; gap: 12px; flex-wrap: wrap; }
+    @media (max-width: 900px) { .btn-row { justify-content: center; } }
     .btn {
       display: inline-block;
       padding: 13px 30px;
@@ -359,25 +415,41 @@
         <a href="#pricing">料金</a>
         <a href="/mitsumoridoui/support/">サポート</a>
       </div>
+      <a href="https://apps.apple.com/jp/app/id6795446867?ct=lp_nav&mt=8" class="nav-cta" target="_blank" rel="noopener">ダウンロード</a>
     </div>
   </nav>
 
   <!-- HERO -->
   <header class="hero">
-    <p class="eyebrow">FOR DENTAL CLINICS — 自費診療の提案から成約まで</p>
-    <h1>自費の見積書と同意書を、<br>その場で。</h1>
-    <p class="hero-lead">
-      歯を選ぶだけで見積書ができ、同意書はその場で署名までもらえる。
-      提案したあとの「検討中」も一覧で追いかけられる、歯科医院のための自費診療ツールです。
-    </p>
-    <div class="btn-row">
-      <a href="#pricing" class="btn btn-primary">料金を見る</a>
-      <a href="#features" class="btn btn-secondary">機能を見る</a>
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow">FOR DENTAL CLINICS — 自費診療の提案から成約まで</p>
+        <h1>自費の見積書と同意書を、<br>その場で。</h1>
+        <p class="hero-lead">
+          歯を選ぶだけで見積書ができ、同意書はその場で署名までもらえる。
+          提案したあとの「検討中」も一覧で追いかけられる、歯科医院のための自費診療ツールです。
+        </p>
+        <div class="btn-row">
+          <a href="https://apps.apple.com/jp/app/id6795446867?ct=lp_hero&mt=8" class="btn-store" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.7 12.6c0-3 2.5-4.5 2.6-4.6-1.4-2.1-3.6-2.3-4.4-2.4-1.9-.2-3.6 1.1-4.6 1.1-.9 0-2.4-1.1-4-1-2 0-3.9 1.2-5 3-2.1 3.7-.5 9.1 1.5 12.1 1 1.5 2.2 3.1 3.8 3 1.5-.1 2.1-1 3.9-1s2.4 1 4 1 2.7-1.5 3.7-2.9c1.2-1.7 1.6-3.3 1.7-3.4-.1-.1-3.2-1.3-3.2-4.9zM15.6 3.6c.8-1 1.4-2.4 1.2-3.6-1.2 0-2.7.8-3.5 1.8-.8.9-1.5 2.3-1.3 3.6 1.4.1 2.8-.8 3.6-1.8z"/></svg>
+            App Store
+          </a>
+          <a href="#pricing" class="btn btn-secondary">料金を見る</a>
+        </div>
+        <p class="hero-note">
+          iPhone・iPad 対応｜医院の端末は何台でもOK<br>
+          月額プラン・年額プランとも 1か月の無料トライアル付き
+        </p>
+      </div>
+      <div>
+        <div class="hero-shots">
+          <div class="shot side"><img src="/mitsumoridoui/img/lp-joukyou.jpg" alt="見積もりの状況 — 未確定リストで提示済み・検討中を一覧管理" width="560" height="1142" loading="eager"></div>
+          <div class="shot main"><img src="/mitsumoridoui/img/lp-mitsumori.jpg" alt="見積書プレビュー — 複数案の比較と歯式図つき明細" width="560" height="1142" loading="eager"></div>
+          <div class="shot side"><img src="/mitsumoridoui/img/lp-jisseki.jpg" alt="実績 — 成約率・提示総額・治療別の集計" width="560" height="1142" loading="eager"></div>
+        </div>
+        <p class="hero-caption">ACTUAL APP SCREENS</p>
+      </div>
     </div>
-    <p class="hero-note">
-      iPhone・iPad 対応｜医院の端末は何台でもOK<br>
-      月額プラン・年額プランとも 1か月の無料トライアル付き
-    </p>
   </header>
 
   <!-- FLOW -->
@@ -600,8 +672,12 @@
   <section class="cta">
     <h2>自費の提案を、仕組みに。</h2>
     <p>1か月の無料トライアルからお試しいただけます。</p>
-    <div class="btn-row">
-      <a href="/mitsumoridoui/support/" class="btn btn-primary">サポート・よくある質問</a>
+    <div class="btn-row" style="justify-content:center;">
+      <a href="https://apps.apple.com/jp/app/id6795446867?ct=lp_footer&mt=8" class="btn-store" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.7 12.6c0-3 2.5-4.5 2.6-4.6-1.4-2.1-3.6-2.3-4.4-2.4-1.9-.2-3.6 1.1-4.6 1.1-.9 0-2.4-1.1-4-1-2 0-3.9 1.2-5 3-2.1 3.7-.5 9.1 1.5 12.1 1 1.5 2.2 3.1 3.8 3 1.5-.1 2.1-1 3.9-1s2.4 1 4 1 2.7-1.5 3.7-2.9c1.2-1.7 1.6-3.3 1.7-3.4-.1-.1-3.2-1.3-3.2-4.9zM15.6 3.6c.8-1 1.4-2.4 1.2-3.6-1.2 0-2.7.8-3.5 1.8-.8.9-1.5 2.3-1.3 3.6 1.4.1 2.8-.8 3.6-1.8z"/></svg>
+        App Store でダウンロード
+      </a>
+      <a href="/mitsumoridoui/support/" class="btn btn-secondary">サポート・よくある質問</a>
     </div>
   </section>
 
