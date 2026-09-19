@@ -91,3 +91,6 @@ docs/mitsumoridoui/index.html
 
 ## 2026-09-18 08:57
 docs/kokuken/support/index.html
+
+## 2026-09-19 11:05
+docs/kokuken/support/index.html
