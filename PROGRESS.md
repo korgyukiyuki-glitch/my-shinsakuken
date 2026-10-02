@@ -115,3 +115,6 @@ docs/subkarte/index.html
 docs/subkarte/privacy/index.html
 docs/subkarte/support/index.html
 docs/subkarte/terms/index.html
+
+## 2026-10-03 08:59
+docs/subkarte/privacy/index.html
