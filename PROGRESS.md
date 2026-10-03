@@ -121,3 +121,6 @@ docs/subkarte/privacy/index.html
 
 ## 2026-10-03 14:02
 docs/subkarte/index.html
+
+## 2026-10-03 14:07
+docs/index.html
