@@ -337,6 +337,21 @@
     @media (max-width: 620px) { .pricing { grid-template-columns: 1fr; } }
 
     /* ===== DEV ===== */
+    .sister {
+      display: grid; grid-template-columns: 96px 1fr; gap: 24px; align-items: center;
+      background: #fff; border: 1px solid var(--color-border, #e5e5e7); border-radius: 20px; padding: 28px 32px;
+      max-width: 820px; margin: 0 auto;
+    }
+    .sister img { width: 96px; height: 96px; border-radius: 22px; display: block; }
+    .sister h3 { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+    .sister p { font-size: 15px; color: var(--color-text-secondary); line-height: 1.85; }
+    .sister .sister-links { margin-top: 12px; display: flex; gap: 10px; flex-wrap: wrap; }
+    .sister .sister-links a { font-size: 14px; font-weight: 600; color: var(--color-accent); text-decoration: none; border: 1px solid var(--color-accent); border-radius: 999px; padding: 7px 14px; }
+    @media (max-width: 640px) { .sister { grid-template-columns: 1fr; text-align: center; } .sister img { margin: 0 auto; } .sister .sister-links { justify-content: center; } }
+    .dev-grid { display: grid; grid-template-columns: 160px 1fr; gap: 28px; align-items: start; }
+    .dev-grid img { width: 160px; height: auto; border-radius: 16px; display: block; }
+    .dev-grid .caption { font-size: 10px; letter-spacing: 0.12em; color: var(--color-text-caption); margin-top: 8px; text-align: center; }
+    @media (max-width: 640px) { .dev-grid { grid-template-columns: 1fr; } .dev-grid img { margin: 0 auto; } }
     .dev-box {
       background: var(--color-bg-secondary);
       border-radius: 24px;
@@ -670,24 +685,66 @@
     </div>
   </section>
 
+  <!-- SISTER APP -->
+  <section class="section">
+    <div class="container">
+      <p class="section-label">SISTER APP</p>
+      <h2>姉妹アプリ「口腔機能管理くん」。</h2>
+      <p class="section-lead">
+        口腔機能の検査・評価・管理計画書は、同じ開発者の別アプリでどうぞ。
+      </p>
+      <div class="sister">
+        <img src="/kokuken/img/icon.png" alt="口腔機能管理くん" width="96" height="96" loading="lazy" onerror="this.style.display='none'">
+        <div>
+          <h3>口腔機能管理くん</h3>
+          <p>
+            口腔機能発達不全症・口腔機能低下症・歯周検査・咬筋検査の4つの検査を iPad 1台で記録し、管理計画書や紹介状まで作成できるアプリです。
+            検査値の経過グラフ、患者説明動画、再検査時期のお知らせも備えています。iPhone・iPad・Android に対応。
+          </p>
+          <div class="sister-links">
+            <a href="/kokuken/" target="_blank" rel="noopener">口腔機能管理くんの紹介ページ</a>
+            <a href="https://apps.apple.com/jp/app/id6760281631?pt=128621702&ct=subkarte_lp&mt=8" target="_blank" rel="noopener">App Store</a>
+            <a href="https://play.google.com/store/apps/details?id=com.oralcarepro.app&utm_source=subkarte_lp&utm_medium=referral" target="_blank" rel="noopener">Google Play</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- DEVELOPER -->
   <section class="section section-alt">
     <div class="container">
       <p class="section-label">DEVELOPER</p>
       <h2>現役の歯科医師が作りました。</h2>
       <div class="dev-box">
-        <h3>Medical Craft Laboratory</h3>
-        <p>
-          紙のサブカルテを探して、めくって、書き足して。自費の説明をして、見積を手書きして、同意書を印刷して——
-          その時間を短くしたくて作ったアプリです。
-        </p>
-        <p>
-          「提案したのに、その後どうなったか分からない」という現場の課題も、
-          日々の診療のなかで無理なく記録できる形にしました。
-        </p>
-        <p style="font-size:14px; color:var(--color-text-tertiary); margin-top:18px;">
-          ご要望・ご不明な点は <a href="mailto:medicalcraft.lab@gmail.com" style="color:var(--color-accent);">medicalcraft.lab@gmail.com</a> までお気軽にどうぞ。
-        </p>
+        <div class="dev-grid">
+          <div>
+            <img src="/founder.jpg" alt="開発者 和泉龍之介（歯科医師・エンジニア）" width="160" height="181" loading="lazy">
+            <p class="caption">RYUNOSUKE IZUMI — DDS / DEVELOPER</p>
+          </div>
+          <div>
+            <h3>Medical Craft Laboratory</h3>
+            <p>
+              Medical Craft Laboratory（メディカルクラフトラボ）は、いまも臨床に立つ歯科医師が運営する、歯科医療×テクノロジーのプロダクトスタジオです。
+              自分の診療室で欲しかったものを、自分で作って、同じ悩みを持つ医院に届けています。
+            </p>
+            <p>
+              紙のサブカルテを探して、めくって、書き足して。自費の説明をして、見積を手書きして、同意書を印刷して——
+              その時間を短くしたくて作ったのが、このアプリです。機能のご要望や使いづらさは、開発者本人に届きます。
+            </p>
+            <p style="font-size:14px; color:var(--color-text-tertiary); margin-top:18px;">
+              開発元：<a href="https://medicalcraft-lab.com" target="_blank" rel="noopener" style="color:var(--color-accent);">Medical Craft Laboratory</a>｜
+              <a href="https://note.com/medical_lab0305" target="_blank" rel="noopener" style="color:var(--color-accent);">note</a>｜
+              <a href="https://www.instagram.com/medicalcraft.lab/" target="_blank" rel="noopener" style="color:var(--color-accent);">Instagram</a>
+            </p>
+            <p style="font-size:14px; color:var(--color-text-tertiary); margin-top:10px;">
+              採用でお困りの医院様へ：同じ開発者が歯科求人サイト「歯科リンク」も運営しています。<a href="https://www.shikalink.com/for-clinic" target="_blank" rel="noopener" style="color:var(--color-accent);">医院向けのご案内を見る</a>
+            </p>
+            <p style="font-size:14px; color:var(--color-text-tertiary); margin-top:10px;">
+              ご要望・ご不明な点は <a href="mailto:medicalcraft.lab@gmail.com" style="color:var(--color-accent);">medicalcraft.lab@gmail.com</a> までお気軽にどうぞ。
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
