@@ -166,8 +166,8 @@
     .feat.rev .feat-visual { order: 2; }
     .feat-visual { position: relative; }
     .feat-visual .device { max-width: 430px; margin: 0 auto; }
-    .feat-visual .note { top: 6%; right: -2%; }
-    .feat.rev .feat-visual .note { right: auto; left: -4%; }
+    .feat-visual .note { top: -46px; right: 2%; background: var(--paper); padding: 0 8px; border-radius: 4px; }
+    .feat.rev .feat-visual .note { right: auto; left: 2%; }
     .feat .verb { font-family: var(--serif); font-size: 68px; font-weight: 700; line-height: 1.1; color: var(--rose); }
     .feat h3 { font-family: var(--serif); font-size: 27px; font-weight: 700; line-height: 1.55; margin: 14px 0 16px; }
     .feat p { color: var(--ink-soft); font-size: 16.5px; }
@@ -213,7 +213,7 @@
     /* 安心 */
     .safe { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
     .safe > div { padding: 30px 28px; border-left: 1px solid var(--rule); }
-    .safe > div:first-child { border-left: 0; padding-left: 0; }
+    .safe > div:first-child { border-left: 0; }
     .safe h3 { font-family: var(--serif); font-size: 19px; margin-bottom: 8px; }
     .safe p { font-size: 15px; color: var(--ink-soft); }
     @media (max-width: 760px) { .safe { grid-template-columns: 1fr; } .safe > div { border-left: 0; border-top: 1px solid var(--rule); padding-left: 0; } .safe > div:first-child { border-top: 0; } }
@@ -260,9 +260,110 @@
     footer a:first-child { margin-left: 0; }
 
     @media (prefers-reduced-motion: reduce) { .underline path { animation: none; stroke-dashoffset: 0; } }
+
+    /* ---------- 動き（マウスに応える）---------- */
+    .hero #ink { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
+    .hero-grid { z-index: 2; }
+    .hero-visual { perspective: 1200px; }
+    .hero-visual .device { transition: transform .5s cubic-bezier(.2,.7,.2,1); will-change: transform; }
+    .tilt { transform-style: preserve-3d; transition: transform .45s cubic-bezier(.2,.7,.2,1), box-shadow .45s; will-change: transform; position: relative; }
+    .tilt::after {
+      content: ""; position: absolute; inset: 13px; border-radius: 18px; pointer-events: none; opacity: 0; transition: opacity .3s;
+      background: radial-gradient(260px circle at var(--gx, 50%) var(--gy, 50%), rgba(255,255,255,.38), transparent 60%);
+    }
+    .tilt.on::after { opacity: 1; }
+    .tilt.on { box-shadow: 0 44px 70px -26px rgba(60, 35, 25, 0.55), 0 2px 0 #3a3533 inset; }
+    .trio .tilt::after { inset: 7px; border-radius: 11px; }
+    .feat-visual { perspective: 1100px; }
+
+    .feat-visual .note { opacity: 0; transform: translateY(8px) rotate(-3deg); transition: opacity .35s, transform .35s; pointer-events: none; z-index: 3; }
+    .feat-visual:hover .note { opacity: 1; transform: translateY(0) rotate(-3deg); }
+    .note path { stroke-dasharray: 120; stroke-dashoffset: 120; transition: stroke-dashoffset .5s .15s; }
+    .feat-visual:hover .note path { stroke-dashoffset: 0; }
+
+    .btn-store { transition: transform .25s cubic-bezier(.2,.7,.2,1), box-shadow .25s; }
+    .btn-store:hover { transform: translateY(-3px); box-shadow: 0 14px 24px -12px rgba(42,36,33,.6); }
+    .btn-store:active { transform: translateY(0); }
+    .nav a.link { background: linear-gradient(var(--rose), var(--rose)) left bottom / 0 2px no-repeat; transition: background-size .3s, color .3s; padding-bottom: 3px; }
+    .nav a.link:hover { background-size: 100% 2px; color: var(--ink); }
+    .stamp { transition: transform .35s cubic-bezier(.3,1.6,.5,1), background .3s, color .3s; cursor: default; }
+    .stamp:hover { transform: rotate(-3deg) scale(1.08); background: var(--rose); color: var(--white); }
+
+    .karte-row:not(.karte-head) { transition: background .3s; }
+    .karte-row:not(.karte-head):hover { background: #FFFDF8; }
+    .karte .app span { background: linear-gradient(transparent 58%, #FFE27A 58%, #FFE27A 92%, transparent 92%) left / 0 100% no-repeat; transition: background-size .55s cubic-bezier(.2,.7,.2,1); padding: 0 2px; }
+    .karte-row:hover .app span { background-size: 100% 100%; }
+    .karte .paper { transition: color .3s, transform .3s; }
+    .karte-row:not(.karte-head):hover .paper { color: #9aa0b3; }
+
+    .feat li { transition: padding-left .25s, color .25s; }
+    .feat li::before { transition: width .25s; }
+    .feat li:hover { padding-left: 34px; color: var(--rose-deep); }
+    .feat li:hover::before { width: 18px; }
+    .plan, .free { transition: transform .3s cubic-bezier(.2,.7,.2,1), border-color .3s; }
+    .plan:hover, .free:hover { transform: translateY(-4px); border-color: #F0A9B4; }
+    .safe > div { transition: background .3s; }
+    .safe > div:hover { background: var(--white); }
+    .safe h3 { background: linear-gradient(var(--rose), var(--rose)) left bottom / 0 2px no-repeat; transition: background-size .35s; display: inline-block; padding-bottom: 2px; }
+    .safe > div:hover h3 { background-size: 100% 2px; }
+    .sister { transition: transform .3s cubic-bezier(.2,.7,.2,1), box-shadow .3s; }
+    .sister:hover { transform: translateY(-3px); box-shadow: 0 18px 30px -22px rgba(60,35,25,.5); }
+    .sister a.more { transition: background .25s, color .25s; }
+    .sister a.more:hover { background: var(--ink); color: var(--white); }
+    .maker figure img { transition: transform .5s cubic-bezier(.2,.7,.2,1); }
+    .maker figure:hover img { transform: rotate(-2deg) scale(1.02); }
+    .faq summary { transition: color .2s; }
+    .faq summary:hover { color: var(--rose-deep); }
+
+
+    /* ---------- 色が移ろう・なめらかに付いてくる ---------- */
+    #glow {
+      position: fixed; left: 0; top: 0; width: 520px; height: 520px; margin: -260px 0 0 -260px; border-radius: 50%;
+      pointer-events: none; z-index: 40; opacity: 0; transition: opacity .6s, background 1.1s;
+      background: radial-gradient(circle, rgba(232,120,140,.30), rgba(232,120,140,0) 62%);
+      mix-blend-mode: multiply; will-change: transform;
+    }
+    #glow.show { opacity: 1; }
+    #glow.dark { mix-blend-mode: screen; background: radial-gradient(circle, rgba(240,150,170,.24), rgba(240,150,170,0) 62%); }
+    #glow.warm { background: radial-gradient(circle, rgba(240,170,90,.26), rgba(240,170,90,0) 62%); }
+    #bar { position: fixed; left: 0; top: 0; height: 3px; width: 100%; transform-origin: left; transform: scaleX(0); z-index: 60;
+      background: linear-gradient(90deg, #E8788C, #C4455C 55%, #7A3B8F); }
+    .feat .verb {
+      background: linear-gradient(100deg, #C4455C 0%, #E8788C 30%, #7A3B8F 62%, #C4455C 100%) 0% 50% / 300% 100%;
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      transition: background-position 1.4s cubic-bezier(.2,.7,.2,1); display: inline-block;
+    }
+    .feat:hover .verb { background-position: 100% 50%; }
+    .btn-store { background: linear-gradient(100deg, #2A2421 0%, #2A2421 50%, #C4455C 100%) 0% 50% / 220% 100%; transition: transform .25s cubic-bezier(.2,.7,.2,1), box-shadow .25s, background-position .6s cubic-bezier(.2,.7,.2,1); }
+    .btn-store:hover { background-position: 100% 50%; }
+    .nav a.get { background: linear-gradient(100deg, #2A2421 0%, #2A2421 50%, #C4455C 100%) 0% 50% / 220% 100%; transition: background-position .6s cubic-bezier(.2,.7,.2,1); }
+    .nav a.get:hover { background-position: 100% 50%; }
+    h2 { transition: color .6s; }
+    .sec-head:hover h2 { color: var(--rose-deep); }
+    .price-sec .sec-head:hover h2 { color: #F6C6CE; }
+    .plan .yen { transition: color .5s; }
+    .plan:hover .yen { color: #F0A9B4; }
+    .plan.best:hover .yen { color: var(--rose); }
+    .free .big { transition: color .5s, transform .5s cubic-bezier(.2,.7,.2,1); display: inline-block; }
+    .free:hover .big { color: #FFD3DA; transform: scale(1.05); }
+    .last { transition: background 1s; }
+    .last:hover { background: #F9D9DA; }
+    .device { transition: box-shadow .5s; }
+    @media (prefers-reduced-motion: reduce) { #glow, #bar { display: none; } }
+
+    .rise { opacity: 0; transform: translateY(26px); transition: opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1); }
+    .rise.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .rise { opacity: 1; transform: none; transition: none; }
+      .tilt, .hero-visual .device, .btn-store, .stamp, .plan, .free, .sister { transition: none; }
+      .hero #ink { display: none; }
+    }
+
   </style>
 </head>
 <body>
+  <div id="bar" aria-hidden="true"></div>
+  <div id="glow" aria-hidden="true"></div>
 
   <nav class="nav">
     <div class="wrap nav-inner">
@@ -278,6 +379,7 @@
   </nav>
 
   <header class="hero">
+    <canvas id="ink" aria-hidden="true"></canvas>
     <div class="wrap hero-grid">
       <div class="hero-copy">
         <span class="tagline">歯科医院のためのサブカルテアプリ</span><br>
@@ -304,26 +406,26 @@
 
   <section class="paper-sec">
     <div class="wrap">
-      <div class="sec-head">
+      <div class="sec-head rise">
         <p class="sec-no">紙のままだと</p>
         <h2>探して、めくって、書き写す。<br>その数十秒が、毎日積み重なる。</h2>
       </div>
-      <div class="karte">
+      <div class="karte rise">
         <div class="karte-row karte-head"><div>場面</div><div>紙のサブカルテ</div><div>このアプリ</div></div>
         <div class="karte-row">
           <div class="when">患者さんを<br>お通しする前</div>
           <div class="paper">「サブカルテどこ？」<br>棚を探しに行く</div>
-          <div class="app">患者を開けば、そこにある。</div>
+          <div class="app"><span>患者を開けば、そこにある。</span></div>
         </div>
         <div class="karte-row">
           <div class="when">治療を<br>始めるとき</div>
           <div class="paper">「前回どこまでやったっけ」<br>紙をめくって探す</div>
-          <div class="app">前回の処置と次回の予定が、開いた画面に並んでいる。</div>
+          <div class="app"><span>前回の処置と次回の予定が、開いた画面に並んでいる。</span></div>
         </div>
         <div class="karte-row">
           <div class="when">自費の<br>説明のあと</div>
           <div class="paper">見積書はあとで作って<br>次回お渡し</div>
-          <div class="app">歯を選ぶだけで、その場で見積書に。</div>
+          <div class="app"><span>歯を選ぶだけで、その場で見積書に。</span></div>
         </div>
       </div>
     </div>
@@ -331,15 +433,16 @@
 
   <section id="dekiru">
     <div class="wrap">
-      <div class="sec-head">
+      <div class="sec-head rise">
         <p class="sec-no">できること</p>
         <h2>書く。計画する。記録する。提案する。</h2>
         <p>やっていることは、紙のサブカルテと同じです。置き場所が1つになるだけ。</p>
       </div>
 
-      <div class="feat">
+      <div class="feat rise">
         <div class="feat-visual">
-          <div class="device"><img src="/subkarte/img/s-karte.jpg" alt="カルテメモの画面" width="1200" height="1600" loading="lazy"></div>
+          <p class="note">ペンで、そのまま<svg width="74" height="34" viewBox="0 0 74 34" aria-hidden="true"><path d="M70 6 C 48 2, 24 10, 6 28 M6 28 L 8 15 M6 28 L 19 26" fill="none" stroke="#9E3147" stroke-width="2" stroke-linecap="round"/></svg></p>
+          <div class="device tilt"><img src="/subkarte/img/s-karte.jpg" alt="カルテメモの画面" width="1200" height="1600" loading="lazy"></div>
         </div>
         <div>
           <p class="verb">書く</p>
@@ -353,9 +456,10 @@
         </div>
       </div>
 
-      <div class="feat rev">
+      <div class="feat rev rise">
         <div class="feat-visual">
-          <div class="device"><img src="/subkarte/img/s-plan.jpg" alt="治療計画の画面" width="1200" height="1600" loading="lazy"></div>
+          <p class="note">赤い歯が、これから<svg width="74" height="34" viewBox="0 0 74 34" aria-hidden="true" style="margin-left:auto"><path d="M4 6 C 26 2, 50 10, 68 28 M68 28 L 66 15 M68 28 L 55 26" fill="none" stroke="#9E3147" stroke-width="2" stroke-linecap="round"/></svg></p>
+          <div class="device tilt"><img src="/subkarte/img/s-plan.jpg" alt="治療計画の画面" width="1200" height="1600" loading="lazy"></div>
         </div>
         <div>
           <p class="verb">計画する</p>
@@ -364,9 +468,10 @@
         </div>
       </div>
 
-      <div class="feat">
+      <div class="feat rise">
         <div class="feat-visual">
-          <div class="device"><img src="/subkarte/img/s-kiroku.jpg" alt="今日の記録の画面" width="1200" height="1600" loading="lazy"></div>
+          <p class="note">選ぶだけ<svg width="74" height="34" viewBox="0 0 74 34" aria-hidden="true"><path d="M70 6 C 48 2, 24 10, 6 28 M6 28 L 8 15 M6 28 L 19 26" fill="none" stroke="#9E3147" stroke-width="2" stroke-linecap="round"/></svg></p>
+          <div class="device tilt"><img src="/subkarte/img/s-kiroku.jpg" alt="今日の記録の画面" width="1200" height="1600" loading="lazy"></div>
         </div>
         <div>
           <p class="verb">記録する</p>
@@ -375,12 +480,12 @@
         </div>
       </div>
 
-      <div class="feat rev">
+      <div class="feat rev rise">
         <div class="feat-visual">
           <div class="trio">
-            <figure><div class="device"><img src="/subkarte/img/s-mitsumori.jpg" alt="見積書の画面" width="1200" height="1600" loading="lazy"></div><figcaption>見積書</figcaption></figure>
-            <figure><div class="device"><img src="/subkarte/img/s-douisho.jpg" alt="同意書の画面" width="1200" height="1600" loading="lazy"></div><figcaption>同意書</figcaption></figure>
-            <figure><div class="device"><img src="/subkarte/img/s-joukyou.jpg" alt="見積もりの状況の画面" width="1200" height="1600" loading="lazy"></div><figcaption>見積もりの状況</figcaption></figure>
+            <figure><div class="device tilt"><img src="/subkarte/img/s-mitsumori.jpg" alt="見積書の画面" width="1200" height="1600" loading="lazy"></div><figcaption>見積書</figcaption></figure>
+            <figure><div class="device tilt"><img src="/subkarte/img/s-douisho.jpg" alt="同意書の画面" width="1200" height="1600" loading="lazy"></div><figcaption>同意書</figcaption></figure>
+            <figure><div class="device tilt"><img src="/subkarte/img/s-joukyou.jpg" alt="見積もりの状況の画面" width="1200" height="1600" loading="lazy"></div><figcaption>見積もりの状況</figcaption></figure>
           </div>
         </div>
         <div>
@@ -392,21 +497,21 @@
     </div>
   </section>
 
-  <section class="price-sec" id="ryokin">
+  <section class="price-sec" id="ryokin" data-glow="dark">
     <div class="wrap">
-      <div class="sec-head">
+      <div class="sec-head rise">
         <p class="sec-no">料金</p>
         <h2>まず無料で、手に合うか確かめてください。</h2>
         <p>医院単位の料金です。iPad が何台あっても、追加の料金はかかりません。</p>
       </div>
-      <div class="free">
+      <div class="free rise">
         <div class="big">10<small>人まで無料</small></div>
         <p>
           <b>サブカルテは、患者10人まで無料で使えます。</b><br>
           同じ患者には何枚でも書けます。見積書も3件まで無料です。
         </p>
       </div>
-      <div class="plans">
+      <div class="plans rise">
         <div class="plan">
           <p class="name">月額プラン</p>
           <p class="yen">¥4,980<span> / 月</span></p>
@@ -424,11 +529,11 @@
 
   <section>
     <div class="wrap">
-      <div class="sec-head">
+      <div class="sec-head rise">
         <p class="sec-no">患者さんの情報を預かるので</p>
         <h2>医療機関で使う前提で、作っています。</h2>
       </div>
-      <div class="safe">
+      <div class="safe rise">
         <div><h3>開くたびに、暗証番号</h3><p>アプリを開くときに PIN を入力します。</p></div>
         <div><h3>医院ごとに、分かれた保管場所</h3><p>通信は暗号化され、記録は医院ごとに分けて保存されます。</p></div>
         <div><h3>消したいときは、消せる</h3><p>記録の削除も退会も、アプリの中からできます。</p></div>
@@ -437,13 +542,13 @@
     </div>
   </section>
 
-  <section class="paper-sec">
+  <section class="paper-sec" data-glow="warm">
     <div class="wrap">
-      <div class="sec-head">
+      <div class="sec-head rise">
         <p class="sec-no">つくった人</p>
         <h2>いまも診療室に立つ、歯科医師です。</h2>
       </div>
-      <div class="maker">
+      <div class="maker rise">
         <figure>
           <img src="/founder.jpg" alt="開発者 和泉龍之介" width="230" height="260" loading="lazy">
           <figcaption>和泉 龍之介　歯科医師 / 開発者</figcaption>
@@ -464,7 +569,7 @@
         </div>
       </div>
 
-      <div class="sister">
+      <div class="sister rise">
         <img src="/kokuken/img/icon.png" alt="" width="76" height="76" loading="lazy">
         <div>
           <small>姉妹アプリ</small>
@@ -478,7 +583,7 @@
 
   <section class="faq">
     <div class="wrap">
-      <div class="sec-head">
+      <div class="sec-head rise">
         <p class="sec-no">よくある質問</p>
         <h2>はじめる前に。</h2>
       </div>
@@ -530,5 +635,124 @@
     </div>
   </footer>
 
+  <script>
+  (function () {
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+    // スクロールで現れる
+    var els = document.querySelectorAll('.rise');
+    if (reduce || !('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('in'); }); }
+    else {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+      }, { threshold: 0.12 });
+      els.forEach(function (e) { io.observe(e); });
+    }
+    // スクロールの進み具合（上の細い帯）
+    var bar = document.getElementById('bar'), braf = 0;
+    function prog() {
+      braf = 0;
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      if (bar) bar.style.transform = 'scaleX(' + (h > 0 ? Math.min(1, window.scrollY / h) : 0).toFixed(4) + ')';
+    }
+    if (!reduce) { window.addEventListener('scroll', function () { if (!braf) braf = requestAnimationFrame(prog); }, { passive: true }); prog(); }
+    if (reduce || !fine) return;
+
+    // マウスに遅れて付いてくる光。場所によって色が変わる
+    var glow = document.getElementById('glow');
+    if (glow) {
+      var gx = 0, gy = 0, mx = 0, my = 0, graf = 0, seen = false;
+      function follow() {
+        graf = 0;
+        gx += (mx - gx) * 0.11; gy += (my - gy) * 0.11;
+        glow.style.transform = 'translate3d(' + gx.toFixed(1) + 'px,' + gy.toFixed(1) + 'px,0)';
+        if (Math.abs(mx - gx) > 0.3 || Math.abs(my - gy) > 0.3) graf = requestAnimationFrame(follow);
+      }
+      window.addEventListener('mousemove', function (ev) {
+        mx = ev.clientX; my = ev.clientY;
+        if (!seen) { seen = true; gx = mx; gy = my; glow.classList.add('show'); }
+        var sec = ev.target.closest ? ev.target.closest('[data-glow]') : null;
+        var kind = sec ? sec.getAttribute('data-glow') : '';
+        glow.classList.toggle('dark', kind === 'dark');
+        glow.classList.toggle('warm', kind === 'warm');
+        if (!graf) graf = requestAnimationFrame(follow);
+      });
+      document.addEventListener('mouseleave', function () { glow.classList.remove('show'); seen = false; });
+    }
+
+    // 画面をマウスの向きへ傾ける＋光の映り込み
+    document.querySelectorAll('.tilt').forEach(function (el) {
+      el.addEventListener('mousemove', function (ev) {
+        var r = el.getBoundingClientRect();
+        var x = (ev.clientX - r.left) / r.width, y = (ev.clientY - r.top) / r.height;
+        el.style.transform = 'rotateY(' + ((x - 0.5) * 12).toFixed(2) + 'deg) rotateX(' + ((0.5 - y) * 10).toFixed(2) + 'deg) translateZ(6px)';
+        el.style.setProperty('--gx', (x * 100).toFixed(1) + '%');
+        el.style.setProperty('--gy', (y * 100).toFixed(1) + '%');
+        el.classList.add('on');
+      });
+      el.addEventListener('mouseleave', function () { el.style.transform = ''; el.classList.remove('on'); });
+    });
+
+    // いちばん上：2枚の iPad がマウスに合わせてずれる／紙の上にペンの跡が残る
+    var hero = document.querySelector('.hero');
+    var back = document.querySelector('.hero-visual .back');
+    var front = document.querySelector('.hero-visual .front');
+    var cv = document.getElementById('ink');
+    if (!hero || !cv) return;
+    var ctx = cv.getContext('2d'), dpr = Math.min(window.devicePixelRatio || 1, 2);
+    function size() {
+      var r = hero.getBoundingClientRect();
+      cv.width = Math.round(r.width * dpr); cv.height = Math.round(r.height * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    size(); window.addEventListener('resize', size);
+    var pts = [], LIFE = 1400, raf = 0;
+    function draw() {
+      raf = 0;
+      var now = performance.now();
+      while (pts.length && now - pts[0].t > LIFE) pts.shift();
+      ctx.clearRect(0, 0, cv.width, cv.height);
+      ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+      for (var i = 1; i < pts.length; i++) {
+        var a = pts[i - 1], b = pts[i];
+        if (b.gap) continue;
+        var age = (now - b.t) / LIFE;
+        ctx.strokeStyle = 'rgba(61,74,107,' + (0.55 * (1 - age)).toFixed(3) + ')';
+        ctx.lineWidth = 2.4 - age * 1.2;
+        ctx.beginPath(); ctx.moveTo(a.x, a.y);
+        ctx.quadraticCurveTo(a.x, a.y, (a.x + b.x) / 2, (a.y + b.y) / 2);
+        ctx.lineTo(b.x, b.y); ctx.stroke();
+      }
+      if (pts.length) raf = requestAnimationFrame(draw);
+    }
+    var inside = false;
+    hero.addEventListener('mousemove', function (ev) {
+      var r = hero.getBoundingClientRect();
+      var x = ev.clientX - r.left, y = ev.clientY - r.top;
+      var last = pts[pts.length - 1];
+      if (!last || Math.hypot(x - last.x, y - last.y) > 3) pts.push({ x: x, y: y, t: performance.now(), gap: !inside });
+      inside = true;
+      if (!raf) raf = requestAnimationFrame(draw);
+      tx = x / r.width - 0.5; ty = y / r.height - 0.5;
+      if (!praf) praf = requestAnimationFrame(par);
+    });
+    hero.addEventListener('mouseleave', function () {
+      inside = false; tx = 0; ty = 0;
+      if (!praf) praf = requestAnimationFrame(par);
+    });
+    // 視差は目標値へ少しずつ寄せる＝ぬるっと付いてくる
+    var tx = 0, ty = 0, cx = 0, cy = 0, praf = 0;
+    if (back) back.style.transition = 'none';
+    if (front) front.style.transition = 'none';
+    function par() {
+      praf = 0;
+      cx += (tx - cx) * 0.09; cy += (ty - cy) * 0.09;
+      if (back) back.style.transform = 'rotate(' + (4 + cx * 3).toFixed(2) + 'deg) translate(' + (cx * -26).toFixed(1) + 'px,' + (cy * -18).toFixed(1) + 'px) rotateY(' + (cx * 10).toFixed(2) + 'deg)';
+      if (front) front.style.transform = 'rotate(' + (-3 + cx * 2).toFixed(2) + 'deg) translate(' + (cx * 36).toFixed(1) + 'px,' + (cy * 24).toFixed(1) + 'px) rotateY(' + (cx * 12).toFixed(2) + 'deg)';
+      if (Math.abs(tx - cx) > 0.0008 || Math.abs(ty - cy) > 0.0008) praf = requestAnimationFrame(par);
+    }
+  })();
+  </script>
 </body>
 </html>
