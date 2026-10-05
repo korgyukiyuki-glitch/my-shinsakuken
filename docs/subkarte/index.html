@@ -210,6 +210,28 @@
     .price-foot { margin-top: 26px; font-size: 14px; color: #BDB2AA; }
     @media (max-width: 760px) { .free { grid-template-columns: 1fr; gap: 14px; padding: 28px 24px; } .plans { grid-template-columns: 1fr; } }
 
+
+    /* 料金の比較 */
+    .cmp-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .cmp { width: 100%; min-width: 720px; border-collapse: collapse; background: var(--white); border: 1px solid #CDBFB0; border-radius: 4px; font-size: 15.5px; }
+    .cmp th, .cmp td { padding: 20px 22px; border-top: 1px solid #CDBFB0; border-left: 1px solid #CDBFB0; text-align: left; vertical-align: top; line-height: 1.7; }
+    .cmp tr:first-child th { border-top: 0; }
+    .cmp th:first-child, .cmp td:first-child { border-left: 0; }
+    .cmp thead th { background: #F4EEE6; font-size: 13.5px; letter-spacing: 0.06em; color: var(--ink-soft); font-weight: 700; }
+    .cmp thead th small { display: block; font-weight: 400; letter-spacing: 0; font-size: 12.5px; color: var(--ink-faint); margin-top: 2px; }
+    .cmp tbody th { font-family: var(--serif); font-weight: 700; font-size: 16px; white-space: nowrap; width: 150px; }
+    .cmp .me { background: var(--rose-wash); }
+    .cmp thead .me { background: var(--rose); color: var(--white); }
+    .cmp thead .me small { color: #FBE3E6; }
+    .cmp b { font-family: var(--serif); font-size: 24px; font-weight: 700; display: block; line-height: 1.4; }
+    .cmp .me b { color: var(--rose-deep); }
+    .cmp small { font-size: 13px; color: var(--ink-faint); }
+    .cmp tbody tr { transition: background .3s; }
+    .cmp tbody tr:hover td:not(.me), .cmp tbody tr:hover th { background: #FFFDF8; }
+    .cmp tbody tr:hover .me { background: #F9D9DA; }
+    .cmp .me { transition: background .4s; }
+    .cmp-note { margin-top: 18px; font-size: 13px; color: var(--ink-faint); line-height: 1.9; max-width: 60em; }
+
     /* 安心 */
     .safe { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
     .safe > div { padding: 30px 28px; border-left: 1px solid var(--rule); }
@@ -524,6 +546,58 @@
         </div>
       </div>
       <p class="price-foot">※ 同意書・承諾書の作成と電子サインは、書類として保存される性質上、有料期間の開始後にご利用いただけます。</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head rise">
+        <p class="sec-no">ほかの選び方と比べると</p>
+        <h2>サブカルテを電子化する方法は、ほかにもあります。</h2>
+        <p>公開されている料金を、同じ条件で並べました。</p>
+      </div>
+      <div class="cmp-wrap rise">
+        <table class="cmp">
+          <thead>
+            <tr>
+              <th></th>
+              <th class="me">このアプリ<small>サブカルテ専用・単体で使える</small></th>
+              <th>予約システムの追加機能<small>予約システムの契約に、サブカルテを足す形</small></th>
+              <th>歯科向けの手書きノート<small>使う人数ぶんのライセンスを買う形</small></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>月額</th>
+              <td class="me"><b>¥4,980</b><small>年額なら ¥49,800</small></td>
+              <td><b>¥46,200</b><small>本体 ¥19,800 ＋ サブカルテ ¥26,400</small></td>
+              <td><b>¥9,900〜</b><small>1人 ¥3,300 × 最小3人</small></td>
+            </tr>
+            <tr>
+              <th>はじめの費用</th>
+              <td class="me"><b>0円</b></td>
+              <td><b>¥330,000</b><small>アカウント発行・レセコン連携の設定</small></td>
+              <td><b>0円</b></td>
+            </tr>
+            <tr>
+              <th>5人で使うと</th>
+              <td class="me"><b>¥4,980</b><small>人数・台数で変わりません</small></td>
+              <td><b>¥46,200</b><small>医院あたりの料金</small></td>
+              <td><b>¥16,500</b><small>¥3,300 × 5人</small></td>
+            </tr>
+            <tr>
+              <th>無料で試せる</th>
+              <td class="me">患者10人まで、期限なし</td>
+              <td>サブカルテは初月無料</td>
+              <td>45日間</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="cmp-note">
+        ※ 金額はすべて税込の月額です。他社の料金は、各社の公式サイトに掲載されている金額（2026年10月5日時点）をもとに、税別表記のものは税込に換算しています。<br>
+        ※ 製品によって機能の範囲が異なります（予約システムの追加機能は、予約管理などの本体機能を含む料金です）。最新の料金と内容は、各社の公式サイトでご確認ください。
+      </p>
     </div>
   </section>
 
