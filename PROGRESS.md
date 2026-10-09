@@ -140,3 +140,7 @@ docs/subkarte/index.html
 
 ## 2026-10-05 10:33
 docs/subkarte/index.html
+
+## 2026-10-09 14:53
+docs/mitsumoridoui/index.html
+docs/subkarte/index.html
