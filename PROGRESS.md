@@ -144,3 +144,11 @@ docs/subkarte/index.html
 ## 2026-10-09 14:53
 docs/mitsumoridoui/index.html
 docs/subkarte/index.html
+
+## 2026-10-13 04:25
+docs/img/hero_trio2.jpg
+docs/img/hero_trio_phone.jpg
+docs/img/kokuken.png
+docs/img/shikalink.png
+docs/img/subkarte.jpg
+docs/index.html
