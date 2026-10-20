@@ -158,3 +158,8 @@ docs/kokuken/index.html
 
 ## 2026-10-20 14:00
 docs/kokuken/index.html
+
+## 2026-10-20 21:02
+docs/kokuken/index.html
+docs/robots.txt
+docs/sitemap.xml

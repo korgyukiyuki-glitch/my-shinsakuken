@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>口腔機能管理アプリ「口腔機能管理くん」｜口腔機能低下症・発達不全症の検査から管理計画書まで</title>
   <meta name="description" content="歯科医院のための口腔機能管理アプリ。口腔機能低下症・口腔機能発達不全症・歯周検査・咬筋検査の4つを1本で、検査評価から管理計画書・紹介状の作成まで。現役歯科医師が開発。月額1,000円・1ヶ月無料トライアル・医院の端末は何台でも。iPhone/iPad/Android対応。">
-  <link rel="canonical" href="https://medicalcraft-lab.com/kokuken">
+  <link rel="canonical" href="https://medicalcraft-lab.com/kokuken/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://medicalcraft-lab.com/kokuken/">
   <meta property="og:title" content="口腔機能管理アプリ「口腔機能管理くん」｜口腔機能低下症・発達不全症の検査から管理計画書まで">
@@ -17,20 +17,146 @@
   <meta name="twitter:description" content="口腔機能低下症・発達不全症の検査評価から管理計画書の作成まで。歯科医院のための口腔機能管理アプリ。">
   <meta name="twitter:image" content="https://medicalcraft-lab.com/kokuken/ogp.png">
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "口腔機能管理くん",
-    "operatingSystem": "iOS, iPadOS, Android",
-    "applicationCategory": "MedicalApplication",
-    "description": "口腔機能低下症・口腔機能発達不全症・歯周検査・咬筋検査の4つの検査評価から管理計画書・紹介状の作成まで対応する、歯科医院向けの口腔機能管理アプリ。",
-    "url": "https://medicalcraft-lab.com/kokuken/",
-    "offers": [
-      { "@type": "Offer", "price": "1000", "priceCurrency": "JPY", "description": "月額プラン" },
-      { "@type": "Offer", "price": "9800", "priceCurrency": "JPY", "description": "年額プラン" }
-    ],
-    "publisher": { "@type": "Organization", "name": "Medical Craft Laboratory", "url": "https://medicalcraft-lab.com" }
-  }
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://medicalcraft-lab.com/kokuken/#app",
+      "name": "口腔機能管理くん",
+      "alternateName": "OralCarePro",
+      "operatingSystem": "iOS, iPadOS, Android",
+      "applicationCategory": "MedicalApplication",
+      "description": "口腔機能低下症・口腔機能発達不全症・歯周検査・咬筋検査の4つの検査評価から管理計画書・紹介状の作成まで対応する、歯科医院向けの口腔機能管理アプリ。医療機器ではありません。",
+      "url": "https://medicalcraft-lab.com/kokuken/",
+      "downloadUrl": [
+        "https://apps.apple.com/jp/app/id6760281631",
+        "https://play.google.com/store/apps/details?id=com.oralcarepro.app"
+      ],
+      "sameAs": [
+        "https://apps.apple.com/jp/app/id6760281631",
+        "https://play.google.com/store/apps/details?id=com.oralcarepro.app"
+      ],
+      "inLanguage": "ja",
+      "offers": [
+        {
+          "@type": "Offer",
+          "price": "1000",
+          "priceCurrency": "JPY",
+          "description": "月額プラン（1か月無料トライアル）"
+        },
+        {
+          "@type": "Offer",
+          "price": "9800",
+          "priceCurrency": "JPY",
+          "description": "年額プラン（1か月無料トライアル）"
+        }
+      ],
+      "author": {
+        "@id": "https://medicalcraft-lab.com/#org"
+      },
+      "publisher": {
+        "@id": "https://medicalcraft-lab.com/#org"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://medicalcraft-lab.com/#org",
+      "name": "Medical Craft Laboratory",
+      "url": "https://medicalcraft-lab.com",
+      "founder": {
+        "@type": "Person",
+        "name": "和泉龍之介",
+        "jobTitle": "歯科医師"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "口腔機能管理くんは、どんなアプリですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "歯科医院向けの口腔機能管理アプリです。口腔機能低下症・口腔機能発達不全症・歯周検査・咬筋検査の検査結果を記録し、該当項目の集計、レーダーチャートでの表示、管理計画書や紹介状の作成までを1つのアプリで行えます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "どの検査に対応していますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "口腔機能低下症の7項目（口腔衛生状態不良・口腔乾燥・咬合力低下・舌口唇運動機能低下・低舌圧・咀嚼機能低下・嚥下機能低下）、口腔機能発達不全症のチェックリスト、歯周検査（精密6点法・4点法・基本検査）、咬筋検査に対応しています。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "アプリが診断をするのですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "いいえ。アプリは入力された検査結果を学会の基準値に照らして集計し、記録と書類の作成を支援するものです。医療機器ではありません。診断・判断は歯科医師が行います。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "管理計画書や提供文書は作れますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "検査結果から管理計画書を作成し、PDF出力・印刷できます。紹介状のテンプレートや、口腔機能の実地指導で患者さんにお渡しする文書の作成にも対応しています。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "料金はいくらですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "月額1,000円、または年額9,800円（いずれも税込）です。すべてのプランに1か月の無料トライアルがあります。無料期間の終了後は自動で有料プランに移行し、期間中に解約すれば料金はかかりません。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "何台の端末で使えますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "1つのアカウントで、医院の iPhone・iPad・Android 端末を何台でも使えます。同じアカウントでサインインすれば、データは端末どうしで同期されます。Apple と Google のアカウント間の移行は、エクスポート／インポートで行えます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "患者データの安全性は？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "アプリはPINコードでロックでき、データは端末のセキュア領域（iOS キーチェーン／Android キーストア）に保存されます。サーバーとの通信は暗号化され、データはアカウント単位で保護されます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "再検査の時期を知らせる機能はありますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "あります。前回の検査日から一定の期間がたった患者さんが、ホーム画面の「そろそろ再検査の時期です」に一覧で表示されます。プッシュ通知ではなく、アプリを開いたときに表示される仕組みです。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "レセコンと連携できますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "レセコンとの連携には対応していません。検査結果の記録・書類作成・PDF出力のためのアプリです。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "患者さんへの説明に使える動画はありますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "口腔機能やトレーニングを説明する患者説明動画を、追加料金なしでご利用いただけます。動画のQRコードを印刷して、患者さんにお渡しすることもできます。"
+          }
+        }
+      ]
+    }
+  ]
+}
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -151,6 +277,14 @@
     }
 
     /* Section common */
+    .about-body { margin-top: 18px; font-size: 15px; color: var(--ink-soft); max-width: 760px; line-height: 2.0; }
+    .about-note { margin-top: 14px; font-size: 12px; color: var(--ink-mute); }
+    .faq-list { margin-top: 36px; max-width: 820px; }
+    .faq-item { border-bottom: 1px solid var(--hairline); padding: 18px 4px; }
+    .faq-item summary { cursor: pointer; font-weight: 700; font-size: 15px; list-style: none; }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::before { content: "Q. "; color: var(--accent-deep); }
+    .faq-item p { margin-top: 10px; font-size: 14px; color: var(--ink-soft); line-height: 2.0; }
     .section { padding: 96px 0; }
     .section.alt { background: #fff; border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
     .section h2 {
@@ -387,12 +521,26 @@
         <div>
           <div class="hero-shots">
             <div class="shot side"><img src="/kokuken/img/app-home.png" alt="ホーム画面 — 4つの検査モード（発達不全症・低下症・歯周検査・咬筋検査）" width="560" height="1144" loading="eager"></div>
-            <div class="shot main"><img src="/kokuken/img/app-radar.png" alt="口腔機能レーダーチャート — 7項目の検査結果と該当判定" width="560" height="1194" loading="eager"></div>
+            <div class="shot main"><img src="/kokuken/img/app-radar.png" alt="口腔機能レーダーチャート — 7項目の検査結果と該当項目" width="560" height="1194" loading="eager"></div>
             <div class="shot side"><img src="/kokuken/img/app-plan.png" alt="管理計画 — 問題点と短期・中長期計画の自動生成" width="560" height="1194" loading="eager"></div>
           </div>
           <p class="hero-caption">ACTUAL APP SCREENS</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="wrap fade-in-up">
+      <p class="kicker">ABOUT</p>
+      <h2>口腔機能管理くんとは</h2>
+      <p class="about-body">
+        口腔機能管理くんは、歯科医院のための口腔機能管理アプリです。口腔機能低下症・口腔機能発達不全症・歯周検査・咬筋検査の4つの検査を1つのアプリで記録し、日本歯科医学会が示す基準に照らして該当する項目を自動で集計します。検査結果から管理計画書や紹介状をPDFで作成でき、再検査の時期が来た患者さんはホーム画面に一覧で表示されます。
+      </p>
+      <p class="about-body">
+        iPhone・iPad・Android に対応し、1つのアカウントで医院の端末を何台でも使えます。料金は月額1,000円・年額9,800円（税込）で、すべてのプランに1か月の無料トライアルがあります。開発・運営は、現役の歯科医師（勤務医）が立ち上げた Medical Craft Laboratory です（App Store の販売者名は RYUNOSUKE IZUMI）。
+      </p>
+      <p class="about-note">※ 本アプリは記録と書類作成を支援するもので、医療機器ではありません。診断・判断は歯科医師が行います。</p>
     </div>
   </section>
 
@@ -407,7 +555,7 @@
         <div class="mode-card">
           <p class="mode-label">ADULT / SENIOR — 成人・高齢者</p>
           <h3>口腔機能低下症</h3>
-          <p class="desc">K1〜K7の7項目検査で口腔機能低下を評価・判定します。</p>
+          <p class="desc">K1〜K7の7項目の検査結果を記録し、該当する項目を集計します。</p>
           <ul>
             <li>TCI舌苔チャート（9ゾーン）</li>
             <li>オーラルディアドコキネシス タイマー内蔵（pa/ta/ka）</li>
@@ -454,13 +602,13 @@
       <div class="fade-in-up">
         <p class="kicker">02 — FEATURES</p>
         <h2>現場で、すぐ使える。</h2>
-        <p class="sub">検査を入力すれば、判定も書類もアプリが引き受けます。</p>
+        <p class="sub">検査を入力すれば、集計も書類もアプリが引き受けます。</p>
       </div>
       <div class="feature-grid fade-in-up">
         <div class="feature-card">
           <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3 8-8"/><path d="M21 12v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h11"/></svg></div>
-          <h3>検査・自動判定</h3>
-          <p>TCI・舌圧・オーラルディアドコキネシス（内蔵タイマーで計測）などの検査結果を入力すると、該当/非該当を自動判定。</p>
+          <h3>検査・自動集計</h3>
+          <p>TCI・舌圧・オーラルディアドコキネシス（内蔵タイマーで計測）などの検査結果を入力すると、学会の基準値に照らして該当する項目を自動で集計します。診断は歯科医師が行います。</p>
         </div>
         <div class="feature-card">
           <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 3 21 8.5 17.6 19 6.4 19 3 8.5"/><polygon points="12 8 16.2 10.6 14.6 15.4 9.4 15.4 7.8 10.6"/></svg></div>
@@ -475,7 +623,7 @@
         <div class="feature-card">
           <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg></div>
           <h3>算定ガイド</h3>
-          <p>診断レベルに応じた保険算定項目と点数をアプリ内で自動表示。算定漏れを防ぎます。</p>
+          <p>評価の結果に応じて、関係する保険算定項目と点数の目安をアプリ内に表示します。算定の可否は、各医院でご確認ください。</p>
         </div>
       </div>
     </div>
@@ -541,8 +689,7 @@
         </div>
       </div>
       <div class="pricing-anchor fade-in-up">
-        <strong>業界他社サービスの約1/9の価格。</strong>
-        現役歯科医師が自分の医院でも使う前提で、続けやすい価格にしました。
+        現役歯科医師が勤務先の診療でも使う前提で、続けやすい価格にしました。
         1つのアカウントで医院の端末何台でも使えます（Apple ID / Googleアカウントで自動同期）。
       </div>
       <p class="pricing-notes fade-in-up">
@@ -584,7 +731,58 @@
     </div>
   </section>
 
-  <section class="cta-final alt section">
+  <section class="section alt" id="faq">
+    <div class="wrap">
+      <div class="fade-in-up">
+        <p class="kicker">06 — FAQ</p>
+        <h2>よくある質問</h2>
+      </div>
+      <div class="faq-list fade-in-up">
+        <details class="faq-item">
+          <summary>口腔機能管理くんは、どんなアプリですか？</summary>
+          <p>歯科医院向けの口腔機能管理アプリです。口腔機能低下症・口腔機能発達不全症・歯周検査・咬筋検査の検査結果を記録し、該当項目の集計、レーダーチャートでの表示、管理計画書や紹介状の作成までを1つのアプリで行えます。</p>
+        </details>
+        <details class="faq-item">
+          <summary>どの検査に対応していますか？</summary>
+          <p>口腔機能低下症の7項目（口腔衛生状態不良・口腔乾燥・咬合力低下・舌口唇運動機能低下・低舌圧・咀嚼機能低下・嚥下機能低下）、口腔機能発達不全症のチェックリスト、歯周検査（精密6点法・4点法・基本検査）、咬筋検査に対応しています。</p>
+        </details>
+        <details class="faq-item">
+          <summary>アプリが診断をするのですか？</summary>
+          <p>いいえ。アプリは入力された検査結果を学会の基準値に照らして集計し、記録と書類の作成を支援するものです。医療機器ではありません。診断・判断は歯科医師が行います。</p>
+        </details>
+        <details class="faq-item">
+          <summary>管理計画書や提供文書は作れますか？</summary>
+          <p>検査結果から管理計画書を作成し、PDF出力・印刷できます。紹介状のテンプレートや、口腔機能の実地指導で患者さんにお渡しする文書の作成にも対応しています。</p>
+        </details>
+        <details class="faq-item">
+          <summary>料金はいくらですか？</summary>
+          <p>月額1,000円、または年額9,800円（いずれも税込）です。すべてのプランに1か月の無料トライアルがあります。無料期間の終了後は自動で有料プランに移行し、期間中に解約すれば料金はかかりません。</p>
+        </details>
+        <details class="faq-item">
+          <summary>何台の端末で使えますか？</summary>
+          <p>1つのアカウントで、医院の iPhone・iPad・Android 端末を何台でも使えます。同じアカウントでサインインすれば、データは端末どうしで同期されます。Apple と Google のアカウント間の移行は、エクスポート／インポートで行えます。</p>
+        </details>
+        <details class="faq-item">
+          <summary>患者データの安全性は？</summary>
+          <p>アプリはPINコードでロックでき、データは端末のセキュア領域（iOS キーチェーン／Android キーストア）に保存されます。サーバーとの通信は暗号化され、データはアカウント単位で保護されます。</p>
+        </details>
+        <details class="faq-item">
+          <summary>再検査の時期を知らせる機能はありますか？</summary>
+          <p>あります。前回の検査日から一定の期間がたった患者さんが、ホーム画面の「そろそろ再検査の時期です」に一覧で表示されます。プッシュ通知ではなく、アプリを開いたときに表示される仕組みです。</p>
+        </details>
+        <details class="faq-item">
+          <summary>レセコンと連携できますか？</summary>
+          <p>レセコンとの連携には対応していません。検査結果の記録・書類作成・PDF出力のためのアプリです。</p>
+        </details>
+        <details class="faq-item">
+          <summary>患者さんへの説明に使える動画はありますか？</summary>
+          <p>口腔機能やトレーニングを説明する患者説明動画を、追加料金なしでご利用いただけます。動画のQRコードを印刷して、患者さんにお渡しすることもできます。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-final section">
     <div class="wrap fade-in-up">
       <p class="kicker">GET STARTED</p>
       <h2>口腔機能管理を、<br>もっと手軽に。</h2>
