@@ -166,3 +166,9 @@ docs/sitemap.xml
 
 ## 2026-10-20 22:48
 docs/googledea84580da219178.html
+
+## 2026-10-21 14:43
+docs/kokuken/guide/kouku-kinou-teikasho/index.html
+docs/kokuken/guide/santei-r8/index.html
+docs/kokuken/index.html
+docs/sitemap.xml
