@@ -191,3 +191,6 @@ docs/sitemap.xml
 docs/kokuken/guide/hattatsu-checklist/index.html
 docs/kokuken/tools/taikaku/index.html
 docs/sitemap.xml
+
+## 2026-10-23 16:51
+docs/kokuken/guide/hattatsu-checklist/index.html
