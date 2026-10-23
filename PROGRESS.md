@@ -172,3 +172,11 @@ docs/kokuken/guide/kouku-kinou-teikasho/index.html
 docs/kokuken/guide/santei-r8/index.html
 docs/kokuken/index.html
 docs/sitemap.xml
+
+## 2026-10-23 12:52
+docs/kokuken/guide/hattatsu-checklist/index.html
+docs/kokuken/guide/hattatsu-santei-r8/index.html
+docs/kokuken/guide/kouku-kinou-teikasho/index.html
+docs/kokuken/guide/santei-r8/index.html
+docs/kokuken/index.html
+docs/sitemap.xml
