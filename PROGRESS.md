@@ -194,3 +194,9 @@ docs/sitemap.xml
 
 ## 2026-10-23 16:51
 docs/kokuken/guide/hattatsu-checklist/index.html
+
+## 2026-10-23 16:57
+docs/kokuken/guide/app-erabikata/index.html
+docs/kokuken/index.html
+docs/kokuken/support/index.html
+docs/sitemap.xml
