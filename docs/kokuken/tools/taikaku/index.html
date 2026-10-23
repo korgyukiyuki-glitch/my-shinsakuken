@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>カウプ指数・ローレル指数の計算ツール｜口腔機能発達不全症の体格評価（C-13・別紙1 C-11）｜口腔機能管理くん</title>
+  <meta name="description" content="生年月日（または年齢）・評価日・体重・身長を入れるだけで、6歳未満はカウプ指数、6歳以上はローレル指数を計算し、日本歯科医学会の5段階の区分と、口腔機能発達不全症チェックリスト（別紙2 C-13）の「やせ、または肥満である」に該当するかの目安を表示します。計算はブラウザ内で完結し、入力は送信・保存しません。無料・登録不要。">
+  <link rel="canonical" href="https://medicalcraft-lab.com/kokuken/tools/taikaku/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://medicalcraft-lab.com/kokuken/tools/taikaku/">
+  <meta property="og:title" content="カウプ指数・ローレル指数の計算ツール（口腔機能発達不全症の体格評価）">
+  <meta property="og:description" content="体重・身長・年齢を入れるだけで、カウプ指数／ローレル指数と日本歯科医学会の5段階の区分、チェックリストC-13の該当の目安を表示。ブラウザ内で計算・無料。">
+  <meta property="og:image" content="https://medicalcraft-lab.com/kokuken/ogp.png">
+  <meta property="og:site_name" content="Medical Craft Laboratory">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="カウプ指数・ローレル指数の計算ツール（口腔機能発達不全症の体格評価）">
+  <meta name="twitter:description" content="体重・身長・年齢を入れるだけで、カウプ指数／ローレル指数と5段階の区分、チェックリストC-13の該当の目安を表示。ブラウザ内で計算・無料。">
+  <meta name="twitter:image" content="https://medicalcraft-lab.com/kokuken/ogp.png">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://medicalcraft-lab.com/kokuken/tools/taikaku/#app",
+      "name": "カウプ指数・ローレル指数の計算（口腔機能発達不全症の体格評価 C-13／別紙1 C-11）",
+      "url": "https://medicalcraft-lab.com/kokuken/tools/taikaku/",
+      "description": "生年月日（または年齢）・評価日・体重・身長から、6歳未満はカウプ指数、6歳以上はローレル指数を計算し、日本歯科医学会「口腔機能発達不全症に関する基本的な考え方」（令和6年3月）の5段階の区分と、チェックリスト（別紙2）C-13「やせ、または肥満である」の該当の目安を表示する無料ツール。計算はブラウザ内で完結し、入力は送信・保存しない。13歳以上は適用範囲が明記されていないため判定を保留し、参考値を表示する。",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Any",
+      "browserRequirements": "Requires JavaScript",
+      "isAccessibleForFree": true,
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" },
+      "inLanguage": "ja",
+      "datePublished": "2026-10-23",
+      "dateModified": "2026-10-23",
+      "image": "https://medicalcraft-lab.com/kokuken/ogp.png",
+      "author": {
+        "@type": "Person",
+        "name": "和泉龍之介",
+        "jobTitle": "歯科医師",
+        "worksFor": { "@id": "https://medicalcraft-lab.com/#org" }
+      },
+      "publisher": { "@id": "https://medicalcraft-lab.com/#org" },
+      "about": { "@type": "MedicalCondition", "name": "口腔機能発達不全症" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://medicalcraft-lab.com/#org",
+      "name": "Medical Craft Laboratory",
+      "url": "https://medicalcraft-lab.com",
+      "logo": "https://medicalcraft-lab.com/apple-touch-icon.png"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Medical Craft Laboratory", "item": "https://medicalcraft-lab.com/" },
+        { "@type": "ListItem", "position": 2, "name": "口腔機能管理くん", "item": "https://medicalcraft-lab.com/kokuken/" },
+        { "@type": "ListItem", "position": 3, "name": "カウプ指数・ローレル指数の計算", "item": "https://medicalcraft-lab.com/kokuken/tools/taikaku/" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "カウプ指数とローレル指数は、どちらを使いますか？",
+          "acceptedAnswer": { "@type": "Answer", "text": "日本歯科医学会「口腔機能発達不全症に関する基本的な考え方」（令和6年3月）の別紙2の参考資料では、カウプ指数は6歳未満の幼児、ローレル指数は6歳以上の学童に用いるとされています。このツールでは、評価日時点の満年齢が6歳未満ならカウプ指数、6歳以上ならローレル指数を計算します。" }
+        },
+        {
+          "@type": "Question",
+          "name": "チェックリストのC-13「やせ、または肥満である」に該当するのは、どの値ですか？",
+          "acceptedAnswer": { "@type": "Answer", "text": "離乳完了後のチェックリスト（別紙2）の評価基準では、乳幼児期はカウプ指数が15未満または22以上、学童期はローレル指数が100未満または160以上を該当としています。カウプ指数では「やせぎみ」（13〜15未満）も該当に入る一方、「肥満傾向」（19〜22未満）は該当に入りません。" }
+        },
+        {
+          "@type": "Question",
+          "name": "ローレル指数100未満は「やせ」ですか、「やせぎみ」ですか？",
+          "acceptedAnswer": { "@type": "Answer", "text": "学会の資料の中で表記が分かれています。別紙2の参考資料の表では100未満を「やせ」、100〜115未満を「やせぎみ」としていますが、C-13の評価基準の文章では「ローレル指数が100未満（やせぎみ）」と書かれています。このツールでは原文のまま両方を示しています。チェックリストに該当する線は、どちらの表記でも100未満で変わりません。" }
+        },
+        {
+          "@type": "Question",
+          "name": "離乳完了前のチェックリスト（別紙1）には、該当とする数値の線がありますか？",
+          "acceptedAnswer": { "@type": "Answer", "text": "ありません。別紙1のC-11「やせ、または肥満である」は、カウプ指数で評価し「やせまたは肥満でないか確認する」とされているだけで、該当とする数値は示されていません。このツールでは別紙1を選ぶと、カウプ指数と5段階の区分だけを表示します。" }
+        },
+        {
+          "@type": "Question",
+          "name": "入力した体重や身長は、どこかに送られますか？",
+          "acceptedAnswer": { "@type": "Answer", "text": "送られません。計算はお使いのブラウザの中だけで行い、入力した値をサーバーに送信したり、保存したりすることはありません。Cookieも使いません。ページを閉じると入力は消えます。" }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <!-- 外部への通信をしないため、Web フォントは読み込まない（端末のフォントで表示） -->
+  <style>
+    :root {
+      --cream: #FBFAF6;
+      --ink: #1D1D1B;
+      --ink-soft: #5A5953;
+      --ink-mute: #8A887F;
+      --hairline: #E5E2D9;
+      --accent: #F0832A;
+      --accent-deep: #C75B12;
+      --accent-hover: #D96E1C;
+      --font-sans: 'Zen Kaku Gothic New', 'Hiragino Sans', sans-serif;
+      --font-serif: 'Shippori Mincho', 'Hiragino Mincho ProN', serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-sans);
+      color: var(--ink);
+      background: var(--cream);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; }
+    .kicker {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      color: var(--accent-deep);
+      text-transform: uppercase;
+    }
+
+    /* Navigation (LP と共通) */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(251, 250, 246, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--hairline);
+      height: 60px;
+    }
+    .nav-inner {
+      max-width: 1080px; margin: 0 auto; padding: 0 24px;
+      height: 100%; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-brand img { width: 30px; height: 30px; border-radius: 8px; }
+    .nav-brand .name { font-size: 14px; font-weight: 700; }
+    .nav-brand .by {
+      font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.14em;
+      color: var(--ink-mute); margin-left: 2px;
+    }
+    .nav-links { display: flex; align-items: center; gap: 22px; }
+    .nav-links a { font-size: 13px; color: var(--ink-soft); text-decoration: none; transition: color 0.2s ease; }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-cta {
+      background: var(--accent); color: #fff !important;
+      padding: 9px 20px; border-radius: 999px;
+      font-size: 13px; font-weight: 700; text-decoration: none;
+      transition: background-color 0.2s ease; white-space: nowrap;
+    }
+    .nav-cta:hover { background: var(--accent-hover); }
+
+    /* Article */
+    .article { padding: 104px 0 72px; }
+    .article-wrap { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+    .breadcrumb { font-size: 12px; color: var(--ink-mute); margin-bottom: 28px; }
+    .breadcrumb ol { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; }
+    .breadcrumb li + li::before { content: "›"; margin-right: 6px; color: var(--hairline); }
+    .article .breadcrumb a { color: var(--ink-soft); font-weight: 400; text-decoration: none; }
+    .article [id] { scroll-margin-top: 76px; }
+    .article .breadcrumb a:hover { text-decoration: underline; }
+    .article h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(25px, 3.4vw, 34px);
+      font-weight: 700; line-height: 1.55;
+      margin: 16px 0 20px;
+    }
+    .byline {
+      display: flex; flex-wrap: wrap; gap: 6px 18px;
+      font-size: 12.5px; color: var(--ink-mute);
+      border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline);
+      padding: 12px 0; margin-bottom: 30px;
+    }
+    .byline strong { color: var(--ink-soft); font-weight: 700; }
+    .article p { font-size: 15px; color: var(--ink-soft); line-height: 2.0; margin: 0 0 16px; }
+    .article p strong, .article li strong { color: var(--ink); }
+    .article h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(21px, 2.6vw, 26px);
+      font-weight: 700; line-height: 1.55;
+      margin: 56px 0 18px; padding-top: 28px;
+      border-top: 1px solid var(--hairline);
+    }
+    .article h3 { font-size: 16px; font-weight: 700; margin: 30px 0 10px; line-height: 1.6; }
+    .article ul, .article ol { margin: 0 0 18px 1.4em; }
+    .article li { font-size: 14.5px; color: var(--ink-soft); line-height: 1.95; margin-bottom: 6px; }
+    .article a { color: var(--accent-deep); font-weight: 700; text-decoration: none; }
+    .article a:hover { text-decoration: underline; }
+    .summary {
+      background: #fff; border: 1px solid var(--hairline); border-radius: 16px;
+      padding: 22px 26px; margin: 8px 0 30px;
+    }
+    .summary .kicker { margin-bottom: 8px; }
+    .summary ul { margin-bottom: 0; }
+    .toc { border-left: 2px solid var(--accent); padding: 4px 0 4px 18px; margin: 0 0 12px; }
+    .toc p { font-size: 12px; font-family: var(--font-mono); letter-spacing: 0.14em; color: var(--ink-mute); margin-bottom: 6px; }
+    .toc ol { margin: 0 0 0 1.2em; }
+    .toc li { font-size: 13.5px; margin-bottom: 2px; }
+    .article .toc a { font-weight: 500; color: var(--ink-soft); }
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 0 12px; border: 1px solid var(--hairline); border-radius: 12px; background: #fff; }
+    table.data { border-collapse: collapse; width: 100%; min-width: 640px; font-size: 13.5px; }
+    table.data th, table.data td { border-bottom: 1px solid var(--hairline); padding: 10px 12px; text-align: left; vertical-align: top; line-height: 1.75; color: var(--ink-soft); }
+    table.data thead th { background: var(--cream); color: var(--ink); font-weight: 700; font-size: 12.5px; white-space: nowrap; }
+    table.data tbody th { color: var(--ink); font-weight: 700; white-space: nowrap; }
+    table.data tr:last-child th, table.data tr:last-child td { border-bottom: none; }
+    table.data.compact { min-width: 0; }
+    table.data.compact tbody th { white-space: normal; min-width: 7em; }
+    .num { font-family: var(--font-mono); color: var(--ink); font-weight: 500; }
+    .caption { font-size: 12px; color: var(--ink-mute); margin: 0 0 24px; line-height: 1.8; }
+    .note {
+      background: #fff; border: 1px solid var(--hairline); border-left: 3px solid var(--accent);
+      border-radius: 10px; padding: 14px 18px; margin: 0 0 20px;
+    }
+    .note p { font-size: 13.5px; margin: 0; }
+    .note p + p { margin-top: 8px; }
+    blockquote {
+      background: #fff; border: 1px solid var(--hairline); border-radius: 10px;
+      padding: 14px 18px; margin: 0 0 12px; font-size: 13.5px; color: var(--ink-soft); line-height: 1.95;
+    }
+    .faq-item { border-bottom: 1px solid var(--hairline); padding: 16px 2px; }
+    .faq-item h3 { margin: 0 0 6px; font-size: 15px; }
+    .faq-item h3::before { content: "Q. "; color: var(--accent-deep); }
+    .faq-item p { font-size: 14px; margin: 0; }
+    .app-box {
+      background: #fff; border: 1px solid var(--hairline); border-radius: 18px;
+      padding: 28px 28px 24px; margin: 8px 0 12px;
+      display: grid; grid-template-columns: 64px 1fr; gap: 18px; align-items: start;
+    }
+    .app-box img { width: 64px; height: 64px; border-radius: 15px; }
+    .app-box p { font-size: 14px; }
+    .app-box .small { font-size: 12px; color: var(--ink-mute); margin-bottom: 14px; }
+    .btn-lp {
+      display: inline-block; background: var(--ink); color: #fff !important;
+      padding: 11px 24px; border-radius: 999px; font-size: 13.5px; font-weight: 700;
+      text-decoration: none !important; transition: opacity 0.2s ease;
+    }
+    .btn-lp:hover { opacity: 0.85; }
+    .related { background: #fff; border: 1px solid var(--hairline); border-radius: 14px; padding: 18px 22px; margin: 24px 0 0; }
+    .related p { margin: 0 0 4px; font-size: 12px; font-family: var(--font-mono); letter-spacing: 0.14em; color: var(--ink-mute); }
+    .related a { font-size: 14.5px; }
+    .sources { margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--hairline); }
+    .sources h2 { margin-top: 0; padding-top: 0; border-top: none; font-size: 20px; }
+    .sources li { font-size: 12.5px; line-height: 1.85; word-break: break-all; }
+    .article .sources a { font-weight: 500; }
+
+    /* Calculator（このページ固有） */
+    .calc {
+      background: #fff; border: 1px solid var(--hairline); border-radius: 18px;
+      padding: 26px 28px 24px; margin: 8px 0 20px;
+    }
+    .calc .kicker { margin-bottom: 14px; }
+    .calc fieldset { border: none; margin: 0 0 18px; }
+    .calc legend { font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+    .calc .radios { display: flex; flex-wrap: wrap; gap: 8px 18px; }
+    .calc .radios label { font-size: 14px; color: var(--ink-soft); display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
+    .calc .radios input { accent-color: var(--accent); width: 16px; height: 16px; }
+    .calc .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 20px; }
+    .calc .field { display: flex; flex-direction: column; gap: 4px; }
+    .calc .field label { font-size: 13px; font-weight: 700; color: var(--ink); }
+    .calc .field .hint { font-size: 11.5px; color: var(--ink-mute); line-height: 1.6; }
+    .calc input[type="date"], .calc input[type="number"] {
+      font-family: var(--font-sans); font-size: 16px; color: var(--ink);
+      border: 1px solid var(--hairline); border-radius: 10px; padding: 10px 12px;
+      background: var(--cream); width: 100%; min-height: 44px;
+    }
+    .calc input:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+    .calc .unit-row { display: flex; align-items: center; gap: 8px; }
+    .calc .unit-row input { flex: 1; }
+    .calc .unit-row span { font-size: 13px; color: var(--ink-mute); white-space: nowrap; }
+    .calc .or { font-size: 12px; color: var(--ink-mute); text-align: center; padding-top: 6px; }
+    .calc .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; align-items: center; }
+    .btn {
+      font-family: var(--font-sans); font-size: 14px; font-weight: 700; cursor: pointer;
+      border-radius: 999px; padding: 11px 24px; border: 1px solid transparent; min-height: 44px;
+      transition: background-color 0.2s ease, opacity 0.2s ease;
+    }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: var(--accent-hover); }
+    .btn-ghost { background: transparent; color: var(--ink-soft); border-color: var(--hairline); }
+    .btn-ghost:hover { color: var(--ink); border-color: var(--ink-mute); }
+    .privacy-line { font-size: 12px; color: var(--ink-mute); margin: 0; line-height: 1.7; }
+    .error { color: #B3261E; font-size: 13px; margin: 12px 0 0; display: none; }
+    .error.show { display: block; }
+
+    .result {
+      background: #fff; border: 1px solid var(--hairline); border-radius: 18px;
+      padding: 24px 28px; margin: 0 0 20px; display: none;
+    }
+    .result.show { display: block; }
+    .result .kicker { margin-bottom: 10px; }
+    .result-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; margin-bottom: 14px; }
+    .result-head .idx-name { font-size: 14px; font-weight: 700; color: var(--ink); }
+    .result-head .idx-value { font-family: var(--font-mono); font-size: 36px; font-weight: 500; color: var(--ink); line-height: 1.2; }
+    .result-head .idx-ref { font-size: 12px; color: var(--ink-mute); }
+    .badge {
+      display: inline-block; border-radius: 999px; padding: 3px 12px; font-size: 13px; font-weight: 700; line-height: 1.7;
+      border: 1px solid var(--hairline); background: var(--cream); color: var(--ink);
+    }
+    .badge.pos { background: #FBEDE7; border-color: #F0B9A3; color: #9A3B12; }
+    .badge.neg { background: #EDF5EC; border-color: #BFD9BB; color: #2E6B2A; }
+    .badge.na { background: var(--cream); color: var(--ink-mute); }
+    table.data.result-table { min-width: 0; }
+    table.data.result-table th { width: 11em; }
+    .result .notes { margin: 12px 0 0; }
+    .result .notes li { font-size: 13px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 4px; }
+    .result .disclaimer { font-size: 12px; color: var(--ink-mute); margin: 14px 0 0; line-height: 1.7; }
+    .print-meta { display: none; font-size: 12px; color: var(--ink-mute); margin-top: 8px; }
+
+    /* Footer (LP と共通) */
+    .footer { border-top: 1px solid var(--hairline); padding: 36px 0; }
+    .footer-inner {
+      max-width: 1080px; margin: 0 auto; padding: 0 24px;
+      display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;
+    }
+    .footer-copy { font-family: var(--font-mono); font-size: 10.5px; color: var(--ink-mute); }
+    .footer-links { display: flex; gap: 22px; flex-wrap: wrap; }
+    .footer-links a { font-size: 12.5px; color: var(--ink-soft); text-decoration: none; }
+    .footer-links a:hover { color: var(--ink); }
+
+    @media (max-width: 880px) {
+      .nav-links a:not(.nav-cta) { display: none; }
+    }
+    @media (max-width: 560px) {
+      .article { padding-top: 88px; }
+      .article-wrap { padding: 0 16px; }
+      .nav-inner, .footer-inner { padding: 0 16px; }
+      .nav-brand .by { display: none; }
+      .nav-brand .name { white-space: nowrap; }
+      .app-box { grid-template-columns: 1fr; padding: 22px 20px; }
+      .summary { padding: 18px 18px; }
+      .calc { padding: 20px 18px 18px; }
+      .calc .grid { grid-template-columns: 1fr; }
+      .result { padding: 20px 18px; }
+      table.data.result-table th { width: 8em; }
+    }
+
+    /* 印刷：ナビ・CTA・入力欄を外し、計算結果と区分表を残す */
+    @media print {
+      body { background: #fff; color: #000; }
+      .nav, .footer, .app-box, .related, .toc, .actions, .nav-cta, .btn, .summary { display: none !important; }
+      .article { padding: 0; }
+      .article-wrap { max-width: none; padding: 0; }
+      .calc, .result, .note, .table-scroll, blockquote { border-color: #bbb; box-shadow: none; break-inside: avoid; }
+      .result { display: block; }
+      .result:not(.show) { display: none; }
+      .print-meta { display: block; }
+      .article h2 { break-after: avoid; }
+      .faq, #faq, .faq-item { display: none; }
+      a[href]::after { content: ""; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/kokuken/" class="nav-brand">
+        <img src="/kokuken/img/icon.png" alt="" width="30" height="30">
+        <span class="name">口腔機能管理くん</span>
+        <span class="by">BY MEDICAL CRAFT LAB</span>
+      </a>
+      <div class="nav-links">
+        <a href="/kokuken/guide/hattatsu-checklist/">発達不全症のチェックリスト</a>
+        <a href="/kokuken/guide/hattatsu-santei-r8/">発達不全症の算定</a>
+        <a href="/kokuken/">アプリ紹介</a>
+        <a href="https://apps.apple.com/jp/app/id6760281631?pt=128621702&ct=tool_taikaku&mt=8" class="nav-cta" target="_blank" rel="noopener">ダウンロード</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="article">
+    <article class="article-wrap">
+      <nav class="breadcrumb" aria-label="パンくずリスト">
+        <ol>
+          <li><a href="/">Medical Craft Laboratory</a></li>
+          <li><a href="/kokuken/">口腔機能管理くん</a></li>
+          <li>カウプ指数・ローレル指数の計算</li>
+        </ol>
+      </nav>
+
+      <p class="kicker">TOOL — 口腔機能発達不全症</p>
+      <h1>カウプ指数・ローレル指数の計算（口腔機能発達不全症の体格評価 C-13／別紙1 C-11）</h1>
+      <div class="byline">
+        <span><strong>監修：歯科医師 和泉龍之介（Medical Craft Lab）</strong></span>
+        <span>公開日 <time datetime="2026-10-23">2026年10月23日</time></span>
+        <span>最終更新日 <time datetime="2026-10-23">2026年10月23日</time></span>
+      </div>
+
+      <p>口腔機能発達不全症のチェックリストにある体格の項目（離乳完了後の別紙2はC-13、離乳完了前の別紙1はC-11「やせ、または肥満である」）は、カウプ指数とローレル指数で評価します。このページでは、生年月日（または年齢）・評価日・体重・身長を入れると、<strong>6歳未満はカウプ指数、6歳以上はローレル指数</strong>を計算し、日本歯科医学会「口腔機能発達不全症に関する基本的な考え方」（令和6年3月。以下「基本的な考え方」）の参考資料にある5段階の区分と、チェックリストの該当の目安を表示します。</p>
+      <p>計算はお使いのブラウザの中だけで行います。入力した値はサーバーに送信せず、保存もせず、Cookieも使いません。チェックリスト全体の見方は「<a href="/kokuken/guide/hattatsu-checklist/">口腔機能発達不全症のチェックリストとC項目の見方</a>」で解説しています。</p>
+
+      <div class="summary">
+        <p class="kicker">POINTS — この計算ツールの要点</p>
+        <ul>
+          <li>カウプ指数＝体重（g）÷身長（cm）<sup>2</sup>×10（<strong>6歳未満</strong>）、ローレル指数＝体重（g）÷身長（cm）<sup>3</sup>×10<sup>4</sup>（<strong>6歳以上</strong>）。年齢は<strong>評価日時点</strong>で数えます</li>
+          <li>別紙2 C-13の該当は、<strong>カウプ指数15未満または22以上</strong>、<strong>ローレル指数100未満または160以上</strong></li>
+          <li>別紙1（離乳完了前）はカウプ指数で評価し、該当とする数値の線は示されていません</li>
+          <li>表示は目安です。診断は歯科医師が行います</li>
+        </ul>
+      </div>
+
+      <div class="toc">
+        <p>CONTENTS</p>
+        <ol>
+          <li><a href="#calc">計算する</a></li>
+          <li><a href="#formula">計算に使う式と年齢の数え方</a></li>
+          <li><a href="#grades">5段階の区分（学会の参考資料）</a></li>
+          <li><a href="#line">チェックリストの該当の線</a></li>
+          <li><a href="#notes">表記の食い違いと、このツールの扱い</a></li>
+          <li><a href="#faq">よくある質問</a></li>
+        </ol>
+      </div>
+
+      <h2 id="calc">計算する</h2>
+      <form class="calc" id="taikaku-form" autocomplete="off" novalidate>
+        <p class="kicker">INPUT — 入力</p>
+        <fieldset>
+          <legend>使うチェックリスト</legend>
+          <div class="radios">
+            <label><input type="radio" name="sheet" value="post" checked> 別紙2（離乳完了後）C-13</label>
+            <label><input type="radio" name="sheet" value="pre"> 別紙1（離乳完了前）C-11</label>
+          </div>
+        </fieldset>
+        <div class="grid">
+          <div class="field">
+            <label for="birth">生年月日</label>
+            <input type="date" id="birth" name="birth" min="1990-01-01" max="2100-12-31">
+            <span class="hint">生年月日を入れると、評価日時点の満年齢を計算します</span>
+          </div>
+          <div class="field">
+            <label for="asof">評価日</label>
+            <input type="date" id="asof" name="asof" min="1990-01-01" max="2100-12-31">
+            <span class="hint">空欄なら今日の日付で計算します</span>
+          </div>
+          <div class="field">
+            <label for="age">年齢（生年月日を入れない場合）</label>
+            <div class="unit-row">
+              <input type="number" id="age" name="age" inputmode="numeric" min="0" max="120" step="1" placeholder="例：4">
+              <span>歳</span>
+            </div>
+            <span class="hint">満年齢を整数で。生年月日を入れた場合はそちらを優先します</span>
+          </div>
+          <div class="field"></div>
+          <div class="field">
+            <label for="weight">体重</label>
+            <div class="unit-row">
+              <input type="number" id="weight" name="weight" inputmode="decimal" min="0.5" max="300" step="0.01" placeholder="例：16.5">
+              <span>kg</span>
+            </div>
+            <span class="hint">kg で入力（小数点可）。式の中で g に換算します</span>
+          </div>
+          <div class="field">
+            <label for="height">身長</label>
+            <div class="unit-row">
+              <input type="number" id="height" name="height" inputmode="decimal" min="30" max="250" step="0.1" placeholder="例：102.3">
+              <span>cm</span>
+            </div>
+            <span class="hint">cm で入力（小数点可）</span>
+          </div>
+        </div>
+        <p class="error" id="error" role="alert"></p>
+        <div class="actions">
+          <button type="submit" class="btn btn-primary">計算する</button>
+          <button type="button" class="btn btn-ghost" id="print-btn">結果を印刷</button>
+          <button type="reset" class="btn btn-ghost" id="reset-btn">入力を消す</button>
+        </div>
+        <p class="privacy-line" style="margin-top:14px;">※ 計算はブラウザ内の JavaScript だけで行います。入力した値は送信・保存せず、Cookie も使いません。ページを閉じると入力は消えます。</p>
+      </form>
+
+      <section class="result" id="result" aria-live="polite">
+        <p class="kicker">RESULT — 計算結果（目安）</p>
+        <div class="result-head">
+          <span class="idx-name" id="r-idxname"></span>
+          <span class="idx-value" id="r-value"></span>
+          <span class="idx-ref" id="r-ref"></span>
+        </div>
+        <div class="table-scroll" style="margin-bottom:0;">
+          <table class="data compact result-table">
+            <tbody>
+              <tr><th>評価日時点の年齢</th><td id="r-age"></td></tr>
+              <tr><th>入力値</th><td id="r-input"></td></tr>
+              <tr><th>使った式</th><td id="r-formula"></td></tr>
+              <tr><th>区分（学会の参考資料）</th><td id="r-grade"></td></tr>
+              <tr><th id="r-line-label">チェックリストの該当</th><td id="r-line"></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="notes" id="r-notes"></ul>
+        <p class="disclaimer">※ 区分と該当は、日本歯科医学会「口腔機能発達不全症に関する基本的な考え方」（令和6年3月）の参考資料と、別紙2「チェックリストの各項目に関する評価基準」の数値をそのまま当てはめた目安です。診断は、問診・診察・検査を踏まえて歯科医師が行います。このツールは医療機器ではありません。</p>
+        <p class="print-meta" id="r-printmeta"></p>
+      </section>
+
+      <h2 id="formula">計算に使う式と、年齢の数え方</h2>
+      <div class="table-scroll">
+        <table class="data compact">
+          <thead>
+            <tr><th>指数</th><th>対象</th><th>式</th><th>このツールでの計算</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>カウプ指数</th><td>6歳未満の幼児</td><td>[体重（g）／身長（cm）<sup>2</sup>]×10</td><td>体重（kg）×10,000 ÷ 身長（cm）<sup>2</sup></td></tr>
+            <tr><th>ローレル指数</th><td>6歳以上の学童</td><td>[体重（g）／身長（cm）<sup>3</sup>]×10<sup>4</sup></td><td>体重（kg）×10,000,000 ÷ 身長（cm）<sup>3</sup></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="caption">出典：「基本的な考え方」（令和6年3月）別紙2の参考資料。別紙1の参考資料はカウプ指数のみ（「｛体重（g）／身長（cm）<sup>2</sup>｝×10」）。kg を g に直すと ×1,000 なので、上の「このツールでの計算」の式と同じ値になります。</p>
+      <ul>
+        <li><strong>年齢は評価日時点の満年齢</strong>で数えます。6歳の誕生日の当日から「6歳以上」としてローレル指数に切り替わります。生年月日を入れない場合は、「年齢」欄の整数をそのまま満年齢として使います。</li>
+        <li>指数は<strong>小数第1位まで</strong>（第2位を四捨五入）で表示し、区分と該当の判定も、その表示した値で行います。たとえば計算値が14.96なら「15.0」と表示し、15以上として扱います。</li>
+        <li>別紙1（離乳完了前）を選んだ場合は、年齢にかかわらずカウプ指数で計算します（別紙1の評価項目がカウプ指数で評価するものだからです）。</li>
+      </ul>
+
+      <h2 id="grades">5段階の区分（学会の参考資料）</h2>
+      <div class="table-scroll">
+        <table class="data compact">
+          <thead>
+            <tr><th>カウプ指数（6歳未満）</th><th>判定</th><th>ローレル指数（6歳以上）</th><th>判定</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="num">22以上</td><td>肥満</td><td class="num">160以上</td><td>肥満</td></tr>
+            <tr><td class="num">19〜22未満</td><td>肥満傾向</td><td class="num">145〜160未満</td><td>肥満気味</td></tr>
+            <tr><td class="num">15〜19未満</td><td>正常範囲</td><td class="num">115〜145未満</td><td>標準</td></tr>
+            <tr><td class="num">13〜15未満</td><td>やせぎみ</td><td class="num">100〜115未満</td><td>やせぎみ</td></tr>
+            <tr><td class="num">10〜13未満</td><td>やせ</td><td class="num">100未満</td><td>やせ</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="caption">出典：「基本的な考え方」（令和6年3月）別紙1・別紙2の参考資料。「〜未満」は、下の値を含み上の値を含みません（例：カウプ指数15.0は「15〜19未満」の正常範囲、14.9は「13〜15未満」のやせぎみ）。カウプ指数の表は10からで、10未満の区分は示されていません。</p>
+
+      <h2 id="line">チェックリストの該当の線</h2>
+      <p>離乳完了後のチェックリスト（別紙2）の評価基準は、C-13「やせ、または肥満である」の「管理が必要であると判断する基準」を次のように示しています。</p>
+      <blockquote>乳幼児期：カウプ指数が 15 未満（やせぎみ）、または 22 以上（肥満）である。<br>学童期：ローレル指数が 100 未満（やせぎみ）、または 160 以上（肥満）である。<br>（「基本的な考え方」令和6年3月 別紙2「チェックリストの各項目に関する評価基準」C-13）</blockquote>
+      <div class="table-scroll">
+        <table class="data compact">
+          <thead>
+            <tr><th>指数</th><th>該当（チェックを付ける目安）</th><th>該当しない</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>カウプ指数</th><td><span class="num">15未満</span>（やせぎみ・やせ）、または <span class="num">22以上</span>（肥満）</td><td>15〜22未満（正常範囲・肥満傾向）</td></tr>
+            <tr><th>ローレル指数</th><td><span class="num">100未満</span>、または <span class="num">160以上</span>（肥満）</td><td>100〜160未満（やせぎみ・標準・肥満気味）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="caption">カウプ指数では「やせぎみ」（13〜15未満）が該当に入り、「肥満傾向」（19〜22未満）は入りません。ローレル指数では「やせぎみ」（100〜115未満）も「肥満気味」（145〜160未満）も入りません。やせ側の線が指数によって違うため、このツールでは指数ごとに別の線で判定しています。</p>
+      <p>離乳完了前のチェックリスト（別紙1）のC-11は、カウプ指数で評価し「やせまたは肥満でないか確認する」とされていますが、<strong>該当とする数値の線は示されていません</strong>。別紙1を選んだときは、カウプ指数と5段階の区分だけを表示します。</p>
+
+      <h2 id="notes">表記の食い違いと、このツールの扱い</h2>
+      <div class="note">
+        <p><strong>ローレル指数100未満の呼び方</strong>：別紙2の参考資料の表では「100未満＝やせ」「100〜115未満＝やせぎみ」ですが、C-13の評価基準の文章は「ローレル指数が 100 未満（やせぎみ）」と書いています。このツールは、区分の欄に参考資料の表の呼び方（やせ）を使い、該当の欄に評価基準の原文を併記しています。チェックに付ける線は、どちらの表記でも100未満で変わりません。</p>
+        <p><strong>13歳以上</strong>：参考資料はローレル指数を「6歳以上の学童」に用いるとし、C-13の評価基準も「学童期」としています。13歳以上（中学生以上）に適用するかは、「基本的な考え方」に明記されていません。このツールでは、13歳以上のときは判定を保留し、ローレル指数の値を参考として表示します。なお、「基本的な考え方」の管理の対象は概ね17歳までです。</p>
+        <p><strong>カウプ指数10未満</strong>：参考資料の表は「10〜13未満＝やせ」までで、10未満の区分はありません。10未満のときは区分を「表の範囲外（10未満）」とし、該当はC-13の評価基準どおり「15未満」で判定します。</p>
+      </div>
+
+      <h2 id="faq">カウプ指数・ローレル指数の計算についてよくある質問</h2>
+      <div class="faq-item">
+        <h3>カウプ指数とローレル指数は、どちらを使いますか？</h3>
+        <p>「基本的な考え方」の別紙2の参考資料では、カウプ指数は6歳未満の幼児、ローレル指数は6歳以上の学童に用いるとされています。このツールでは、評価日時点の満年齢が6歳未満ならカウプ指数、6歳以上ならローレル指数を計算します。</p>
+      </div>
+      <div class="faq-item">
+        <h3>チェックリストのC-13「やせ、または肥満である」に該当するのは、どの値ですか？</h3>
+        <p>離乳完了後のチェックリスト（別紙2）の評価基準では、乳幼児期はカウプ指数が15未満または22以上、学童期はローレル指数が100未満または160以上を該当としています。カウプ指数では「やせぎみ」（13〜15未満）も該当に入る一方、「肥満傾向」（19〜22未満）は該当に入りません。</p>
+      </div>
+      <div class="faq-item">
+        <h3>ローレル指数100未満は「やせ」ですか、「やせぎみ」ですか？</h3>
+        <p>学会の資料の中で表記が分かれています。別紙2の参考資料の表では100未満を「やせ」、100〜115未満を「やせぎみ」としていますが、C-13の評価基準の文章では「ローレル指数が100未満（やせぎみ）」と書かれています。このツールでは原文のまま両方を示しています。チェックリストに該当する線は、どちらの表記でも100未満で変わりません。</p>
+      </div>
+      <div class="faq-item">
+        <h3>離乳完了前のチェックリスト（別紙1）には、該当とする数値の線がありますか？</h3>
+        <p>ありません。別紙1のC-11「やせ、または肥満である」は、カウプ指数で評価し「やせまたは肥満でないか確認する」とされているだけで、該当とする数値は示されていません。このツールでは別紙1を選ぶと、カウプ指数と5段階の区分だけを表示します。</p>
+      </div>
+      <div class="faq-item">
+        <h3>入力した体重や身長は、どこかに送られますか？</h3>
+        <p>送られません。計算はお使いのブラウザの中だけで行い、入力した値をサーバーに送信したり、保存したりすることはありません。Cookieも使いません。ページを閉じると入力は消えます。</p>
+      </div>
+
+      <h2 id="app">体格指数の記録とチェックリストをアプリで</h2>
+      <div class="app-box">
+        <img src="/kokuken/img/icon.png" alt="口腔機能管理くんのアイコン" width="64" height="64" loading="lazy">
+        <div>
+          <p>「口腔機能管理くん」は、歯科医院向けの口腔機能管理アプリです。患者の生年月日と評価日時点の体重・身長を記録すると、このページと同じ式でカウプ指数・ローレル指数を計算し、評価ごとの体格を残せます。離乳完了前（別紙1）と離乳完了後のチェックリストの記録、口唇閉鎖力・舌圧の年齢別基準値との比較、経過写真、管理計画書やチェックリストのPDF作成にも対応しています。</p>
+          <p class="small">iPhone・iPad・Android 対応／月額1,000円・年額9,800円（税込）、すべてのプランに1か月の無料トライアル。※ 記録と書類作成を支援するアプリで、医療機器ではありません。診断は歯科医師が行います。</p>
+          <a href="/kokuken/" class="btn-lp">口腔機能管理くんの詳細を見る</a>
+        </div>
+      </div>
+
+      <div class="related">
+        <p>NEXT — 続けて読む</p>
+        <a href="/kokuken/guide/hattatsu-checklist/">口腔機能発達不全症のチェックリスト（離乳完了前・離乳完了後）とC項目の見方</a><br>
+        <a href="/kokuken/guide/hattatsu-santei-r8/">口腔機能発達不全症の算定（令和8年度）──小児口腔機能管理料1・2、検査、指導・訓練の組み立て</a>
+      </div>
+
+      <section class="sources" aria-labelledby="sources-title">
+        <h2 id="sources-title">出典</h2>
+        <ol>
+          <li>日本歯科医学会「口腔機能発達不全症に関する基本的な考え方」（令和6年3月。別紙1・別紙2の参考資料〔カウプ指数・ローレル指数の式と判定〕、別紙2「チェックリストの各項目に関する評価基準」C-13、別紙1「チェックリストの各項目に関する評価基準」C-11） <a href="https://www.jads.jp/assets/pdf/basic/r06/document-240402-2.pdf" target="_blank" rel="noopener">https://www.jads.jp/assets/pdf/basic/r06/document-240402-2.pdf</a></li>
+        </ol>
+        <p class="caption">資料は2026年10月22日に確認しました。このページは資料の式と区分を当てはめて計算する目安のツールで、個別の診断や算定の可否を示すものではありません。</p>
+      </section>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-copy">&copy; 2026 MEDICAL CRAFT LABORATORY</span>
+      <div class="footer-links">
+        <a href="/kokuken/">口腔機能管理くん</a>
+        <a href="/kokuken/privacy/">プライバシーポリシー</a>
+        <a href="/kokuken/support/">サポート</a>
+        <a href="https://medicalcraft-lab.com">会社サイト</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  /* TAIKAKU_CALC_BEGIN
+   * 計算ロジック（純関数）。ページ外から検証できるよう window.TaikakuCalc に公開する。
+   * 式と区分の出典：日本歯科医学会「口腔機能発達不全症に関する基本的な考え方」（令和6年3月）
+   * 別紙1・別紙2 参考資料、別紙2 評価基準 C-13。
+   */
+  (function (global) {
+    'use strict';
+
+    // 小数第1位に丸める（表示と判定を同じ値で行う）
+    function round1(v) { return Math.round(v * 10) / 10; }
+
+    // カウプ指数 ＝ [体重(g) / 身長(cm)^2] × 10 ＝ 体重(kg) × 10000 / 身長(cm)^2
+    function calcKaup(weightKg, heightCm) {
+      return round1((weightKg * 10000) / (heightCm * heightCm));
+    }
+
+    // ローレル指数 ＝ [体重(g) / 身長(cm)^3] × 10^4 ＝ 体重(kg) × 10^7 / 身長(cm)^3
+    function calcRohrer(weightKg, heightCm) {
+      return round1((weightKg * 10000000) / (heightCm * heightCm * heightCm));
+    }
+
+    // 5段階の区分（参考資料の表どおり。境界は「以上／未満」）
+    function gradeKaup(v) {
+      if (v >= 22) return { key: 'obese', label: '肥満', range: '22以上' };
+      if (v >= 19) return { key: 'obese_tendency', label: '肥満傾向', range: '19〜22未満' };
+      if (v >= 15) return { key: 'normal', label: '正常範囲', range: '15〜19未満' };
+      if (v >= 13) return { key: 'thin_tendency', label: 'やせぎみ', range: '13〜15未満' };
+      if (v >= 10) return { key: 'thin', label: 'やせ', range: '10〜13未満' };
+      return { key: 'below_table', label: '表の範囲外（10未満）', range: '10未満' };
+    }
+    function gradeRohrer(v) {
+      if (v >= 160) return { key: 'obese', label: '肥満', range: '160以上' };
+      if (v >= 145) return { key: 'obese_tendency', label: '肥満気味', range: '145〜160未満' };
+      if (v >= 115) return { key: 'normal', label: '標準', range: '115〜145未満' };
+      if (v >= 100) return { key: 'thin_tendency', label: 'やせぎみ', range: '100〜115未満' };
+      return { key: 'thin', label: 'やせ', range: '100未満' };
+    }
+
+    // 別紙2 C-13 の該当：カウプ 15未満 または 22以上／ローレル 100未満 または 160以上
+    function isPositiveKaup(v) { return v < 15 || v >= 22; }
+    function isPositiveRohrer(v) { return v < 100 || v >= 160; }
+
+    // 評価日時点の満年齢（年・月）。date は 'YYYY-MM-DD'
+    function parseDate(s) {
+      var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(s || '');
+      if (!m) return null;
+      var y = +m[1], mo = +m[2], d = +m[3];
+      var dt = new Date(y, mo - 1, d);
+      if (dt.getFullYear() !== y || dt.getMonth() !== mo - 1 || dt.getDate() !== d) return null;
+      return dt;
+    }
+    function calcAge(birthStr, asOfStr) {
+      var b = parseDate(birthStr), a = parseDate(asOfStr);
+      if (!b || !a) return null;
+      if (a < b) return { years: -1, months: 0 };
+      var years = a.getFullYear() - b.getFullYear();
+      var months = a.getMonth() - b.getMonth();
+      if (a.getDate() < b.getDate()) months -= 1;
+      if (months < 0) { years -= 1; months += 12; }
+      return { years: years, months: months };
+    }
+
+    // 入力をまとめて評価する。
+    //   sheet: 'post'（別紙2）| 'pre'（別紙1）
+    //   ageYears: 評価日時点の満年齢（整数）
+    // 返り値: { idxType, idxLabel, value, grade, scope, positive, formula }
+    //   scope: 'in'（学会の区分で判定）| 'out13'（13歳以上＝適用範囲の明記がないため判定を保留・参考値）
+    //   positive: true/false/null（null＝判定しない：別紙1 または 13歳以上）
+    function evaluate(sheet, ageYears, weightKg, heightCm) {
+      var useKaup = (sheet === 'pre') || (ageYears < 6);
+      var idxType = useKaup ? 'kaup' : 'rohrer';
+      var value = useKaup ? calcKaup(weightKg, heightCm) : calcRohrer(weightKg, heightCm);
+      var grade = useKaup ? gradeKaup(value) : gradeRohrer(value);
+      var scope = (!useKaup && ageYears >= 13) ? 'out13' : 'in';
+      var positive = null;
+      if (sheet === 'post' && scope === 'in') {
+        positive = useKaup ? isPositiveKaup(value) : isPositiveRohrer(value);
+      }
+      return {
+        idxType: idxType,
+        idxLabel: useKaup ? 'カウプ指数' : 'ローレル指数',
+        value: value,
+        grade: grade,
+        scope: scope,
+        positive: positive,
+        formula: useKaup
+          ? '体重(g) ÷ 身長(cm)² × 10'
+          : '体重(g) ÷ 身長(cm)³ × 10⁴'
+      };
+    }
+
+    global.TaikakuCalc = {
+      round1: round1,
+      calcKaup: calcKaup,
+      calcRohrer: calcRohrer,
+      gradeKaup: gradeKaup,
+      gradeRohrer: gradeRohrer,
+      isPositiveKaup: isPositiveKaup,
+      isPositiveRohrer: isPositiveRohrer,
+      parseDate: parseDate,
+      calcAge: calcAge,
+      evaluate: evaluate
+    };
+  })(typeof window !== 'undefined' ? window : this);
+  /* TAIKAKU_CALC_END */
+
+  (function () {
+    'use strict';
+    var C = window.TaikakuCalc;
+    var form = document.getElementById('taikaku-form');
+    var $ = function (id) { return document.getElementById(id); };
+    var errorEl = $('error');
+    var resultEl = $('result');
+
+    function todayLocalIso() {
+      var d = new Date();
+      var p = function (n) { return (n < 10 ? '0' : '') + n; };
+      return d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate());
+    }
+    function fmtDate(s) {
+      var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(s);
+      return m ? (+m[1]) + '年' + (+m[2]) + '月' + (+m[3]) + '日' : s;
+    }
+    function showError(msg) {
+      errorEl.textContent = msg;
+      errorEl.classList.add('show');
+      resultEl.classList.remove('show');
+    }
+    function clearError() {
+      errorEl.textContent = '';
+      errorEl.classList.remove('show');
+    }
+    function setText(id, text) { $(id).textContent = text; }
+    function setHtml(id, html) { $(id).innerHTML = html; }
+    function esc(s) {
+      return String(s).replace(/[&<>"]/g, function (c) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+      });
+    }
+
+    function run() {
+      clearError();
+      var sheet = form.sheet.value === 'pre' ? 'pre' : 'post';
+      var birth = $('birth').value;
+      var asOf = $('asof').value || todayLocalIso();
+      var ageInput = $('age').value;
+      var weight = parseFloat($('weight').value);
+      var height = parseFloat($('height').value);
+
+      var ageYears, ageText;
+      if (birth) {
+        if (!C.parseDate(birth)) { showError('生年月日の日付が正しくありません。'); return; }
+        if (!C.parseDate(asOf)) { showError('評価日の日付が正しくありません。'); return; }
+        var age = C.calcAge(birth, asOf);
+        if (age.years < 0) { showError('評価日が生年月日より前になっています。'); return; }
+        ageYears = age.years;
+        ageText = '満' + age.years + '歳' + age.months + 'か月（生年月日 ' + fmtDate(birth) + '、評価日 ' + fmtDate(asOf) + '）';
+      } else if (ageInput !== '') {
+        var n = Number(ageInput);
+        if (!isFinite(n) || n < 0 || n > 120 || Math.floor(n) !== n) { showError('年齢は0〜120の整数で入力してください。'); return; }
+        ageYears = n;
+        ageText = '満' + n + '歳（年齢欄の入力。評価日 ' + fmtDate(asOf) + '）';
+      } else {
+        showError('生年月日か年齢のどちらかを入力してください。'); return;
+      }
+      if (!isFinite(weight) || weight < 0.5 || weight > 300) { showError('体重は 0.5〜300 kg の範囲で入力してください。'); return; }
+      if (!isFinite(height) || height < 30 || height > 250) { showError('身長は 30〜250 cm の範囲で入力してください。'); return; }
+
+      var r = C.evaluate(sheet, ageYears, weight, height);
+      var notes = [];
+
+      setText('r-idxname', r.idxLabel);
+      setText('r-value', r.value.toFixed(1));
+      setText('r-ref', r.scope === 'out13' ? '（参考値）' : '');
+      setText('r-age', ageText);
+      setText('r-input', '体重 ' + weight + ' kg（' + Math.round(weight * 1000) + ' g）／身長 ' + height + ' cm／' + (sheet === 'pre' ? '別紙1（離乳完了前）C-11' : '別紙2（離乳完了後）C-13'));
+      setText('r-formula', r.formula + '（' + (r.idxType === 'kaup' ? '6歳未満はカウプ指数' : '6歳以上はローレル指数') + '）');
+
+      // 区分
+      if (r.scope === 'out13') {
+        setHtml('r-grade', '<span class="badge na">判定を保留（13歳以上への適用は資料に明記なし）</span> <span style="font-size:12.5px;color:var(--ink-mute);">参考：ローレル指数の表に当てはめると「' + esc(r.grade.label) + '」（' + esc(r.grade.range) + '）</span>');
+      } else {
+        setHtml('r-grade', '<span class="badge">' + esc(r.grade.label) + '</span> <span style="font-size:12.5px;color:var(--ink-mute);">' + esc(r.grade.range) + '</span>');
+      }
+
+      // 該当
+      if (sheet === 'pre') {
+        setText('r-line-label', 'チェックリストの該当（別紙1 C-11）');
+        setHtml('r-line', '<span class="badge na">数値の線は示されていない</span> <span style="font-size:12.5px;color:var(--ink-mute);">別紙1は「やせまたは肥満でないか確認する」のみ。参考：別紙2の線（カウプ指数15未満または22以上）に当てはめると' + (C.isPositiveKaup(r.value) ? '「該当」' : '「該当しない」') + '</span>');
+        notes.push('別紙1（離乳完了前）の評価基準には、該当とする数値の線がありません。カウプ指数と5段階の区分を参考に、やせまたは肥満でないかを確認します。');
+        if (ageYears >= 6) notes.push('評価日時点で6歳以上です。別紙1は離乳完了前の乳児向けのチェックリストです。離乳完了後は別紙2を選んでください。');
+      } else if (r.scope === 'out13') {
+        setText('r-line-label', 'チェックリストの該当（別紙2 C-13）');
+        setHtml('r-line', '<span class="badge na">判定を保留（13歳以上への適用は資料に明記なし）</span>');
+        notes.push('13歳以上です。「基本的な考え方」の参考資料はローレル指数を「6歳以上の学童」に用いるとし、C-13の評価基準も「学童期」を対象にしているため、13歳以上に適用するかは明記されていません。このツールでは判定を保留し、ローレル指数の値を参考として表示しています。');
+        if (ageYears >= 18) notes.push('「基本的な考え方」の管理の対象は概ね17歳までです。');
+      } else {
+        setText('r-line-label', 'チェックリストの該当（別紙2 C-13）');
+        var lineText = r.idxType === 'kaup'
+          ? '評価基準：カウプ指数が 15 未満（やせぎみ）、または 22 以上（肥満）'
+          : '評価基準：ローレル指数が 100 未満（やせぎみ）、または 160 以上（肥満）';
+        setHtml('r-line', '<span class="badge ' + (r.positive ? 'pos' : 'neg') + '">' + (r.positive ? '該当（目安）' : '該当しない（目安）') + '</span> <span style="font-size:12.5px;color:var(--ink-mute);">' + esc(lineText) + '</span>');
+        if (r.idxType === 'kaup' && r.grade.key === 'obese_tendency') notes.push('「肥満傾向」（19〜22未満）は、C-13の該当（22以上）には入りません。');
+        if (r.idxType === 'kaup' && r.grade.key === 'thin_tendency') notes.push('カウプ指数の「やせぎみ」（13〜15未満）は、C-13の該当（15未満）に入ります。');
+        if (r.idxType === 'kaup' && r.grade.key === 'below_table') notes.push('参考資料の表は「10〜13未満＝やせ」までで、10未満の区分はありません。該当はC-13の評価基準どおり15未満で判定しています。');
+        if (r.idxType === 'rohrer' && r.grade.key === 'thin') notes.push('ローレル指数100未満は、参考資料の表では「やせ」、C-13の評価基準の文章では「（やせぎみ）」と表記されています。該当の線はどちらでも100未満です。');
+        if (r.idxType === 'rohrer' && (r.grade.key === 'thin_tendency' || r.grade.key === 'obese_tendency')) notes.push('ローレル指数の「やせぎみ」（100〜115未満）と「肥満気味」（145〜160未満）は、C-13の該当には入りません。');
+      }
+      if (r.idxType === 'kaup' && ageYears >= 5 && sheet === 'post' && birth) notes.push('6歳の誕生日からはローレル指数に切り替わります。');
+
+      var ul = $('r-notes');
+      ul.innerHTML = '';
+      notes.forEach(function (t) {
+        var li = document.createElement('li');
+        li.textContent = t;
+        ul.appendChild(li);
+      });
+      setText('r-printmeta', '計算日 ' + fmtDate(todayLocalIso()) + '／カウプ指数・ローレル指数の計算（口腔機能管理くん）https://medicalcraft-lab.com/kokuken/tools/taikaku/');
+
+      resultEl.classList.add('show');
+    }
+
+    form.addEventListener('submit', function (e) { e.preventDefault(); run(); });
+    $('print-btn').addEventListener('click', function () {
+      if (!resultEl.classList.contains('show')) { run(); }
+      if (resultEl.classList.contains('show')) { window.print(); }
+    });
+    form.addEventListener('reset', function () {
+      setTimeout(function () { clearError(); resultEl.classList.remove('show'); }, 0);
+    });
+  })();
+  </script>
+</body>
+</html>
