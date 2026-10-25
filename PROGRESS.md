@@ -223,3 +223,16 @@ docs/subkarte/index.html
 docs/sitemap.xml
 docs/subkarte/guide/jihi-mitsumori-doui/index.html
 docs/subkarte/index.html
+
+## 2026-10-25 23:32
+docs/img/otasuke.png
+docs/index.html
+docs/otasuke/img/app-book.png
+docs/otasuke/img/app-confirm.png
+docs/otasuke/img/app-day.png
+docs/otasuke/img/icon-60.png
+docs/otasuke/img/icon.png
+docs/otasuke/index.html
+docs/otasuke/ogp.png
+docs/otasuke/support/index.html
+docs/sitemap.xml

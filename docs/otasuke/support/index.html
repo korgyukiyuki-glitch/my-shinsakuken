@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>サポート | 訪問診療お助けくん</title>
+  <meta name="description" content="訪問診療お助けくん（訪問歯科・訪問診療の順番と予約のアプリ）のサポートページ。よくある質問とお問い合わせ先。">
+  <link rel="canonical" href="https://medicalcraft-lab.com/otasuke/support/">
+  <style>
+    :root {
+      --color-text-primary: #1d1d1f;
+      --color-text-secondary: #424245;
+      --color-text-tertiary: #6e6e73;
+      --color-text-caption: #86868b;
+      --color-bg-primary: #ffffff;
+      --color-bg-secondary: #f5f5f7;
+      --color-accent: #F0832A;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text',
+                   'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+      color: var(--color-text-primary);
+      background: var(--color-bg-primary);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 20px;
+    }
+    .nav-inner {
+      max-width: 980px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      text-decoration: none;
+    }
+    .nav-back {
+      font-size: 13px;
+      color: var(--color-accent);
+      text-decoration: none;
+    }
+    .nav-back:hover { text-decoration: underline; }
+
+    .page-header {
+      padding: 120px 20px 48px;
+      text-align: center;
+    }
+    .page-header h1 {
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--color-text-primary);
+      line-height: 1.15;
+    }
+    .page-header p {
+      font-size: 19px;
+      color: var(--color-text-tertiary);
+      margin-top: 12px;
+    }
+
+    .content {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 20px 100px;
+    }
+
+    .faq-item {
+      background: var(--color-bg-secondary);
+      border-radius: 18px;
+      padding: 28px 32px;
+      margin-bottom: 16px;
+    }
+    .faq-item h3 {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      margin-bottom: 8px;
+      letter-spacing: 0.02em;
+    }
+    .faq-item h3::before {
+      content: "Q. ";
+      color: var(--color-accent);
+      font-weight: 700;
+    }
+    .faq-item p {
+      font-size: 15px;
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .contact-box {
+      background: var(--color-bg-secondary);
+      border-radius: 18px;
+      padding: 40px 32px;
+      text-align: center;
+      margin-top: 48px;
+    }
+    .contact-box h3 {
+      font-size: 21px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      margin-bottom: 8px;
+    }
+    .contact-box p {
+      font-size: 15px;
+      color: var(--color-text-tertiary);
+      margin-bottom: 0;
+    }
+    .contact-box a {
+      color: var(--color-accent);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .contact-box a:hover { text-decoration: underline; }
+    .contact-email {
+      margin-top: 16px;
+    }
+
+    .footer {
+      background: var(--color-bg-secondary);
+      padding: 24px 20px;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+    }
+    .footer-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-copy {
+      font-size: 13px;
+      color: var(--color-text-caption);
+    }
+    .footer-links a {
+      font-size: 13px;
+      color: var(--color-text-tertiary);
+      text-decoration: none;
+      margin-left: 24px;
+    }
+    .footer-links a:hover { text-decoration: underline; }
+
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-in-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      .page-header { padding: 100px 20px 32px; }
+      .page-header h1 { font-size: 28px; }
+      .page-header p { font-size: 16px; }
+      .faq-item { padding: 24px; }
+      .contact-box { padding: 32px 24px; }
+      .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
+      .footer-links a { margin: 0 12px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .fade-in-up { opacity: 1; transform: none; transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/otasuke/" class="nav-logo">訪問診療お助けくん</a>
+      <a href="/otasuke/" class="nav-back">&larr; トップに戻る</a>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <h1>サポート</h1>
+    <p>よくある質問と、お問い合わせ先をご案内します。</p>
+  </div>
+
+  <div class="content">
+    <div class="faq-item fade-in-up">
+      <h3>PIN を忘れてしまいました</h3>
+      <p>PIN の画面の「PINを忘れた場合」から、医院のアカウントでサインインし直して、新しい PIN を2回入れてください。予定のデータは消えません。PIN は同じ開発者の「口腔機能管理くん」「歯科サブカルテ&amp;コンサルくん」と共通です。</p>
+    </div>
+
+    <div class="faq-item fade-in-up">
+      <h3>2台以上の iPad・iPhone で使えますか？</h3>
+      <p>はい。同じ医院のアカウントでサインインすると、予定はクラウドを通して端末どうしで同期されます。同じ予定を2台で同時に直したときは、どちらの内容も消さずに残し、あとで選べます。</p>
+    </div>
+
+    <div class="faq-item fade-in-up">
+      <h3>データのバックアップは？</h3>
+      <p>同期を使っている間は、予定がクラウドにも保存されます。加えて「設定」の「バックアップを保存」で、バックアップファイルを手元に保存できます（パスワードを決めると暗号化して保存します）。端末の故障や機種変更に備えて、ときどき保存してください。</p>
+    </div>
+
+    <div class="faq-item fade-in-up">
+      <h3>オフラインでも使えますか？</h3>
+      <p>はい。その端末で医院の周りの道路データを一度取り込んだあとは、予定の確認・入力・順番の計算は端末の中で動きます（別の端末で初めて使う時、医院の位置や訪問範囲を変えた時、道路データを最新にする時は通信します）。電波のない間に入れた予定は「送信待ち」として残り、つながったときにクラウドへ送られます。</p>
+    </div>
+
+    <div class="faq-item fade-in-up">
+      <h3>順番の計算に、患者さんの位置を外部に送りますか？</h3>
+      <p>道のりの計算は端末の中で行い、経路検索のサービスには送りません。住所から位置を探すときと地図を表示するときは国土地理院の住所検索・地図を使い（設定で止められます）、道案内のときは Google マップを開くため、行き先が Google に渡ります。道路のデータは、医院の周りの分だけを配信元（Cloudflare）から取り込みます。このとき医院のおおよその位置と端末の IP アドレスが配信元に伝わります（患者さんの位置は送りません）。</p>
+    </div>
+
+    <div class="faq-item fade-in-up">
+      <h3>到着時刻が実際と違います</h3>
+      <p>到着時刻は、道路の距離と設定の速さから出す目安です。渋滞などの交通状況は反映しません。設定の「平均の移動速度」「1件の所要時間」や、予約ごとの治療時間を、医院の実際に合わせて直してください。</p>
+    </div>
+
+    <div class="faq-item fade-in-up">
+      <h3>「道路データの範囲外」と出て、距離が計算できません</h3>
+      <p>道路のデータは日本全国で使えますが、端末に取り込むのは医院の周りだけです（標準の設定で約25km・設定の「訪問範囲」に応じて約25〜60km。範囲を広げると、その分を取り込みます）。そこから外れた訪問先や、道路のない所に置かれた位置は、道順の計算に入りません。患者さんの位置を地図で確かめてください。また、フェリーの区間は道路として扱わないため、フェリーをはさむ移動は計算できません（島の中の移動は計算できます）。</p>
+    </div>
+
+    <div class="faq-item fade-in-up">
+      <h3>算定の判断はしてくれますか？</h3>
+      <p>いいえ。歯周検査（P検査）から1か月の印などは日付からの目安です。点数・算定の判断は医院で行ってください。本アプリは医療機器ではありません。</p>
+    </div>
+
+    <div class="contact-box fade-in-up" id="contact">
+      <h3>お問い合わせ</h3>
+      <p>公開前に使ってみたい医院のご相談、ご意見・ご要望は、メールでお問い合わせください。</p>
+      <p class="contact-email"><a href="mailto:medicalcraft.lab@gmail.com">medicalcraft.lab@gmail.com</a></p>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-copy">&copy; 2026 Medical Craft Laboratory　道路データ：&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>（<a href="https://houmon-roads.pages.dev/">ODbL</a>）</span>
+      <div class="footer-links">
+        <a href="/otasuke/">訪問診療お助けくん</a>
+        <a href="/otasuke/support/">サポート</a>
+      </div>
+    </div>
+  </footer>
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
