@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>プライバシーポリシー | 訪問診療お助けくん</title>
+  <meta name="description" content="訪問診療お助けくん（訪問歯科・訪問診療の順番と予約のアプリ）のプライバシーポリシー。扱う情報、保存する場所、外部のサービスに送る情報、削除の方法。">
+  <link rel="canonical" href="https://medicalcraft-lab.com/otasuke/privacy/">
+  <style>
+    :root {
+      --color-text-primary: #1d1d1f;
+      --color-text-secondary: #424245;
+      --color-text-tertiary: #6e6e73;
+      --color-text-caption: #86868b;
+      --color-bg-primary: #ffffff;
+      --color-bg-secondary: #f5f5f7;
+      --color-accent: #F0832A;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text',
+                   'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+      color: var(--color-text-primary);
+      background: var(--color-bg-primary);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 20px;
+    }
+    .nav-inner {
+      max-width: 980px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      text-decoration: none;
+    }
+    .nav-back {
+      font-size: 13px;
+      color: var(--color-accent);
+      text-decoration: none;
+    }
+    .nav-back:hover { text-decoration: underline; }
+
+    .page-header {
+      padding: 120px 20px 48px;
+      text-align: center;
+    }
+    .page-header h1 {
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--color-text-primary);
+      line-height: 1.15;
+    }
+    .page-header p {
+      font-size: 19px;
+      color: var(--color-text-tertiary);
+      margin-top: 12px;
+    }
+
+    .content {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 20px 100px;
+    }
+
+    .faq-item {
+      background: var(--color-bg-secondary);
+      border-radius: 18px;
+      padding: 28px 32px;
+      margin-bottom: 16px;
+    }
+    .faq-item h3 {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      margin-bottom: 8px;
+      letter-spacing: 0.02em;
+    }
+    .faq-item h3::before {
+      content: "Q. ";
+      color: var(--color-accent);
+      font-weight: 700;
+    }
+    .faq-item p {
+      font-size: 15px;
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .contact-box {
+      background: var(--color-bg-secondary);
+      border-radius: 18px;
+      padding: 40px 32px;
+      text-align: center;
+      margin-top: 48px;
+    }
+    .contact-box h3 {
+      font-size: 21px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      margin-bottom: 8px;
+    }
+    .contact-box p {
+      font-size: 15px;
+      color: var(--color-text-tertiary);
+      margin-bottom: 0;
+    }
+    .contact-box a {
+      color: var(--color-accent);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .contact-box a:hover { text-decoration: underline; }
+    .contact-email {
+      margin-top: 16px;
+    }
+
+    .footer {
+      background: var(--color-bg-secondary);
+      padding: 24px 20px;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+    }
+    .footer-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-copy {
+      font-size: 13px;
+      color: var(--color-text-caption);
+    }
+    .footer-links a {
+      font-size: 13px;
+      color: var(--color-text-tertiary);
+      text-decoration: none;
+      margin-left: 24px;
+    }
+    .footer-links a:hover { text-decoration: underline; }
+
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-in-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      .page-header { padding: 100px 20px 32px; }
+      .page-header h1 { font-size: 28px; }
+      .page-header p { font-size: 16px; }
+      .faq-item { padding: 24px; }
+      .contact-box { padding: 32px 24px; }
+      .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
+      .footer-links a { margin: 0 12px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .fade-in-up { opacity: 1; transform: none; transition: none; }
+    }
+  
+    .policy h2 { font-size: 18px; margin: 32px 0 10px; }
+    .policy p, .policy li { font-size: 15px; line-height: 1.9; }
+    .policy ul { padding-left: 1.4em; margin: 6px 0; }
+    .policy li { margin: 4px 0; }
+    .policy a { word-break: break-all; }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/otasuke/" class="nav-logo">訪問診療お助けくん</a>
+      <a href="/otasuke/" class="nav-back">&larr; トップに戻る</a>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <h1>プライバシーポリシー</h1>
+    <p>最終更新日：2026年10月25日</p>
+  </div>
+
+  <div class="content policy">
+    <h2>1. はじめに</h2>
+<p>Medical Craft Laboratory（以下「当方」）は、訪問診療お助けくん（以下「本アプリ」）をご利用いただく医療機関の皆さまと、その患者さまのプライバシーを尊重し、個人情報の保護に努めます。本ポリシーは、本アプリにおける情報の取り扱いを説明するものです。</p>
+<h2>2. 本アプリが扱う情報</h2>
+<p>本アプリは、訪問診療の予定と道順を組み立てるために、次の情報を扱います。</p>
+<ul>
+<li>医院の情報：住所・位置（緯度経度）・郵便番号・訪問日などの設定
+</li><li>患者さまの情報：氏名・患者ID（任意）・住所・建物名・郵便番号・位置・メモ・治療間隔
+</li><li>訪問の予定：日付・時刻・順番・治療時間・訪問済みの記録・メモ・歯周検査（P検査）の印
+</li><li>訪問の記録（医院が使う設定にした時だけ）：行った項目・メモ・申し送り・記録した職員の名前と時刻・訂正の履歴
+</li><li>アカウントの情報：Apple または Google でサインインした際のアカウントの識別子と、メールアドレス
+</li><li>医院で共通の PIN：PIN そのものは保存せず、照合用の値（ハッシュ）だけを保存します
+</li></ul>
+<h2>3. 保存する場所</h2>
+<ul>
+<li><strong>端末内</strong>：上記の情報は、端末内に保存します。端末の保護機能（データ保護）の対象です。
+</li><li><strong>クラウド同期</strong>：同じアカウントでサインインした複数の端末で使うために、医院と患者さま・予定の情報を、Google LLC が提供する Firebase（Cloud Firestore）に保存します。
+<ul>
+<li>患者さまの氏名・住所などの内容は、AES-256-GCM 方式で暗号化してから保存します。暗号化の鍵は、そのアカウントだけが読めるように設定したクラウド上の場所と、端末のキーチェーンに保管します。
+</li><li>予定の日付など、同期の仕組みに必要な一部の項目は、暗号化せずに保存します（患者さまを特定できる内容は含みません）。
+</li></ul>
+</li><li><strong>医院の PIN の照合用の値</strong>：口腔機能管理くんと共通のため、同じアカウントの共通の場所に保存します。
+</li></ul>
+<h2>4. 外部のサービスに送る情報</h2>
+<p>本アプリは、次の場合に限り、外部のサービスへ情報を送ります。</p>
+<ul>
+<li><strong>住所から位置を探す時（国土地理院の住所検索）</strong>：入力した住所の文字列を国土地理院の住所検索サービスに送ります。設定で使わないようにできます。
+</li><li><strong>地図を表示する時（国土地理院の地図）</strong>：表示する範囲の地図の画像を国土地理院から取得します。設定で使わないようにできます。
+</li><li><strong>道路データを取り込む時（Cloudflare Pages）</strong>：各端末で、医院の位置を決めた時・医院の位置や訪問範囲を変えた時・道路データを最新にする時に、医院の周り（標準の設定で約25km・訪問範囲に応じて約25〜60km）の道路データ（OpenStreetMap をもとに当方が作ったもの）を、Cloudflare, Inc. が提供する配信サービスから取得します。どの区画を取るかは医院の位置だけで決めるため、配信元には医院のおおよその位置と端末の IP アドレスが伝わります。患者さまの情報や位置は送りません。
+</li><li><strong>Googleマップで道案内を開く時</strong>：押した時に限り、訪問先の住所または位置を Googleマップに渡します。
+</li><li><strong>ご意見・ご要望を送る時</strong>：Google フォームを開きます。開く時に、アプリの名前・版と、サインインしている場合はアカウントの識別子が入った状態で開きます。送信した内容は、送信した時だけ届きます。
+</li><li><strong>サインインの時</strong>：Apple または Google のサインインの仕組みを使います。
+</li></ul>
+<p>書類の写真から住所を読み取る機能は、端末の中だけで処理します。写真は保存しません。郵便番号から住所を探す機能は、アプリに含めた日本郵便のデータを使い、外部には送りません。</p>
+<h2>5. 第三者への提供</h2>
+<p>当方は、ご利用者の情報を第三者に提供・販売・貸与しません。ただし、法令に基づく開示の請求があった場合を除きます。</p>
+<p>上記4のサービス（Cloudflare, Inc. を含む）と Firebase（Google LLC）は、本アプリの機能を提供するために利用しています。</p>
+<h2>6. 分析・広告</h2>
+<p>本アプリは、広告を表示しません。第三者の分析ツールで、ご利用者の行動を収集・追跡することはしません。</p>
+<h2>7. データの削除</h2>
+<ul>
+<li>アプリの「設定」→「データとアカウント」から、いつでも削除できます。
+<ul>
+<li><strong>お助けくんのデータだけ削除</strong>：すべての端末とクラウドから、お助けくんの医院・患者さま・予定の情報を削除します。アカウントと医院の PIN、口腔機能管理くんなど他のアプリのデータは残ります。
+</li></ul>
+</li><li>アプリを端末から削除すると、その端末内のデータは消えます。クラウドのデータは、上記の削除を行うまで残ります。
+</li><li>必要な記録は、削除の前にバックアップを取り、医院で保管してください。
+</li></ul>
+<h2>8. セキュリティ</h2>
+<ul>
+<li>起動時の PIN によるロック
+</li><li>端末内のデータの保護（端末のデータ保護）
+</li><li>クラウドに保存する内容の暗号化（AES-256-GCM）と、アカウントごとのアクセスの制限
+</li></ul>
+<h2>9. 患者さまの情報について</h2>
+<p>本アプリに登録する患者さまの情報は、医療機関が業務のために扱うものです。医療機関の個人情報の取り扱いの方針に従ってご利用ください。</p>
+<h2>10. お子さまのプライバシー</h2>
+<p>本アプリは医療従事者が使用することを想定しています。13歳未満のお子さまが直接使用することは想定していません。</p>
+<h2>11. ポリシーの変更</h2>
+<p>本ポリシーは、必要に応じて改定することがあります。重要な変更がある場合は、アプリ内またはこのページでお知らせします。</p>
+<h2>12. お問い合わせ</h2>
+<p>本ポリシーに関するお問い合わせは、次までご連絡ください。</p>
+<p>メール：<a href="mailto:medicalcraft.lab@gmail.com">medicalcraft.lab@gmail.com</a></p>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-copy">&copy; 2026 Medical Craft Laboratory　道路データ：&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>（<a href="https://houmon-roads.pages.dev/">ODbL</a>）</span>
+      <div class="footer-links">
+        <a href="/otasuke/">訪問診療お助けくん</a>
+        <a href="/otasuke/support/">サポート</a>
+        <a href="/otasuke/privacy/">プライバシーポリシー</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
