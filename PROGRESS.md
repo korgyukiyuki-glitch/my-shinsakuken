@@ -236,3 +236,20 @@ docs/otasuke/index.html
 docs/otasuke/ogp.png
 docs/otasuke/support/index.html
 docs/sitemap.xml
+
+## 2026-10-25 23:43
+docs/kokuken/guide/hajimekata/img/01_signin.jpg
+docs/kokuken/guide/hajimekata/img/02_home.jpg
+docs/kokuken/guide/hajimekata/img/03_patient_form.jpg
+docs/kokuken/guide/hajimekata/img/04_patient_detail.jpg
+docs/kokuken/guide/hajimekata/img/05_kaika_input.jpg
+docs/kokuken/guide/hajimekata/img/06_save_done.jpg
+docs/kokuken/guide/hajimekata/img/07_plan.jpg
+docs/kokuken/guide/hajimekata/img/08_print_preview.jpg
+docs/kokuken/guide/hajimekata/img/10_share_sheet.jpg
+docs/kokuken/guide/hajimekata/img/11_pdf_result.jpg
+docs/kokuken/guide/hajimekata/img/12_pdf_plan.jpg
+docs/kokuken/guide/hajimekata/index.html
+docs/kokuken/index.html
+docs/kokuken/support/index.html
+docs/sitemap.xml

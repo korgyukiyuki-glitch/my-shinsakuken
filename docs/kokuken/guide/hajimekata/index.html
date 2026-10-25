@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>口腔機能管理くんの使い方──はじめての1人目を、患者登録から管理計画書の印刷まで｜口腔機能管理くん 解説ガイド</title>
+  <meta name="description" content="口腔機能管理くんを初めて使う方向けに、サインインとPINの設定、検査の種類の選び方、患者登録、検査の入力と長押しでの保存、管理計画書の確認、PDF・印刷までを実際の画面で説明します。つまずきやすい点（保存は長押し・印刷ボタンが出ないとき・無料で使える範囲・PINを忘れたとき・別の端末で使うとき）もまとめました。">
+  <link rel="canonical" href="https://medicalcraft-lab.com/kokuken/guide/hajimekata/">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://medicalcraft-lab.com/kokuken/guide/hajimekata/">
+  <meta property="og:title" content="口腔機能管理くんの使い方──はじめての1人目を、患者登録から管理計画書の印刷まで">
+  <meta property="og:description" content="サインインから管理計画書の印刷まで、実際の画面で6ステップ。保存は長押し、印刷ボタンが出ないとき、無料で使える範囲など、つまずきやすい点も。">
+  <meta property="og:image" content="https://medicalcraft-lab.com/kokuken/ogp.png">
+  <meta property="og:site_name" content="Medical Craft Laboratory">
+  <meta property="article:published_time" content="2026-10-25">
+  <meta property="article:modified_time" content="2026-10-25">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="口腔機能管理くんの使い方──はじめての1人目を、患者登録から管理計画書の印刷まで">
+  <meta name="twitter:description" content="サインインから管理計画書の印刷まで、実際の画面で6ステップ。つまずきやすい点もまとめました。">
+  <meta name="twitter:image" content="https://medicalcraft-lab.com/kokuken/ogp.png">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://medicalcraft-lab.com/kokuken/guide/hajimekata/#article",
+      "headline": "口腔機能管理くんの使い方──はじめての1人目を、患者登録から管理計画書の印刷まで",
+      "description": "口腔機能管理くんを初めて使う方向けに、サインインとPINの設定から、検査の種類の選び方、患者登録、検査の入力と長押しでの保存、管理計画書の確認、PDF・印刷までを、実際の画面で説明します。",
+      "inLanguage": "ja",
+      "datePublished": "2026-10-25",
+      "dateModified": "2026-10-25",
+      "image": "https://medicalcraft-lab.com/kokuken/guide/hajimekata/img/07_plan.jpg",
+      "mainEntityOfPage": "https://medicalcraft-lab.com/kokuken/guide/hajimekata/",
+      "author": {
+        "@type": "Person",
+        "name": "和泉龍之介",
+        "jobTitle": "歯科医師",
+        "worksFor": { "@id": "https://medicalcraft-lab.com/#org" }
+      },
+      "publisher": { "@id": "https://medicalcraft-lab.com/#org" },
+      "about": { "@type": "SoftwareApplication", "name": "口腔機能管理くん", "applicationCategory": "MedicalApplication", "operatingSystem": "iOS, iPadOS, Android" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://medicalcraft-lab.com/#org",
+      "name": "Medical Craft Laboratory",
+      "url": "https://medicalcraft-lab.com",
+      "logo": "https://medicalcraft-lab.com/apple-touch-icon.png"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Medical Craft Laboratory", "item": "https://medicalcraft-lab.com/" },
+        { "@type": "ListItem", "position": 2, "name": "口腔機能管理くん", "item": "https://medicalcraft-lab.com/kokuken/" },
+        { "@type": "ListItem", "position": 3, "name": "口腔機能管理くんの使い方", "item": "https://medicalcraft-lab.com/kokuken/guide/hajimekata/" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "「評価を保存」を押しても保存されません。",
+          "acceptedAnswer": { "@type": "Answer", "text": "検査の保存ボタンは、押し間違いを防ぐために長押しです。ボタンを約1秒押し続けてください。印刷画面の「PDFを保存 / 印刷 / 共有」は約2秒の長押しです。患者登録の「保存」と管理計画書の「保存」は、普通に押すだけで保存されます。" }
+        },
+        {
+          "@type": "Question",
+          "name": "印刷画面に「PDFを保存 / 印刷 / 共有」のボタンが出ません。",
+          "acceptedAnswer": { "@type": "Answer", "text": "口腔機能低下症と口腔機能発達不全症では、管理計画書を保存するまで印刷のボタンは出ません。評価を保存すると管理計画書の画面が開くので、内容を確かめて「保存」を押してください。管理計画書の画面の「PDF」を押した場合も、計画は保存されてから印刷画面に進みます。該当した項目がなく総合管理計画も空のときもボタンは出ないので、総合管理計画に方針を書いて保存してください。" }
+        },
+        {
+          "@type": "Question",
+          "name": "無料でどこまで使えますか？",
+          "acceptedAnswer": { "@type": "Answer", "text": "患者の登録は無制限です。検査の評価は、検査の種類（発達不全症・低下症・歯周検査・咬筋検査）ごとに、評価を保存した患者4人まで無料で使えます。同じ患者の再評価や、保存済みの評価の修正は人数に数えません。5人目の患者の最初の評価を保存するときに、有料プランへの登録が必要になります。有料プランは、対象となる場合に1か月の無料トライアルがあります（適用されるかは購入画面で確かめられます。終了後は自動で課金が始まります）。" }
+        },
+        {
+          "@type": "Question",
+          "name": "PINを忘れました。",
+          "acceptedAnswer": { "@type": "Answer", "text": "PINの入力画面の下にある「PINを忘れた場合」を押し、同じアカウントでサインインし直すと、新しいPINを設定できます。患者データは消えません。PINは医院のアカウント共通なので、新しいPINはほかの端末にも反映されます。" }
+        },
+        {
+          "@type": "Question",
+          "name": "別のiPadやiPhoneでも使えますか？",
+          "acceptedAnswer": { "@type": "Answer", "text": "使えます。最初の端末と同じアカウント（Apple または Google）でサインインし、同じPINを入力すると、同じ患者データを使えます。端末どうしの反映には通信が必要です。" }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Shippori+Mincho:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #FBFAF6;
+      --ink: #1D1D1B;
+      --ink-soft: #5A5953;
+      --ink-mute: #8A887F;
+      --hairline: #E5E2D9;
+      --accent: #F0832A;
+      --accent-deep: #C75B12;
+      --accent-hover: #D96E1C;
+      --font-sans: 'Zen Kaku Gothic New', 'Hiragino Sans', sans-serif;
+      --font-serif: 'Shippori Mincho', 'Hiragino Mincho ProN', serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-sans);
+      color: var(--ink);
+      background: var(--cream);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; }
+    .kicker {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      color: var(--accent-deep);
+      text-transform: uppercase;
+    }
+
+    /* Navigation (LP と共通) */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(251, 250, 246, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--hairline);
+      height: 60px;
+    }
+    .nav-inner {
+      max-width: 1080px; margin: 0 auto; padding: 0 24px;
+      height: 100%; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-brand img { width: 30px; height: 30px; border-radius: 8px; }
+    .nav-brand .name { font-size: 14px; font-weight: 700; }
+    .nav-brand .by {
+      font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.14em;
+      color: var(--ink-mute); margin-left: 2px;
+    }
+    .nav-links { display: flex; align-items: center; gap: 22px; }
+    .nav-links a { font-size: 13px; color: var(--ink-soft); text-decoration: none; transition: color 0.2s ease; }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-cta {
+      background: var(--accent); color: #fff !important;
+      padding: 9px 20px; border-radius: 999px;
+      font-size: 13px; font-weight: 700; text-decoration: none;
+      transition: background-color 0.2s ease; white-space: nowrap;
+    }
+    .nav-cta:hover { background: var(--accent-hover); }
+
+    /* Article */
+    .article { padding: 104px 0 72px; }
+    .article-wrap { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+    .breadcrumb { font-size: 12px; color: var(--ink-mute); margin-bottom: 28px; }
+    .breadcrumb ol { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; }
+    .breadcrumb li + li::before { content: "›"; margin-right: 6px; color: var(--hairline); }
+    .article .breadcrumb a { color: var(--ink-soft); font-weight: 400; text-decoration: none; }
+    .article [id] { scroll-margin-top: 76px; }
+    .article .breadcrumb a:hover { text-decoration: underline; }
+    .article h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(25px, 3.4vw, 34px);
+      font-weight: 700; line-height: 1.55;
+      margin: 16px 0 20px;
+    }
+    .byline {
+      display: flex; flex-wrap: wrap; gap: 6px 18px;
+      font-size: 12.5px; color: var(--ink-mute);
+      border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline);
+      padding: 12px 0; margin-bottom: 30px;
+    }
+    .byline strong { color: var(--ink-soft); font-weight: 700; }
+    .article p { font-size: 15px; color: var(--ink-soft); line-height: 2.0; margin: 0 0 16px; }
+    .article p strong, .article li strong { color: var(--ink); }
+    .article h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(21px, 2.6vw, 26px);
+      font-weight: 700; line-height: 1.55;
+      margin: 56px 0 18px; padding-top: 28px;
+      border-top: 1px solid var(--hairline);
+    }
+    .article h3 { font-size: 16px; font-weight: 700; margin: 30px 0 10px; line-height: 1.6; }
+    .article ul, .article ol { margin: 0 0 18px 1.4em; }
+    .article li { font-size: 14.5px; color: var(--ink-soft); line-height: 1.95; margin-bottom: 6px; }
+    .article a { color: var(--accent-deep); font-weight: 700; text-decoration: none; }
+    .article a:hover { text-decoration: underline; }
+    .summary {
+      background: #fff; border: 1px solid var(--hairline); border-radius: 16px;
+      padding: 22px 26px; margin: 8px 0 30px;
+    }
+    .summary .kicker { margin-bottom: 8px; }
+    .summary ul { margin-bottom: 0; }
+    .toc { border-left: 2px solid var(--accent); padding: 4px 0 4px 18px; margin: 0 0 12px; }
+    .toc p { font-size: 12px; font-family: var(--font-mono); letter-spacing: 0.14em; color: var(--ink-mute); margin-bottom: 6px; }
+    .toc ol { margin: 0 0 0 1.2em; }
+    .toc li { font-size: 13.5px; margin-bottom: 2px; }
+    .article .toc a { font-weight: 500; color: var(--ink-soft); }
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 0 12px; border: 1px solid var(--hairline); border-radius: 12px; background: #fff; }
+    table.data { border-collapse: collapse; width: 100%; min-width: 640px; font-size: 13.5px; }
+    table.data th, table.data td { border-bottom: 1px solid var(--hairline); padding: 10px 12px; text-align: left; vertical-align: top; line-height: 1.75; color: var(--ink-soft); }
+    table.data thead th { background: var(--cream); color: var(--ink); font-weight: 700; font-size: 12.5px; white-space: nowrap; }
+    table.data tbody th { color: var(--ink); font-weight: 700; white-space: nowrap; }
+    table.data tr:last-child th, table.data tr:last-child td { border-bottom: none; }
+    table.data.compact { min-width: 0; }
+    table.data.compact tbody th { white-space: normal; min-width: 7em; }
+    .num { font-family: var(--font-mono); color: var(--ink); font-weight: 500; }
+    .caption { font-size: 12px; color: var(--ink-mute); margin: 0 0 24px; line-height: 1.8; }
+    .note {
+      background: #fff; border: 1px solid var(--hairline); border-left: 3px solid var(--accent);
+      border-radius: 10px; padding: 14px 18px; margin: 0 0 20px;
+    }
+    .note p { font-size: 13.5px; margin: 0; }
+    .note p + p { margin-top: 8px; }
+    blockquote {
+      background: #fff; border: 1px solid var(--hairline); border-radius: 10px;
+      padding: 14px 18px; margin: 0 0 12px; font-size: 13.5px; color: var(--ink-soft); line-height: 1.95;
+    }
+    .check-item { border: 1px solid var(--hairline); border-radius: 14px; background: #fff; padding: 20px 22px 8px; margin: 0 0 18px; }
+    .check-item h3 { margin: 0 0 12px; font-size: 16.5px; }
+    .check-item h3 .no { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em; color: var(--accent-deep); margin-right: 10px; }
+    .check-item p { font-size: 14.5px; margin-bottom: 12px; }
+    .check-item .label { display: block; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; color: var(--ink-mute); margin-bottom: 2px; }
+    .faq-item { border-bottom: 1px solid var(--hairline); padding: 16px 2px; }
+    .faq-item h3 { margin: 0 0 6px; font-size: 15px; }
+    .faq-item h3::before { content: "Q. "; color: var(--accent-deep); }
+    .faq-item p { font-size: 14px; margin: 0; }
+    .app-box {
+      background: #fff; border: 1px solid var(--hairline); border-radius: 18px;
+      padding: 28px 28px 24px; margin: 8px 0 12px;
+      display: grid; grid-template-columns: 64px 1fr; gap: 18px; align-items: start;
+    }
+    .app-box img { width: 64px; height: 64px; border-radius: 15px; }
+    .app-box p { font-size: 14px; }
+    .app-box .small { font-size: 12px; color: var(--ink-mute); margin-bottom: 14px; }
+    .btn-lp {
+      display: inline-block; background: var(--ink); color: #fff !important;
+      padding: 11px 24px; border-radius: 999px; font-size: 13.5px; font-weight: 700;
+      text-decoration: none !important; transition: opacity 0.2s ease;
+    }
+    .btn-lp:hover { opacity: 0.85; }
+    .related { background: #fff; border: 1px solid var(--hairline); border-radius: 14px; padding: 18px 22px; margin: 24px 0 0; }
+    .related p { margin: 0 0 4px; font-size: 12px; font-family: var(--font-mono); letter-spacing: 0.14em; color: var(--ink-mute); }
+    .related a { font-size: 14.5px; }
+    .sources { margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--hairline); }
+    .sources h2 { margin-top: 0; padding-top: 0; border-top: none; font-size: 20px; }
+    .sources li { font-size: 12.5px; line-height: 1.85; word-break: break-all; }
+    .article .sources a { font-weight: 500; }
+
+    /* Footer (LP と共通) */
+    .footer { border-top: 1px solid var(--hairline); padding: 36px 0; }
+    .footer-inner {
+      max-width: 1080px; margin: 0 auto; padding: 0 24px;
+      display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;
+    }
+    .footer-copy { font-family: var(--font-mono); font-size: 10.5px; color: var(--ink-mute); }
+    .footer-links { display: flex; gap: 22px; flex-wrap: wrap; }
+    .footer-links a { font-size: 12.5px; color: var(--ink-soft); text-decoration: none; }
+    .footer-links a:hover { color: var(--ink); }
+
+    @media (max-width: 880px) {
+      .nav-links a:not(.nav-cta) { display: none; }
+    }
+    @media (max-width: 560px) {
+      .article { padding-top: 88px; }
+      .article-wrap { padding: 0 16px; }
+      .nav-inner, .footer-inner { padding: 0 16px; }
+      .nav-brand .by { display: none; }
+      .nav-brand .name { white-space: nowrap; }
+      .app-box { grid-template-columns: 1fr; padding: 22px 20px; }
+      .summary { padding: 18px 18px; }
+      .check-item { padding: 16px 16px 4px; }
+    }
+    /* 使い方ページだけの部品 */
+    .step-head { display: flex; align-items: baseline; gap: 12px; }
+    .step-no {
+      font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.12em;
+      color: #fff; background: var(--accent); border-radius: 999px;
+      padding: 3px 11px; white-space: nowrap; position: relative; top: -3px;
+    }
+    .shot { margin: 18px auto 10px; max-width: 420px; }
+    .shot img {
+      border: 1px solid var(--hairline); border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(29, 29, 27, 0.08); background: #fff;
+    }
+    .shot figcaption { font-size: 12px; color: var(--ink-mute); text-align: center; margin-top: 8px; line-height: 1.7; }
+    .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 18px 0 10px; }
+    .shots .shot { margin: 0; max-width: none; }
+    .shot.paper img { border-radius: 6px; }
+    .key { display: inline-block; background: #fff; border: 1px solid var(--hairline); border-radius: 6px; padding: 0 7px; font-size: 13px; color: var(--ink); font-weight: 700; }
+    @media (max-width: 560px) {
+      .shots { grid-template-columns: 1fr; }
+      .shot { max-width: 320px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/kokuken/" class="nav-brand">
+        <img src="/kokuken/img/icon.png" alt="" width="30" height="30">
+        <span class="name">口腔機能管理くん</span>
+        <span class="by">BY MEDICAL CRAFT LAB</span>
+      </a>
+      <div class="nav-links">
+        <a href="/kokuken/guide/kouku-kinou-kanri/">口腔機能管理とは</a>
+        <a href="/kokuken/support/">サポート</a>
+        <a href="/kokuken/">アプリ紹介</a>
+        <a href="https://apps.apple.com/jp/app/id6760281631?pt=128621702&ct=guide_hajimekata&mt=8" class="nav-cta" target="_blank" rel="noopener">ダウンロード</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="article">
+    <article class="article-wrap">
+      <nav class="breadcrumb" aria-label="パンくずリスト">
+        <ol>
+          <li><a href="/">Medical Craft Laboratory</a></li>
+          <li><a href="/kokuken/">口腔機能管理くん</a></li>
+          <li>口腔機能管理くんの使い方</li>
+        </ol>
+      </nav>
+
+      <p class="kicker">GUIDE — はじめての使い方</p>
+      <h1>口腔機能管理くんの使い方──はじめての1人目を、患者登録から管理計画書の印刷まで</h1>
+      <div class="byline">
+        <span><strong>執筆：歯科医師 和泉龍之介（Medical Craft Lab・アプリの開発者）</strong></span>
+        <span>公開日 <time datetime="2026-10-25">2026年10月25日</time></span>
+        <span>最終更新日 <time datetime="2026-10-25">2026年10月25日</time></span>
+      </div>
+
+      <p>口腔機能管理くんをダウンロードしたあと、「最初に何をすればいいか」を、実際の画面で順番に説明します。口腔機能低下症の患者さんを1人登録し、検査を入力して、管理計画書を印刷するまでの流れです。</p>
+
+      <div class="note">
+        <p>このページの画面は、<strong>バージョン 1.9.6 の iPad</strong> のものです。例として<strong>口腔機能低下症</strong>を使っています。患者は架空の「見本 花子」さん、数値も説明用の値です。iPhone でも手順は同じで、画面の並びが少し違うだけです。Android も流れは同じですが、サインインと印刷・保存のメニューが違います（STEP 1・STEP 6 に書きました）。ほかの検査の種類での違いは「<a href="#other-modes">ほかの検査の種類で使うとき</a>」にまとめました。</p>
+      </div>
+
+      <div class="summary">
+        <p class="kicker">POINTS — 先に知っておくと迷わないこと</p>
+        <ul>
+          <li><strong>検査の種類はホームで先に選びます</strong>。患者登録の画面には検査の種類の欄がありません</li>
+          <li><strong>検査の保存は長押し</strong>（約1秒）です。印刷も長押し（約2秒）。患者登録と管理計画書の「保存」は普通に押すだけです</li>
+          <li>口腔機能低下症・発達不全症では、<strong>管理計画書を保存すると</strong>印刷のボタンが出ます</li>
+          <li>患者の登録は無制限。検査の評価は、検査の種類ごとに<strong>評価を保存した患者4人まで無料</strong>です（同じ患者の再評価は数えません）</li>
+          <li>別の端末では、<strong>同じアカウント・同じPIN</strong>で同じデータが使えます</li>
+        </ul>
+      </div>
+
+      <nav class="toc" aria-label="目次">
+        <p>CONTENTS</p>
+        <ol>
+          <li><a href="#step1">サインインして、PINを決める</a></li>
+          <li><a href="#step2">ホームで検査の種類を選ぶ</a></li>
+          <li><a href="#step3">患者さんを登録する</a></li>
+          <li><a href="#step4">検査を入力して、長押しで保存する</a></li>
+          <li><a href="#step5">管理計画書を確かめて保存する</a></li>
+          <li><a href="#step6">PDFを作って印刷する</a></li>
+          <li><a href="#other-modes">ほかの検査の種類で使うとき</a></li>
+          <li><a href="#methods">検査方法と、使う道具</a></li>
+          <li><a href="#faq">つまずいたとき（よくある質問）</a></li>
+          <li><a href="#next">次にやると便利なこと</a></li>
+        </ol>
+      </nav>
+
+      <h2 id="step1"><span class="step-head"><span class="step-no">STEP 1</span>サインインして、PINを決める</span></h2>
+      <p>アプリを開くと、サインインの画面が出ます。iPhone・iPad では <span class="key">Apple でサインイン</span> か <span class="key">Google でサインイン</span>、Android では Google でサインインします。<strong>医院で1つのアカウントを決めて、すべての端末で同じアカウントを使ってください。</strong>同じアカウントでサインインすれば、どの端末でも同じ患者データが使えます。<strong>Apple でサインインは iPhone・iPad だけ</strong>なので、Android の端末も使う（または今後使うかもしれない）医院は、最初から医院の Google アカウントに揃えてください。</p>
+      <figure class="shot">
+        <a href="img/01_signin.jpg" target="_blank" rel="noopener"><img src="img/01_signin.jpg" alt="サインイン画面。Apple でサインインと Google でサインインのボタンがある" width="758" height="1100" loading="lazy"></a>
+        <figcaption>サインイン画面（iPad）</figcaption>
+      </figure>
+      <p>サインインすると、<strong>PIN（4〜8桁の数字）</strong>を決める画面になります。数字を入れて <span class="key">次へ</span> を押し、もう一度同じ数字を入れて <span class="key">設定完了</span> を押します。PINは端末を開くときの鍵で、<strong>医院のアカウント共通</strong>です。2台目以降の端末では、新しく決めるのではなく、最初に決めたPINを入れます。</p>
+      <div class="note">
+        <p>Apple でサインインするときに「メールを共有」と「メールを非公開」を選べます。サポートへのお問い合わせのときにアカウントを確かめやすいので、「メールを共有」をおすすめします。</p>
+      </div>
+
+      <h2 id="step2"><span class="step-head"><span class="step-no">STEP 2</span>ホームで検査の種類を選ぶ</span></h2>
+      <p>ホームには、検査の種類のカードが4つ並んでいます。<strong>口腔機能発達不全症・口腔機能低下症・歯周検査・咬筋検査</strong>です。これから行う検査のカードを押すと、患者一覧が開きます。今回は <span class="key">口腔機能低下症</span> を押します。</p>
+      <figure class="shot">
+        <a href="img/02_home.jpg" target="_blank" rel="noopener"><img src="img/02_home.jpg" alt="ホーム画面。口腔機能発達不全症、口腔機能低下症、歯周検査、咬筋検査、見積書、同意書・承諾書、患者説明動画のカードが並ぶ" width="758" height="1100" loading="lazy"></a>
+        <figcaption>ホーム。検査の種類のカードから始めます（数字や「再検査の時期」は説明用のデータのもの）</figcaption>
+      </figure>
+      <p>患者一覧の画面の左上に「低下症モード」と出ていれば、正しく選べています。<strong>このあと始める評価は、ここで選んだ検査の種類になります。</strong>別の種類の検査をするときは、ホームに戻って別のカードを選びます。</p>
+
+      <h2 id="step3"><span class="step-head"><span class="step-no">STEP 3</span>患者さんを登録する</span></h2>
+      <p>患者一覧の右上の <span class="key">+ 新規</span> を押すと、新規患者登録の画面になります。<strong>必須は患者名だけ</strong>です。生年月日を入れると年齢が自動で出ます。患者IDは、医院のカルテ番号などを入れておくと検索しやすくなります。</p>
+      <figure class="shot">
+        <a href="img/03_patient_form.jpg" target="_blank" rel="noopener"><img src="img/03_patient_form.jpg" alt="新規患者登録の画面。患者名、患者ID、生年月日、性別、体重・身長、連絡先、担当医、初診日の欄がある" width="758" height="1100" loading="lazy"></a>
+        <figcaption>新規患者登録。右上の「保存」は普通に押すだけで保存されます</figcaption>
+      </figure>
+      <p>入力したら右上の <span class="key">保存</span> を押します。患者一覧の上で「すべての患者」が選ばれていれば、検査の種類に関係なく、登録したすべての患者が並びます（「低下症の患者」などに切り替えると、その検査の評価がある患者と、その検査の種類を選んで登録した患者だけになります。見つからないときは「すべての患者」に戻してください）。同じ患者さんを、あとで別の種類の検査にも使えます。</p>
+
+      <h2 id="step4"><span class="step-head"><span class="step-no">STEP 4</span>検査を入力して、長押しで保存する</span></h2>
+      <p>患者一覧で患者さんの名前を押すと、患者詳細が開きます。いちばん上の青いボタン <span class="key">低下症の新規評価を開始</span> を押すと、検査の入力画面になります。</p>
+      <div class="shots">
+        <figure class="shot">
+          <a href="img/04_patient_detail.jpg" target="_blank" rel="noopener"><img src="img/04_patient_detail.jpg" alt="患者詳細の画面。低下症の新規評価を開始のボタン、算定ガイド、トレーニング記録のボタンがある" width="758" height="1100" loading="lazy"></a>
+          <figcaption>患者詳細。青いボタンから評価を始めます</figcaption>
+        </figure>
+        <figure class="shot">
+          <a href="img/05_kaika_input.jpg" target="_blank" rel="noopener"><img src="img/05_kaika_input.jpg" alt="口腔機能低下症の検査画面。上に該当項目の数と傷病名、下に K1 口腔衛生状態不良の舌苔の図と K2 口腔乾燥の入力欄がある" width="758" height="1100" loading="lazy"></a>
+          <figcaption>検査の入力。数値を入れると、該当・非該当がすぐ出ます</figcaption>
+        </figure>
+      </div>
+      <p>7項目（K1〜K7）のカードに、測った値を入れていきます。各項目の上のボタンで<strong>検査方法を切り替えられます</strong>（舌苔の図と細菌カウンタ、口腔水分計とサクソンテスト、など）。値を入れると、その項目が該当かどうかと、いくつ該当したかが画面の上に出ます。<strong>測っていない項目は空欄のまま</strong>で保存できます。</p>
+      <div class="note">
+        <p><strong>空欄の項目は、画面とPDFでは「非該当」と表示されます。</strong>「非該当」は「入力した値では基準に当てはまらない」か「測っていない」のどちらかで、正常だと確かめたという意味ではありません。PDFでは測っていない項目の測定値が「-」になります。</p>
+        <p>該当・非該当の表示や書類は、入力した値を学会の基準値に照らして集計したものです。診断は歯科医師が行い、算定の要件は告示・通知で確かめてください（このアプリは医療機器ではありません）。</p>
+      </div>
+      <p>入力が終わったら、右上の <span class="key">保存（長押し）</span> か、画面のいちばん下の <span class="key">評価を保存（長押し）</span> を、<strong>約1秒押し続けます</strong>。押し間違いを防ぐための長押しです。普通に押しただけでは保存されません。</p>
+      <figure class="shot">
+        <a href="img/06_save_done.jpg" target="_blank" rel="noopener"><img src="img/06_save_done.jpg" alt="保存完了の表示。陽性3項目／7項目、口腔機能低下症 該当" width="758" height="1100" loading="lazy"></a>
+        <figcaption>保存できると「保存完了」が出て、管理計画書の画面に進みます</figcaption>
+      </figure>
+
+      <h2 id="step5"><span class="step-head"><span class="step-no">STEP 5</span>管理計画書を確かめて保存する</span></h2>
+      <p>評価を保存すると、<strong>管理計画書の画面が自動で開きます</strong>。レーダーチャートと傷病名の下に、該当した項目ごとの「問題点」と「管理計画」が、ひな形の文で入っています。いちばん下には「総合管理計画」があります。</p>
+      <figure class="shot">
+        <a href="img/07_plan.jpg" target="_blank" rel="noopener"><img src="img/07_plan.jpg" alt="管理計画書の画面。口腔機能レーダーチャート、傷病名 口腔機能低下症、該当項目ごとの問題点と管理計画の欄" width="758" height="1100" loading="lazy"></a>
+        <figcaption>管理計画書。ひな形の文は、患者さんに合わせて書き換えられます</figcaption>
+      </figure>
+      <p>文は自由に書き換えられます。内容を確かめたら、画面の下の <span class="key">保存</span> を押します（これは普通に押すだけです）。あとから直したいときは、患者詳細の評価履歴から、その評価の管理計画書を開けます。</p>
+
+      <h2 id="step6"><span class="step-head"><span class="step-no">STEP 6</span>PDFを作って印刷する</span></h2>
+      <p>管理計画書の画面の右上の <span class="key">PDF</span> を押すと、印刷プレビューが開きます（このとき計画も保存されます）。患者詳細の評価の行にある <span class="key">印刷</span> からも開けます。</p>
+      <div class="shots">
+        <figure class="shot">
+          <a href="img/08_print_preview.jpg" target="_blank" rel="noopener"><img src="img/08_print_preview.jpg" alt="印刷プレビューの画面。患者情報、担当医（この書類）の入力欄、該当3/7項目、検査結果の表" width="758" height="1100" loading="lazy"></a>
+          <figcaption>印刷プレビュー。この書類の担当医も入れられます</figcaption>
+        </figure>
+        <figure class="shot">
+          <a href="img/10_share_sheet.jpg" target="_blank" rel="noopener"><img src="img/10_share_sheet.jpg" alt="PDFを作ったあとに開く共有のメニュー。プリント、ファイルに保存、コピーなどがある" width="758" height="1100" loading="lazy"></a>
+          <figcaption>「PDFを保存 / 印刷 / 共有」を約2秒長押しすると、このメニューが開きます</figcaption>
+        </figure>
+      </div>
+      <p>画面のいちばん下の <span class="key">PDFを保存 / 印刷 / 共有（長押し）</span> を<strong>約2秒押し続ける</strong>と、PDFができて共有のメニューが開きます。iPhone・iPad では <span class="key">プリント</span> でAirPrint対応のプリンターから印刷、<span class="key">"ファイル"に保存</span> で端末やクラウドに保存できます。Android では端末の共有メニューが開くので、PDFを開けるアプリや印刷に対応したアプリを選んで保存・印刷します。</p>
+      <div class="shots">
+        <figure class="shot paper">
+          <a href="img/11_pdf_result.jpg" target="_blank" rel="noopener"><img src="img/11_pdf_result.jpg" alt="PDFの1ページ目。口腔機能低下症 検査結果の表" width="850" height="1100" loading="lazy"></a>
+          <figcaption>PDFの1ページ目：検査結果</figcaption>
+        </figure>
+        <figure class="shot paper">
+          <a href="img/12_pdf_plan.jpg" target="_blank" rel="noopener"><img src="img/12_pdf_plan.jpg" alt="PDFの2ページ目。口腔機能低下症 管理計画書。項目、問題点、管理計画の表と総合管理計画" width="850" height="1100" loading="lazy"></a>
+          <figcaption>PDFの2ページ目：管理計画書</figcaption>
+        </figure>
+      </div>
+      <p>口腔機能低下症のPDFは、標準では<strong>1ページ目が検査結果、2ページ目が管理計画書</strong>の2ページです（自由記載が長いとページが増えます）。上の例では、測っていない K4・K6・K7 は測定値が「-」で「非該当」と出ています。患者IDや、検査した人の名前、日付・署名欄を入れるかどうかは、ホームの <span class="key">⚙️ データ管理</span> の「管理計画書の設定」で選べます。</p>
+      <p>これで1人目は完了です。2人目からは、STEP 2〜6 のくり返しです。</p>
+
+      <h2 id="other-modes">ほかの検査の種類で使うとき</h2>
+      <p>流れは同じですが、検査の種類によって、保存したあとに進む画面と、作れる書類が違います。</p>
+      <div class="table-scroll">
+        <table class="data">
+          <thead>
+            <tr><th>検査の種類</th><th>入力の画面</th><th>保存したあと</th><th>作れる書類</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>口腔機能低下症</th><td>7項目（K1〜K7）。項目ごとに検査方法を切り替え</td><td>管理計画書の画面に進む</td><td>検査結果＋管理計画書（PDF。標準で2ページ）</td></tr>
+            <tr><th>口腔機能発達不全症</th><td>最初に「離乳完了前（別紙1）」か「離乳完了後（別紙2）」を選んで、チェックリストに入力</td><td>管理計画書の画面に進む</td><td>チェックシート＋管理計画書（PDF。標準で2ページ）</td></tr>
+            <tr><th>歯周検査</th><td>P精密（6点法・4点法）か P基本（1点法）を選び、ポケット→出血・排膿→PCR→動揺度の順に入力</td><td>患者詳細に戻る</td><td>歯周検査表（患者詳細の「印刷」から）</td></tr>
+            <tr><th>咬筋検査</th><td>筋電位・左右バランス・自覚症状・触診圧痛など</td><td>印刷プレビューに進む</td><td>咬筋検査の結果報告書</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="caption">表は横にスクロールできます。管理計画書があるのは、口腔機能低下症と口腔機能発達不全症です。発達不全症の評価画面には、保護者に記入してもらうための「患者モード」もあります。チェックリストの見方は「<a href="/kokuken/guide/hattatsu-checklist/">口腔機能発達不全症のチェックリスト（離乳完了前・離乳完了後）とC項目の見方</a>」で解説しています。</p>
+
+      <h2 id="methods">検査方法と、使う道具（口腔機能低下症）</h2>
+      <p>口腔機能低下症の7項目で、アプリで選べる検査方法と、それぞれに使う主な道具です。医院にある道具に合わせて、項目ごとに検査方法を選べます。</p>
+      <div class="table-scroll">
+        <table class="data">
+          <thead>
+            <tr><th>項目</th><th>アプリで選べる検査方法</th><th>使う主な道具</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>K1 口腔衛生状態不良</th><td>舌苔の付着程度（TCI）／細菌カウンタ</td><td>TCI は舌を見て図に記録（専用の機器は使わない）。細菌カウンタは測定機器</td></tr>
+            <tr><th>K2 口腔乾燥</th><td>口腔水分計／サクソンテスト</td><td>口腔水分計は測定機器。サクソンテストはガーゼとはかり</td></tr>
+            <tr><th>K3 咬合力低下</th><td>残存歯数／デンタルプレスケール／デンタルプレスケールII／オラモ</td><td>残存歯数は口の中で数える。デンタルプレスケール・デンタルプレスケールIIは感圧フィルムと読み取り用の機器（IIは対応スキャナーと解析ソフト）。オラモは咬合力の測定機器</td></tr>
+            <tr><th>K4 舌口唇運動機能低下</th><td>オーラルディアドコキネシス（5秒・10秒）</td><td>決まった時間の発音回数を数えて入力（アプリにタイマーあり）。計測器を使う場合はその回数を入力</td></tr>
+            <tr><th>K5 低舌圧</th><td>舌圧</td><td>舌圧測定器</td></tr>
+            <tr><th>K6 咀嚼機能低下</th><td>グルコース測定／咀嚼能率スコア法</td><td>グルコース測定は指定の検査用グミと測定機器。スコア法は指定の検査用グミと評価用の見本</td></tr>
+            <tr><th>K7 嚥下機能低下</th><td>EAT-10／聖隷式嚥下質問紙</td><td>質問紙（患者さんに入力してもらう画面あり）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="caption">表は横にスクロールできます。デンタルプレスケールIIは、解析のときの圧力フィルタ（自動クリーニング）のあり・なしで基準値が違うため（ありは350N未満、なしは500N未満）、アプリでも解析と同じ方を選んでください。ここに書いたのは、アプリで入力できる検査方法と道具の一覧です。口腔機能低下症の診断基準や、検査・管理の算定の要件は、「<a href="/kokuken/guide/kouku-kinou-teikasho/">口腔機能低下症とは──7項目の検査・診断基準・使う機器</a>」と「<a href="/kokuken/guide/santei-r8/">口腔機能低下症の算定（令和8年度）</a>」で、学会の資料と厚生労働省の告示・通知をもとに解説しています。</p>
+
+      <h2 id="faq">つまずいたとき（よくある質問）</h2>
+      <div class="faq-item">
+        <h3>「評価を保存」を押しても保存されません。</h3>
+        <p>検査の保存ボタンは、押し間違いを防ぐために<strong>長押し</strong>です。ボタンを約1秒押し続けてください。印刷画面の「PDFを保存 / 印刷 / 共有」は約2秒の長押しです。患者登録の「保存」と管理計画書の「保存」は、普通に押すだけで保存されます。</p>
+      </div>
+      <div class="faq-item">
+        <h3>印刷画面に「PDFを保存 / 印刷 / 共有」のボタンが出ません。</h3>
+        <p>口腔機能低下症と口腔機能発達不全症では、<strong>管理計画書を保存するまで</strong>印刷のボタンは出ません。患者詳細の評価履歴から評価を開き、管理計画書の画面で「保存」を押してから、もう一度印刷画面を開いてください。該当した項目が1つもなく、総合管理計画も空のまま保存した場合もボタンは出ないので、総合管理計画に方針を書いて保存してください。</p>
+      </div>
+      <div class="faq-item">
+        <h3>患者登録の画面で、検査の種類を選べません。</h3>
+        <p>検査の種類は、患者登録の前に<strong>ホームのカードで選びます</strong>。患者さんは検査の種類に関係なく1回登録すれば、どの種類の検査にも使えます。別の種類の評価を始めるときは、ホームに戻ってカードを選び直し、患者一覧からその患者さんを開いてください。</p>
+      </div>
+      <div class="faq-item">
+        <h3>無料でどこまで使えますか？</h3>
+        <p>患者の登録は無制限です。検査の評価は、<strong>検査の種類ごとに、評価を保存した患者4人まで</strong>無料で使えます（発達不全症4人、低下症4人、歯周検査4人、咬筋検査4人）。同じ患者の再評価や、保存済みの評価の修正は人数に数えません。5人目の患者の最初の評価を保存するときに、有料プランへの登録が必要になります。有料プランは、対象となる場合に1か月の無料トライアルがあります（適用されるかは購入画面の表示で確かめられます。トライアルが終わると自動で課金が始まります）。料金は<a href="/kokuken/#pricing">アプリ紹介ページ</a>をご覧ください。</p>
+      </div>
+      <div class="faq-item">
+        <h3>PINを忘れました。</h3>
+        <p>PINの入力画面の下にある「PINを忘れた場合」を押し、<strong>同じアカウントでサインインし直す</strong>と、新しいPINを設定できます。患者データは消えません。PINは医院のアカウント共通なので、新しいPINはほかの端末にも反映されます。PINを覚えているときは、データ管理の「PINを変更」から変えられます。</p>
+      </div>
+      <div class="faq-item">
+        <h3>別のiPadやiPhoneでも使えますか？</h3>
+        <p>使えます。最初の端末と<strong>同じアカウント（Apple または Google）でサインインし、同じPINを入力</strong>すると、同じ患者データを使えます。違うアカウントでサインインすると、別の医院として空の状態から始まるので注意してください。端末どうしの反映には通信が必要です。PINを変えたあとは、ほかの端末を通信できる状態で開いてください。</p>
+      </div>
+      <div class="faq-item">
+        <h3>同じ患者さんを2回登録してしまいました。</h3>
+        <p>患者詳細の下にある「別の登録をこの患者に統合」で、2つの登録の記録を1人にまとめられます。</p>
+      </div>
+
+      <h2 id="next">次にやると便利なこと</h2>
+      <ul>
+        <li><strong>算定ガイド</strong>：患者詳細の緑のボタン。検査と管理の点数の目安を確認できます</li>
+        <li><strong>トレーニング記録</strong>：患者詳細から。指導したトレーニングを記録し、提供文書（口腔機能実地指導）も作れます</li>
+        <li><strong>患者説明動画</strong>：ホームから。トレーニングなどの説明動画を患者さんに見せたり、QRコードを印刷して渡したりできます（無料）</li>
+        <li><strong>バックアップ</strong>：ホームの「⚙️ データ管理」から。クラウドへのバックアップと、端末へのファイル書き出しができます</li>
+      </ul>
+      <p>わからないことは、<a href="/kokuken/support/">サポートページ</a>のよくある質問をご覧いただくか、アプリのホームの「ご意見・ご要望」からお送りください。</p>
+
+      <div class="app-box">
+        <img src="/kokuken/img/icon.png" alt="" width="64" height="64">
+        <div>
+          <p><strong>口腔機能管理くん</strong>──口腔機能低下症・口腔機能発達不全症・歯周検査・咬筋検査の記録と、管理計画書の作成を支援するアプリです（医療機器ではありません。診断は歯科医師が行います）。</p>
+          <p class="small">iPhone・iPad・Android。患者の登録は無制限、検査の評価は種類ごとに4人まで無料。</p>
+          <a class="btn-lp" href="https://apps.apple.com/jp/app/id6760281631?pt=128621702&ct=guide_hajimekata&mt=8" target="_blank" rel="noopener">App Store</a>
+          <a class="btn-lp" href="https://play.google.com/store/apps/details?id=com.oralcarepro.app" target="_blank" rel="noopener">Google Play</a>
+          <a class="btn-lp" href="/kokuken/">アプリ紹介ページ</a>
+        </div>
+      </div>
+
+      <div class="related">
+        <p>RELATED — あわせて読む</p>
+        <a href="/kokuken/guide/app-erabikata/">口腔機能管理アプリの選び方──口腔機能低下症・発達不全症の記録と管理計画書で確かめたい10のこと</a><br>
+        <a href="/kokuken/guide/kouku-kinou-teikasho/">口腔機能低下症とは──7項目の検査・診断基準・使う機器（令和8年度対応）</a><br>
+        <a href="/kokuken/guide/santei-r8/">口腔機能低下症の算定（令和8年度）──管理料1・2、検査、実地指導の組み立て</a><br>
+        <a href="/kokuken/guide/hattatsu-checklist/">口腔機能発達不全症のチェックリスト（離乳完了前・離乳完了後）とC項目の見方</a>
+      </div>
+
+      <p class="caption" style="margin-top:32px">このページは、アプリのバージョン 1.9.6（2026年10月時点）の画面と動作をもとに書いています。画面の文言や配置は、今後のアップデートで変わることがあります。数値と患者名は説明用の架空のものです。</p>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-copy">&copy; 2026 MEDICAL CRAFT LABORATORY</span>
+      <div class="footer-links">
+        <a href="/kokuken/">口腔機能管理くん</a>
+        <a href="/kokuken/privacy/">プライバシーポリシー</a>
+        <a href="/kokuken/support/">サポート</a>
+        <a href="https://medicalcraft-lab.com">会社サイト</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
