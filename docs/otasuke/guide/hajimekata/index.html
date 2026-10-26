@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>訪問診療お助けくんの使い方──医院の登録から、予約を入れて訪問を回るまで｜訪問診療お助けくん 解説ガイド</title>
+  <meta name="description" content="訪問診療お助けくんを初めて使う方向けに、サインインと医院の PIN、医院の位置と道路データ、患者さんの登録、おすすめの日時から予約を入れる流れ、その日の順番と到着の目安、2台目の端末とバックアップまでを、実際の画面で説明します。つまずきやすい点（到着時刻のずれ・道路データ・PIN を忘れたとき）もまとめました。">
+  <link rel="canonical" href="https://medicalcraft-lab.com/otasuke/guide/hajimekata/">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://medicalcraft-lab.com/otasuke/guide/hajimekata/">
+  <meta property="og:title" content="訪問診療お助けくんの使い方──医院の登録から、予約を入れて訪問を回るまで">
+  <meta property="og:description" content="医院の登録から、おすすめの日時で予約を入れて、その日の順番どおりに回るまでを、実際の画面で7ステップ。">
+  <meta property="og:image" content="https://medicalcraft-lab.com/otasuke/ogp.png">
+  <meta property="og:site_name" content="Medical Craft Laboratory">
+  <meta property="article:published_time" content="2026-10-26">
+  <meta property="article:modified_time" content="2026-10-26">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://medicalcraft-lab.com/otasuke/ogp.png">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://medicalcraft-lab.com/otasuke/guide/hajimekata/#article",
+      "headline": "訪問診療お助けくんの使い方──医院の登録から、予約を入れて訪問を回るまで",
+      "description": "訪問診療お助けくんを初めて使う方向けに、サインインと医院の PIN、医院の位置と道路データ、患者さんの登録、おすすめの日時から予約を入れる流れ、その日の順番と到着の目安、2台目の端末とバックアップまでを、実際の画面で説明します。つまずきやすい点（到着時刻のずれ・道路データ・PIN を忘れたとき）もまとめました。",
+      "inLanguage": "ja",
+      "datePublished": "2026-10-26",
+      "dateModified": "2026-10-26",
+      "image": "https://medicalcraft-lab.com/otasuke/guide/hajimekata/img/08_day.jpg",
+      "mainEntityOfPage": "https://medicalcraft-lab.com/otasuke/guide/hajimekata/",
+      "author": {
+        "@type": "Person",
+        "name": "和泉龍之介",
+        "jobTitle": "歯科医師",
+        "worksFor": {
+          "@id": "https://medicalcraft-lab.com/#org"
+        }
+      },
+      "publisher": {
+        "@id": "https://medicalcraft-lab.com/#org"
+      },
+      "about": {
+        "@type": "SoftwareApplication",
+        "name": "訪問診療お助けくん",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "iOS, iPadOS"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://medicalcraft-lab.com/#org",
+      "name": "Medical Craft Laboratory",
+      "url": "https://medicalcraft-lab.com",
+      "logo": "https://medicalcraft-lab.com/apple-touch-icon.png"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Medical Craft Laboratory",
+          "item": "https://medicalcraft-lab.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "訪問診療お助けくん",
+          "item": "https://medicalcraft-lab.com/otasuke/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "訪問診療お助けくんの使い方",
+          "item": "https://medicalcraft-lab.com/otasuke/guide/hajimekata/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "到着時刻が実際と違います。",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "到着時刻は、道路の距離（道のり）と設定の「平均の移動速度」から出す目安です。渋滞などの交通状況は反映しません。設定の「平均の移動速度」「1件の所要時間」や、予約ごとの治療時間を、医院の実際に合わせて直してください。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "「道路データの取り込み前」「道路データの範囲外」と出ます。",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "医院の位置を決めると、医院の周りの道路データを自動で取り込みます（標準の設定で約25km・地域により数MB〜約30MB）。取り込みが終わるまでは、予定の一覧と手で並べることはできますが、順番の提案・到着の目安・予約日のおすすめは出ません。「範囲外」は、取り込んだ範囲の外の位置か、道路から離れた位置です。患者さんの位置を地図で確かめてください。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "PIN を忘れました。",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "PIN の入力画面の「PINを忘れた場合」を押し、同じアカウントでサインインし直すと、新しい PIN を決められます。予定や患者さんのデータは消えません。PIN は医院のアカウント共通なので、口腔機能管理くん・歯科サブカルテ&コンサルくんの PIN も新しいものに変わります。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "PIN を何度も間違えたら、待つように言われました。",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "PIN を10回続けて間違えると、30秒の待ち時間が入ります。さらに間違えるたびに待ち時間は長くなります（最長1時間）。正しい PIN を入れると元に戻ります。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "2台目の iPad や iPhone でも使えますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "使えます。最初の端末と同じアカウント（Apple または Google）でサインインし、同じ PIN を入れると、同じ予定を見られます。予定は端末で暗号化してからクラウドに送り、端末どうしで同期します。同じ予定を2台で同時に直したときは、どちらの内容も消さずに残し、設定の「別の iPad の変更と重なったもの」から選べます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "電波のない所でも使えますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "使えます。初めのサインインと PIN の確認を済ませ、道路データを取り込んだ端末では、予定の確認・入力・順番の計算は端末の中で動きます。電波のない間に入れた予定は、つながったときにクラウドへ送られます。住所から位置を探す・地図を表示する・端末どうしの同期には、通信が必要です。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "点数や算定の判断はしてくれますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "いいえ。歯周検査（P検査）から1か月の印などは、日付からの目安です。点数・算定の判断は医院で行ってください。本アプリは医療機器ではなく、電子カルテ・レセコンとの連携もありません。"
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Shippori+Mincho:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #FBFAF6;
+      --ink: #1D1D1B;
+      --ink-soft: #5A5953;
+      --ink-mute: #8A887F;
+      --hairline: #E5E2D9;
+      --accent: #0F6E56;
+      --accent-deep: #085041;
+      --accent-hover: #12866A;
+      --font-sans: 'Zen Kaku Gothic New', 'Hiragino Sans', sans-serif;
+      --font-serif: 'Shippori Mincho', 'Hiragino Mincho ProN', serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-sans);
+      color: var(--ink);
+      background: var(--cream);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; }
+    .kicker {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      color: var(--accent-deep);
+      text-transform: uppercase;
+    }
+
+    /* Navigation (LP と共通) */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(251, 250, 246, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--hairline);
+      height: 60px;
+    }
+    .nav-inner {
+      max-width: 1080px; margin: 0 auto; padding: 0 24px;
+      height: 100%; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-brand img { width: 30px; height: 30px; border-radius: 8px; }
+    .nav-brand .name { font-size: 14px; font-weight: 700; }
+    .nav-brand .by {
+      font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.14em;
+      color: var(--ink-mute); margin-left: 2px;
+    }
+    .nav-links { display: flex; align-items: center; gap: 22px; }
+    .nav-links a { font-size: 13px; color: var(--ink-soft); text-decoration: none; transition: color 0.2s ease; }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-cta {
+      background: var(--accent); color: #fff !important;
+      padding: 9px 20px; border-radius: 999px;
+      font-size: 13px; font-weight: 700; text-decoration: none;
+      transition: background-color 0.2s ease; white-space: nowrap;
+    }
+    .nav-cta:hover { background: var(--accent-hover); }
+
+    /* Article */
+    .article { padding: 104px 0 72px; }
+    .article-wrap { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+    .breadcrumb { font-size: 12px; color: var(--ink-mute); margin-bottom: 28px; }
+    .breadcrumb ol { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; }
+    .breadcrumb li + li::before { content: "›"; margin-right: 6px; color: var(--hairline); }
+    .article .breadcrumb a { color: var(--ink-soft); font-weight: 400; text-decoration: none; }
+    .article [id] { scroll-margin-top: 76px; }
+    .article .breadcrumb a:hover { text-decoration: underline; }
+    .article h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(25px, 3.4vw, 34px);
+      font-weight: 700; line-height: 1.55;
+      margin: 16px 0 20px;
+    }
+    .byline {
+      display: flex; flex-wrap: wrap; gap: 6px 18px;
+      font-size: 12.5px; color: var(--ink-mute);
+      border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline);
+      padding: 12px 0; margin-bottom: 30px;
+    }
+    .byline strong { color: var(--ink-soft); font-weight: 700; }
+    .article p { font-size: 15px; color: var(--ink-soft); line-height: 2.0; margin: 0 0 16px; }
+    .article p strong, .article li strong { color: var(--ink); }
+    .article h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(21px, 2.6vw, 26px);
+      font-weight: 700; line-height: 1.55;
+      margin: 56px 0 18px; padding-top: 28px;
+      border-top: 1px solid var(--hairline);
+    }
+    .article h3 { font-size: 16px; font-weight: 700; margin: 30px 0 10px; line-height: 1.6; }
+    .article ul, .article ol { margin: 0 0 18px 1.4em; }
+    .article li { font-size: 14.5px; color: var(--ink-soft); line-height: 1.95; margin-bottom: 6px; }
+    .article a { color: var(--accent-deep); font-weight: 700; text-decoration: none; }
+    .article a:hover { text-decoration: underline; }
+    .summary {
+      background: #fff; border: 1px solid var(--hairline); border-radius: 16px;
+      padding: 22px 26px; margin: 8px 0 30px;
+    }
+    .summary .kicker { margin-bottom: 8px; }
+    .summary ul { margin-bottom: 0; }
+    .toc { border-left: 2px solid var(--accent); padding: 4px 0 4px 18px; margin: 0 0 12px; }
+    .toc p { font-size: 12px; font-family: var(--font-mono); letter-spacing: 0.14em; color: var(--ink-mute); margin-bottom: 6px; }
+    .toc ol { margin: 0 0 0 1.2em; }
+    .toc li { font-size: 13.5px; margin-bottom: 2px; }
+    .article .toc a { font-weight: 500; color: var(--ink-soft); }
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 0 12px; border: 1px solid var(--hairline); border-radius: 12px; background: #fff; }
+    table.data { border-collapse: collapse; width: 100%; min-width: 640px; font-size: 13.5px; }
+    table.data th, table.data td { border-bottom: 1px solid var(--hairline); padding: 10px 12px; text-align: left; vertical-align: top; line-height: 1.75; color: var(--ink-soft); }
+    table.data thead th { background: var(--cream); color: var(--ink); font-weight: 700; font-size: 12.5px; white-space: nowrap; }
+    table.data tbody th { color: var(--ink); font-weight: 700; white-space: nowrap; }
+    table.data tr:last-child th, table.data tr:last-child td { border-bottom: none; }
+    table.data.compact { min-width: 0; }
+    table.data.compact tbody th { white-space: normal; min-width: 7em; }
+    .num { font-family: var(--font-mono); color: var(--ink); font-weight: 500; }
+    .caption { font-size: 12px; color: var(--ink-mute); margin: 0 0 24px; line-height: 1.8; }
+    .note {
+      background: #fff; border: 1px solid var(--hairline); border-left: 3px solid var(--accent);
+      border-radius: 10px; padding: 14px 18px; margin: 0 0 20px;
+    }
+    .note p { font-size: 13.5px; margin: 0; }
+    .note p + p { margin-top: 8px; }
+    blockquote {
+      background: #fff; border: 1px solid var(--hairline); border-radius: 10px;
+      padding: 14px 18px; margin: 0 0 12px; font-size: 13.5px; color: var(--ink-soft); line-height: 1.95;
+    }
+    .check-item { border: 1px solid var(--hairline); border-radius: 14px; background: #fff; padding: 20px 22px 8px; margin: 0 0 18px; }
+    .check-item h3 { margin: 0 0 12px; font-size: 16.5px; }
+    .check-item h3 .no { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em; color: var(--accent-deep); margin-right: 10px; }
+    .check-item p { font-size: 14.5px; margin-bottom: 12px; }
+    .check-item .label { display: block; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; color: var(--ink-mute); margin-bottom: 2px; }
+    .faq-item { border-bottom: 1px solid var(--hairline); padding: 16px 2px; }
+    .faq-item h3 { margin: 0 0 6px; font-size: 15px; }
+    .faq-item h3::before { content: "Q. "; color: var(--accent-deep); }
+    .faq-item p { font-size: 14px; margin: 0; }
+    .app-box {
+      background: #fff; border: 1px solid var(--hairline); border-radius: 18px;
+      padding: 28px 28px 24px; margin: 8px 0 12px;
+      display: grid; grid-template-columns: 64px 1fr; gap: 18px; align-items: start;
+    }
+    .app-box img { width: 64px; height: 64px; border-radius: 15px; }
+    .app-box p { font-size: 14px; }
+    .app-box .small { font-size: 12px; color: var(--ink-mute); margin-bottom: 14px; }
+    .btn-lp {
+      display: inline-block; background: var(--ink); color: #fff !important;
+      padding: 11px 24px; border-radius: 999px; font-size: 13.5px; font-weight: 700;
+      text-decoration: none !important; transition: opacity 0.2s ease;
+    }
+    .btn-lp:hover { opacity: 0.85; }
+    .related { background: #fff; border: 1px solid var(--hairline); border-radius: 14px; padding: 18px 22px; margin: 24px 0 0; }
+    .related p { margin: 0 0 4px; font-size: 12px; font-family: var(--font-mono); letter-spacing: 0.14em; color: var(--ink-mute); }
+    .related a { font-size: 14.5px; }
+    .sources { margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--hairline); }
+    .sources h2 { margin-top: 0; padding-top: 0; border-top: none; font-size: 20px; }
+    .sources li { font-size: 12.5px; line-height: 1.85; word-break: break-all; }
+    .article .sources a { font-weight: 500; }
+
+    /* Footer (LP と共通) */
+    .footer { border-top: 1px solid var(--hairline); padding: 36px 0; }
+    .footer-inner {
+      max-width: 1080px; margin: 0 auto; padding: 0 24px;
+      display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;
+    }
+    .footer-copy { font-family: var(--font-mono); font-size: 10.5px; color: var(--ink-mute); }
+    .footer-links { display: flex; gap: 22px; flex-wrap: wrap; }
+    .footer-links a { font-size: 12.5px; color: var(--ink-soft); text-decoration: none; }
+    .footer-links a:hover { color: var(--ink); }
+
+    @media (max-width: 880px) {
+      .nav-links a:not(.nav-cta) { display: none; }
+    }
+    @media (max-width: 560px) {
+      .article { padding-top: 88px; }
+      .article-wrap { padding: 0 16px; }
+      .nav-inner, .footer-inner { padding: 0 16px; }
+      .nav-brand .by { display: none; }
+      .nav-brand .name { white-space: nowrap; }
+      .app-box { grid-template-columns: 1fr; padding: 22px 20px; }
+      .summary { padding: 18px 18px; }
+      .check-item { padding: 16px 16px 4px; }
+    }
+    /* 使い方ページだけの部品 */
+    .step-head { display: flex; align-items: baseline; gap: 12px; }
+    .step-no {
+      font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.12em;
+      color: #fff; background: var(--accent); border-radius: 999px;
+      padding: 3px 11px; white-space: nowrap; position: relative; top: -3px;
+    }
+    .shot { margin: 18px auto 10px; max-width: 420px; }
+    .shot img {
+      border: 1px solid var(--hairline); border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(29, 29, 27, 0.08); background: #fff;
+    }
+    .shot figcaption { font-size: 12px; color: var(--ink-mute); text-align: center; margin-top: 8px; line-height: 1.7; }
+    .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 18px 0 10px; }
+    .shots .shot { margin: 0; max-width: none; }
+    .shot.paper img { border-radius: 6px; }
+    .key { display: inline-block; background: #fff; border: 1px solid var(--hairline); border-radius: 6px; padding: 0 7px; font-size: 13px; color: var(--ink); font-weight: 700; }
+    @media (max-width: 560px) {
+      .shots { grid-template-columns: 1fr; }
+      .shot { max-width: 320px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/otasuke/" class="nav-brand">
+        <img src="/otasuke/img/icon.png" alt="" width="30" height="30">
+        <span class="name">訪問診療お助けくん</span>
+        <span class="by">BY MEDICAL CRAFT LAB</span>
+      </a>
+      <div class="nav-links">
+        <a href="/otasuke/support/">サポート</a>
+        <a href="/otasuke/">アプリ紹介</a>
+        <a href="/otasuke/support/#contact" class="nav-cta">お問い合わせ</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="article">
+    <article class="article-wrap">
+      <nav class="breadcrumb" aria-label="パンくずリスト">
+        <ol>
+          <li><a href="/">Medical Craft Laboratory</a></li>
+          <li><a href="/otasuke/">訪問診療お助けくん</a></li>
+          <li>訪問診療お助けくんの使い方</li>
+        </ol>
+      </nav>
+
+      <p class="kicker">GUIDE — はじめての使い方</p>
+      <h1>訪問診療お助けくんの使い方──医院の登録から、予約を入れて訪問を回るまで</h1>
+      <div class="byline">
+        <span><strong>執筆：歯科医師 和泉龍之介（Medical Craft Lab・アプリの開発者）</strong></span>
+        <span>公開日 <time datetime="2026-10-26">2026年10月26日</time></span>
+        <span>最終更新日 <time datetime="2026-10-26">2026年10月26日</time></span>
+      </div>
+
+      <p>訪問診療お助けくんを入れたあと、「最初に何をすればいいか」を、実際の画面で順番に説明します。医院を登録して患者さんを入れ、予約を入れて、その日の順番どおりに訪問を回るまでの流れです。</p>
+
+      <div class="note">
+        <p>このページの画面は、<strong>バージョン 1.0（ビルド37）</strong> を iPad と同じ画面の幅で表示した説明用のものです（実機では、サインインのボタンなど一部の見た目が違います）。患者さんは「サンプル01」などの架空の方で、住所も説明用です。iPhone でも手順は同じで、画面の並びが少し違うだけです。</p>
+      </div>
+
+      <div class="summary">
+        <p class="kicker">POINTS — 先に知っておくと迷わないこと</p>
+        <ul>
+          <li>アカウントと PIN は<strong>口腔機能管理くん・歯科サブカルテ&amp;コンサルくんと共通</strong>です。医院で1つのアカウントを、すべての端末で使います</li>
+          <li><strong>最初に「設定」で医院の位置</strong>を登録します。医院の周りの道路データは、そのあと自動で取り込みます</li>
+          <li>予約は「＋ 予約を入れる」から。患者さんを選ぶと、<strong>移動の増えが少ない日時</strong>が ◎○△ で並びます</li>
+          <li>順番は<strong>アプリが勝手に変えません</strong>。並べ替えの提案は、今の順番と見比べてから「この順にする」で決めます</li>
+          <li>到着時刻は<strong>目安</strong>です（渋滞などは反映しません）。点数・算定の判断は医院で行ってください</li>
+        </ul>
+      </div>
+
+      <nav class="toc" aria-label="目次">
+        <p>CONTENTS</p>
+        <ol>
+          <li><a href="#step1">サインインして、医院の PIN を決める</a></li>
+          <li><a href="#step2">医院の位置を登録する</a></li>
+          <li><a href="#step3">1日の時間と訪問日を決める</a></li>
+          <li><a href="#step4">患者さんを登録する</a></li>
+          <li><a href="#step5">予約を入れる（おすすめの日時を選ぶ）</a></li>
+          <li><a href="#step6">確かめて入れる</a></li>
+          <li><a href="#step7">その日の順番どおりに回る</a></li>
+          <li><a href="#devices">2台目の端末とバックアップ</a></li>
+          <li><a href="#faq">つまずいたとき（よくある質問）</a></li>
+        </ol>
+      </nav>
+
+      <h2 id="step1"><span class="step-head"><span class="step-no">STEP 1</span>サインインして、医院の PIN を決める</span></h2>
+      <p>アプリを開くと、サインインの画面が出ます。<span class="key">Appleでサインイン</span> か <span class="key">Googleでサインイン</span> を押します。<strong>医院で1つのアカウントを決めて、すべての端末で同じアカウントを使ってください。</strong>口腔機能管理くんや歯科サブカルテ&amp;コンサルくんをお使いなら、そのアカウントでサインインします。</p>
+      <p>初めてのアカウントでは、<strong>医院の PIN（4〜8桁の数字）</strong>を決める画面になります。数字を入れて <span class="key">次へ</span> を押し、もう一度同じ数字を入れます。PIN はアプリを開くたびに入れる鍵で、医院のアカウント共通です。口腔機能管理くんで PIN を決めてあるアカウントなら、新しく決めずに、その PIN を入れます。</p>
+      <figure class="shot">
+        <a href="img/02_pin.jpg" target="_blank" rel="noopener"><img src="img/02_pin.jpg" alt="初期設定の PIN を決める画面。医院のアカウント共通であることが書かれている" width="820" height="1180" loading="lazy"></a>
+        <figcaption>医院の PIN を決める画面（初めてのアカウントのとき）</figcaption>
+      </figure>
+      <div class="note">
+        <p>まず試してみたいときは、「設定」の <span class="key">サンプルで試す</span> で、架空の医院と患者さん32人を入れられます。<strong>今の登録内容はサンプルに置き換わる</strong>ので、登録済みのデータがある場合は先にバックアップを保存してください（クラウドと同期している間は使えません）。サンプルの間は、アプリに入っている古河周辺の道路データで動きます。</p>
+      </div>
+
+      <h2 id="step2"><span class="step-head"><span class="step-no">STEP 2</span>医院の位置を登録する</span></h2>
+      <p>最初に開くのは「設定」です。<strong>医院の住所</strong>を入れて <span class="key">地図で探す</span> を押すと、国土地理院の地図に医院の位置が出ます。違っていれば地図をタップして直し、<span class="key">この位置で登録</span> を押します。道のりはこの位置から計算するので、入口や駐車場の近くに置いてください。</p>
+      <figure class="shot">
+        <a href="img/03_clinic_map.jpg" target="_blank" rel="noopener"><img src="img/03_clinic_map.jpg" alt="設定の画面。医院の住所の下に地図が出て、医院の位置に印がある" width="820" height="1180" loading="lazy"></a>
+        <figcaption>医院の住所から、地図で位置を確かめて登録します</figcaption>
+      </figure>
+      <p>医院の位置を決めると、<strong>医院の周りの道路データ</strong>を自動で取り込みます（標準の設定で医院の周り約25km・地域により数MB〜約30MB）。取り込んでいる間は画面の上に案内が出ます。取り込みが終わると、その端末では電波のない所でも順番を計算できます。様子は「設定」の「地図」にある <span class="key">道路データ</span> の行で確かめられます。</p>
+      <figure class="shot">
+        <a href="img/10_roads.jpg" target="_blank" rel="noopener"><img src="img/10_roads.jpg" alt="設定の地図の欄。道路データの行に、使っているデータと配信元の説明がある" width="760" height="221" loading="lazy"></a>
+        <figcaption>「道路データ」の行（取り込み済みになると、大きさと時点が出ます）</figcaption>
+      </figure>
+      <div class="note">
+        <p>道路データは OpenStreetMap をもとにした、車が通れる道のデータで、日本全国で使えます。取り込みのときは、医院のおおよその位置と端末の IP アドレスが配信元（Cloudflare）に伝わります。患者さんの位置は送りません。</p>
+      </div>
+
+      <h2 id="step3"><span class="step-head"><span class="step-no">STEP 3</span>1日の時間と訪問日を決める</span></h2>
+      <p>同じ「設定」で、<strong>出発の時刻・午前の訪問の終わり・午後の出発・午後の訪問の終わり</strong>を医院に合わせます。昼に医院へ戻らない医院は「昼に医院へ戻る」を外すと、午後は午前の最後の訪問先から続けて回る計算になります。訪問する曜日が決まっている医院は「訪問する日を決めている」をオンにして曜日を選びます。</p>
+      <p>あわせて、<strong>1件の所要時間</strong>（予約で治療時間を選ばなかったときの長さ）、<strong>平均の移動速度</strong>、<strong>訪問範囲</strong>（医院からの直線距離・標準は16km）も確かめてください。到着の目安と予約日のおすすめは、これらから計算します。</p>
+
+      <h2 id="step4"><span class="step-head"><span class="step-no">STEP 4</span>患者さんを登録する</span></h2>
+      <p>「患者」の画面の <span class="key">患者を登録</span> を押します。<strong>氏名と住所</strong>を入れて <span class="key">登録</span> を押すと、住所から位置を探します。番地まで一致し、訪問範囲の境目付近でなければ、そのまま登録されます。それ以外のときは地図が出るので、位置を確かめて登録します（「国土地理院の住所検索・地図を使う」を切ってあるときは、位置未設定のまま登録され、あとで地図で置きます）。</p>
+      <figure class="shot">
+        <a href="img/04_patient.jpg" target="_blank" rel="noopener"><img src="img/04_patient.jpg" alt="患者の登録の画面。氏名、患者ID、建物・施設名、郵便番号、住所、メモの欄がある" width="820" height="1180" loading="lazy"></a>
+        <figcaption>患者の登録。患者ID（カルテ番号など）とメモは任意です</figcaption>
+      </figure>
+      <p><strong>建物・施設名</strong>を入れておくと、順番の比較（STEP 7）で、同じ建物の方を同じ午前・午後の中で続けて回る順番を提案します。iPhone・iPad では <span class="key">書類から読み取る</span> で、紹介状などの書類の写真から住所を読み取ることもできます（読み取りは端末の中で行います）。</p>
+
+      <h2 id="step5"><span class="step-head"><span class="step-no">STEP 5</span>予約を入れる（おすすめの日時を選ぶ）</span></h2>
+      <p>「ホーム」の <span class="key">＋ 予約を入れる</span> を押し、患者さんを選びます（名前・住所・患者IDで探せます）。次の画面で、<strong>治療間隔</strong>（1週〜3か月）と<strong>この予約の治療時間</strong>（15・30・45・60分、または「ほか」で5分刻み）を選びます。歯周検査をする予約は（歯科の見本を使っている医院では）「歯周検査（P検査）あり」を付けると、前回の歯周検査から1か月未満の日に ⚠ の印が出ます（入れることはできます）。基準にするのは、済みになった前回の歯周検査です（まだ無いときは、先に入っている歯周検査の予約を基準にすることがあります）。</p>
+      <figure class="shot">
+        <a href="img/06_book.jpg" target="_blank" rel="noopener"><img src="img/06_book.jpg" alt="予約の画面。治療間隔と治療時間の選択、おすすめの日時が二重丸と丸の印で並び、その下にカレンダーがある" width="820" height="1180" loading="lazy"></a>
+        <figcaption>おすすめの日時。◎ が移動の増えが少ない日時です</figcaption>
+      </figure>
+      <p><strong>おすすめの日時</strong>は、すでに入っている方の遅れや、午前・午後の枠のはみ出しを増やさない入れ方を計算し、増える移動の時間が少ない順に ◎○△ の印で並べたものです（移動の増えは5分ごとに比べ、同じなら治療間隔の目安に近い日、早い日を先にします）。午前・午後だけにしたいときは上のボタンで、<strong>決まった時刻</strong>に行きたいときは「時刻を指定する」に入れます（その時刻に着ける日だけが出ます）。下の<strong>カレンダー</strong>では、日ごとの予約の件数と印を見ながら日を選べます。</p>
+
+      <h2 id="step6"><span class="step-head"><span class="step-no">STEP 6</span>確かめて入れる</span></h2>
+      <p>日時を押すと、確認の画面になります。入る位置・増える移動・医院を出る時刻と戻る時刻（その枠で医院を出入りするとき）に加えて、<strong>入れた後のその日の予定</strong>が並ぶので、ほかの方の時刻が無理になっていないかを確かめてから <span class="key">この時間で入れる</span> を押します。</p>
+      <figure class="shot">
+        <a href="img/07_confirm.jpg" target="_blank" rel="noopener"><img src="img/07_confirm.jpg" alt="予約の確認画面。日時、入る位置、治療時間、医院を出る時刻と戻る時刻、入れた後のその日の予定が並ぶ" width="820" height="1180" loading="lazy"></a>
+        <figcaption>確認の画面。「この日の予定（入れた後）」で、その日全体を確かめられます</figcaption>
+      </figure>
+      <p>おすすめから進むと、「この時刻で約束する（時刻指定にする）」には<strong>はじめからチェックが付いています</strong>。付けたままなら、その予約は時刻の指定になり、あとで順番を並べ替えても、その時刻に間に合うかを見ながら計算します。時刻を約束しないときは外してください（前の画面で時刻を入れたときは、その時刻の指定で入ります）。</p>
+
+      <h2 id="step7"><span class="step-head"><span class="step-no">STEP 7</span>その日の順番どおりに回る</span></h2>
+      <p>カレンダーで日を押すと、その日の予定が開きます。午前・午後ごとに、<strong>訪問の順番・到着の目安・移動の道のり</strong>が並びます。同じ午前・午後の中では、↑↓ で順番を入れ替えられ、入れ替えるとすぐに時刻を計算し直します。</p>
+      <figure class="shot">
+        <a href="img/08_day.jpg" target="_blank" rel="noopener"><img src="img/08_day.jpg" alt="その日の予定の画面。上に次の訪問のカード、その下に午前の訪問が順番に並び、到着の目安と移動の道のりがある" width="820" height="1180" loading="lazy"></a>
+        <figcaption>その日の予定。上の「次の訪問」から、Google マップの道案内と「訪問済みにする」ができます</figcaption>
+      </figure>
+      <p class="small">※「P検査」の欄は、設定で歯科の見本を使っているときに出ます（医科の見本では出ません）。</p>
+      <p>訪問の日は、上の<strong>「次の訪問」</strong>から <span class="key">Googleマップで道案内</span> を開きます。終わったら、<strong>カードの名前を確かめてから</strong>、歯周検査をしたときは「P検査をした」のチェックを確かめ（予約で「P検査あり」にした方は付いています。しなかったときは外します）、最後に <span class="key">訪問済みにする</span> を押します。押すと、カードは次の方に切り替わります。</p>
+      <p>下の <span class="key">もっと見る</span> には、その日の合計・<strong>順番の比較</strong>・地図・時刻とメモ・印刷があります。順番の比較は、今の順番と提案された順番を並べて見せるだけで、<strong>「この順にする」を押すまで順番は変わりません</strong>。遅れやはみ出しを減らすために、距離が少し延びる順になることもあります。同じ建物・施設名の方は、同じ午前・午後の中で続けて回る順番を提案します。</p>
+
+      <h2 id="devices">2台目の端末とバックアップ</h2>
+      <p><strong>2台目以降の端末</strong>では、最初の端末と同じアカウントでサインインし、同じ PIN を入れます。予定はクラウドを通して端末どうしで同期されます（クラウドには端末で暗号化してから送ります）。道路データは端末ごとに取り込みます。</p>
+      <p>端末の故障や機種変更に備えて、ときどき「設定」の <span class="key">バックアップを保存</span> でファイルを書き出し、医院で保管してください。パスワードを決めると暗号化して保存します（パスワードを忘れると復元できません）。戻すときは <span class="key">バックアップから読み込む</span> を使います。読み込むと、今の登録内容が<strong>バックアップの内容に置き換わります</strong>。読み込めるのは同じアカウントのバックアップで、クラウドと同期している間は読み込めません。</p>
+      <figure class="shot">
+        <a href="img/11_backup.jpg" target="_blank" rel="noopener"><img src="img/11_backup.jpg" alt="設定のデータの欄。バックアップを保存、バックアップから読み込む、サンプルで試す、すべて消すのボタンがある" width="760" height="219" loading="lazy"></a>
+        <figcaption>バックアップの保存と読み込み</figcaption>
+      </figure>
+
+      <h2 id="faq">つまずいたとき（よくある質問）</h2>
+      <div class="faq-item">
+        <h3>到着時刻が実際と違います。</h3>
+        <p>到着時刻は、道路の距離（道のり）と設定の「平均の移動速度」から出す目安です。渋滞などの交通状況は反映しません。設定の「平均の移動速度」「1件の所要時間」や、予約ごとの治療時間を、医院の実際に合わせて直してください。</p>
+      </div>
+      <div class="faq-item">
+        <h3>「道路データの取り込み前」「道路データの範囲外」と出ます。</h3>
+        <p>医院の位置を決めると、医院の周りの道路データを自動で取り込みます（標準の設定で約25km・地域により数MB〜約30MB）。取り込みが終わるまでは、予定の一覧と手で並べることはできますが、順番の提案・到着の目安・予約日のおすすめは出ません。「範囲外」は、取り込んだ範囲の外の位置か、道路から離れた位置です。患者さんの位置を地図で確かめてください。</p>
+      </div>
+      <div class="faq-item">
+        <h3>PIN を忘れました。</h3>
+        <p>PIN の入力画面の「PINを忘れた場合」を押し、同じアカウントでサインインし直すと、新しい PIN を決められます。予定や患者さんのデータは消えません。PIN は医院のアカウント共通なので、口腔機能管理くん・歯科サブカルテ&amp;コンサルくんの PIN も新しいものに変わります。</p>
+      </div>
+      <div class="faq-item">
+        <h3>PIN を何度も間違えたら、待つように言われました。</h3>
+        <p>PIN を10回続けて間違えると、30秒の待ち時間が入ります。さらに間違えるたびに待ち時間は長くなります（最長1時間）。正しい PIN を入れると元に戻ります。</p>
+      </div>
+      <div class="faq-item">
+        <h3>2台目の iPad や iPhone でも使えますか？</h3>
+        <p>使えます。最初の端末と同じアカウント（Apple または Google）でサインインし、同じ PIN を入れると、同じ予定を見られます。予定は端末で暗号化してからクラウドに送り、端末どうしで同期します。同じ予定を2台で同時に直したときは、どちらの内容も消さずに残し、設定の「別の iPad の変更と重なったもの」から選べます。</p>
+      </div>
+      <div class="faq-item">
+        <h3>電波のない所でも使えますか？</h3>
+        <p>使えます。初めのサインインと PIN の確認を済ませ、道路データを取り込んだ端末では、予定の確認・入力・順番の計算は端末の中で動きます。電波のない間に入れた予定は、つながったときにクラウドへ送られます。住所から位置を探す・地図を表示する・端末どうしの同期には、通信が必要です。</p>
+      </div>
+      <div class="faq-item">
+        <h3>点数や算定の判断はしてくれますか？</h3>
+        <p>いいえ。歯周検査（P検査）から1か月の印などは、日付からの目安です。点数・算定の判断は医院で行ってください。本アプリは医療機器ではなく、電子カルテ・レセコンとの連携もありません。</p>
+      </div>
+
+      <p>わからないことは、<a href="/otasuke/support/">サポートページ</a>のよくある質問をご覧いただくか、アプリの「ご意見・ご要望」からお送りください。</p>
+
+      <div class="app-box">
+        <img src="/otasuke/img/icon.png" alt="" width="64" height="64">
+        <div>
+          <p><strong>訪問診療お助けくん</strong>──訪問歯科・訪問診療の、その日の順番と予約の日時を、道のりで決める iPad・iPhone アプリです（医療機器ではありません。診療・算定の判断は医院で行ってください）。</p>
+          <p class="small">公開準備中です。先行して使ってみたい医院は、<a href="/otasuke/support/#contact">お問い合わせ</a>ください。</p>
+          <a class="btn-lp" href="/otasuke/">アプリ紹介ページ</a>
+        </div>
+      </div>
+
+      <p class="caption" style="margin-top:32px">このページは、アプリのバージョン 1.0（ビルド37）（2026年10月時点）の画面と動作をもとに書いています。画面の文言や配置は、今後のアップデートで変わることがあります。患者さんの名前と住所は説明用の架空のものです。</p>
+
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-copy">&copy; 2026 MEDICAL CRAFT LABORATORY　道路データ：&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>（<a href="https://houmon-roads.pages.dev/">ODbL</a>）</span>
+      <div class="footer-links">
+        <a href="/otasuke/">訪問診療お助けくん</a>
+        <a href="/otasuke/privacy/">プライバシーポリシー</a>
+        <a href="/otasuke/support/">サポート</a>
+        <a href="https://medicalcraft-lab.com">会社サイト</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

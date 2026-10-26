@@ -259,3 +259,17 @@ docs/otasuke/index.html
 docs/otasuke/privacy/index.html
 docs/otasuke/support/index.html
 docs/sitemap.xml
+
+## 2026-10-26 12:43
+docs/otasuke/guide/hajimekata/img/02_pin.jpg
+docs/otasuke/guide/hajimekata/img/03_clinic_map.jpg
+docs/otasuke/guide/hajimekata/img/04_patient.jpg
+docs/otasuke/guide/hajimekata/img/06_book.jpg
+docs/otasuke/guide/hajimekata/img/07_confirm.jpg
+docs/otasuke/guide/hajimekata/img/08_day.jpg
+docs/otasuke/guide/hajimekata/img/10_roads.jpg
+docs/otasuke/guide/hajimekata/img/11_backup.jpg
+docs/otasuke/guide/hajimekata/index.html
+docs/otasuke/index.html
+docs/otasuke/support/index.html
+docs/sitemap.xml
