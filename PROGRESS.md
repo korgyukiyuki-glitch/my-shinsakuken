@@ -277,3 +277,20 @@ docs/sitemap.xml
 ## 2026-10-27 23:09
 docs/kokuken/guide/hajimekata/index.html
 docs/sitemap.xml
+
+## 2026-10-28 08:44
+docs/kokuken/guide/hajimekata/index.html
+docs/kokuken/guide/hattatsu-tsukaikata/img/01_list.jpg
+docs/kokuken/guide/hattatsu-tsukaikata/img/02_form.jpg
+docs/kokuken/guide/hattatsu-tsukaikata/img/03_detail.jpg
+docs/kokuken/guide/hattatsu-tsukaikata/img/04_sheet_top.jpg
+docs/kokuken/guide/hattatsu-tsukaikata/img/05_sheet_checked.jpg
+docs/kokuken/guide/hattatsu-tsukaikata/img/06_patientmode.jpg
+docs/kokuken/guide/hattatsu-tsukaikata/img/07_sheet_bottom.jpg
+docs/kokuken/guide/hattatsu-tsukaikata/img/08_plan.jpg
+docs/kokuken/guide/hattatsu-tsukaikata/img/09_print_preview.jpg
+docs/kokuken/guide/hattatsu-tsukaikata/img/10_share_sheet.jpg
+docs/kokuken/guide/hattatsu-tsukaikata/img/11_pdf_check.jpg
+docs/kokuken/guide/hattatsu-tsukaikata/img/12_pdf_plan.jpg
+docs/kokuken/guide/hattatsu-tsukaikata/index.html
+docs/sitemap.xml
