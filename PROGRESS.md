@@ -273,3 +273,7 @@ docs/otasuke/guide/hajimekata/index.html
 docs/otasuke/index.html
 docs/otasuke/support/index.html
 docs/sitemap.xml
+
+## 2026-10-27 23:09
+docs/kokuken/guide/hajimekata/index.html
+docs/sitemap.xml

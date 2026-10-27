@@ -13,7 +13,7 @@
   <meta property="og:image" content="https://medicalcraft-lab.com/kokuken/ogp.png">
   <meta property="og:site_name" content="Medical Craft Laboratory">
   <meta property="article:published_time" content="2026-10-25">
-  <meta property="article:modified_time" content="2026-10-25">
+  <meta property="article:modified_time" content="2026-10-27">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="口腔機能管理くんの使い方──はじめての1人目を、患者登録から管理計画書の印刷まで">
   <meta name="twitter:description" content="サインインから管理計画書の印刷まで、実際の画面で6ステップ。つまずきやすい点もまとめました。">
@@ -29,7 +29,7 @@
       "description": "口腔機能管理くんを初めて使う方向けに、サインインとPINの設定から、検査の種類の選び方、患者登録、検査の入力と長押しでの保存、管理計画書の確認、PDF・印刷までを、実際の画面で説明します。",
       "inLanguage": "ja",
       "datePublished": "2026-10-25",
-      "dateModified": "2026-10-25",
+      "dateModified": "2026-10-27",
       "image": "https://medicalcraft-lab.com/kokuken/guide/hajimekata/img/07_plan.jpg",
       "mainEntityOfPage": "https://medicalcraft-lab.com/kokuken/guide/hajimekata/",
       "author": {
@@ -217,7 +217,7 @@
       border-radius: 10px; padding: 14px 18px; margin: 0 0 20px;
     }
     .note p { font-size: 13.5px; margin: 0; }
-    .note p + p { margin-top: 8px; }
+    .note p + p { margin-top: 10px; }
     blockquote {
       background: #fff; border: 1px solid var(--hairline); border-radius: 10px;
       padding: 14px 18px; margin: 0 0 12px; font-size: 13.5px; color: var(--ink-soft); line-height: 1.95;
@@ -231,6 +231,7 @@
     .faq-item h3 { margin: 0 0 6px; font-size: 15px; }
     .faq-item h3::before { content: "Q. "; color: var(--accent-deep); }
     .faq-item p { font-size: 14px; margin: 0; }
+    .faq-item p + p { margin-top: 10px; }
     .app-box {
       background: #fff; border: 1px solid var(--hairline); border-radius: 18px;
       padding: 28px 28px 24px; margin: 8px 0 12px;
@@ -293,6 +294,24 @@
     .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 18px 0 10px; }
     .shots .shot { margin: 0; max-width: none; }
     .shot.paper img { border-radius: 6px; }
+    /* 2026-10-27 読みやすさ＝各STEPの頭に1行・操作は番号つきの箱に1行ずつ */
+    .article p { margin-bottom: 20px; }
+    .article .lead { font-size: 15.5px; color: var(--ink); font-weight: 700; margin-bottom: 14px; }
+    .article ol.do {
+      list-style: none; counter-reset: do; margin: 0 0 24px; padding: 18px 20px 6px;
+      background: #fff; border: 1px solid var(--hairline); border-radius: 14px;
+    }
+    .article ol.do li {
+      counter-increment: do; position: relative; padding-left: 38px;
+      font-size: 15px; color: var(--ink); line-height: 1.9; margin-bottom: 14px;
+    }
+    .article ol.do li::before {
+      content: counter(do); position: absolute; left: 0; top: 2px;
+      width: 26px; height: 26px; border-radius: 50%;
+      background: var(--accent); color: #fff; font-family: var(--font-mono); font-size: 13px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .article .done { color: var(--ink); font-weight: 700; }
     .key { display: inline-block; background: #fff; border: 1px solid var(--hairline); border-radius: 6px; padding: 0 7px; font-size: 13px; color: var(--ink); font-weight: 700; }
     @media (max-width: 560px) {
       .shots { grid-template-columns: 1fr; }
@@ -333,13 +352,16 @@
       <div class="byline">
         <span><strong>執筆：歯科医師 和泉龍之介（Medical Craft Lab・アプリの開発者）</strong></span>
         <span>公開日 <time datetime="2026-10-25">2026年10月25日</time></span>
-        <span>最終更新日 <time datetime="2026-10-25">2026年10月25日</time></span>
+        <span>最終更新日 <time datetime="2026-10-27">2026年10月27日</time></span>
       </div>
 
-      <p>口腔機能管理くんをダウンロードしたあと、「最初に何をすればいいか」を、実際の画面で順番に説明します。口腔機能低下症の患者さんを1人登録し、検査を入力して、管理計画書を印刷するまでの流れです。</p>
+      <p>口腔機能管理くんをダウンロードしたあと、「最初に何をすればいいか」を、実際の画面で順番に説明します。</p>
+      <p>例として、口腔機能低下症の患者さんを1人登録し、検査を入力して、管理計画書を印刷するまでをたどります。</p>
 
       <div class="note">
-        <p>このページの画面は、<strong>バージョン 1.9.6 の iPad</strong> のものです。例として<strong>口腔機能低下症</strong>を使っています。患者は架空の「見本 花子」さん、数値も説明用の値です。iPhone でも手順は同じで、画面の並びが少し違うだけです。Android も流れは同じですが、サインインと印刷・保存のメニューが違います（STEP 1・STEP 6 に書きました）。ほかの検査の種類での違いは「<a href="#other-modes">ほかの検査の種類で使うとき</a>」にまとめました。</p>
+        <p>このページの画面は、<strong>バージョン 1.9.6 の iPad</strong> のものです。患者は架空の「見本 花子」さん、数値も説明用の値です。</p>
+        <p>iPhone でも手順は同じで、画面の並びが少し違うだけです。Android も流れは同じですが、サインインと印刷・保存のメニューが違います（STEP 1・STEP 6 に書きました）。</p>
+        <p>ほかの検査の種類での違いは「<a href="#other-modes">ほかの検査の種類で使うとき</a>」にまとめました。</p>
       </div>
 
       <div class="summary">
@@ -370,34 +392,64 @@
       </nav>
 
       <h2 id="step1"><span class="step-head"><span class="step-no">STEP 1</span>サインインして、PINを決める</span></h2>
-      <p>アプリを開くと、サインインの画面が出ます。iPhone・iPad では <span class="key">Apple でサインイン</span> か <span class="key">Google でサインイン</span>、Android では Google でサインインします。<strong>医院で1つのアカウントを決めて、すべての端末で同じアカウントを使ってください。</strong>同じアカウントでサインインすれば、どの端末でも同じ患者データが使えます。<strong>Apple でサインインは iPhone・iPad だけ</strong>なので、Android の端末も使う（または今後使うかもしれない）医院は、最初から医院の Google アカウントに揃えてください。</p>
+      <p class="lead">最初に1回だけ、サインインとPINの設定をします。</p>
+      <ol class="do">
+        <li>アプリを開くと、サインインの画面が出ます。</li>
+        <li>iPhone・iPad では <span class="key">Apple でサインイン</span> か <span class="key">Google でサインイン</span> を押します。Android では Google でサインインします。</li>
+        <li>PIN（4〜8桁の数字）を決める画面になります。数字を入れて <span class="key">次へ</span> を押します。</li>
+        <li>もう一度同じ数字を入れて、<span class="key">設定完了</span> を押します。</li>
+      </ol>
       <figure class="shot">
         <a href="img/01_signin.jpg" target="_blank" rel="noopener"><img src="img/01_signin.jpg" alt="サインイン画面。Apple でサインインと Google でサインインのボタンがある" width="758" height="1100" loading="lazy"></a>
         <figcaption>サインイン画面（iPad）</figcaption>
       </figure>
-      <p>サインインすると、<strong>PIN（4〜8桁の数字）</strong>を決める画面になります。数字を入れて <span class="key">次へ</span> を押し、もう一度同じ数字を入れて <span class="key">設定完了</span> を押します。PINは端末を開くときの鍵で、<strong>医院のアカウント共通</strong>です。2台目以降の端末では、新しく決めるのではなく、最初に決めたPINを入れます。</p>
       <div class="note">
-        <p>Apple でサインインするときに「メールを共有」と「メールを非公開」を選べます。サポートへのお問い合わせのときにアカウントを確かめやすいので、「メールを共有」をおすすめします。</p>
+        <p><strong>医院で1つのアカウントを決めて、すべての端末で同じアカウントを使ってください。</strong>同じアカウントでサインインすれば、どの端末でも同じ患者データが使えます。</p>
+        <p><strong>Apple でサインインは iPhone・iPad だけ</strong>です。Android の端末も使う（または今後使うかもしれない）医院は、最初から医院の Google アカウントに揃えてください。</p>
       </div>
+      <p>PINは、端末を開くときの鍵です。<strong>医院のアカウント共通</strong>なので、2台目以降の端末では新しく決めずに、最初に決めたPINを入れます。</p>
+      <p>Apple でサインインするときに「メールを共有」と「メールを非公開」を選べます。サポートへのお問い合わせのときにアカウントを確かめやすいので、「メールを共有」をおすすめします。</p>
 
       <h2 id="step2"><span class="step-head"><span class="step-no">STEP 2</span>ホームで検査の種類を選ぶ</span></h2>
-      <p>ホームには、検査の種類のカードが4つ並んでいます。<strong>口腔機能発達不全症・口腔機能低下症・歯周検査・咬筋検査</strong>です。これから行う検査のカードを押すと、患者一覧が開きます。今回は <span class="key">口腔機能低下症</span> を押します。</p>
+      <p class="lead">これから行う検査の種類を、ホームで先に選びます。</p>
+      <ol class="do">
+        <li>ホームに、検査の種類のカードが4つ並んでいます。<strong>口腔機能発達不全症・口腔機能低下症・歯周検査・咬筋検査</strong>です。</li>
+        <li>今回は <span class="key">口腔機能低下症</span> を押します。患者一覧が開きます。</li>
+        <li>患者一覧の左上に「低下症モード」と出ていれば、正しく選べています。</li>
+      </ol>
       <figure class="shot">
         <a href="img/02_home.jpg" target="_blank" rel="noopener"><img src="img/02_home.jpg" alt="ホーム画面。口腔機能発達不全症、口腔機能低下症、歯周検査、咬筋検査、見積書、同意書・承諾書、患者説明動画のカードが並ぶ" width="758" height="1100" loading="lazy"></a>
         <figcaption>ホーム。検査の種類のカードから始めます（数字や「再検査の時期」は説明用のデータのもの）</figcaption>
       </figure>
-      <p>患者一覧の画面の左上に「低下症モード」と出ていれば、正しく選べています。<strong>このあと始める評価は、ここで選んだ検査の種類になります。</strong>別の種類の検査をするときは、ホームに戻って別のカードを選びます。</p>
+      <p><strong>このあと始める評価は、ここで選んだ検査の種類になります。</strong></p>
+      <p>別の種類の検査をするときは、ホームに戻って別のカードを選びます。</p>
 
       <h2 id="step3"><span class="step-head"><span class="step-no">STEP 3</span>患者さんを登録する</span></h2>
-      <p>患者一覧の右上の <span class="key">+ 新規</span> を押すと、新規患者登録の画面になります。<strong>必須は患者名だけ</strong>です。生年月日を入れると年齢が自動で出ます。患者IDは、医院のカルテ番号などを入れておくと検索しやすくなります。</p>
+      <p class="lead">患者さんを1人登録します。</p>
+      <ol class="do">
+        <li>患者一覧の右上の <span class="key">+ 新規</span> を押します。</li>
+        <li>患者名を入れます。<strong>必須は患者名だけ</strong>です。</li>
+        <li>右上の <span class="key">保存</span> を押します（普通に押すだけで保存されます）。</li>
+      </ol>
       <figure class="shot">
         <a href="img/03_patient_form.jpg" target="_blank" rel="noopener"><img src="img/03_patient_form.jpg" alt="新規患者登録の画面。患者名、患者ID、生年月日、性別、体重・身長、連絡先、担当医、初診日の欄がある" width="758" height="1100" loading="lazy"></a>
         <figcaption>新規患者登録。右上の「保存」は普通に押すだけで保存されます</figcaption>
       </figure>
-      <p>入力したら右上の <span class="key">保存</span> を押します。患者一覧の上で「すべての患者」が選ばれていれば、検査の種類に関係なく、登録したすべての患者が並びます（「低下症の患者」などに切り替えると、その検査の評価がある患者と、その検査の種類を選んで登録した患者だけになります。見つからないときは「すべての患者」に戻してください）。同じ患者さんを、あとで別の種類の検査にも使えます。</p>
+      <p>生年月日を入れると、年齢が自動で出ます。患者IDに医院のカルテ番号などを入れておくと、検索しやすくなります。</p>
+      <p>登録した患者さんは、あとで別の種類の検査にも使えます。</p>
+      <div class="note">
+        <p>患者一覧の上で「すべての患者」が選ばれていれば、検査の種類に関係なく、登録したすべての患者が並びます。</p>
+        <p>「低下症の患者」などに切り替えると、その検査の評価がある患者と、その検査の種類を選んで登録した患者だけになります。見つからないときは「すべての患者」に戻してください。</p>
+      </div>
 
       <h2 id="step4"><span class="step-head"><span class="step-no">STEP 4</span>検査を入力して、長押しで保存する</span></h2>
-      <p>患者一覧で患者さんの名前を押すと、患者詳細が開きます。いちばん上の青いボタン <span class="key">低下症の新規評価を開始</span> を押すと、検査の入力画面になります。</p>
+      <p class="lead">検査の値を入れて、長押しで保存します。</p>
+      <ol class="do">
+        <li>患者一覧で患者さんの名前を押すと、患者詳細が開きます。</li>
+        <li>いちばん上の青いボタン <span class="key">低下症の新規評価を開始</span> を押します。</li>
+        <li>7項目（K1〜K7）のカードに、測った値を入れていきます。</li>
+        <li>右上の <span class="key">保存（長押し）</span> か、いちばん下の <span class="key">評価を保存（長押し）</span> を、<strong>約1秒押し続けます</strong>。</li>
+      </ol>
       <div class="shots">
         <figure class="shot">
           <a href="img/04_patient_detail.jpg" target="_blank" rel="noopener"><img src="img/04_patient_detail.jpg" alt="患者詳細の画面。低下症の新規評価を開始のボタン、算定ガイド、トレーニング記録のボタンがある" width="758" height="1100" loading="lazy"></a>
@@ -408,27 +460,39 @@
           <figcaption>検査の入力。数値を入れると、該当・非該当がすぐ出ます</figcaption>
         </figure>
       </div>
-      <p>7項目（K1〜K7）のカードに、測った値を入れていきます。各項目の上のボタンで<strong>検査方法を切り替えられます</strong>（舌苔の図と細菌カウンタ、口腔水分計とサクソンテスト、など）。値を入れると、その項目が該当かどうかと、いくつ該当したかが画面の上に出ます。<strong>測っていない項目は空欄のまま</strong>で保存できます。</p>
+      <p>各項目の上のボタンで、<strong>検査方法を切り替えられます</strong>（舌苔の図と細菌カウンタ、口腔水分計とサクソンテスト、など）。</p>
+      <p>値を入れると、その項目が該当かどうかと、いくつ該当したかが画面の上に出ます。<strong>測っていない項目は空欄のまま</strong>で保存できます。</p>
       <div class="note">
         <p><strong>空欄の項目は、画面とPDFでは「非該当」と表示されます。</strong>「非該当」は「入力した値では基準に当てはまらない」か「測っていない」のどちらかで、正常だと確かめたという意味ではありません。PDFでは測っていない項目の測定値が「-」になります。</p>
         <p>該当・非該当の表示や書類は、入力した値を学会の基準値に照らして集計したものです。診断は歯科医師が行い、算定の要件は告示・通知で確かめてください（このアプリは医療機器ではありません）。</p>
       </div>
-      <p>入力が終わったら、右上の <span class="key">保存（長押し）</span> か、画面のいちばん下の <span class="key">評価を保存（長押し）</span> を、<strong>約1秒押し続けます</strong>。押し間違いを防ぐための長押しです。普通に押しただけでは保存されません。</p>
+      <p>保存のボタンが長押しなのは、押し間違いを防ぐためです。<strong>普通に押しただけでは保存されません。</strong></p>
       <figure class="shot">
         <a href="img/06_save_done.jpg" target="_blank" rel="noopener"><img src="img/06_save_done.jpg" alt="保存完了の表示。陽性3項目／7項目、口腔機能低下症 該当" width="758" height="1100" loading="lazy"></a>
         <figcaption>保存できると「保存完了」が出て、管理計画書の画面に進みます</figcaption>
       </figure>
 
       <h2 id="step5"><span class="step-head"><span class="step-no">STEP 5</span>管理計画書を確かめて保存する</span></h2>
-      <p>評価を保存すると、<strong>管理計画書の画面が自動で開きます</strong>。レーダーチャートと傷病名の下に、該当した項目ごとの「問題点」と「管理計画」が、ひな形の文で入っています。いちばん下には「総合管理計画」があります。</p>
+      <p class="lead">評価を保存すると、管理計画書の画面が自動で開きます。</p>
+      <p>レーダーチャートと傷病名の下に、該当した項目ごとの「問題点」と「管理計画」が、ひな形の文で入っています。いちばん下には「総合管理計画」があります。</p>
       <figure class="shot">
         <a href="img/07_plan.jpg" target="_blank" rel="noopener"><img src="img/07_plan.jpg" alt="管理計画書の画面。口腔機能レーダーチャート、傷病名 口腔機能低下症、該当項目ごとの問題点と管理計画の欄" width="758" height="1100" loading="lazy"></a>
         <figcaption>管理計画書。ひな形の文は、患者さんに合わせて書き換えられます</figcaption>
       </figure>
-      <p>文は自由に書き換えられます。内容を確かめたら、画面の下の <span class="key">保存</span> を押します（これは普通に押すだけです）。あとから直したいときは、患者詳細の評価履歴から、その評価の管理計画書を開けます。</p>
+      <ol class="do">
+        <li>内容を確かめて、必要なら患者さんに合わせて書き換えます。</li>
+        <li>画面の下の <span class="key">保存</span> を押します（普通に押すだけです）。</li>
+      </ol>
+      <p>あとから直したいときは、患者詳細の評価履歴から、その評価の管理計画書を開けます。</p>
 
       <h2 id="step6"><span class="step-head"><span class="step-no">STEP 6</span>PDFを作って印刷する</span></h2>
-      <p>管理計画書の画面の右上の <span class="key">PDF</span> を押すと、印刷プレビューが開きます（このとき計画も保存されます）。患者詳細の評価の行にある <span class="key">印刷</span> からも開けます。</p>
+      <p class="lead">PDFを作って、印刷または保存します。</p>
+      <ol class="do">
+        <li>管理計画書の画面の右上の <span class="key">PDF</span> を押すと、印刷プレビューが開きます（このとき計画も保存されます）。</li>
+        <li>画面のいちばん下の <span class="key">PDFを保存 / 印刷 / 共有（長押し）</span> を、<strong>約2秒押し続けます</strong>。</li>
+        <li>PDFができて、共有のメニューが開きます。</li>
+        <li>iPhone・iPad では <span class="key">プリント</span> でAirPrint対応のプリンターから印刷、<span class="key">"ファイル"に保存</span> で端末やクラウドに保存できます。</li>
+      </ol>
       <div class="shots">
         <figure class="shot">
           <a href="img/08_print_preview.jpg" target="_blank" rel="noopener"><img src="img/08_print_preview.jpg" alt="印刷プレビューの画面。患者情報、担当医（この書類）の入力欄、該当3/7項目、検査結果の表" width="758" height="1100" loading="lazy"></a>
@@ -439,7 +503,8 @@
           <figcaption>「PDFを保存 / 印刷 / 共有」を約2秒長押しすると、このメニューが開きます</figcaption>
         </figure>
       </div>
-      <p>画面のいちばん下の <span class="key">PDFを保存 / 印刷 / 共有（長押し）</span> を<strong>約2秒押し続ける</strong>と、PDFができて共有のメニューが開きます。iPhone・iPad では <span class="key">プリント</span> でAirPrint対応のプリンターから印刷、<span class="key">"ファイル"に保存</span> で端末やクラウドに保存できます。Android では端末の共有メニューが開くので、PDFを開けるアプリや印刷に対応したアプリを選んで保存・印刷します。</p>
+      <p>印刷プレビューは、患者詳細の評価の行にある <span class="key">印刷</span> からも開けます。</p>
+      <p>Android では、端末の共有メニューが開きます。PDFを開けるアプリや、印刷に対応したアプリを選んで、保存・印刷します。</p>
       <div class="shots">
         <figure class="shot paper">
           <a href="img/11_pdf_result.jpg" target="_blank" rel="noopener"><img src="img/11_pdf_result.jpg" alt="PDFの1ページ目。口腔機能低下症 検査結果の表" width="850" height="1100" loading="lazy"></a>
@@ -450,8 +515,10 @@
           <figcaption>PDFの2ページ目：管理計画書</figcaption>
         </figure>
       </div>
-      <p>口腔機能低下症のPDFは、標準では<strong>1ページ目が検査結果、2ページ目が管理計画書</strong>の2ページです（自由記載が長いとページが増えます）。上の例では、測っていない K4・K6・K7 は測定値が「-」で「非該当」と出ています。患者IDや、検査した人の名前、日付・署名欄を入れるかどうかは、ホームの <span class="key">⚙️ データ管理</span> の「管理計画書の設定」で選べます。</p>
-      <p>これで1人目は完了です。2人目からは、STEP 2〜6 のくり返しです。</p>
+      <p>口腔機能低下症のPDFは、標準では<strong>1ページ目が検査結果、2ページ目が管理計画書</strong>の2ページです（自由記載が長いとページが増えます）。</p>
+      <p>上の例では、測っていない K4・K6・K7 は測定値が「-」で「非該当」と出ています。</p>
+      <p>患者IDや、検査した人の名前、日付・署名欄を入れるかどうかは、ホームの <span class="key">⚙️ データ管理</span> の「管理計画書の設定」で選べます。</p>
+      <p class="done">これで1人目は完了です。2人目からは、STEP 2〜6 のくり返しです。</p>
 
       <h2 id="other-modes">ほかの検査の種類で使うとき</h2>
       <p>流れは同じですが、検査の種類によって、保存したあとに進む画面と、作れる書類が違います。</p>
@@ -493,27 +560,36 @@
       <h2 id="faq">つまずいたとき（よくある質問）</h2>
       <div class="faq-item">
         <h3>「評価を保存」を押しても保存されません。</h3>
-        <p>検査の保存ボタンは、押し間違いを防ぐために<strong>長押し</strong>です。ボタンを約1秒押し続けてください。印刷画面の「PDFを保存 / 印刷 / 共有」は約2秒の長押しです。患者登録の「保存」と管理計画書の「保存」は、普通に押すだけで保存されます。</p>
+        <p>検査の保存ボタンは、押し間違いを防ぐために<strong>長押し</strong>です。ボタンを約1秒押し続けてください。</p>
+        <p>印刷画面の「PDFを保存 / 印刷 / 共有」は約2秒の長押しです。患者登録の「保存」と管理計画書の「保存」は、普通に押すだけで保存されます。</p>
       </div>
       <div class="faq-item">
         <h3>印刷画面に「PDFを保存 / 印刷 / 共有」のボタンが出ません。</h3>
-        <p>口腔機能低下症と口腔機能発達不全症では、<strong>管理計画書を保存するまで</strong>印刷のボタンは出ません。患者詳細の評価履歴から評価を開き、管理計画書の画面で「保存」を押してから、もう一度印刷画面を開いてください。該当した項目が1つもなく、総合管理計画も空のまま保存した場合もボタンは出ないので、総合管理計画に方針を書いて保存してください。</p>
+        <p>口腔機能低下症と口腔機能発達不全症では、<strong>管理計画書を保存するまで</strong>印刷のボタンは出ません。</p>
+        <p>患者詳細の評価履歴から評価を開き、管理計画書の画面で「保存」を押してから、もう一度印刷画面を開いてください。</p>
+        <p>該当した項目が1つもなく、総合管理計画も空のまま保存した場合もボタンは出ません。総合管理計画に方針を書いて保存してください。</p>
       </div>
       <div class="faq-item">
         <h3>患者登録の画面で、検査の種類を選べません。</h3>
-        <p>検査の種類は、患者登録の前に<strong>ホームのカードで選びます</strong>。患者さんは検査の種類に関係なく1回登録すれば、どの種類の検査にも使えます。別の種類の評価を始めるときは、ホームに戻ってカードを選び直し、患者一覧からその患者さんを開いてください。</p>
+        <p>検査の種類は、患者登録の前に<strong>ホームのカードで選びます</strong>。患者さんは検査の種類に関係なく1回登録すれば、どの種類の検査にも使えます。</p>
+        <p>別の種類の評価を始めるときは、ホームに戻ってカードを選び直し、患者一覧からその患者さんを開いてください。</p>
       </div>
       <div class="faq-item">
         <h3>無料でどこまで使えますか？</h3>
-        <p>患者の登録は無制限です。検査の評価は、<strong>検査の種類ごとに、評価を保存した患者4人まで</strong>無料で使えます（発達不全症4人、低下症4人、歯周検査4人、咬筋検査4人）。同じ患者の再評価や、保存済みの評価の修正は人数に数えません。5人目の患者の最初の評価を保存するときに、有料プランへの登録が必要になります。有料プランは、対象となる場合に1か月の無料トライアルがあります（適用されるかは購入画面の表示で確かめられます。トライアルが終わると自動で課金が始まります）。料金は<a href="/kokuken/#pricing">アプリ紹介ページ</a>をご覧ください。</p>
+        <p>患者の登録は無制限です。検査の評価は、<strong>検査の種類ごとに、評価を保存した患者4人まで</strong>無料で使えます（発達不全症4人、低下症4人、歯周検査4人、咬筋検査4人）。</p>
+        <p>同じ患者の再評価や、保存済みの評価の修正は人数に数えません。5人目の患者の最初の評価を保存するときに、有料プランへの登録が必要になります。</p>
+        <p>有料プランは、対象となる場合に1か月の無料トライアルがあります（適用されるかは購入画面の表示で確かめられます。トライアルが終わると自動で課金が始まります）。料金は<a href="/kokuken/#pricing">アプリ紹介ページ</a>をご覧ください。</p>
       </div>
       <div class="faq-item">
         <h3>PINを忘れました。</h3>
-        <p>PINの入力画面の下にある「PINを忘れた場合」を押し、<strong>同じアカウントでサインインし直す</strong>と、新しいPINを設定できます。患者データは消えません。PINは医院のアカウント共通なので、新しいPINはほかの端末にも反映されます。PINを覚えているときは、データ管理の「PINを変更」から変えられます。</p>
+        <p>PINの入力画面の下にある「PINを忘れた場合」を押し、<strong>同じアカウントでサインインし直す</strong>と、新しいPINを設定できます。患者データは消えません。</p>
+        <p>PINは医院のアカウント共通なので、新しいPINはほかの端末にも反映されます。PINを覚えているときは、データ管理の「PINを変更」から変えられます。</p>
       </div>
       <div class="faq-item">
         <h3>別のiPadやiPhoneでも使えますか？</h3>
-        <p>使えます。最初の端末と<strong>同じアカウント（Apple または Google）でサインインし、同じPINを入力</strong>すると、同じ患者データを使えます。違うアカウントでサインインすると、別の医院として空の状態から始まるので注意してください。端末どうしの反映には通信が必要です。PINを変えたあとは、ほかの端末を通信できる状態で開いてください。</p>
+        <p>使えます。最初の端末と<strong>同じアカウント（Apple または Google）でサインインし、同じPINを入力</strong>すると、同じ患者データを使えます。</p>
+        <p>違うアカウントでサインインすると、別の医院として空の状態から始まるので注意してください。</p>
+        <p>端末どうしの反映には通信が必要です。PINを変えたあとは、ほかの端末を通信できる状態で開いてください。</p>
       </div>
       <div class="faq-item">
         <h3>同じ患者さんを2回登録してしまいました。</h3>
