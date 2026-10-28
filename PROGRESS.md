@@ -294,3 +294,7 @@ docs/kokuken/guide/hattatsu-tsukaikata/img/11_pdf_check.jpg
 docs/kokuken/guide/hattatsu-tsukaikata/img/12_pdf_plan.jpg
 docs/kokuken/guide/hattatsu-tsukaikata/index.html
 docs/sitemap.xml
+
+## 2026-10-28 14:40
+docs/kokuken/guide/hajimekata/index.html
+docs/kokuken/guide/hattatsu-tsukaikata/index.html
