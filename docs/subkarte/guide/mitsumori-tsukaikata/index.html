@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>見積書の使い方──料金マスタの登録から承諾書の署名・成約の記録まで｜歯科サブカルテ&amp;コンサルくん 解説ガイド</title>
+  <meta name="description" content="歯科サブカルテ&amp;コンサルくんの見積書の使い方を、実際の画面で説明します。料金マスタへの医院の料金の登録、歯を選んで治療を足す見積もり、値引き、比較案、患者さんへの比較表示、PDF、承諾書の電子サインと成約の記録、見積もりの状況と実績まで。">
+  <link rel="canonical" href="https://medicalcraft-lab.com/subkarte/guide/mitsumori-tsukaikata/">
+  <link rel="icon" href="/subkarte/img/icon.png">
+  <meta name="theme-color" content="#FBF7F1">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://medicalcraft-lab.com/subkarte/guide/mitsumori-tsukaikata/">
+  <meta property="og:title" content="見積書の使い方──料金マスタの登録から承諾書の署名・成約の記録まで">
+  <meta property="og:description" content="医院の料金を入れておけば、歯を選んで治療を足すだけで見積書になります。比較案、患者さんへの比較表示、PDF、承諾書の署名と成約の記録まで、実際の画面で10ステップ。">
+  <meta property="og:image" content="https://medicalcraft-lab.com/subkarte/guide/mitsumori-tsukaikata/img/16_compare.jpg">
+  <meta property="og:site_name" content="Medical Craft Laboratory">
+  <meta property="article:published_time" content="2026-10-29">
+  <meta property="article:modified_time" content="2026-10-29">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="見積書の使い方──料金マスタの登録から承諾書の署名・成約の記録まで">
+  <meta name="twitter:description" content="歯を選んで治療を足すだけで見積書に。比較案、PDF、承諾書の署名と成約の記録まで、実際の画面で10ステップ。">
+  <meta name="twitter:image" content="https://medicalcraft-lab.com/subkarte/guide/mitsumori-tsukaikata/img/16_compare.jpg">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://medicalcraft-lab.com/subkarte/guide/mitsumori-tsukaikata/#article",
+      "headline": "見積書の使い方──料金マスタの登録から承諾書の署名・成約の記録まで",
+      "description": "歯科サブカルテ&コンサルくんで、料金マスタに医院の料金を登録し、歯を選んで治療を足して見積書を作り、値引きと比較案を入れて患者さんに見せ、PDFを出し、承諾書に電子サインをもらって成約を記録し、見積もりの状況と実績を見るまでを、実際の画面で説明します。",
+      "inLanguage": "ja",
+      "datePublished": "2026-10-29",
+      "dateModified": "2026-10-29",
+      "image": "https://medicalcraft-lab.com/subkarte/guide/mitsumori-tsukaikata/img/16_compare.jpg",
+      "mainEntityOfPage": "https://medicalcraft-lab.com/subkarte/guide/mitsumori-tsukaikata/",
+      "author": {
+        "@type": "Person",
+        "name": "和泉龍之介",
+        "jobTitle": "歯科医師",
+        "worksFor": { "@id": "https://medicalcraft-lab.com/#org" }
+      },
+      "publisher": { "@id": "https://medicalcraft-lab.com/#org" },
+      "about": { "@type": "SoftwareApplication", "name": "歯科サブカルテ&コンサルくん", "applicationCategory": "MedicalApplication", "operatingSystem": "iOS, iPadOS" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://medicalcraft-lab.com/#org",
+      "name": "Medical Craft Laboratory",
+      "url": "https://medicalcraft-lab.com",
+      "logo": "https://medicalcraft-lab.com/apple-touch-icon.png"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Medical Craft Laboratory", "item": "https://medicalcraft-lab.com/" },
+        { "@type": "ListItem", "position": 2, "name": "歯科サブカルテ&コンサルくん", "item": "https://medicalcraft-lab.com/subkarte/" },
+        { "@type": "ListItem", "position": 3, "name": "見積書の使い方", "item": "https://medicalcraft-lab.com/subkarte/guide/mitsumori-tsukaikata/" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "無料でどこまで使えますか？",
+          "acceptedAnswer": { "@type": "Answer", "text": "見積書は3件まで、期限なく無料で作れます。無料トライアル中と有料プランの契約中は、件数の上限なく作れます。同意書・承諾書の作成と電子サインは、書類として保存される性質上、有料プランの本契約後にご利用いただけます（無料トライアル中は対象外です）。" }
+        },
+        {
+          "@type": "Question",
+          "name": "料金マスタの金額を変えると、作った見積書の金額も変わりますか？",
+          "acceptedAnswer": { "@type": "Answer", "text": "変わりません。見積書の明細には、作った時点の金額が入ります。料金マスタの金額を変えたり、項目を隠したり削除したりしても、保存済みの見積書はそのままです。" }
+        },
+        {
+          "@type": "Question",
+          "name": "見積書そのものにも署名をもらえますか？",
+          "acceptedAnswer": { "@type": "Answer", "text": "もらえます。見積書の画面の「署名する（電子サイン）」から署名すると、署名入りの見積書のPDFになります。ただし「成約」の記録になるのは、見積承諾書に署名したときです。見積書への署名だけでは成約になりません。" }
+        },
+        {
+          "@type": "Question",
+          "name": "成約を間違えて記録しました。取り消せますか？",
+          "acceptedAnswer": { "@type": "Answer", "text": "取り消せます。「見積もりの状況」の下の「最近の処理」から、その見積書の「未確定に戻す」を押してください。成約・見送りの記録が外れて、未確定の一覧に戻ります。「最近の処理」に出るのは、直近の10件です。" }
+        },
+        {
+          "@type": "Question",
+          "name": "署名したあとで承諾書を直せますか？",
+          "acceptedAnswer": { "@type": "Answer", "text": "直せますが、保存すると署名は無効になり、もう一度署名が必要になります。そのとき、それまでの署名済みのPDFは削除されます。残したいときは、直す前に「PDF共有」から印刷するかファイルに保存してください。成約の記録はそのまま残るので、選ぶ案が変わるときは「見積もりの状況」で直してください。" }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #FBF7F1;
+      --paper-deep: #F3ECE2;
+      --ink: #2A2421;
+      --ink-soft: #5C524C;
+      --ink-faint: #8E837B;
+      --rule: #E4D9CC;
+      --rose: #C4455C;
+      --rose-deep: #9E3147;
+      --rose-wash: #F7E4E3;
+      --white: #FFFFFF;
+      --serif: "Shippori Mincho", "Hiragino Mincho ProN", "Yu Mincho", serif;
+      --sans: "Zen Kaku Gothic New", "Hiragino Sans", "Noto Sans JP", sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans); color: var(--ink); background: var(--paper);
+      line-height: 1.9; font-size: 16px; -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
+
+    /* ---------- nav（LP と共通） ---------- */
+    .nav {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(251, 247, 241, 0.9); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--rule);
+    }
+    .nav-inner { display: flex; align-items: center; gap: 24px; height: 62px; }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; margin-right: auto; }
+    .brand img { width: 34px; height: 34px; border-radius: 9px; }
+    .brand b { font-family: var(--serif); font-size: 16px; font-weight: 700; letter-spacing: 0.02em; }
+    .nav a.link {
+      font-size: 14px; text-decoration: none; color: var(--ink-soft); padding-bottom: 3px;
+      background: linear-gradient(var(--rose), var(--rose)) left bottom / 0 2px no-repeat; transition: background-size .3s, color .3s;
+    }
+    .nav a.link:hover { background-size: 100% 2px; color: var(--ink); }
+    .nav a.get {
+      font-size: 14px; font-weight: 700; text-decoration: none; color: var(--white); white-space: nowrap;
+      background: var(--ink); padding: 8px 18px; border-radius: 999px;
+    }
+    @media (max-width: 720px) { .nav a.link { display: none; } .brand b { font-size: 13.5px; white-space: nowrap; } .brand img { width: 30px; height: 30px; } .nav-inner { gap: 12px; } .nav a.get { padding: 7px 14px; font-size: 13px; } }
+
+    /* ---------- article ---------- */
+    .article { padding: 48px 0 72px; }
+    .article-wrap { max-width: 780px; margin: 0 auto; padding: 0 28px; }
+    .article [id] { scroll-margin-top: 78px; }
+    .kicker { font-size: 13px; letter-spacing: 0.14em; color: var(--rose-deep); }
+    .breadcrumb { font-size: 12.5px; color: var(--ink-faint); margin-bottom: 26px; }
+    .breadcrumb ol { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; }
+    .breadcrumb li + li::before { content: "›"; margin-right: 6px; color: var(--ink-faint); }
+    .breadcrumb a { color: var(--ink-soft); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .article h1 {
+      font-family: var(--serif); font-weight: 700; font-size: clamp(25px, 3.4vw, 36px);
+      line-height: 1.55; letter-spacing: 0.01em; margin: 14px 0 20px;
+    }
+    .article h1 .h1-sub {
+      display: block; font-size: 0.6em; line-height: 1.7; color: var(--ink-soft); margin-top: 10px;
+    }
+    .article h1, .article h2, .article h3 { word-break: auto-phrase; text-wrap: pretty; }
+    .byline {
+      display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 12.5px; color: var(--ink-faint);
+      border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 12px 0; margin-bottom: 30px;
+    }
+    .byline strong { color: var(--ink-soft); font-weight: 700; }
+    .article p { font-size: 15.5px; color: var(--ink-soft); line-height: 2.0; margin: 0 0 20px; }
+    .article p strong, .article li strong { color: var(--ink); }
+    .article h2 {
+      font-family: var(--serif); font-weight: 700; font-size: clamp(21px, 2.6vw, 27px); line-height: 1.6;
+      margin: 56px 0 18px; padding-top: 28px; border-top: 1px solid var(--rule);
+    }
+    .article h3 { font-family: var(--serif); font-size: 17px; font-weight: 700; margin: 30px 0 10px; line-height: 1.6; }
+    .article ul, .article ol { margin: 0 0 18px 1.4em; }
+    .article li { font-size: 15px; color: var(--ink-soft); line-height: 1.95; margin-bottom: 6px; }
+    .article a { color: var(--rose-deep); font-weight: 700; text-decoration: none; text-underline-offset: 4px; }
+    .article a:hover { text-decoration: underline; }
+    .summary { background: var(--white); border: 1px solid var(--rule); border-radius: 6px; padding: 22px 26px; margin: 8px 0 30px; }
+    .summary .kicker { display: block; margin-bottom: 8px; }
+    .summary ul { margin-bottom: 0; }
+    .toc { border-left: 2px solid var(--rose); padding: 4px 0 4px 18px; margin: 0 0 12px; }
+    .toc p { font-size: 12.5px; letter-spacing: 0.14em; color: var(--ink-faint); margin-bottom: 6px; }
+    .toc ol { margin: 0 0 0 1.2em; }
+    .toc li { font-size: 14px; margin-bottom: 2px; }
+    .article .toc a { font-weight: 500; color: var(--ink-soft); }
+    .note { background: var(--white); border: 1px solid var(--rule); border-left: 3px solid var(--rose); border-radius: 4px; padding: 14px 18px; margin: 0 0 20px; }
+    .note p { font-size: 14px; margin: 0; }
+    .note p + p { margin-top: 8px; }
+    .faq-item { border-bottom: 1px solid var(--rule); padding: 16px 2px; }
+    .faq-item:first-of-type { border-top: 1px solid var(--rule); }
+    .faq-item h3 { margin: 0 0 6px; font-size: 16px; font-family: var(--sans); }
+    .faq-item h3::before { content: "Q. "; color: var(--rose); }
+    .faq-item p { font-size: 14.5px; margin: 0; }
+    .app-box {
+      background: var(--white); border: 1px solid var(--rule); border-radius: 6px; padding: 28px 28px 24px; margin: 8px 0 12px;
+      display: grid; grid-template-columns: 64px 1fr; gap: 18px; align-items: start;
+    }
+    .app-box img { width: 64px; height: 64px; border-radius: 15px; }
+    .app-box p { font-size: 14.5px; }
+    .app-box .small { font-size: 12.5px; color: var(--ink-faint); margin-bottom: 14px; }
+    .btn-lp {
+      display: inline-block; background: var(--ink); color: var(--white) !important; padding: 11px 24px; border-radius: 999px;
+      font-size: 13.5px; font-weight: 700; text-decoration: none !important; transition: opacity .2s;
+    }
+    .btn-lp:hover { opacity: 0.85; }
+    .caption { font-size: 12.5px; color: var(--ink-faint); margin: 0 0 24px; line-height: 1.8; }
+
+    /* 使い方ページだけの部品（口腔機能管理くんの使い方ガイドと同じ型） */
+    .step-head { display: flex; align-items: baseline; gap: 12px; }
+    .step-no {
+      font-family: var(--sans); font-size: 12px; letter-spacing: 0.12em; font-weight: 700;
+      color: var(--white); background: var(--rose); border-radius: 999px;
+      padding: 3px 11px; white-space: nowrap; position: relative; top: -3px;
+    }
+    .shot { margin: 18px auto 10px; max-width: 460px; }
+    .shot img {
+      border: 1px solid var(--rule); border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(42, 36, 33, 0.08); background: var(--white);
+    }
+    .shot figcaption { font-size: 12px; color: var(--ink-faint); text-align: center; margin-top: 8px; line-height: 1.7; }
+    .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 18px 0 10px; }
+    .shots .shot { margin: 0; max-width: none; }
+    .shot.wide { max-width: 620px; }
+    .shot.paper img { border-radius: 6px; }
+    .article .lead { font-size: 15.5px; color: var(--ink); font-weight: 700; margin-bottom: 14px; }
+    .article ol.do {
+      list-style: none; counter-reset: do; margin: 0 0 24px; padding: 18px 20px 6px;
+      background: var(--white); border: 1px solid var(--rule); border-radius: 12px;
+    }
+    .article ol.do li {
+      counter-increment: do; position: relative; padding-left: 38px;
+      font-size: 15px; color: var(--ink); line-height: 1.9; margin-bottom: 14px;
+    }
+    .article ol.do li::before {
+      content: counter(do); position: absolute; left: 0; top: 2px;
+      width: 26px; height: 26px; border-radius: 50%;
+      background: var(--rose); color: var(--white); font-size: 13px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .key { display: inline-block; background: var(--white); border: 1px solid var(--rule); border-radius: 6px; padding: 0 7px; font-size: 13px; color: var(--ink); font-weight: 700; }
+
+    /* ---------- footer（LP と共通） ---------- */
+    footer { padding: 30px 0 46px; font-size: 13px; color: var(--ink-faint); border-top: 1px solid var(--rule); }
+    footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    footer a { text-decoration: none; margin-left: 20px; }
+    footer a:first-child { margin-left: 0; }
+
+    @media (max-width: 560px) {
+      .article { padding-top: 36px; }
+      .article-wrap { padding: 0 18px; }
+      .app-box { grid-template-columns: 1fr; padding: 22px 20px; }
+      .summary { padding: 18px 18px; }
+      .shots { grid-template-columns: 1fr; }
+      .article ol.do { padding: 16px 14px 4px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a href="/subkarte/" class="brand">
+        <img src="/subkarte/img/icon.png" alt="">
+        <b>歯科サブカルテ&amp;コンサルくん</b>
+      </a>
+      <a class="link" href="/subkarte/">アプリ紹介</a>
+      <a class="link" href="/subkarte/#ryokin">料金</a>
+      <a class="link" href="/subkarte/support/">サポート</a>
+      <a class="get" href="https://apps.apple.com/jp/app/id6795446867?ct=sk_guide_mitsumori&amp;mt=8" target="_blank" rel="noopener">App Store</a>
+    </div>
+  </nav>
+
+  <main class="article">
+    <article class="article-wrap">
+      <nav class="breadcrumb" aria-label="パンくずリスト">
+        <ol>
+          <li><a href="/">Medical Craft Laboratory</a></li>
+          <li><a href="/subkarte/">歯科サブカルテ&amp;コンサルくん</a></li>
+          <li>見積書の使い方</li>
+        </ol>
+      </nav>
+
+      <p class="kicker">GUIDE — 使い方</p>
+      <h1>見積書の使い方<span class="h1-sub">──料金マスタの登録から承諾書の署名・成約の記録まで</span></h1>
+      <div class="byline">
+        <span><strong>執筆・監修：歯科医師 和泉龍之介（Medical Craft Lab）</strong></span>
+        <span>公開日 <time datetime="2026-10-29">2026年10月29日</time></span>
+        <span>最終更新日 <time datetime="2026-10-29">2026年10月29日</time></span>
+      </div>
+
+      <p>「歯科サブカルテ&amp;コンサルくん」の見積書の作り方を、実際の画面で順に説明します。最初に医院の料金を一度入れておけば、あとは<strong>歯を選んで治療を足すだけ</strong>で、歯式の図が入った見積書になります。</p>
+      <p>この記事の画面は iPad 版で、患者さんは架空の「サンプル見積」さん、担当者も架空の名前です。料金は、筆者の医院の自費の料金表を使っています。</p>
+
+      <div class="summary">
+        <span class="kicker">POINTS — この記事の要点</span>
+        <ul>
+          <li>最初に<strong>料金マスタ</strong>へ医院の料金を入れる。ブリッジは支台とポンティックの単価を別々に持てる</li>
+          <li>見積書は<strong>歯を選ぶ → 料金表から治療を選ぶ</strong>だけ。値引きは金額でも％でも入れられる</li>
+          <li>インプラントとブリッジのように、<strong>比べたい案を最大3つ</strong>まで並べられる。患者さんへの比較表示は保存しなくても出せる</li>
+          <li>保存した見積書から<strong>見積承諾書</strong>を作り、患者さんに署名してもらうと、その案が自動で<strong>「成約」</strong>として記録される</li>
+          <li>「見積もりの状況」で未確定の見積もりを追い、「実績」で成約率と金額を治療別・担当者別に見られる</li>
+        </ul>
+      </div>
+
+      <nav class="toc" aria-label="目次">
+        <p>CONTENTS</p>
+        <ol>
+          <li><a href="#step1">料金マスタに医院の料金を入れる</a></li>
+          <li><a href="#step2">見積書を作り始める</a></li>
+          <li><a href="#step3">治療名と有効期限を入れる</a></li>
+          <li><a href="#step4">歯を選んで、料金表から治療を足す</a></li>
+          <li><a href="#step5">値引きを入れる</a></li>
+          <li><a href="#step6">比較案を足す（例：ブリッジ）</a></li>
+          <li><a href="#step7">担当医・担当者を入れて、患者さんに見せる</a></li>
+          <li><a href="#step8">PDF を確かめて、保存する</a></li>
+          <li><a href="#step9">見積承諾書に署名してもらう（成約の記録）</a></li>
+          <li><a href="#step10">見積もりの状況と実績を見る</a></li>
+          <li><a href="#faq">よくある質問</a></li>
+        </ol>
+      </nav>
+
+      <h2 id="step1"><span class="step-head"><span class="step-no">STEP 1</span>料金マスタに医院の料金を入れる</span></h2>
+      <p class="lead">最初に一度だけ、医院の自費の料金を「料金マスタ」に入れておきます。</p>
+      <ol class="do">
+        <li>ホームの <span class="key">見積書</span> を押し、右上の <span class="key">料金マスタ</span> を押します。</li>
+        <li>いちばん上の <strong>税表示モード</strong> を選びます。<span class="key">税込</span> は登録した金額をそのまま使い、<span class="key">税抜</span> は見積書で消費税（10％）を足して表示します。</li>
+        <li><span class="key">＋ 項目を追加</span> を押し、カテゴリ・項目名・金額を入れて <span class="key">保存</span> を押します。備考（「1本あたり」など）は任意です。</li>
+        <li>入っている項目を直すときは、その行を押します。同じ形の画面が開きます。</li>
+      </ol>
+      <div class="shots">
+        <figure class="shot">
+          <a href="img/02_pricemaster.jpg" target="_blank" rel="noopener"><img src="img/02_pricemaster.jpg" alt="料金マスタの画面。税表示モード、項目を追加、よくある項目セット、並べ替えのボタンと、インプラントのカテゴリの料金一覧" width="758" height="827" loading="lazy"></a>
+          <figcaption>料金マスタ。カテゴリごとに並びます</figcaption>
+        </figure>
+        <figure class="shot">
+          <a href="img/03_pm_edit.jpg" target="_blank" rel="noopener"><img src="img/03_pm_edit.jpg" alt="項目を編集の画面。カテゴリの選択、項目名、金額、備考、キャンセルと保存、アーカイブと完全に削除" width="758" height="464" loading="lazy"></a>
+          <figcaption>項目の追加・編集。カテゴリは8つから選びます</figcaption>
+        </figure>
+      </div>
+      <p>カテゴリは、「インプラント」「矯正」「精密根管治療」「補綴・修復」「補綴（ブリッジ）」「ホワイトニング」「歯周・衛生管理」「その他」の8つです。<span class="key">⇅ 並べ替え</span> で、カテゴリの中の順番を変えられます。</p>
+      <p><span class="key">よくある項目セット</span> を押すと、よく使う項目がまとめて入ります。<strong>金額は空（「¥未設定」）</strong>で入るので、医院の金額を入れてから使ってください。</p>
+
+      <h3>ブリッジは、支台とポンティックの単価を別々に入れる</h3>
+      <p>カテゴリを「補綴（ブリッジ）」にすると、金額の欄が<strong>支台単価</strong>と<strong>ポンティック単価</strong>の2つになります。ポンティック単価を空にすると、支台と同じ単価で計算します。</p>
+      <div class="shots">
+        <figure class="shot">
+          <a href="img/04_pm_bridge.jpg" target="_blank" rel="noopener"><img src="img/04_pm_bridge.jpg" alt="料金マスタの補綴・修復と補綴（ブリッジ）のカテゴリ。ラミネートベニアとセラミッククラウンは未設定、ブリッジは支台115,000円とポンティック115,000円" width="758" height="436" loading="lazy"></a>
+          <figcaption>金額が空の項目は「¥未設定」と出ます</figcaption>
+        </figure>
+        <figure class="shot">
+          <a href="img/05_pm_bridge_edit.jpg" target="_blank" rel="noopener"><img src="img/05_pm_bridge_edit.jpg" alt="ブリッジの項目の編集画面。支台単価とポンティック単価の2つの欄" width="758" height="518" loading="lazy"></a>
+          <figcaption>ブリッジの編集。単価の欄が2つになります</figcaption>
+        </figure>
+      </div>
+      <p>使わなくなった項目は、編集画面の <span class="key">アーカイブ（隠す）</span> で一覧から隠せます。隠した項目はあとで戻せます。<span class="key">完全に削除</span> は元に戻せません。どちらを押しても、<strong>作り終えた見積書の金額は変わりません</strong>。</p>
+
+      <h2 id="step2"><span class="step-head"><span class="step-no">STEP 2</span>見積書を作り始める</span></h2>
+      <p class="lead">見積書の画面から、患者さんを選んで作り始めます。</p>
+      <ol class="do">
+        <li>ホームの <span class="key">見積書</span> を押します。</li>
+        <li>左上の <span class="key">＋ 見積書を作成</span> を押します。</li>
+        <li>「患者を選択」が開くので、患者さんの名前を押します。名前や患者 ID で検索もできます。</li>
+        <li>まだ登録していない患者さんなら、<span class="key">＋ 新規患者を登録</span> から登録します。</li>
+      </ol>
+      <div class="shots">
+        <figure class="shot">
+          <a href="img/06_list.jpg" target="_blank" rel="noopener"><img src="img/06_list.jpg" alt="見積書の画面。見積書を作成と料金マスタのボタン、見積もりの状況、同意書・承諾書、実績、作成済みの見積書の一覧" width="758" height="486" loading="lazy"></a>
+          <figcaption>見積書の画面。作った見積書がここに並びます</figcaption>
+        </figure>
+        <figure class="shot">
+          <a href="img/07_patient_select.jpg" target="_blank" rel="noopener"><img src="img/07_patient_select.jpg" alt="患者を選択の画面。検索欄、新規患者を登録のボタン、患者の一覧" width="758" height="645" loading="lazy"></a>
+          <figcaption>患者を選びます</figcaption>
+        </figure>
+      </div>
+      <p>有効期限が過ぎた見積書は、一覧の下の「有効期限が過ぎた見積書」にまとまります。押すと開きます。</p>
+
+      <h2 id="step3"><span class="step-head"><span class="step-no">STEP 3</span>治療名と有効期限を入れる</span></h2>
+      <p class="lead">いちばん上に、見積書の題名と日付を入れます。</p>
+      <ol class="do">
+        <li><strong>治療名</strong>を入れます（例：インプラント治療）。治療名は必須で、PDF の「治療名」の欄と、見積書の一覧に出ます。</li>
+        <li><strong>発行日</strong>を確かめます。今日の日付が入っています。</li>
+        <li><strong>有効期限（日数）</strong>を確かめます。最初は30日で、下に「有効期限：2026/11/28 まで」のように日付が出ます。</li>
+      </ol>
+      <figure class="shot wide">
+        <a href="img/08_form_top.jpg" target="_blank" rel="noopener"><img src="img/08_form_top.jpg" alt="見積書を作成の画面の上の部分。患者名、治療名、発行日、有効期限、案1の枠と、歯を選んで治療を追加、料金表から追加、自由入力、値引きを追加のボタン" width="758" height="568" loading="lazy"></a>
+        <figcaption>見積書を作成。緑の枠が「案1」です</figcaption>
+      </figure>
+
+      <h2 id="step4"><span class="step-head"><span class="step-no">STEP 4</span>歯を選んで、料金表から治療を足す</span></h2>
+      <p class="lead">歯を選んでから治療を選ぶと、明細と歯式の図が一緒にできます。</p>
+      <ol class="do">
+        <li>案1の枠の <span class="key">🦷 歯を選んで治療を追加</span> を押します。</li>
+        <li>歯式が出るので、治療する歯を押します（何本でも選べます）。乳歯は <span class="key">乳歯</span> に切り替えます。</li>
+        <li><span class="key">この歯に治療を割り当てる</span> を押します。</li>
+        <li>料金マスタの一覧が出るので、上のカテゴリを切り替えながら、使う治療に<strong>チェックを入れます</strong>（いくつでも選べます）。</li>
+        <li><span class="key">選択した ○件を明細に追加</span> を押します。</li>
+      </ol>
+      <div class="shots">
+        <figure class="shot">
+          <a href="img/09_toothpicker.jpg" target="_blank" rel="noopener"><img src="img/09_toothpicker.jpg" alt="歯を選択の画面。永久歯と乳歯の切り替え、上顎と下顎の歯式、右下6を選択中" width="758" height="318" loading="lazy"></a>
+          <figcaption>歯を選びます（右下6を選んだところ）</figcaption>
+        </figure>
+        <figure class="shot">
+          <a href="img/10_price_picker.jpg" target="_blank" rel="noopener"><img src="img/10_price_picker.jpg" alt="選んだ歯に割り当てる治療を選択の画面。インプラント体、上部構造、サージカルガイドにチェック" width="758" height="736" loading="lazy"></a>
+          <figcaption>治療にチェックを入れて、明細に追加します</figcaption>
+        </figure>
+      </div>
+      <p>明細には、料金マスタの金額と、選んだ歯（例：右下6）が入ります。<strong>金額と数量はこの画面で直せます</strong>。直しても料金マスタの金額は変わりません。</p>
+      <figure class="shot wide">
+        <a href="img/11_lines.jpg" target="_blank" rel="noopener"><img src="img/11_lines.jpg" alt="案1の明細。インプラント体242,000円、上部構造198,000円、サージカルガイド60,500円。それぞれ右下6の表示" width="758" height="591" loading="lazy"></a>
+        <figcaption>明細。歯の欄を押すと、歯を選び直せます</figcaption>
+      </figure>
+      <p>歯に結びつかない費用（診査・診断料など）は <span class="key">料金表から追加</span> で、料金マスタに無いものは <span class="key">＋ 自由入力</span> で足します。歯を選んだあとの一覧からも、<span class="key">＋ マスタに無い治療＝自由入力の明細として追加</span> で足せます。</p>
+      <div class="note">
+        <p>「¥未設定」の項目を明細に入れたときは、金額を入れてから保存してください。金額が0円のままだと保存できません。</p>
+      </div>
+
+      <h2 id="step5"><span class="step-head"><span class="step-no">STEP 5</span>値引きを入れる</span></h2>
+      <p class="lead">値引きは、明細の1行として入れます。</p>
+      <ol class="do">
+        <li>案の枠の <span class="key">− 値引きを追加</span> を押します。</li>
+        <li><span class="key">金額</span> か <span class="key">％</span> を選び、値引きする額か割合を入れます。</li>
+        <li><span class="key">％</span> のときは、割合を入れたあと <span class="key">%で再計算</span> を押します。値引きの額が決まります（あとで明細や割合を変えたときも、もう一度押します）。</li>
+        <li>枠のいちばん下の <strong>合計（税込）</strong> が、値引きを引いた額に変わります。</li>
+      </ol>
+      <figure class="shot wide">
+        <a href="img/12_discount.jpg" target="_blank" rel="noopener"><img src="img/12_discount.jpg" alt="値引きの行。金額で10,500円を入れ、合計（税込）が490,000円。下に歯式の図" width="758" height="391" loading="lazy"></a>
+        <figcaption>値引き10,500円で、合計が490,000円になりました</figcaption>
+      </figure>
+      <p>合計の上には、選んだ歯に色が付いた歯式の図が出ます。この図は、比較表示と PDF にも入ります。</p>
+
+      <h2 id="step6"><span class="step-head"><span class="step-no">STEP 6</span>比較案を足す（例：ブリッジ）</span></h2>
+      <p class="lead">インプラントとブリッジのように、別の治療方法を並べて見せられます。</p>
+      <ol class="do">
+        <li>案1の枠の下の <span class="key">＋ 比較案を追加（最大3案）</span> を押します。赤い枠の「案2」ができます。</li>
+        <li>案2でも <span class="key">🦷 歯を選んで治療を追加</span> を押し、ブリッジにする歯（例：右下5・6・7）を選びます。</li>
+        <li>カテゴリ <span class="key">補綴（ブリッジ）</span> から <strong>ブリッジ</strong> にチェックを入れて、明細に追加します。</li>
+        <li>明細に並んだ歯のうち、<strong>ポンティック（ダミー）にする歯を押します</strong>。「右下6（ポ）」のように変わり、金額がポンティック単価で計算されます。</li>
+      </ol>
+      <div class="shots">
+        <figure class="shot">
+          <a href="img/13_bridge_pick.jpg" target="_blank" rel="noopener"><img src="img/13_bridge_pick.jpg" alt="選んだ歯3本に割り当てる治療の選択。補綴（ブリッジ）のカテゴリでブリッジにチェック" width="758" height="245" loading="lazy"></a>
+          <figcaption>3本を選んで、ブリッジを割り当てます</figcaption>
+        </figure>
+        <figure class="shot">
+          <a href="img/14_bridge.jpg" target="_blank" rel="noopener"><img src="img/14_bridge.jpg" alt="案2のブリッジの明細。1装置、右下7、右下6（ポ）、右下5、支台単価とポンティック単価、合計345,000円" width="758" height="364" loading="lazy"></a>
+          <figcaption>ブリッジは1装置として、まとめて1行になります</figcaption>
+        </figure>
+      </div>
+      <p><span class="key">ブリッジ解除</span> を押すと、ブリッジとしての計算をやめて、「支台単価 × 選んだ歯の本数」の1行になります（ポンティック単価が違うときは、合計も変わります）。案は3つまで足せて、要らなくなった案は枠の右上のごみ箱で消せます。</p>
+
+      <h2 id="step7"><span class="step-head"><span class="step-no">STEP 7</span>担当医・担当者を入れて、患者さんに見せる</span></h2>
+      <p class="lead">見積書を出す人を入れて、患者さん向けの比較画面を開きます。</p>
+      <ol class="do">
+        <li><strong>担当医</strong>を入れます（任意）。見積書の PDF に印字されます。</li>
+        <li><strong>担当者</strong>を入れます（任意）。TC や受付の名前を入れておくと、「実績」で担当者ごとの成約率が出ます。担当者は PDF には出ません。</li>
+        <li>患者さんに伝えたいことがあれば、<strong>備考</strong>に入れます。</li>
+        <li>黒い <span class="key">🖥️ 患者に見せる（比較表示）</span> を押します。<strong>保存していなくても</strong>開けます。</li>
+      </ol>
+      <figure class="shot wide">
+        <a href="img/15_staff.jpg" target="_blank" rel="noopener"><img src="img/15_staff.jpg" alt="担当医（見積書に印字）、担当者、備考の入力欄" width="758" height="204" loading="lazy"></a>
+        <figcaption>担当医と担当者。一度保存した名前は、次から欄の下にボタンで出ます</figcaption>
+      </figure>
+      <figure class="shot wide">
+        <a href="img/16_compare.jpg" target="_blank" rel="noopener"><img src="img/16_compare.jpg" alt="患者に見せる比較表示。案1は490,000円でインプラント体・上部構造・サージカルガイド・値引き、案2は345,000円でブリッジ。それぞれ歯式の図付き" width="758" height="468" loading="lazy"></a>
+        <figcaption>比較表示。iPad をそのまま患者さんに向けて説明できます</figcaption>
+      </figure>
+      <p>各案の合計は税込で出ます（料金マスタを「税抜」にしているときは、税抜の明細・小計と消費税も出ます）。右上の <span class="key">✕ 閉じる</span> で、もとの画面に戻ります。</p>
+
+      <h2 id="step8"><span class="step-head"><span class="step-no">STEP 8</span>PDF を確かめて、保存する</span></h2>
+      <p class="lead">画面のいちばん下で PDF の中身を決めて、見積書を保存します。</p>
+      <ol class="do">
+        <li><strong>医院名</strong>を入れます。PDF の右上に出ます。</li>
+        <li><strong>支払方法の注記</strong>を確かめます。最初から一文が入っていて、空にすると PDF に出ません。</li>
+        <li>PDF の下に日付と署名の欄を付けるかどうかを、チェックで選びます。</li>
+        <li><span class="key">🔍 プレビュー</span> で PDF の見た目を確かめます。</li>
+        <li><span class="key">見積書を保存</span> を押します。「保存完了」と出たら <span class="key">OK</span> を押します。</li>
+      </ol>
+      <div class="shots">
+        <figure class="shot">
+          <a href="img/17_pdfcard.jpg" target="_blank" rel="noopener"><img src="img/17_pdfcard.jpg" alt="PDF出力の欄。医院名、支払方法の注記、署名欄を印刷するのチェック、プレビュー、PDFを出力・共有、署名する（電子サイン）のボタン" width="758" height="454" loading="lazy"></a>
+          <figcaption>PDF の欄。保存のボタンはこの下です</figcaption>
+        </figure>
+        <figure class="shot paper">
+          <a href="img/18_preview.jpg" target="_blank" rel="noopener"><img src="img/18_preview.jpg" alt="御見積書のPDF。治療プランの比較、案1と案2の歯式の図と明細、支払方法の注記、日付と署名の欄" width="900" height="890" loading="lazy"></a>
+          <figcaption>PDF「御見積書」。案の比較と明細が入ります</figcaption>
+        </figure>
+      </div>
+      <p><span class="key">PDFを出力・共有</span> を押すと共有メニューが開き、プリント・ファイルへの保存・AirDrop などを選べます。保存した見積書は、見積書の画面の一覧から開き直せます。</p>
+
+      <h2 id="step9"><span class="step-head"><span class="step-no">STEP 9</span>見積承諾書に署名してもらう（成約の記録）</span></h2>
+      <p class="lead">患者さんが選んだ案で承諾書を作り、iPad で署名してもらいます。署名すると、その見積書が「成約」として記録されます。</p>
+      <ol class="do">
+        <li>見積書の画面の一覧から、保存した見積書を開きます。</li>
+        <li>画面の下のほう、<span class="key">見積書を更新</span> の上にあるオレンジの <span class="key">🖊️ この見積で承諾書を作る</span> を押します。このボタンは、<strong>一度保存した見積書</strong>にだけ出ます。</li>
+        <li>「自費診療 見積承諾書」が開くので、<strong>選択した案</strong>（患者さんが選んだ案）を押します。</li>
+        <li>説明者の氏名を入れます。必要なら特記事項を、患者さんが未成年なら保護者の続柄を入れます。</li>
+        <li><span class="key">🔍 本文をプレビュー</span> で、患者さんと一緒に内容を確かめます。</li>
+        <li><span class="key">✍️ 署名する（電子サイン）</span> を押し、iPad を患者さんに渡して署名してもらいます。書き損じたら右上の <span class="key">書き直す</span> を押します。</li>
+        <li><span class="key">署名を確定</span> を押します。「署名を保存しました」と出て、この見積書が<strong>「成約」として記録</strong>されます。</li>
+      </ol>
+      <figure class="shot wide">
+        <a href="img/19_make_consent.jpg" target="_blank" rel="noopener"><img src="img/19_make_consent.jpg" alt="保存した見積書の下にある、この見積で承諾書を作るのオレンジのボタン" width="758" height="180" loading="lazy"></a>
+        <figcaption>保存した見積書の下のほうに出るボタン</figcaption>
+      </figure>
+      <div class="shots">
+        <figure class="shot">
+          <a href="img/20_consent_form.jpg" target="_blank" rel="noopener"><img src="img/20_consent_form.jpg" alt="自費診療 見積承諾書の画面。対象の見積書、選択した案（案1 490,000円）、特記事項、保護者続柄、医院名、説明者氏名、本文をプレビュー、署名する、同意書を保存" width="758" height="863" loading="lazy"></a>
+          <figcaption>見積承諾書。患者さんが選んだ案を押します</figcaption>
+        </figure>
+        <figure class="shot">
+          <a href="img/21_sign.jpg" target="_blank" rel="noopener"><img src="img/21_sign.jpg" alt="ご署名の画面。上記の内容について説明を受け、内容を確認いたしました、の一文と署名の欄" width="758" height="609" loading="lazy"></a>
+          <figcaption>署名の画面。指でも Apple Pencil でも書けます</figcaption>
+        </figure>
+      </div>
+      <figure class="shot wide">
+        <a href="img/22_signed_alert.jpg" target="_blank" rel="noopener"><img src="img/22_signed_alert.jpg" alt="署名済みの見積承諾書と、署名を保存しました、この見積書を成約として記録しました、の案内" width="758" height="473" loading="lazy"></a>
+        <figcaption>署名済みの承諾書。選んだ案の明細と歯式の図が入ります</figcaption>
+      </figure>
+      <p>すでに「成約」になっている見積書で、別の案の承諾書に署名しても、成約の案は変わりません。案が変わったときは、STEP 10 の「見積もりの状況」で記録を直してください。</p>
+      <p>署名済みの承諾書は、右上の <span class="key">PDF共有</span> から印刷や保存ができます。署名したあとで承諾書を直して保存すると、<strong>署名は無効になり、それまでの署名済みの PDF は削除されます</strong>。署名をもらい直すことになるので、署名済みの PDF を残したいときは、直す前に「PDF共有」から保存してください。</p>
+      <div class="note">
+        <p>同意書・承諾書の作成と電子サインは、有料プランの本契約後に使えます（無料トライアル中は使えません）。</p>
+        <p>見積承諾書のほかに、抜歯・インプラント・矯正などの同意書のひな形も入っています。ホームの「同意書・承諾書」から作れます。</p>
+      </div>
+
+      <h2 id="step10"><span class="step-head"><span class="step-no">STEP 10</span>見積もりの状況と実績を見る</span></h2>
+      <p class="lead">出した見積もりが、そのあとどうなったかを追えます。</p>
+      <ol class="do">
+        <li>ホームの <span class="key">見積もりの状況</span> を押します。結果がまだ決まっていない見積もりが「未確定」として並び、出してから何日たったかも出ます。</li>
+        <li>患者さんから返事が来たら、<span class="key">成約</span>・<span class="key">検討中</span>・<span class="key">見送り</span> のどれかを押します。案が2つ以上ある見積書で成約を押すと、どの案かを聞かれます。</li>
+        <li>承諾書に署名をもらった見積もりは、STEP 9 で自動で成約になっているので、押さなくて大丈夫です。</li>
+        <li>ホームの <span class="key">実績</span> を押すと、成約率と金額が出ます。上のタブで 今月・先月・今年・全期間 を切り替えます。</li>
+      </ol>
+      <div class="shots">
+        <figure class="shot">
+          <a href="img/24_deals.jpg" target="_blank" rel="noopener"><img src="img/24_deals.jpg" alt="見積もりの状況。未確定4件にそれぞれ成約・検討中・見送りのボタン。下の最近の処理に、成約したサンプル見積 490,000円と未確定に戻すボタン" width="758" height="1054" loading="lazy"></a>
+          <figcaption>見積もりの状況。下の「最近の処理」から取り消せます</figcaption>
+        </figure>
+        <figure class="shot">
+          <a href="img/25_dashboard.jpg" target="_blank" rel="noopener"><img src="img/25_dashboard.jpg" alt="実績の画面。全期間の成約率、提示・成約・見送り・未確定の件数、提示総額と成約総額、治療別の表" width="758" height="568" loading="lazy"></a>
+          <figcaption>実績。治療別・担当者別の表も出ます</figcaption>
+        </figure>
+      </div>
+      <p>成約率は「成約 ÷（成約＋見送り）」で、未確定は入れずに計算します。期間は<strong>見積書の発行日</strong>で数えるので、先月出した見積もりが今月成約した分は「先月」に入ります。</p>
+      <p>間違えて成約や見送りを押したときは、「見積もりの状況」の下の「最近の処理」から <span class="key">↩ 未確定に戻す</span> を押します。「最近の処理」には、直近の10件が出ます。</p>
+
+      <h2 id="faq">よくある質問</h2>
+      <div class="faq-item">
+        <h3>無料でどこまで使えますか？</h3>
+        <p>見積書は3件まで、期限なく無料で作れます。無料トライアル中と有料プランの契約中は、件数の上限なく作れます。同意書・承諾書の作成と電子サインは、書類として保存される性質上、有料プランの本契約後にご利用いただけます（無料トライアル中は対象外です）。</p>
+      </div>
+      <div class="faq-item">
+        <h3>料金マスタの金額を変えると、作った見積書の金額も変わりますか？</h3>
+        <p>変わりません。見積書の明細には、作った時点の金額が入ります。料金マスタの金額を変えたり、項目を隠したり削除したりしても、保存済みの見積書はそのままです。</p>
+      </div>
+      <div class="faq-item">
+        <h3>見積書そのものにも署名をもらえますか？</h3>
+        <p>もらえます。見積書の画面の「署名する（電子サイン）」から署名すると、署名入りの見積書の PDF になります。ただし「成約」の記録になるのは、見積承諾書に署名したときです。見積書への署名だけでは成約になりません。</p>
+      </div>
+      <div class="faq-item">
+        <h3>成約を間違えて記録しました。取り消せますか？</h3>
+        <p>取り消せます。「見積もりの状況」の下の「最近の処理」から、その見積書の「未確定に戻す」を押してください。成約・見送りの記録が外れて、未確定の一覧に戻ります。「最近の処理」に出るのは、直近の10件です。</p>
+      </div>
+      <div class="faq-item">
+        <h3>署名したあとで承諾書を直せますか？</h3>
+        <p>直せますが、保存すると署名は無効になり、もう一度署名が必要になります。そのとき、<strong>それまでの署名済みの PDF は削除されます</strong>。残したいときは、直す前に「PDF共有」から印刷するかファイルに保存してください。成約の記録はそのまま残るので、選ぶ案が変わるときは「見積もりの状況」で直してください。</p>
+      </div>
+
+      <p style="margin-top:28px;">見積書と同意書に何を書くか、説明の流れや保管の考え方は、<a href="/subkarte/guide/jihi-mitsumori-doui/">歯科の自費診療の見積書・同意書の作り方</a>で整理しています。</p>
+
+      <h2 id="app">歯科サブカルテ&amp;コンサルくん</h2>
+      <div class="app-box">
+        <img src="/subkarte/img/icon.png" alt="歯科サブカルテ&コンサルくんのアイコン" width="64" height="64" loading="lazy">
+        <div>
+          <p>「歯科サブカルテ&amp;コンサルくん」は、歯科医院向けのサブカルテアプリです。手書きのカルテメモ、治療計画と診療記録、自費の見積書・同意書と電子サイン、成約の管理までを iPad 1台で扱えます。見積書は3件まで、期限なく無料で作れます。有料プランは月額 ¥4,980・年額 ¥49,800 です。</p>
+          <p class="small">※ 歯科医院の業務支援を目的としたツールで、医療機器ではありません。見積金額・治療内容・同意書の記載内容は、利用される歯科医院の責任でご確認ください。アプリの記録は院内の補助的な記録であり、診療録（カルテ）に代わるものではありません。画面は 2026年10月時点の iPad 版です。</p>
+          <a href="/subkarte/" class="btn-lp">歯科サブカルテ&amp;コンサルくんの詳細を見る</a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>&copy; 2026 Medical Craft Laboratory</span>
+      <span>
+        <a href="/subkarte/terms/">利用規約</a>
+        <a href="/subkarte/privacy/">プライバシーポリシー</a>
+        <a href="/subkarte/support/">サポート</a>
+      </span>
+    </div>
+  </footer>
+</body>
+</html>
