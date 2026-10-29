@@ -298,3 +298,22 @@ docs/sitemap.xml
 ## 2026-10-28 14:40
 docs/kokuken/guide/hajimekata/index.html
 docs/kokuken/guide/hattatsu-tsukaikata/index.html
+
+## 2026-10-29 12:37
+docs/kokuken/guide/hajimekata/index.html
+docs/kokuken/guide/hattatsu-tsukaikata/index.html
+docs/kokuken/guide/kokin-tsukaikata/img/01_home.jpg
+docs/kokuken/guide/kokin-tsukaikata/img/02_list.jpg
+docs/kokuken/guide/kokin-tsukaikata/img/03_detail.jpg
+docs/kokuken/guide/kokin-tsukaikata/img/04_patientmode.jpg
+docs/kokuken/guide/kokin-tsukaikata/img/05_measure.jpg
+docs/kokuken/guide/kokin-tsukaikata/img/06_balance_vas.jpg
+docs/kokuken/guide/kokin-tsukaikata/img/07_palp.jpg
+docs/kokuken/guide/kokin-tsukaikata/img/08_others.jpg
+docs/kokuken/guide/kokin-tsukaikata/img/09_preview.jpg
+docs/kokuken/guide/kokin-tsukaikata/img/10_share_sheet.jpg
+docs/kokuken/guide/kokin-tsukaikata/img/11_pdf.jpg
+docs/kokuken/guide/kokin-tsukaikata/img/12_history.jpg
+docs/kokuken/guide/kokin-tsukaikata/img/13_billing.jpg
+docs/kokuken/guide/kokin-tsukaikata/index.html
+docs/sitemap.xml
