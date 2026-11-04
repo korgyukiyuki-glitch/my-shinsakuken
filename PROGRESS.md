@@ -346,3 +346,6 @@ docs/subkarte/guide/mitsumori-tsukaikata/img/24_deals.jpg
 docs/subkarte/guide/mitsumori-tsukaikata/img/25_dashboard.jpg
 docs/subkarte/guide/mitsumori-tsukaikata/index.html
 docs/subkarte/index.html
+
+## 2026-11-04 09:19
+docs/otasuke/privacy/index.html
