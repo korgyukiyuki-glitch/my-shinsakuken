@@ -349,3 +349,9 @@ docs/subkarte/index.html
 
 ## 2026-11-04 09:19
 docs/otasuke/privacy/index.html
+
+## 2026-11-04 16:08
+docs/kokuken/guide/hattatsu-checklist/index.html
+docs/kokuken/guide/kijunchi/index.html
+docs/kokuken/guide/kouku-kinou-teikasho/index.html
+docs/sitemap.xml
