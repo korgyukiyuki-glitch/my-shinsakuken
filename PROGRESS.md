@@ -387,3 +387,9 @@ docs/otasuke/guide/hajimekata/index.html
 docs/otasuke/index.html
 docs/otasuke/support/index.html
 docs/sitemap.xml
+
+## 2026-11-06 16:00
+docs/otasuke/img/app-plan.png
+docs/otasuke/img/app-scan.png
+docs/otasuke/img/paper-plan.png
+docs/otasuke/index.html
