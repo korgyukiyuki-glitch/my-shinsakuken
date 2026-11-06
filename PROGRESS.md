@@ -364,3 +364,10 @@ docs/kokuken/guide/santei-r8/index.html
 docs/kokuken/index.html
 docs/sitemap.xml
 docs/subkarte/index.html
+
+## 2026-11-06 12:48
+docs/kokuken/guide/kijunchi/index.html
+docs/kokuken/guide/kiroku-yoshi/index.html
+docs/kokuken/guide/kouku-kinou-teikasho/index.html
+docs/kokuken/index.html
+docs/sitemap.xml
