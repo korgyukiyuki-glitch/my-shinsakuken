@@ -371,3 +371,9 @@ docs/kokuken/guide/kiroku-yoshi/index.html
 docs/kokuken/guide/kouku-kinou-teikasho/index.html
 docs/kokuken/index.html
 docs/sitemap.xml
+
+## 2026-11-06 14:09
+docs/sitemap.xml
+docs/subkarte/guide/kakikata/index.html
+docs/subkarte/guide/subkarte-towa/index.html
+docs/subkarte/index.html
