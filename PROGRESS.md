@@ -377,3 +377,7 @@ docs/sitemap.xml
 docs/subkarte/guide/kakikata/index.html
 docs/subkarte/guide/subkarte-towa/index.html
 docs/subkarte/index.html
+
+## 2026-11-06 14:17
+docs/kokuken/guide/kiroku-yoshi/index.html
+docs/subkarte/guide/kakikata/index.html
