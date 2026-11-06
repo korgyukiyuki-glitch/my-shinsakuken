@@ -381,3 +381,9 @@ docs/subkarte/index.html
 ## 2026-11-06 14:17
 docs/kokuken/guide/kiroku-yoshi/index.html
 docs/subkarte/guide/kakikata/index.html
+
+## 2026-11-06 14:32
+docs/otasuke/guide/hajimekata/index.html
+docs/otasuke/index.html
+docs/otasuke/support/index.html
+docs/sitemap.xml

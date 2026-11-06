@@ -27,7 +27,7 @@
       "description": "訪問診療お助けくんを初めて使う方向けに、サインインと医院の PIN、医院の位置と道路データ、患者さんの登録、おすすめの日時から予約を入れる流れ、その日の順番と到着の目安、2台目の端末とバックアップまでを、実際の画面で説明します。つまずきやすい点（到着時刻のずれ・道路データ・PIN を忘れたとき）もまとめました。",
       "inLanguage": "ja",
       "datePublished": "2026-10-26",
-      "dateModified": "2026-10-26",
+      "dateModified": "2026-11-06",
       "image": "https://medicalcraft-lab.com/otasuke/guide/hajimekata/img/08_day.jpg",
       "mainEntityOfPage": "https://medicalcraft-lab.com/otasuke/guide/hajimekata/",
       "author": {
@@ -223,6 +223,13 @@
       font-weight: 700; line-height: 1.55;
       margin: 16px 0 20px;
     }
+    .article h1 .h1-sub {
+      display: block;
+      font-size: 0.6em; line-height: 1.7;
+      color: var(--ink-soft);
+      margin-top: 10px;
+    }
+    .article h1, .article h2, .article h3 { word-break: auto-phrase; text-wrap: pretty; }
     .byline {
       display: flex; flex-wrap: wrap; gap: 6px 18px;
       font-size: 12.5px; color: var(--ink-mute);
@@ -270,7 +277,7 @@
       border-radius: 10px; padding: 14px 18px; margin: 0 0 20px;
     }
     .note p { font-size: 13.5px; margin: 0; }
-    .note p + p { margin-top: 8px; }
+    .note p + p { margin-top: 10px; }
     blockquote {
       background: #fff; border: 1px solid var(--hairline); border-radius: 10px;
       padding: 14px 18px; margin: 0 0 12px; font-size: 13.5px; color: var(--ink-soft); line-height: 1.95;
@@ -284,6 +291,7 @@
     .faq-item h3 { margin: 0 0 6px; font-size: 15px; }
     .faq-item h3::before { content: "Q. "; color: var(--accent-deep); }
     .faq-item p { font-size: 14px; margin: 0; }
+    .faq-item p + p { margin-top: 10px; }
     .app-box {
       background: #fff; border: 1px solid var(--hairline); border-radius: 18px;
       padding: 28px 28px 24px; margin: 8px 0 12px;
@@ -346,6 +354,24 @@
     .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 18px 0 10px; }
     .shots .shot { margin: 0; max-width: none; }
     .shot.paper img { border-radius: 6px; }
+    /* 2026-10-27 読みやすさ＝各STEPの頭に1行・操作は番号つきの箱に1行ずつ */
+    .article p { margin-bottom: 20px; }
+    .article .lead { font-size: 15.5px; color: var(--ink); font-weight: 700; margin-bottom: 14px; }
+    .article ol.do {
+      list-style: none; counter-reset: do; margin: 0 0 24px; padding: 18px 20px 6px;
+      background: #fff; border: 1px solid var(--hairline); border-radius: 14px;
+    }
+    .article ol.do li {
+      counter-increment: do; position: relative; padding-left: 38px;
+      font-size: 15px; color: var(--ink); line-height: 1.9; margin-bottom: 14px;
+    }
+    .article ol.do li::before {
+      content: counter(do); position: absolute; left: 0; top: 2px;
+      width: 26px; height: 26px; border-radius: 50%;
+      background: var(--accent); color: #fff; font-family: var(--font-mono); font-size: 13px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .article .done { color: var(--ink); font-weight: 700; }
     .key { display: inline-block; background: #fff; border: 1px solid var(--hairline); border-radius: 6px; padding: 0 7px; font-size: 13px; color: var(--ink); font-weight: 700; }
     @media (max-width: 560px) {
       .shots { grid-template-columns: 1fr; }
@@ -365,7 +391,7 @@
       <div class="nav-links">
         <a href="/otasuke/support/">サポート</a>
         <a href="/otasuke/">アプリ紹介</a>
-        <a href="/otasuke/support/#contact" class="nav-cta">お問い合わせ</a>
+        <a href="https://apps.apple.com/jp/app/id6823037541?pt=128621702&amp;ct=oh_guide&amp;mt=8" class="nav-cta" target="_blank" rel="noopener">App Store</a>
       </div>
     </div>
   </nav>
@@ -385,10 +411,10 @@
       <div class="byline">
         <span><strong>執筆：歯科医師 和泉龍之介（Medical Craft Lab・アプリの開発者）</strong></span>
         <span>公開日 <time datetime="2026-10-26">2026年10月26日</time></span>
-        <span>最終更新日 <time datetime="2026-10-26">2026年10月26日</time></span>
+        <span>最終更新日 <time datetime="2026-11-06">2026年11月6日</time></span>
       </div>
 
-      <p>訪問診療お助けくんを入れたあと、「最初に何をすればいいか」を、実際の画面で順番に説明します。医院を登録して患者さんを入れ、予約を入れて、その日の順番どおりに訪問を回るまでの流れです。</p>
+      <p>訪問診療お助けくんを入れたあと、「最初に何をすればいいか」を、実際の画面で順番に説明します。医院を登録して患者さんを入れ、予約を入れて、その日の順番どおりに訪問を回るまでの流れです。アプリは、iPad・iPhone の <a href="https://apps.apple.com/jp/app/id6823037541?pt=128621702&amp;ct=oh_guide&amp;mt=8" target="_blank" rel="noopener">App Store</a> から入れられます。</p>
 
       <div class="note">
         <p>このページの画面は、<strong>バージョン 1.0（ビルド37）</strong> を iPad と同じ画面の幅で表示した説明用のものです（実機では、サインインのボタンなど一部の見た目が違います）。患者さんは「サンプル01」などの架空の方で、住所も説明用です。iPhone でも手順は同じで、画面の並びが少し違うだけです。</p>
@@ -428,7 +454,7 @@
         <figcaption>医院の PIN を決める画面（初めてのアカウントのとき）</figcaption>
       </figure>
       <div class="note">
-        <p>まず試してみたいときは、「設定」の <span class="key">サンプルで試す</span> で、架空の医院と患者さん32人を入れられます。<strong>今の登録内容はサンプルに置き換わる</strong>ので、登録済みのデータがある場合は先にバックアップを保存してください（クラウドと同期している間は使えません）。サンプルの間は、アプリに入っている古河周辺の道路データで動きます。</p>
+        <p>まず試してみたいときは、「設定」の <span class="key">サンプルで試す</span> で、架空の医院と患者さん34人の予定で試せます。<strong>今のデータは消さずに別に保管され</strong>、<span class="key">サンプルを終える</span> で元に戻ります（サンプルの間に入れた内容は残りません）。サンプルの間は、アプリに入っている古河周辺の道路データで動きます。</p>
       </div>
 
       <h2 id="step2"><span class="step-head"><span class="step-no">STEP 2</span>医院の位置を登録する</span></h2>
@@ -528,8 +554,8 @@
         <img src="/otasuke/img/icon.png" alt="" width="64" height="64">
         <div>
           <p><strong>訪問診療お助けくん</strong>──訪問歯科・訪問診療の、その日の順番と予約の日時を、道のりで決める iPad・iPhone アプリです（医療機器ではありません。診療・算定の判断は医院で行ってください）。</p>
-          <p class="small">公開準備中です。先行して使ってみたい医院は、<a href="/otasuke/support/#contact">お問い合わせ</a>ください。</p>
-          <a class="btn-lp" href="/otasuke/">アプリ紹介ページ</a>
+          <p class="small">患者さん10人までは無料で使えます。</p>
+          <a class="btn-lp" href="https://apps.apple.com/jp/app/id6823037541?pt=128621702&amp;ct=oh_guide&amp;mt=8" target="_blank" rel="noopener">App Store で入手</a>　<a href="/otasuke/">アプリ紹介ページ</a>
         </div>
       </div>
 
