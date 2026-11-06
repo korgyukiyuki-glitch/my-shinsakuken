@@ -393,3 +393,6 @@ docs/otasuke/img/app-plan.png
 docs/otasuke/img/app-scan.png
 docs/otasuke/img/paper-plan.png
 docs/otasuke/index.html
+
+## 2026-11-06 16:47
+docs/otasuke/index.html
