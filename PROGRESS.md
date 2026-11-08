@@ -413,3 +413,7 @@ docs/otasuke/guide/route-kimekata/index.html
 ## 2026-11-07 19:43
 docs/otasuke/guide/hajimekata/index.html
 docs/otasuke/index.html
+
+## 2026-11-09 08:38
+docs/otasuke/guide/hajimekata/index.html
+docs/sitemap.xml
