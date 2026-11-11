@@ -417,3 +417,18 @@ docs/otasuke/index.html
 ## 2026-11-09 08:38
 docs/otasuke/guide/hajimekata/index.html
 docs/sitemap.xml
+
+## 2026-11-11 15:36
+docs/otasuke/guide/hajimekata/index.html
+docs/otasuke/guide/route-kimekata/img/r1_rows.jpg
+docs/otasuke/guide/route-kimekata/img/r1_time.jpg
+docs/otasuke/guide/route-kimekata/img/r2_place.jpg
+docs/otasuke/guide/route-kimekata/img/r3_compare.jpg
+docs/otasuke/guide/route-kimekata/img/r3_tools.jpg
+docs/otasuke/guide/route-kimekata/img/r5_free.jpg
+docs/otasuke/guide/route-kimekata/img/r5_free_dialog.jpg
+docs/otasuke/guide/route-kimekata/img/r6_cancel.jpg
+docs/otasuke/guide/route-kimekata/img/r6_fill.jpg
+docs/otasuke/guide/route-kimekata/index.html
+docs/otasuke/index.html
+docs/sitemap.xml
