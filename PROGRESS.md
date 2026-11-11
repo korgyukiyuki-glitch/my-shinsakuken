@@ -432,3 +432,6 @@ docs/otasuke/guide/route-kimekata/img/r6_fill.jpg
 docs/otasuke/guide/route-kimekata/index.html
 docs/otasuke/index.html
 docs/sitemap.xml
+
+## 2026-11-11 18:57
+docs/index.html
