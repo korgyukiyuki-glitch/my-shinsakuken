@@ -444,3 +444,9 @@ docs/index.html
 
 ## 2026-11-11 19:53
 docs/kokuken/index.html
+
+## 2026-11-12 12:15
+docs/otasuke/img/app-book.png
+docs/otasuke/img/app-confirm.png
+docs/otasuke/img/app-day.png
+docs/otasuke/index.html
