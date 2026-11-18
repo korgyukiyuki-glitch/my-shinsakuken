@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>説明動画 | 歯周治療管理くん</title>
+<meta name="description" content="歯科医院でお渡しした、歯周病とみがき方の説明動画をご覧いただけます。">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://medicalcraft-lab.com/perio/videos/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="説明動画 | 歯周治療管理くん">
+<meta property="og:description" content="歯科医院でお渡しした、歯周病とみがき方の説明動画をご覧いただけます。">
+<meta property="og:site_name" content="Medical Craft Laboratory">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FBFAF6;
+    --ink: #1D1D1B;
+    --ink-soft: #5A5953;
+    --ink-mute: #8A887F;
+    --hairline: #E5E2D9;
+    --accent: #F0832A;
+    --accent-deep: #C75B12;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Zen Kaku Gothic New', 'Hiragino Sans', sans-serif;
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 24px 20px 64px; }
+  header { text-align: center; padding: 12px 0 28px; }
+  header .brand {
+    font-size: 13px; letter-spacing: .08em; color: var(--ink-mute);
+  }
+  h1 {
+    font-size: 22px; font-weight: 700; margin-top: 6px; line-height: 1.5;
+  }
+  .player {
+    background: #000; border-radius: 14px; overflow: hidden;
+    box-shadow: 0 6px 24px rgba(29,29,27,.12);
+  }
+  video { width: 100%; display: block; background: #000; }
+  .meta { margin-top: 18px; }
+  .cat {
+    display: inline-block; font-size: 12px; font-weight: 500;
+    color: var(--accent-deep); background: #FCEEE2;
+    border-radius: 999px; padding: 3px 12px; margin-bottom: 8px;
+  }
+  .note {
+    margin-top: 22px; padding: 16px 18px; background: #fff;
+    border: 1px solid var(--hairline); border-radius: 12px;
+    font-size: 14px; color: var(--ink-soft);
+  }
+  .list { margin-top: 34px; }
+  .list h2 {
+    font-size: 15px; font-weight: 700; color: var(--ink-soft);
+    padding-bottom: 10px; border-bottom: 1px solid var(--hairline);
+  }
+  .list ul { list-style: none; margin-top: 6px; }
+  .list li { border-bottom: 1px solid var(--hairline); }
+  .list a {
+    display: block; padding: 14px 4px; color: var(--ink);
+    text-decoration: none; font-size: 15px;
+  }
+  .list a:hover, .list a:focus { color: var(--accent-deep); }
+  .state {
+    padding: 48px 8px; text-align: center; color: var(--ink-mute); font-size: 15px;
+  }
+  .state strong { display: block; color: var(--ink); font-size: 17px; margin-bottom: 8px; }
+  .retry {
+    display: inline-block; margin-top: 14px; padding: 10px 22px;
+    background: var(--accent); color: #fff; border: none; border-radius: 999px;
+    font-family: inherit; font-size: 14px; font-weight: 500; cursor: pointer;
+  }
+  footer {
+    margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--hairline);
+    text-align: center; font-size: 12px; color: var(--ink-mute);
+  }
+  footer a { color: var(--ink-mute); }
+  @media (max-width: 480px) {
+    .wrap { padding: 16px 14px 48px; }
+    h1 { font-size: 19px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand">歯科医院からの説明動画</div>
+    <h1 id="title">読み込んでいます…</h1>
+  </header>
+
+  <div id="main"></div>
+
+  <div class="list" id="listWrap" hidden>
+    <h2 id="listTitle">ほかの動画</h2>
+    <ul id="list"></ul>
+  </div>
+
+  <footer>
+    <div>Medical Craft Laboratory</div>
+    <div style="margin-top:6px">歯周治療管理くん</div>
+  </footer>
+</div>
+
+<script>
+(function () {
+  // 歯周病の動画の目録（管理くんの videos.json とは別・混ぜない）
+  var MANIFEST = 'https://pub-1aeeff649613420b8ba8279a80556848.r2.dev/perio-videos.json';
+  var titleEl = document.getElementById('title');
+  var mainEl = document.getElementById('main');
+  var listWrap = document.getElementById('listWrap');
+  var listEl = document.getElementById('list');
+
+  function param(name) {
+    var m = new RegExp('[?&]' + name + '=([^&#]*)').exec(location.search);
+    if (!m) return '';
+    // 不正なパーセントエンコード（URL切れ・手打ちミス）で URIError になっても
+    // ページごと死なせない＝空扱いにして動画一覧へフォールバック
+    try { return decodeURIComponent(m[1].replace(/\+/g, ' ')); }
+    catch (e) { return ''; }
+  }
+
+  // fetch 非対応の古いブラウザ（高齢患者層の旧端末）でも動くよう XHR フォールバック
+  function getJson(url, onOk, onErr) {
+    if (window.fetch) {
+      fetch(url, { cache: 'no-cache' })
+        .then(function (r) {
+          if (!r.ok) throw new Error('HTTP ' + r.status);
+          return r.json();
+        })
+        .then(onOk)
+        .catch(onErr);
+      return;
+    }
+    try {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', url, true);
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState !== 4) return;
+        if (xhr.status >= 200 && xhr.status < 300) {
+          try { onOk(JSON.parse(xhr.responseText)); }
+          catch (e) { onErr(e); }
+        } else {
+          onErr(new Error('HTTP ' + xhr.status));
+        }
+      };
+      xhr.onerror = function () { onErr(new Error('network')); };
+      xhr.send();
+    } catch (e) {
+      onErr(e);
+    }
+  }
+
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  // R2 の公開URLだけを許可する（マニフェスト側が汚染されても任意サイトへ誘導させない）
+  function safeUrl(u) {
+    // アプリ（perio-app src/lib/videos.ts isAllowedVideoUrl）と同じ形：そのバケットの .mp4 だけ
+    if (typeof u !== 'string') return '';
+    var base = 'https://pub-1aeeff649613420b8ba8279a80556848.r2.dev/';
+    if (u.indexOf(base) !== 0) return '';
+    var key = u.slice(base.length);
+    return /^[A-Za-z0-9][A-Za-z0-9\/_-]*\.mp4$/.test(key) && key.indexOf('//') < 0 && key.indexOf('..') < 0 ? u : '';
+  }
+
+  function showState(head, body, withRetry) {
+    titleEl.textContent = head;
+    mainEl.innerHTML =
+      '<div class="state"><strong>' + esc(head) + '</strong>' + esc(body) +
+      (withRetry ? '<div><button class="retry" id="retryBtn">再読み込み</button></div>' : '') +
+      '</div>';
+    var btn = document.getElementById('retryBtn');
+    if (btn) btn.addEventListener('click', function () { location.reload(); });
+  }
+
+  function renderVideo(video, catLabel) {
+    var url = safeUrl(video.url);
+    if (!url) { showState('動画を再生できません', 'この動画の配信元が確認できませんでした。', false); return; }
+    document.title = video.title + ' | 説明動画';
+    titleEl.textContent = video.title;
+    mainEl.innerHTML =
+      (catLabel ? '<div class="meta"><span class="cat">' + esc(catLabel) + '</span></div>' : '') +
+      '<div class="player"><video controls playsinline preload="metadata" src="' + esc(url) + '"></video></div>' +
+      '<div class="note">再生できないときは、通信環境の良い場所でページを開き直してください。' +
+      '内容について気になる点があれば、かかりつけの歯科医院にご相談ください。</div>';
+  }
+
+  function renderList(videos, currentId) {
+    var others = videos.filter(function (v) { return v.id !== currentId; });
+    if (!others.length) return;
+    listEl.innerHTML = others.map(function (v) {
+      return '<li><a href="?id=' + encodeURIComponent(v.id) + '">' + esc(v.title) + '</a></li>';
+    }).join('');
+    listWrap.hidden = false;
+  }
+
+  function renderIndex(catalog) {
+    document.title = '説明動画 | 歯周治療管理くん';
+    titleEl.textContent = '説明動画';
+    mainEl.innerHTML =
+      '<div class="note">歯科医院からお渡しした二次元コードを読み取ると、該当する動画が開きます。' +
+      '下の一覧からも選べます。</div>';
+    document.getElementById('listTitle').textContent = '動画一覧';
+    renderList(catalog.videos, '');
+  }
+
+  var id = param('id');
+
+  getJson(
+    MANIFEST,
+    function (data) {
+      var rawVideos = (data && Object.prototype.toString.call(data.videos) === '[object Array]') ? data.videos : [];
+      var rawCats = (data && Object.prototype.toString.call(data.categories) === '[object Array]') ? data.categories : [];
+      // アプリ側（lib/videos.ts parseVideos）と同じく、壊れた項目は捨てる
+      //（title 欠落で "undefined" が画面に出るのを防ぐ）
+      var videos = [];
+      for (var vi = 0; vi < rawVideos.length; vi++) {
+        var rv = rawVideos[vi];
+        if (rv && typeof rv.id === 'string' && rv.id && typeof rv.title === 'string' && rv.title && typeof rv.url === 'string') {
+          videos.push(rv);
+        }
+      }
+      var cats = [];
+      for (var ci = 0; ci < rawCats.length; ci++) {
+        var rc = rawCats[ci];
+        if (rc && typeof rc.id === 'string' && rc.id && typeof rc.label === 'string' && rc.label) {
+          cats.push(rc);
+        }
+      }
+      if (!videos.length) { showState('動画を準備中です', 'しばらくしてからお試しください。', true); return; }
+
+      if (!id) { renderIndex({ videos: videos }); return; }
+
+      var video = null;
+      for (var i = 0; i < videos.length; i++) { if (videos[i].id === id) { video = videos[i]; break; } }
+      if (!video) {
+        // 別の動画に黙って差し替えない（MAGI第11回 論点4）
+        showState('この動画は公開を終了しました', '二次元コードが古い可能性があります。下の一覧からお探しください。', false);
+        document.getElementById('listTitle').textContent = '動画一覧';
+        renderList(videos, '');
+        return;
+      }
+
+      var catLabel = '';
+      var vc = Array.isArray(video.categories) ? video.categories : [];
+      for (var j = 0; j < cats.length; j++) {
+        if (vc.indexOf(cats[j].id) >= 0) { catLabel = cats[j].label; break; }
+      }
+      renderVideo(video, catLabel);
+      renderList(videos, video.id);
+    },
+    function () {
+      showState('読み込めませんでした', '通信環境をご確認のうえ、もう一度お試しください。', true);
+    }
+  );
+})();
+</script>
+<noscript>
+  <div style="padding:32px 16px;text-align:center;font-size:15px;color:#5A5953">
+    このページの表示には JavaScript が必要です。ブラウザの設定をご確認ください。
+  </div>
+</noscript>
+</body>
+</html>

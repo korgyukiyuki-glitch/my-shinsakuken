@@ -475,3 +475,6 @@ docs/subkarte/guide/mitsumori-tsukaikata/index.html
 docs/subkarte/guide/subkarte-towa/index.html
 docs/subkarte/index.html
 docs/subkarte/ogp.png
+
+## 2026-11-18 14:59
+docs/perio/videos/index.html
