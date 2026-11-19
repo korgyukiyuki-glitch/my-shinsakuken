@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-itunes-app" content="app-id=6823037541, affiliate-data=pt=128621702&amp;ct=oh_banner">
+  <title>訪問歯科の予約の入れ方──医院で決めた治療間隔を入力する｜訪問診療お助けくん 解説ガイド</title>
+  <meta name="description" content="訪問診療お助けくんで、訪問歯科の次の予約を入れる使い方を、実際の画面で説明します。医院で決めた治療間隔の入れ方、予約の画面での間隔と治療時間、おすすめの日時とカレンダーの見比べ方、入れた後の予定と時刻指定の確かめ方まで。">
+  <link rel="canonical" href="https://medicalcraft-lab.com/otasuke/guide/yoyaku-ireru/">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://medicalcraft-lab.com/otasuke/guide/yoyaku-ireru/">
+  <meta property="og:title" content="訪問歯科の予約の入れ方──医院で決めた治療間隔を入力する">
+  <meta property="og:description" content="訪問診療お助けくんで、医院で決めた治療間隔を入れて、おすすめの日時から予約を入れる。訪問歯科の予約の入れ方を、画面で説明します。">
+  <meta property="og:image" content="https://medicalcraft-lab.com/otasuke/ogp.png">
+  <meta property="og:site_name" content="Medical Craft Laboratory">
+  <meta property="article:published_time" content="2026-11-19">
+  <meta property="article:modified_time" content="2026-11-19">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://medicalcraft-lab.com/otasuke/ogp.png">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://medicalcraft-lab.com/otasuke/guide/yoyaku-ireru/#article",
+      "headline": "訪問歯科の予約の入れ方──医院で決めた治療間隔を入力する",
+      "description": "訪問診療お助けくんで、訪問歯科の次の予約を入れる使い方を、実際の画面で説明します。医院で決めた治療間隔の入れ方、予約の画面での間隔と治療時間、おすすめの日時とカレンダーの見比べ方、入れた後の予定と時刻指定の確かめ方まで。",
+      "inLanguage": "ja",
+      "datePublished": "2026-11-19",
+      "dateModified": "2026-11-19",
+      "image": "https://medicalcraft-lab.com/otasuke/guide/yoyaku-ireru/img/y3_picks.jpg",
+      "mainEntityOfPage": "https://medicalcraft-lab.com/otasuke/guide/yoyaku-ireru/",
+      "author": {
+        "@type": "Person",
+        "name": "和泉龍之介",
+        "jobTitle": "歯科医師",
+        "worksFor": {
+          "@id": "https://medicalcraft-lab.com/#org"
+        }
+      },
+      "publisher": {
+        "@id": "https://medicalcraft-lab.com/#org"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://medicalcraft-lab.com/#org",
+      "name": "Medical Craft Laboratory",
+      "url": "https://medicalcraft-lab.com",
+      "logo": "https://medicalcraft-lab.com/apple-touch-icon.png"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Medical Craft Laboratory",
+          "item": "https://medicalcraft-lab.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "訪問診療お助けくん",
+          "item": "https://medicalcraft-lab.com/otasuke/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "予約の入れ方（使い方）",
+          "item": "https://medicalcraft-lab.com/otasuke/guide/yoyaku-ireru/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "おすすめの日時が出ません。",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "おすすめの日時は、道路データの取り込みが済んでから出ます。道路データの様子は、「設定」の「地図」にある「道路データ」の行で確かめられます。探す期間に入れられる時間がないときは、その旨が出ます。「曜日・探す期間を変える」で期間を広げるか、午前・午後を変えてみてください。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "目安の時期が思っていた日と違います。",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "目安の時期は、前回の日に治療間隔を足した日です。前回は、訪問済みになっているいちばん新しい日です（無いときは以前の記録）。今日以降の予約がすでに入っている方は、そのうちいちばん先の予約の日から数えます。名前の下の1行に、どの日から数えたかが出ます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "この予約だけ、治療間隔を変えられますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "予約の画面の間隔のボタンで、この予約の分だけ変えられます。患者さんの間隔として残すときは、出てくる「保存する」を押します。押さなければ、患者さんの間隔は変わりません。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "時刻を約束しない予約も入れられますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "入れられます。確認の画面に「時刻指定にする」のチェックが出ているときは、外すと時刻を決めずに入ります。前の画面の「時刻を指定する（任意）」に時刻を入れたときは、その時刻の指定で入ります。時刻を約束しないときは、戻って欄を空にしてください。時刻を決めずに入れた方の到着の目安は、その日の順番に合わせて変わることがあります。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "到着の時刻に幅があるのはなぜですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "「9:05〜9:35ごろ」のような幅は、設定の「到着予定の幅（分）」でつけています。到着の目安は、道路の距離と設定の「平均の移動速度」から出す目安で、渋滞などは反映しません。"
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Shippori+Mincho:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #FBFAF6;
+      --ink: #1D1D1B;
+      --ink-soft: #5A5953;
+      --ink-mute: #8A887F;
+      --hairline: #E5E2D9;
+      --accent: #0F6E56;
+      --accent-deep: #085041;
+      --accent-hover: #12866A;
+      --font-sans: 'Zen Kaku Gothic New', 'Hiragino Sans', sans-serif;
+      --font-serif: 'Shippori Mincho', 'Hiragino Mincho ProN', serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-sans);
+      color: var(--ink);
+      background: var(--cream);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; }
+    .kicker {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      color: var(--accent-deep);
+      text-transform: uppercase;
+    }
+
+    /* Navigation (LP と共通) */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(251, 250, 246, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--hairline);
+      height: 60px;
+    }
+    .nav-inner {
+      max-width: 1080px; margin: 0 auto; padding: 0 24px;
+      height: 100%; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-brand img { width: 30px; height: 30px; border-radius: 8px; }
+    .nav-brand .name { font-size: 14px; font-weight: 700; }
+    .nav-brand .by {
+      font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.14em;
+      color: var(--ink-mute); margin-left: 2px;
+    }
+    .nav-links { display: flex; align-items: center; gap: 22px; }
+    .nav-links a { font-size: 13px; color: var(--ink-soft); text-decoration: none; transition: color 0.2s ease; }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-cta {
+      background: var(--accent); color: #fff !important;
+      padding: 9px 20px; border-radius: 999px;
+      font-size: 13px; font-weight: 700; text-decoration: none;
+      transition: background-color 0.2s ease; white-space: nowrap;
+    }
+    .nav-cta:hover { background: var(--accent-hover); }
+
+    /* Article */
+    .article { padding: 104px 0 72px; }
+    .article-wrap { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+    .breadcrumb { font-size: 12px; color: var(--ink-mute); margin-bottom: 28px; }
+    .breadcrumb ol { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; }
+    .breadcrumb li + li::before { content: "›"; margin-right: 6px; color: var(--hairline); }
+    .article .breadcrumb a { color: var(--ink-soft); font-weight: 400; text-decoration: none; }
+    .article [id] { scroll-margin-top: 76px; }
+    .article .breadcrumb a:hover { text-decoration: underline; }
+    .article h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(25px, 3.4vw, 34px);
+      font-weight: 700; line-height: 1.55;
+      margin: 16px 0 20px;
+    }
+    .article h1 .h1-sub {
+      display: block;
+      font-size: 0.6em; line-height: 1.7;
+      color: var(--ink-soft);
+      margin-top: 10px;
+    }
+    .article h1, .article h2, .article h3 { word-break: auto-phrase; text-wrap: pretty; }
+    .byline {
+      display: flex; flex-wrap: wrap; gap: 6px 18px;
+      font-size: 12.5px; color: var(--ink-mute);
+      border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline);
+      padding: 12px 0; margin-bottom: 30px;
+    }
+    .byline strong { color: var(--ink-soft); font-weight: 700; }
+    .article p { font-size: 15px; color: var(--ink-soft); line-height: 2.0; margin: 0 0 16px; }
+    .article p strong, .article li strong { color: var(--ink); }
+    .article h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(21px, 2.6vw, 26px);
+      font-weight: 700; line-height: 1.55;
+      margin: 56px 0 18px; padding-top: 28px;
+      border-top: 1px solid var(--hairline);
+    }
+    .article h3 { font-size: 16px; font-weight: 700; margin: 30px 0 10px; line-height: 1.6; }
+    .article ul, .article ol { margin: 0 0 18px 1.4em; }
+    .article li { font-size: 14.5px; color: var(--ink-soft); line-height: 1.95; margin-bottom: 6px; }
+    .article a { color: var(--accent-deep); font-weight: 700; text-decoration: none; }
+    .article a:hover { text-decoration: underline; }
+    .summary {
+      background: #fff; border: 1px solid var(--hairline); border-radius: 16px;
+      padding: 22px 26px; margin: 8px 0 30px;
+    }
+    .summary .kicker { margin-bottom: 8px; }
+    .summary ul { margin-bottom: 0; }
+    .toc { border-left: 2px solid var(--accent); padding: 4px 0 4px 18px; margin: 0 0 12px; }
+    .toc p { font-size: 12px; font-family: var(--font-mono); letter-spacing: 0.14em; color: var(--ink-mute); margin-bottom: 6px; }
+    .toc ol { margin: 0 0 0 1.2em; }
+    .toc li { font-size: 13.5px; margin-bottom: 2px; }
+    .article .toc a { font-weight: 500; color: var(--ink-soft); }
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 0 12px; border: 1px solid var(--hairline); border-radius: 12px; background: #fff; }
+    table.data { border-collapse: collapse; width: 100%; min-width: 640px; font-size: 13.5px; }
+    table.data th, table.data td { border-bottom: 1px solid var(--hairline); padding: 10px 12px; text-align: left; vertical-align: top; line-height: 1.75; color: var(--ink-soft); }
+    table.data thead th { background: var(--cream); color: var(--ink); font-weight: 700; font-size: 12.5px; white-space: nowrap; }
+    table.data tbody th { color: var(--ink); font-weight: 700; white-space: nowrap; }
+    table.data tr:last-child th, table.data tr:last-child td { border-bottom: none; }
+    table.data.compact { min-width: 0; }
+    table.data.compact tbody th { white-space: normal; min-width: 7em; }
+    .num { font-family: var(--font-mono); color: var(--ink); font-weight: 500; }
+    .caption { font-size: 12px; color: var(--ink-mute); margin: 0 0 24px; line-height: 1.8; }
+    .note {
+      background: #fff; border: 1px solid var(--hairline); border-left: 3px solid var(--accent);
+      border-radius: 10px; padding: 14px 18px; margin: 0 0 20px;
+    }
+    .note p { font-size: 13.5px; margin: 0; }
+    .note p + p { margin-top: 10px; }
+    blockquote {
+      background: #fff; border: 1px solid var(--hairline); border-radius: 10px;
+      padding: 14px 18px; margin: 0 0 12px; font-size: 13.5px; color: var(--ink-soft); line-height: 1.95;
+    }
+    .check-item { border: 1px solid var(--hairline); border-radius: 14px; background: #fff; padding: 20px 22px 8px; margin: 0 0 18px; }
+    .check-item h3 { margin: 0 0 12px; font-size: 16.5px; }
+    .check-item h3 .no { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em; color: var(--accent-deep); margin-right: 10px; }
+    .check-item p { font-size: 14.5px; margin-bottom: 12px; }
+    .check-item .label { display: block; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; color: var(--ink-mute); margin-bottom: 2px; }
+    .faq-item { border-bottom: 1px solid var(--hairline); padding: 16px 2px; }
+    .faq-item h3 { margin: 0 0 6px; font-size: 15px; }
+    .faq-item h3::before { content: "Q. "; color: var(--accent-deep); }
+    .faq-item p { font-size: 14px; margin: 0; }
+    .faq-item p + p { margin-top: 10px; }
+    .app-box {
+      background: #fff; border: 1px solid var(--hairline); border-radius: 18px;
+      padding: 28px 28px 24px; margin: 8px 0 12px;
+      display: grid; grid-template-columns: 64px 1fr; gap: 18px; align-items: start;
+    }
+    .app-box img { width: 64px; height: 64px; border-radius: 15px; }
+    .app-box p { font-size: 14px; }
+    .app-box .small { font-size: 12px; color: var(--ink-mute); margin-bottom: 14px; }
+    .btn-lp {
+      display: inline-block; background: var(--ink); color: #fff !important;
+      padding: 11px 24px; border-radius: 999px; font-size: 13.5px; font-weight: 700;
+      text-decoration: none !important; transition: opacity 0.2s ease;
+    }
+    .btn-lp:hover { opacity: 0.85; }
+    .related { background: #fff; border: 1px solid var(--hairline); border-radius: 14px; padding: 18px 22px; margin: 24px 0 0; }
+    .related p { margin: 0 0 4px; font-size: 12px; font-family: var(--font-mono); letter-spacing: 0.14em; color: var(--ink-mute); }
+    .related a { font-size: 14.5px; }
+    .sources { margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--hairline); }
+    .sources h2 { margin-top: 0; padding-top: 0; border-top: none; font-size: 20px; }
+    .sources li { font-size: 12.5px; line-height: 1.85; word-break: break-all; }
+    .article .sources a { font-weight: 500; }
+
+    /* Footer (LP と共通) */
+    .footer { border-top: 1px solid var(--hairline); padding: 36px 0; }
+    .footer-inner {
+      max-width: 1080px; margin: 0 auto; padding: 0 24px;
+      display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;
+    }
+    .footer-copy { font-family: var(--font-mono); font-size: 10.5px; color: var(--ink-mute); }
+    .footer-links { display: flex; gap: 22px; flex-wrap: wrap; }
+    .footer-links a { font-size: 12.5px; color: var(--ink-soft); text-decoration: none; }
+    .footer-links a:hover { color: var(--ink); }
+
+    @media (max-width: 880px) {
+      .nav-links a:not(.nav-cta) { display: none; }
+    }
+    @media (max-width: 560px) {
+      .article { padding-top: 88px; }
+      .article-wrap { padding: 0 16px; }
+      .nav-inner, .footer-inner { padding: 0 16px; }
+      .nav-brand .by { display: none; }
+      .nav-brand .name { white-space: nowrap; }
+      .app-box { grid-template-columns: 1fr; padding: 22px 20px; }
+      .summary { padding: 18px 18px; }
+      .check-item { padding: 16px 16px 4px; }
+    }
+    /* 使い方ページだけの部品 */
+    .step-head { display: flex; align-items: baseline; gap: 12px; }
+    .step-no {
+      font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.12em;
+      color: #fff; background: var(--accent); border-radius: 999px;
+      padding: 3px 11px; white-space: nowrap; position: relative; top: -3px;
+    }
+    .shot { margin: 18px auto 10px; max-width: 420px; }
+    .shot img {
+      border: 1px solid var(--hairline); border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(29, 29, 27, 0.08); background: #fff;
+    }
+    .shot figcaption { font-size: 12px; color: var(--ink-mute); text-align: center; margin-top: 8px; line-height: 1.7; }
+    .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 18px 0 10px; }
+    .shots .shot { margin: 0; max-width: none; }
+    .shot.paper img { border-radius: 6px; }
+    /* 2026-10-27 読みやすさ＝各STEPの頭に1行・操作は番号つきの箱に1行ずつ */
+    .article p { margin-bottom: 20px; }
+    .article .lead { font-size: 15.5px; color: var(--ink); font-weight: 700; margin-bottom: 14px; }
+    .article ol.do {
+      list-style: none; counter-reset: do; margin: 0 0 24px; padding: 18px 20px 6px;
+      background: #fff; border: 1px solid var(--hairline); border-radius: 14px;
+    }
+    .article ol.do li {
+      counter-increment: do; position: relative; padding-left: 38px;
+      font-size: 15px; color: var(--ink); line-height: 1.9; margin-bottom: 14px;
+    }
+    .article ol.do li::before {
+      content: counter(do); position: absolute; left: 0; top: 2px;
+      width: 26px; height: 26px; border-radius: 50%;
+      background: var(--accent); color: #fff; font-family: var(--font-mono); font-size: 13px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .article .done { color: var(--ink); font-weight: 700; }
+    .key { display: inline-block; background: #fff; border: 1px solid var(--hairline); border-radius: 6px; padding: 0 7px; font-size: 13px; color: var(--ink); font-weight: 700; }
+    @media (max-width: 560px) {
+      .shots { grid-template-columns: 1fr; }
+      .shot { max-width: 320px; }
+    }
+    /* 読みやすさ（10/27 の型）＝題名は本題と副題・段落は2文まで */
+    .article ul li { margin-bottom: 10px; }
+    .faq-item p + p { margin-top: 10px; }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/otasuke/" class="nav-brand">
+        <img src="/otasuke/img/icon.png" alt="" width="30" height="30">
+        <span class="name">訪問診療お助けくん</span>
+        <span class="by">BY MEDICAL CRAFT LAB</span>
+      </a>
+      <div class="nav-links">
+        <a href="/otasuke/guide/hajimekata/">使い方</a>
+        <a href="/otasuke/">アプリ紹介</a>
+        <a href="https://apps.apple.com/jp/app/id6823037541?pt=128621702&amp;ct=oh_guide_yoyaku&amp;mt=8" class="nav-cta" target="_blank" rel="noopener">App Store</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="article">
+    <article class="article-wrap">
+      <nav class="breadcrumb" aria-label="パンくずリスト">
+        <ol>
+          <li><a href="/">Medical Craft Laboratory</a></li>
+          <li><a href="/otasuke/">訪問診療お助けくん</a></li>
+          <li>予約の入れ方（使い方）</li>
+        </ol>
+      </nav>
+
+      <p class="kicker">GUIDE — 予約の入れ方</p>
+      <h1>訪問歯科の予約の入れ方<span class="h1-sub">──医院で決めた治療間隔を入力する</span></h1>
+      <div class="byline">
+        <span><strong>執筆：歯科医師 和泉龍之介（Medical Craft Lab・アプリの開発者）</strong></span>
+        <span>公開日 <time datetime="2026-11-19">2026年11月19日</time></span>
+        <span>最終更新日 <time datetime="2026-11-19">2026年11月19日</time></span>
+      </div>
+
+      <p>訪問診療お助けくんで、訪問歯科の次の予約を入れる手順を、実際の画面で説明します。医院で決めた治療間隔を入れておくと、前回の訪問から間隔をあけた頃（目安の時期）を中心に、入れやすい日時を出します。</p>
+      <p>医院や患者さんの登録がまだの方は、先に<a href="/otasuke/guide/hajimekata/">はじめての使い方</a>をご覧ください。</p>
+
+      <nav class="toc" aria-label="目次">
+        <p>CONTENTS</p>
+        <ol>
+          <li><a href="#step1">治療間隔を確かめる</a></li>
+          <li><a href="#step2">予約の画面で間隔と治療時間を確かめる</a></li>
+          <li><a href="#step3">目安の日と候補を見比べる</a></li>
+          <li><a href="#step4">入れた後の予定と時刻指定を確かめて登録する</a></li>
+          <li><a href="#faq">よくある質問</a></li>
+        </ol>
+      </nav>
+
+      <div class="summary">
+        <p class="kicker">POINTS — 先に知っておくと迷わないこと</p>
+        <ul>
+          <li>治療間隔は<strong>患者さんごと</strong>に決められます。決めていない方は、設定の「治療間隔の初期値」を使います</li>
+          <li>おすすめの日時は、時刻指定の方への遅れや、午前・午後のはみ出しが<strong>計算上増えない</strong>日時を探し、移動の増え方を ◎○△ で示します</li>
+          <li>入れる前に、「この日の予定（入れた後）」で<strong>その日全体</strong>を確かめられます</li>
+        </ul>
+      </div>
+
+      <h2 id="step1"><span class="step-head"><span class="step-no">STEP 1</span>治療間隔を確かめる</span></h2>
+      <p class="lead">患者さんごとの治療間隔と、医院の初期値を確かめます。</p>
+      <ol class="do">
+        <li>「患者」の画面で、その方の <span class="key">編集</span> を押します。</li>
+        <li>「治療間隔」で、医院で決めた間隔（1週〜3か月）を選びます。「初期値（1か月）」のままなら、設定の初期値を使います。</li>
+        <li><span class="key">登録</span> を押します。</li>
+      </ol>
+      <figure class="shot">
+        <a href="img/y1_patient_iv.jpg" target="_blank" rel="noopener"><img src="img/y1_patient_iv.jpg" alt="患者の編集の画面の治療間隔の欄。初期値（1か月）、1週、2週、3週、1か月、2か月、3か月のボタンが並ぶ" width="600" height="63" loading="lazy"></a>
+        <figcaption>患者の編集の画面の「治療間隔」（患者さんは架空の方です）</figcaption>
+      </figure>
+      <p>間隔を決めていない方の分は、「設定」の「治療間隔の初期値」で決めます。メンテナンスを2週ごとにしている医院は、初期値を2週にしておくと、一人ずつ選ぶ手間が減ります。</p>
+      <figure class="shot">
+        <a href="img/y1_default_iv.jpg" target="_blank" rel="noopener"><img src="img/y1_default_iv.jpg" alt="設定の治療間隔の初期値の行。患者ごとに決めていない方に使うと書かれ、1か月が選ばれている" width="760" height="62" loading="lazy"></a>
+        <figcaption>設定の「治療間隔の初期値」。患者さんごとに決めていない方に使います</figcaption>
+      </figure>
+      <p>目安の時期は、前回の日に治療間隔を足した日です。前回は、訪問済みになっているいちばん新しい日です（無いときは以前の記録）。</p>
+      <p>今日以降の予約がすでに入っている方は、そのうちいちばん先の予約の日から数えます。前回の記録も今日以降の予約もない方は、目安の時期を出さず、明日から探します。</p>
+
+      <h2 id="step2"><span class="step-head"><span class="step-no">STEP 2</span>予約の画面で間隔と治療時間を確かめる</span></h2>
+      <p class="lead">予約の画面で、この予約の間隔と治療時間を確かめます。</p>
+      <ol class="do">
+        <li>「ホーム」の <span class="key">＋ 予約を入れる</span> を押し、患者さんを選びます。名前・住所・患者IDの一部で探せます。</li>
+        <li>名前の下の1行に、治療間隔・前回の日・目安の時期が出ます。どの日から数えたかを確かめます。</li>
+        <li>この予約だけ間隔を変えるときは、下の間隔のボタンで選び直します。患者さんの間隔として残すときは、出てくる <span class="key">保存する</span> を押します。</li>
+        <li>「治療時間（この予約）」で、15・30・45・60分か、<span class="key">ほか</span> を押して5分刻みの長さを選びます。</li>
+      </ol>
+      <figure class="shot">
+        <a href="img/y2_panel.jpg" target="_blank" rel="noopener"><img src="img/y2_panel.jpg" alt="予約を入れる画面の上の部分。患者名の下に、治療間隔・前回の日・目安の時期の1行、治療間隔のボタン、歯周検査ありのチェック、治療時間のボタンが並ぶ" width="747" height="340" loading="lazy"></a>
+        <figcaption>予約の画面の上の部分。治療間隔の1行の下に、間隔と治療時間のボタンが並びます</figcaption>
+      </figure>
+      <p>治療時間は、はじめは、探し始める日より前のいちばん近いその方の予約で選んだ長さになっています。その予約で選んでいないときは、設定の「1件の所要時間（分）」です。</p>
+      <p>治療時間を変えると、おすすめの日時はその長さで計算し直されます。</p>
+      <p>歯周検査をする予約は、「歯周検査（P検査）あり」を付けます。付けると、はじめに探す期間は、前回の歯周検査から暦の1か月以上あけた日からになります。</p>
+      <p>前回の歯周検査は、済みになったいちばん新しい歯周検査です（まだ無いときは、今日以降の歯周検査の予約のうちいちばん先のもの。どちらも無いときは1か月の決まりはありません）。探す期間を変えて1か月未満の日を選んだときは、確認の画面に ⚠ の印が出ます（入れることはできます）。</p>
+
+      <h2 id="step3"><span class="step-head"><span class="step-no">STEP 3</span>目安の日と候補を見比べる</span></h2>
+      <p class="lead">おすすめの日時とカレンダーで、入れる日を見比べます。</p>
+      <p>おすすめの日時は、時刻指定の方への遅れや、午前・午後のはみ出しが計算上増えない日時を探し、移動の増え方を ◎○△ で示します。時刻指定のない方の到着の目安は変わることがあるので、入れる前に STEP 4 でその日の予定を確かめます。</p>
+      <ol class="do">
+        <li>「おすすめの日時」のカードを見比べます。日時・入る位置・この日の移動の増え・この日の予約の件数が並び、目安の時期の頃の候補には「目安の時期」と出ます。</li>
+        <li>午前・午後を決めたいときは <span class="key">午前</span> か <span class="key">午後</span> を押します。時刻を約束したいときは「時刻を指定する（任意）」に入れると、その時刻に着ける日と場所だけが出ます。</li>
+        <li>曜日や探す期間を変えるときは、<span class="key">曜日・探す期間を変える</span> を押します。</li>
+        <li>入れたい日時のカードを押すと、確認の画面に進みます。</li>
+      </ol>
+      <figure class="shot">
+        <a href="img/y3_picks.jpg" target="_blank" rel="noopener"><img src="img/y3_picks.jpg" alt="おすすめの日時。午前・午後のボタン、時刻を指定する欄、二重丸の印の付いた日時のカードが5つ並び、それぞれに入る位置、片道、この日の移動の増え、道のり、この日の予約の件数、目安の時期がある" width="747" height="726" loading="lazy"></a>
+        <figcaption>おすすめの日時。カードを押すと、その日時で確認に進みます</figcaption>
+      </figure>
+      <p>◎ はその日の移動の増えが10分以内、○ は20分以内、△ はそれより多い日時です。移動の増えは5分ごとに比べ、同じくらいなら目安の時期に近い日、早い日から並びます。</p>
+      <p>設定の「同じ施設の方を同じ日に入れたら知らせる」がオンのときは、同じ施設の方がいる日は後ろに並びます。</p>
+      <p>下の「カレンダーから選ぶ」では、日ごとの予約の件数と ◎○△ を見ながら日を選べます。枠で囲んだ日が目安の時期で、日を押すと、今の並び順のままその日に入れる位置で確認に進みます。</p>
+      <figure class="shot">
+        <a href="img/y3_cal.jpg" target="_blank" rel="noopener"><img src="img/y3_cal.jpg" alt="カレンダーから選ぶ。1か月の日ごとに予約の件数と二重丸の印があり、目安の時期の日は枠で囲まれている。下に月ごとの切り替えがある" width="747" height="608" loading="lazy"></a>
+        <figcaption>カレンダーから選ぶ。数字はその日の予約の件数です</figcaption>
+      </figure>
+      <p>入れる日が先に決まっているときは、<span class="key">日にちを決めて入れる</span> から、日と午前・午後を選んで入れることもできます。</p>
+
+      <h2 id="step4"><span class="step-head"><span class="step-no">STEP 4</span>入れた後の予定と時刻指定を確かめて登録する</span></h2>
+      <p class="lead">確認の画面で、入れた後のその日全体を確かめてから入れます。</p>
+      <ol class="do">
+        <li>日時・入る位置・治療時間・医院を出る時刻と戻る時刻・移動の増えを確かめます。</li>
+        <li>「この日の予定（入れた後）」で、ほかの方の到着の目安を確かめます。</li>
+        <li>時刻を約束するときは、「時刻指定にする」のチェックを付けたままにします。おすすめの日時から進んでチェックが出ているときは、はじめから付いています。</li>
+        <li><span class="key">この時間で入れる</span> を押します。「日にちを決めて入れる」から進んだときは <span class="key">この日に入れる</span> です。</li>
+      </ol>
+      <figure class="shot">
+        <a href="img/y4_confirm.jpg" target="_blank" rel="noopener"><img src="img/y4_confirm.jpg" alt="予約の確認画面。日時、患者、入る位置、治療時間、医院を出る時刻と戻る時刻、移動、収まるか、この時刻で約束するのチェック、入れた後のその日の予定、この時間で入れるのボタン" width="747" height="857" loading="lazy"></a>
+        <figcaption>確認の画面。「この日の予定（入れた後）」で、入れた後のその日全体を確かめられます</figcaption>
+      </figure>
+      <p>チェックを付けたままなら、その予約は時刻指定になります。あとで順番を並べ替えても、その時刻に間に合うかを見ながら計算します。</p>
+      <p>時刻を約束しないときは、チェックを外してから入れます。前の画面で時刻を入れたときはチェックは出ず、その時刻の指定で入るので、約束しないときは戻って時刻の欄を空にしてください。</p>
+      <p>時刻を約束できる時間が見つからないときは、時刻を決めずに入れられる時間が出ます。このときもチェックは出ず、時刻を決めない予約として入ります。</p>
+      <p>収まらない日を選んだときは「この日は収まりません（はみ出す）」と出て、ボタンは「はみ出すが、この日に入れる」になります。出ている内容を確かめて、それでも入れるときだけ押してください。</p>
+      <p>入れたあとは、その日の予定を開くか、続けて次の方の予約を入れられます。</p>
+      <figure class="shot">
+        <a href="img/y4_done.jpg" target="_blank" rel="noopener"><img src="img/y4_done.jpg" alt="予約を入れたあとの画面。入れましたの一文と、その日の予定を見る、続けて予約を入れる、閉じるのボタン" width="747" height="83" loading="lazy"></a>
+        <figcaption>入れたあと。「続けて予約を入れる」で、次の方の予約に進めます</figcaption>
+      </figure>
+      <p>その日の順番の見直しや、時刻指定の方がいる日の回り方は、<a href="/otasuke/guide/route-kimekata/">順番の決め方（使い方）</a>をご覧ください。</p>
+
+      <h2 id="faq">よくある質問</h2>
+      <div class="faq-item">
+        <h3>おすすめの日時が出ません。</h3>
+        <p>おすすめの日時は、道路データの取り込みが済んでから出ます。道路データの様子は、「設定」の「地図」にある「道路データ」の行で確かめられます。</p>
+      <p>探す期間に入れられる時間がないときは、その旨が出ます。「曜日・探す期間を変える」で期間を広げるか、午前・午後を変えてみてください。</p>
+      </div>
+      <div class="faq-item">
+        <h3>目安の時期が思っていた日と違います。</h3>
+        <p>目安の時期は、前回の日に治療間隔を足した日です。前回は、訪問済みになっているいちばん新しい日です（無いときは以前の記録）。</p>
+      <p>今日以降の予約がすでに入っている方は、そのうちいちばん先の予約の日から数えます。名前の下の1行に、どの日から数えたかが出ます。</p>
+      </div>
+      <div class="faq-item">
+        <h3>この予約だけ、治療間隔を変えられますか？</h3>
+        <p>予約の画面の間隔のボタンで、この予約の分だけ変えられます。患者さんの間隔として残すときは、出てくる「保存する」を押します。</p>
+      <p>押さなければ、患者さんの間隔は変わりません。</p>
+      </div>
+      <div class="faq-item">
+        <h3>時刻を約束しない予約も入れられますか？</h3>
+        <p>入れられます。確認の画面に「時刻指定にする」のチェックが出ているときは、外すと時刻を決めずに入ります。</p>
+      <p>前の画面の「時刻を指定する（任意）」に時刻を入れたときは、その時刻の指定で入ります。時刻を約束しないときは、戻って欄を空にしてください。</p>
+      <p>時刻を決めずに入れた方の到着の目安は、その日の順番に合わせて変わることがあります。</p>
+      </div>
+      <div class="faq-item">
+        <h3>到着の時刻に幅があるのはなぜですか？</h3>
+        <p>「9:05〜9:35ごろ」のような幅は、設定の「到着予定の幅（分）」でつけています。到着の目安は、道路の距離と設定の「平均の移動速度」から出す目安で、渋滞などは反映しません。</p>
+      </div>
+
+      <div class="app-box">
+        <img src="/otasuke/img/icon.png" alt="訪問診療お助けくんのアイコン" width="64" height="64" loading="lazy">
+        <div>
+          <p>「訪問診療お助けくん」は、訪問歯科・訪問診療をしている医院のための iPad・iPhone アプリです。その日の訪問の順番を道路の距離を参考に提案し、新しい予約を入れる日時をおすすめします。</p>
+      <p>医院の iPad・iPhone で同じ予定を共有できます。</p>
+          <p class="small">患者さん10人までは無料で使えます。※ カーナビ・医療機器ではありません。到着の時刻と道のりは目安で、道案内は Google マップで開きます。</p>
+          <a class="btn-lp" href="https://apps.apple.com/jp/app/id6823037541?pt=128621702&amp;ct=oh_guide_yoyaku&amp;mt=8" target="_blank" rel="noopener">App Store で入手</a>　<a href="/otasuke/">アプリ紹介ページ</a>
+        </div>
+      </div>
+
+      <div class="related">
+        <p>RELATED — あわせて読む</p>
+        <a href="/otasuke/guide/hajimekata/">訪問診療お助けくんの使い方──医院の登録から、予約を入れて訪問を回るまで</a>
+        <a href="/otasuke/guide/route-kimekata/">訪問診療お助けくんで、訪問歯科の順番を決める──時刻指定を入れて、道順の提案を見比べる</a>
+      </div>
+
+      <section class="sources" aria-labelledby="sources-title">
+        <h2 id="sources-title">出典</h2>
+        <ol>
+          <li>OpenStreetMap「著作権とライセンス」（アプリの道路データの元） <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">https://www.openstreetmap.org/copyright</a></li>
+          <li>国土地理院「地理院地図」（アプリの地図と住所検索） <a href="https://maps.gsi.go.jp/" target="_blank" rel="noopener">https://maps.gsi.go.jp/</a></li>
+        </ol>
+      </section>
+
+      <p class="caption" style="margin-top:32px">このページは、アプリのバージョン 1.0.1（2026年11月時点）の画面と動作をもとに書いています。画面は iPad と同じ幅で表示した説明用のもので、患者さんの名前と住所は架空のものです。画面の文言や配置は、今後のアップデートで変わることがあります。「歯周検査（P検査）あり」は、設定で歯科の見本を使っているときに出ます。訪問の可否・間隔・時間・算定の判断は、各医院で行ってください。</p>
+
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-copy">&copy; 2026 MEDICAL CRAFT LABORATORY　道路データ：&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>（<a href="https://houmon-roads.pages.dev/">ODbL</a>）</span>
+      <div class="footer-links">
+        <a href="/otasuke/">訪問診療お助けくん</a>
+        <a href="/otasuke/privacy/">プライバシーポリシー</a>
+        <a href="/otasuke/support/">サポート</a>
+        <a href="https://medicalcraft-lab.com">会社サイト</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

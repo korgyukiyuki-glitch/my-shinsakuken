@@ -478,3 +478,29 @@ docs/subkarte/ogp.png
 
 ## 2026-11-18 14:59
 docs/perio/videos/index.html
+
+## 2026-11-19 13:47
+docs/otasuke/guide/hajimekata/img/06_book.jpg
+docs/otasuke/guide/hajimekata/img/12_theme.jpg
+docs/otasuke/guide/hajimekata/img/13_theme_pair.jpg
+docs/otasuke/guide/hajimekata/index.html
+docs/otasuke/guide/route-kimekata/index.html
+docs/otasuke/guide/setsumeisho/img/s1_docset.jpg
+docs/otasuke/guide/setsumeisho/img/s2_rec.jpg
+docs/otasuke/guide/setsumeisho/img/s2_row.jpg
+docs/otasuke/guide/setsumeisho/img/s3_bottom.jpg
+docs/otasuke/guide/setsumeisho/img/s3_top.jpg
+docs/otasuke/guide/setsumeisho/img/s4_paper.jpg
+docs/otasuke/guide/setsumeisho/img/s5_carry.jpg
+docs/otasuke/guide/setsumeisho/index.html
+docs/otasuke/guide/yoyaku-ireru/img/y1_default_iv.jpg
+docs/otasuke/guide/yoyaku-ireru/img/y1_patient_iv.jpg
+docs/otasuke/guide/yoyaku-ireru/img/y2_panel.jpg
+docs/otasuke/guide/yoyaku-ireru/img/y3_cal.jpg
+docs/otasuke/guide/yoyaku-ireru/img/y3_picks.jpg
+docs/otasuke/guide/yoyaku-ireru/img/y4_confirm.jpg
+docs/otasuke/guide/yoyaku-ireru/img/y4_done.jpg
+docs/otasuke/guide/yoyaku-ireru/index.html
+docs/otasuke/index.html
+docs/otasuke/support/index.html
+docs/sitemap.xml
