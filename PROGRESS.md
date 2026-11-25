@@ -504,3 +504,6 @@ docs/otasuke/guide/yoyaku-ireru/index.html
 docs/otasuke/index.html
 docs/otasuke/support/index.html
 docs/sitemap.xml
+
+## 2026-11-25 15:15
+docs/kokuken/guide/hattatsu-tsukaikata/index.html
