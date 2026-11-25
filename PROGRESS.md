@@ -507,3 +507,8 @@ docs/sitemap.xml
 
 ## 2026-11-25 15:15
 docs/kokuken/guide/hattatsu-tsukaikata/index.html
+
+## 2026-11-25 18:07
+docs/kokuken/guide/app-erabikata/index.html
+docs/kokuken/guide/exam7-haishi-go/index.html
+docs/sitemap.xml
