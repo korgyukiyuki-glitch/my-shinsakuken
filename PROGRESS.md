@@ -512,3 +512,11 @@ docs/kokuken/guide/hattatsu-tsukaikata/index.html
 docs/kokuken/guide/app-erabikata/index.html
 docs/kokuken/guide/exam7-haishi-go/index.html
 docs/sitemap.xml
+
+## 2026-11-25 18:20
+docs/kokuken/guide/app-erabikata/index.html
+docs/kokuken/guide/hattatsu-santei-r8/index.html
+docs/kokuken/guide/kijunchi/index.html
+docs/kokuken/guide/kouku-kinou-kanri/index.html
+docs/kokuken/guide/kouku-kinou-teikasho/index.html
+docs/kokuken/guide/santei-r8/index.html
