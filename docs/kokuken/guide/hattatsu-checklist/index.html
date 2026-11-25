@@ -300,6 +300,13 @@
       .app-box { grid-template-columns: 1fr; padding: 22px 20px; }
       .summary { padding: 18px 18px; }
     }
+      /* 2026-11-25 先生「文字ばかりで飽きる」＝アプリの画面の例を3枚並べる（架空の患者） */
+    .app-shots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 20px 0 8px; }
+    .app-shots figure { margin: 0; }
+    .app-shots img { width: 100%; height: auto; border: 1px solid var(--hairline); border-radius: 14px; box-shadow: 0 8px 24px rgba(29, 29, 27, 0.08); background: #fff; }
+    .app-shots figcaption { font-size: 12px; color: var(--ink-mute); text-align: center; margin-top: 8px; line-height: 1.6; }
+    .article p.app-shots-note, .app-shots-note { font-size: 12px; line-height: 1.7; color: var(--ink-mute); text-align: center; margin: 0 0 24px; }
+    @media (max-width: 720px) { .app-shots { grid-template-columns: 1fr 1fr; gap: 12px; } }
   </style>
 </head>
 <body>
@@ -350,6 +357,22 @@
           <li>舌圧と口唇閉鎖力は年齢別の基準で評価する。舌圧のcut-off値は3歳4.0kPa〜12歳31.0kPa</li>
         </ul>
       </div>
+
+      <div class="app-shots" role="group" aria-label="口腔機能管理くんの画面の例">
+        <figure>
+          <a href="/kokuken/guide/hattatsu-tsukaikata/img/04_sheet_top.jpg" target="_blank" rel="noopener"><img src="/kokuken/guide/hattatsu-tsukaikata/img/04_sheet_top.jpg" alt="チェックシートの上の部分。離乳完了前（別紙1）と離乳完了後（別紙2）の切り替え" width="758" height="1100" loading="lazy"></a>
+          <figcaption>離乳完了前・完了後を切り替え</figcaption>
+        </figure>
+        <figure>
+          <a href="/kokuken/guide/hattatsu-tsukaikata/img/05_sheet_checked.jpg" target="_blank" rel="noopener"><img src="/kokuken/guide/hattatsu-tsukaikata/img/05_sheet_checked.jpg" alt="発達不全症のチェックシートで C2 と C7 を該当にした画面" width="758" height="1100" loading="lazy"></a>
+          <figcaption>発達不全症のチェックシート</figcaption>
+        </figure>
+        <figure>
+          <a href="/kokuken/guide/hattatsu-tsukaikata/img/06_patientmode.jpg" target="_blank" rel="noopener"><img src="/kokuken/guide/hattatsu-tsukaikata/img/06_patientmode.jpg" alt="問診（患者さま用）の画面。保護者向けの質問にはい・いいえで答える" width="758" height="1100" loading="lazy"></a>
+          <figcaption>保護者向けの問診画面</figcaption>
+        </figure>
+      </div>
+      <p class="app-shots-note">画面は口腔機能管理くん（iPad）の例です。患者は架空です。</p>
 
       <aside class="store-box" aria-label="口腔機能管理くんのダウンロード">
         <img src="/kokuken/img/icon.png" alt="" width="48" height="48" loading="lazy">

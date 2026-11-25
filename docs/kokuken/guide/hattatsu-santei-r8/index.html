@@ -312,6 +312,13 @@
       margin-top: 10px;
     }
     .article h1, .article h2, .article h3 { word-break: auto-phrase; text-wrap: pretty; }
+      /* 2026-11-25 先生「文字ばかりで飽きる」＝アプリの画面の例を3枚並べる（架空の患者） */
+    .app-shots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 20px 0 8px; }
+    .app-shots figure { margin: 0; }
+    .app-shots img { width: 100%; height: auto; border: 1px solid var(--hairline); border-radius: 14px; box-shadow: 0 8px 24px rgba(29, 29, 27, 0.08); background: #fff; }
+    .app-shots figcaption { font-size: 12px; color: var(--ink-mute); text-align: center; margin-top: 8px; line-height: 1.6; }
+    .article p.app-shots-note, .app-shots-note { font-size: 12px; line-height: 1.7; color: var(--ink-mute); text-align: center; margin: 0 0 24px; }
+    @media (max-width: 720px) { .app-shots { grid-template-columns: 1fr 1fr; gap: 12px; } }
   </style>
 </head>
 <body>
@@ -362,6 +369,22 @@
           <li>小児口唇閉鎖力検査<strong>100点</strong>・舌圧検査<strong>140点</strong>は、それぞれ3月に1回。写真撮影は初回算定日と、管理料3回の算定に1回以上</li>
         </ul>
       </div>
+
+      <div class="app-shots" role="group" aria-label="口腔機能管理くんの画面の例">
+        <figure>
+          <a href="/kokuken/guide/hattatsu-tsukaikata/img/05_sheet_checked.jpg" target="_blank" rel="noopener"><img src="/kokuken/guide/hattatsu-tsukaikata/img/05_sheet_checked.jpg" alt="発達不全症のチェックシートで C2 と C7 を該当にした画面" width="758" height="1100" loading="lazy"></a>
+          <figcaption>発達不全症のチェックシート</figcaption>
+        </figure>
+        <figure>
+          <a href="/kokuken/guide/hattatsu-tsukaikata/img/08_plan.jpg" target="_blank" rel="noopener"><img src="/kokuken/guide/hattatsu-tsukaikata/img/08_plan.jpg" alt="発達不全症の管理計画書の画面。該当項目ごとの問題点と管理計画" width="758" height="1100" loading="lazy"></a>
+          <figcaption>発達不全症の管理計画書</figcaption>
+        </figure>
+        <figure>
+          <a href="/kokuken/guide/hajimekata/img/12_pdf_plan.jpg" target="_blank" rel="noopener"><img src="/kokuken/guide/hajimekata/img/12_pdf_plan.jpg" alt="PDFの管理計画書。項目、問題点、管理計画の表と総合所見" width="758" height="1100" loading="lazy"></a>
+          <figcaption>PDF にして印刷・添付できます</figcaption>
+        </figure>
+      </div>
+      <p class="app-shots-note">画面は口腔機能管理くん（iPad）の例です。患者は架空です。</p>
 
       <aside class="store-box" aria-label="口腔機能管理くんのダウンロード">
         <img src="/kokuken/img/icon.png" alt="" width="48" height="48" loading="lazy">

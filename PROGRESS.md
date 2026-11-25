@@ -520,3 +520,14 @@ docs/kokuken/guide/kijunchi/index.html
 docs/kokuken/guide/kouku-kinou-kanri/index.html
 docs/kokuken/guide/kouku-kinou-teikasho/index.html
 docs/kokuken/guide/santei-r8/index.html
+
+## 2026-11-25 18:22
+docs/kokuken/guide/app-erabikata/index.html
+docs/kokuken/guide/exam7-haishi-go/index.html
+docs/kokuken/guide/hattatsu-checklist/index.html
+docs/kokuken/guide/hattatsu-santei-r8/index.html
+docs/kokuken/guide/kijunchi/index.html
+docs/kokuken/guide/kiroku-yoshi/index.html
+docs/kokuken/guide/kouku-kinou-kanri/index.html
+docs/kokuken/guide/kouku-kinou-teikasho/index.html
+docs/kokuken/guide/santei-r8/index.html

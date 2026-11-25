@@ -336,6 +336,13 @@
       margin-top: 10px;
     }
     .article h1, .article h2, .article h3 { word-break: auto-phrase; text-wrap: pretty; }
+      /* 2026-11-25 先生「文字ばかりで飽きる」＝アプリの画面の例を3枚並べる（架空の患者） */
+    .app-shots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 20px 0 8px; }
+    .app-shots figure { margin: 0; }
+    .app-shots img { width: 100%; height: auto; border: 1px solid var(--hairline); border-radius: 14px; box-shadow: 0 8px 24px rgba(29, 29, 27, 0.08); background: #fff; }
+    .app-shots figcaption { font-size: 12px; color: var(--ink-mute); text-align: center; margin-top: 8px; line-height: 1.6; }
+    .article p.app-shots-note, .app-shots-note { font-size: 12px; line-height: 1.7; color: var(--ink-mute); text-align: center; margin: 0 0 24px; }
+    @media (max-width: 720px) { .app-shots { grid-template-columns: 1fr 1fr; gap: 12px; } }
   </style>
 </head>
 <body>
@@ -481,6 +488,22 @@
       </div>
 
       <h2 id="ours">口腔機能管理くんの場合</h2>
+      <div class="app-shots" role="group" aria-label="口腔機能管理くんの画面の例">
+        <figure>
+          <a href="/kokuken/guide/hajimekata/img/02_home.jpg" target="_blank" rel="noopener"><img src="/kokuken/guide/hajimekata/img/02_home.jpg" alt="ホーム画面。発達不全症・低下症・歯周検査・咬筋検査のカードが並ぶ" width="758" height="1100" loading="lazy"></a>
+          <figcaption>ホーム。4つの検査をこのアプリで</figcaption>
+        </figure>
+        <figure>
+          <a href="/kokuken/guide/hajimekata/img/07_plan.jpg" target="_blank" rel="noopener"><img src="/kokuken/guide/hajimekata/img/07_plan.jpg" alt="管理計画書の画面。口腔機能レーダーチャートと、該当項目ごとの問題点・管理計画" width="758" height="1100" loading="lazy"></a>
+          <figcaption>管理計画書。レーダーチャートつき</figcaption>
+        </figure>
+        <figure>
+          <a href="/kokuken/guide/hattatsu-tsukaikata/img/05_sheet_checked.jpg" target="_blank" rel="noopener"><img src="/kokuken/guide/hattatsu-tsukaikata/img/05_sheet_checked.jpg" alt="発達不全症のチェックシートで C2 と C7 を該当にした画面" width="758" height="1100" loading="lazy"></a>
+          <figcaption>発達不全症のチェックシート</figcaption>
+        </figure>
+      </div>
+      <p class="app-shots-note">画面は口腔機能管理くん（iPad）の例です。患者は架空です。</p>
+
       <p>当社のアプリ「口腔機能管理くん」について、上の10項目に対する事実を表にします。確認元は、<a href="/kokuken/">アプリ紹介ページ</a>・<a href="/kokuken/support/">サポート</a>・<a href="/kokuken/privacy/">プライバシーポリシー</a>と、各ストアで配信中のバージョンの機能です（バージョンの配信状況はストアの表示によります）。</p>
       <div class="table-scroll">
         <table class="data">
